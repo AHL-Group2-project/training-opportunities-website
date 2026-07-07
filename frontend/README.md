@@ -5,8 +5,9 @@ This is the React frontend for the Training Opportunities Website.
 ## Tech Stack
 
 - React
-- JavaScript
-- CSS
+- TypeScript
+- vite
+- MaterialUi
 
 ## Project Structure
 
@@ -17,3 +18,20 @@ src
 ├── services
 ├── App.jsx
 └── main.jsx
+
+---
+
+## Getting Started
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Scripts
+```bash
+npm run dev       # Start development server
+npm run lint      # Run ESLint
+npm run format    # Run Prettier
+```
