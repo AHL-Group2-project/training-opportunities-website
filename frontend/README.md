@@ -6,7 +6,7 @@ This is the React frontend for the Training Opportunities Website.
 
 - React
 - TypeScript
-- vite
+- Vite
 - MaterialUi
 
 ## Project Structure
