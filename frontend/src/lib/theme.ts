@@ -3,24 +3,45 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#2E3A59",
+      main: "#20324a",
     },
     secondary: {
-      main: "#4A90D9",
+      main: "#5875a7",
     },
     background: {
-      default: "#F0F4FA",
+      default: "#f6f3ee",
+      paper: "#ffffff",
+    },
+    text: {
+      primary: "#1f2937",
+      secondary: "#5b6472",
     },
   },
   typography: {
-    fontFamily: "'Inter', sans-serif",
+    fontFamily: "'Inter', system-ui, sans-serif",
     h1: { fontWeight: 700 },
     h2: { fontWeight: 700 },
     h3: { fontWeight: 600 },
     button: { textTransform: "none" },
   },
   shape: {
-    borderRadius: 8,
+    borderRadius: 12,
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+        },
+      },
+    },
   },
 });
 
