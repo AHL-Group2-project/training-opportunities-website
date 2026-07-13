@@ -38,7 +38,6 @@ const studentNavEntries: NavEntry[] = [
       { label: "FT2", path: "/training/ft2" },
     ],
   },
-  { type: "link", item: { label: "Profile", path: "/profile" } },
 ];
 
 const supervisorNavEntries: NavEntry[] = [
