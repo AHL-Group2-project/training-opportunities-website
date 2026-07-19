@@ -31,7 +31,7 @@ function FeaturedOpportunities() {
           direction={{ xs: "column", sm: "row" }}
           sx={{
             justifyContent: "space-between",
-            alignItems: { xs: "flex-start", sm: "center" }, // Fixed: Single curly braces here
+            alignItems: { xs: "flex-start", sm: "center" },
             mb: 3,
           }}
         >
