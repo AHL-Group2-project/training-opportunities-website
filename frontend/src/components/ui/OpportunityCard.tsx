@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import type { Opportunity } from "../../mock/data";
+import type { Opportunity } from "../../mock/opportunities";
 
 interface Props {
   opportunity: Opportunity;

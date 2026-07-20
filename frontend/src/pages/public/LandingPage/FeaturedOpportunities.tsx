@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useNavigate } from "react-router-dom";
-import { MOCK_OPPORTUNITIES } from "../../../mock/data";
+import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import OpportunityCard from "../../../components/ui/OpportunityCard";
 
 function FeaturedOpportunities() {
