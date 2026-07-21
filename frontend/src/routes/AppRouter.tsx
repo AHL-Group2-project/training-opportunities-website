@@ -4,6 +4,7 @@ import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import type { UserRole } from "../components/layout/navigation";
 import LandingPage from "../pages/public/LandingPage/LandingPage";
+import LoginPage from "../pages/auth/LoginPage";
 
 function AppRouter() {
   //test navbar
@@ -32,6 +33,7 @@ function AppRouter() {
         >
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<div>404 Not Found</div>} />
           </Routes>
         </Box>
