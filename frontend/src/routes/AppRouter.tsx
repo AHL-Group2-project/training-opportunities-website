@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
-import { AuthProvider } from "../context/AuthProvider";
 import { useAuth } from "../context/authContext";
 import LandingPage from "../pages/public/LandingPage/LandingPage";
 import LoginPage from "../pages/auth/LoginPage";
@@ -12,7 +11,6 @@ function AppRouter() {
   const { user, isAuthenticated } = useAuth();
 
   return (
-    <AuthProvider>
       <BrowserRouter>
         <Box
           sx={{
@@ -43,7 +41,6 @@ function AppRouter() {
           <Footer />
         </Box>
       </BrowserRouter>
-    </AuthProvider>
   );
 }
 
