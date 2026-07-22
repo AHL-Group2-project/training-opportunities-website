@@ -13,28 +13,76 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
+import { MOCK_USERS } from "../../mock/users";
+import { useAuth } from "../../context/authContext";
 import logo from "../../assets/images/logo.png";
 
 function LoginPage() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [serverError, setServerError] = useState("");
+
+  const validate = () => {
+    const newErrors = { email: "", password: "" };
+    let valid = true;
+
+    if (!form.email) {
+      newErrors.email = "Email is required.";
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Please enter a valid email address.";
+      valid = false;
+    }
+
+    if (!form.password) {
+      newErrors.password = "Password is required.";
+      valid = false;
+    } else if (form.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
 
   const handleSubmit = async () => {
-    setError("");
-    if (!form.email || !form.password) {
-      setError("Please fill in all fields.");
-      return;
-    }
+    setServerError("");
+    if (!validate()) return;
+
     setLoading(true);
 
     //TODO: Implement actual login logic here (API call)
 
+    // Mock login
     setTimeout(() => {
+      const user = MOCK_USERS.find(
+        (u) => u.email === form.email && u.password === form.password,
+      );
+
+      if (!user) {
+        setServerError("Invalid email or password.");
+        setLoading(false);
+        return;
+      }
+
+      login({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        token: "mock-token",
+      });
+
+      if (user.role === "student") navigate("/dashboard");
+      if (user.role === "supervisor") navigate("/supervisor/dashboard");
+      if (user.role === "admin") navigate("/supervisor/dashboard");
+
       setLoading(false);
-      setError("Invalid email or password.");
     }, 1000);
   };
 
@@ -90,9 +138,12 @@ function LoginPage() {
                 type="email"
                 fullWidth
                 value={form.email}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, email: e.target.value }))
-                }
+                onChange={(e) => {
+                  setForm((prev) => ({ ...prev, email: e.target.value }));
+                  setErrors((prev) => ({ ...prev, email: "" }));
+                }}
+                error={!!errors.email}
+                helperText={errors.email}
                 slotProps={{ inputLabel: { shrink: true } }}
                 sx={{
                   "& .MuiOutlinedInput-root": {
@@ -109,10 +160,12 @@ function LoginPage() {
                 type={showPassword ? "text" : "password"}
                 fullWidth
                 value={form.password}
-                onChange={(e) =>
-                  setForm((prev) => ({ ...prev, password: e.target.value }))
-                }
-
+                onChange={(e) => {
+                  setForm((prev) => ({ ...prev, password: e.target.value }));
+                  setErrors((prev) => ({ ...prev, password: "" }));
+                }}
+                error={!!errors.password}
+                helperText={errors.password}
                 slotProps={{
                   inputLabel: { shrink: true },
                   input: {
@@ -143,9 +196,9 @@ function LoginPage() {
                 }}
               />
 
-              {error && (
+              {serverError && (
                 <Typography variant="caption" sx={{ color: "error.main" }}>
-                  {error}
+                  {serverError}
                 </Typography>
               )}
 
