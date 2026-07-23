@@ -5,6 +5,8 @@ import Footer from "../components/layout/Footer/Footer";
 import { useAuth } from "../context/authContext";
 import LandingPage from "../pages/public/LandingPage/LandingPage";
 import LoginPage from "../pages/auth/LoginPage";
+import StudentsPage from "../pages/public/StudentsPage/StudentsPage";
+import PublicStudentProfilePage from "../pages/public/StudentsPage/PublicStudentProfilePage";
 
 function AppRouter() {
   //test navbar
@@ -29,11 +31,16 @@ function AppRouter() {
           />
           <Box
             component="main"
-            sx={{ flex: 1, backgroundColor: "#F0F4FA", pt: 0 }}
+            sx={{ flex: 1, backgroundColor: "white", pt: 0 }}
           >
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/students" element={<StudentsPage />} />
+              <Route
+              path="/students/:id"
+              element={<PublicStudentProfilePage />}
+            />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
           </Box>
