@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/authContext";
 import {
   AppBar,
   Avatar,
@@ -43,6 +44,8 @@ function Navbar({
   const [activeEntry, setActiveEntry] = useState<string | null>(null);
   const [groupAnchor, setGroupAnchor] = useState<HTMLElement | null>(null);
   const [accountAnchor, setAccountAnchor] = useState<HTMLElement | null>(null);
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const closeGroupMenu = () => {
     setActiveEntry(null);
@@ -238,9 +241,17 @@ function Navbar({
                 {accountMenuItems.map((item) => (
                   <MenuItem
                     key={item.path}
-                    component={RouterLink}
-                    to={item.path}
-                    onClick={() => setAccountAnchor(null)}
+                    onClick={() => {
+                      setAccountAnchor(null);
+
+                      if (item.label === "Logout") {
+                        logout();
+                        navigate("/");
+                        return;
+                      }
+                    }}
+                    component={item.label === "Logout" ? "button" : RouterLink}
+                    {...(item.label === "Logout" ? {} : { to: item.path })}
                   >
                     {item.label}
                   </MenuItem>
