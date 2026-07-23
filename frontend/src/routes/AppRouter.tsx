@@ -3,9 +3,12 @@ import { Box } from "@mui/material";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import type { UserRole } from "../components/layout/navigation";
+import CompaniesPage from "../pages/public/CompaniesPage/CompaniesPage";
+import CompanyProfilePage from "../pages/public/CompaniesPage/CompanyProfilePage";
+
 function AppRouter() {
   //test navbar
-  const demoRole: UserRole = "student"; // roles: "public", "student", "supervisor", "admin"
+  const demoRole: UserRole = "public"; // roles: "public", "student", "supervisor", "admin"
 
   return (
     <BrowserRouter>
@@ -24,13 +27,12 @@ function AppRouter() {
           userName="Student User"
           notificationCount={1}
         />
-        <Box
-          component="main"
-          sx={{ flex: 1, backgroundColor: "#F0F4FA", pt: 8 }}
-        >
+        <Box component="main" sx={{ flex: 1, backgroundColor: "white", pt: 0 }}>
           <Box sx={{ p: { xs: 2, sm: 3 } }}>
             <Routes>
               <Route path="/" element={<div>Landing Page</div>} />
+              <Route path="/companies" element={<CompaniesPage />} />
+              <Route path="/companies/:id" element={<CompanyProfilePage />} />
               <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
           </Box>
