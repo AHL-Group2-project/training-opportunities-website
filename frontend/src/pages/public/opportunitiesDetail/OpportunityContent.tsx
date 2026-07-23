@@ -1,9 +1,4 @@
-import {
-  Box,
-  Card,
-  Chip,
-  Typography,
-} from "@mui/material";
+import { Box, Card, Chip, Typography } from "@mui/material";
 
 import type { Opportunity } from "../OpportunitiesPage/opportunity.types";
 
@@ -11,9 +6,7 @@ type OpportunityContentProps = {
   opportunity: Opportunity;
 };
 
-function OpportunityContent({
-  opportunity,
-}: OpportunityContentProps) {
+function OpportunityContent({ opportunity }: OpportunityContentProps) {
   return (
     <Box
       sx={{
@@ -93,25 +86,23 @@ function OpportunityContent({
             pl: 3,
           }}
         >
-          {opportunity.responsibilities.map(
-            (responsibility) => (
-              <Typography
-                component="li"
-                key={responsibility}
-                sx={{
-                  mb: 1.25,
-                  color: "#475569",
-                  lineHeight: 1.6,
+          {opportunity.responsibilities.map((responsibility) => (
+            <Typography
+              component="li"
+              key={responsibility}
+              sx={{
+                mb: 1.25,
+                color: "#475569",
+                lineHeight: 1.6,
 
-                  "&::marker": {
-                    color: "#059669",
-                  },
-                }}
-              >
-                {responsibility}
-              </Typography>
-            ),
-          )}
+                "&::marker": {
+                  color: "#059669",
+                },
+              }}
+            >
+              {responsibility}
+            </Typography>
+          ))}
         </Box>
       </Card>
 

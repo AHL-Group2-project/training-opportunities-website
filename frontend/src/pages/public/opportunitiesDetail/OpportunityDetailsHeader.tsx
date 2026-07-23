@@ -1,10 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Chip,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
@@ -17,9 +11,7 @@ type OpportunityDetailsHeaderProps = {
 function OpportunityDetailsHeader({
   opportunity,
 }: OpportunityDetailsHeaderProps) {
-  const companyInitials = opportunity.company
-    .slice(0, 2)
-    .toUpperCase();
+  const companyInitials = opportunity.company.slice(0, 2).toUpperCase();
 
   return (
     <Box
@@ -119,12 +111,6 @@ function OpportunityDetailsHeader({
               mt: 2,
             }}
           >
-            <Chip
-              label={opportunity.trainingType}
-              color="primary"
-              size="small"
-            />
-
             <Typography variant="body2" color="text.secondary">
               {opportunity.location}
             </Typography>

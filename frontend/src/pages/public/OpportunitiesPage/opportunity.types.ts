@@ -3,7 +3,6 @@ export type Opportunity = {
 
   company: string;
   title: string;
-  trainingType: "FT1" | "FT2";
 
   department: string;
   field: string;

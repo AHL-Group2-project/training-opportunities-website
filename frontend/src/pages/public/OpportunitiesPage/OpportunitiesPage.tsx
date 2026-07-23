@@ -5,16 +5,12 @@ import OpportunitiesHeader from "./OpportunitiesHeader";
 import OpportunityFilters from "./OpportunityFilters";
 import OpportunityCard from "./OpportunityCard";
 
-import type { TrainingType } from "./OpportunityFilters";
 import { opportunitiesMock } from "./mock";
 
 function OpportunitiesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [department, setDepartment] = useState("all");
   const [field, setField] = useState("all");
-
-  const [trainingType, setTrainingType] =
-    useState<TrainingType>("all");
 
   return (
     <Box
@@ -35,11 +31,9 @@ function OpportunitiesPage() {
           searchTerm={searchTerm}
           department={department}
           field={field}
-          trainingType={trainingType}
           onSearchChange={setSearchTerm}
           onDepartmentChange={setDepartment}
           onFieldChange={setField}
-          onTrainingTypeChange={setTrainingType}
         />
       </Box>
 
@@ -65,10 +59,7 @@ function OpportunitiesPage() {
         }}
       >
         {opportunitiesMock.map((opportunity) => (
-          <OpportunityCard
-            key={opportunity.id}
-            opportunity={opportunity}
-          />
+          <OpportunityCard key={opportunity.id} opportunity={opportunity} />
         ))}
       </Box>
     </Box>

@@ -1,10 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  Chip,
-  Typography,
-} from "@mui/material";
+import { Avatar, Box, Card, Chip, Typography } from "@mui/material";
 
 import { alpha } from "@mui/material/styles";
 
@@ -14,12 +8,8 @@ type CompanyCardProps = {
   opportunity: Opportunity;
 };
 
-function CompanyCard({
-  opportunity,
-}: CompanyCardProps) {
-  const companyInitials = opportunity.company
-    .slice(0, 2)
-    .toUpperCase();
+function CompanyCard({ opportunity }: CompanyCardProps) {
+  const companyInitials = opportunity.company.slice(0, 2).toUpperCase();
 
   return (
     <Card
@@ -31,21 +21,12 @@ function CompanyCard({
         },
         borderRadius: 3,
 
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          0.035,
-        ),
+        backgroundColor: alpha(theme.palette.primary.main, 0.035),
         backgroundImage: "none",
 
-        borderColor: alpha(
-          theme.palette.primary.main,
-          0.2,
-        ),
+        borderColor: alpha(theme.palette.primary.main, 0.2),
 
-        boxShadow: `0 4px 14px ${alpha(
-          theme.palette.primary.main,
-          0.05,
-        )}`,
+        boxShadow: `0 4px 14px ${alpha(theme.palette.primary.main, 0.05)}`,
       })}
     >
       <Typography
@@ -91,10 +72,7 @@ function CompanyCard({
             {opportunity.company}
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography variant="body2" color="text.secondary">
             {opportunity.location}
           </Typography>
         </Box>
@@ -109,10 +87,7 @@ function CompanyCard({
         }}
       >
         <Box>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography variant="body2" color="text.secondary">
             Department
           </Typography>
 
@@ -127,10 +102,7 @@ function CompanyCard({
         </Box>
 
         <Box>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography variant="body2" color="text.secondary">
             Field
           </Typography>
 
@@ -145,10 +117,7 @@ function CompanyCard({
         </Box>
 
         <Box>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography variant="body2" color="text.secondary">
             Work mode
           </Typography>
 

@@ -5,7 +5,6 @@ export const opportunitiesMock: Opportunity[] = [
     id: 1,
     company: "Exalt Technologies",
     title: "Frontend Engineering Intern",
-    trainingType: "FT2",
 
     department: "Computer Engineering",
     field: "Frontend Development",
@@ -40,7 +39,6 @@ export const opportunitiesMock: Opportunity[] = [
     id: 2,
     company: "ASAL Technologies",
     title: "Backend Developer Intern",
-    trainingType: "FT2",
 
     department: "Computer Engineering",
     field: "Backend Development",
@@ -75,7 +73,6 @@ export const opportunitiesMock: Opportunity[] = [
     id: 3,
     company: "Hulul Group",
     title: "Data Analyst Intern",
-    trainingType: "FT1",
 
     department: "Information Technology",
     field: "Data Analysis",
@@ -110,7 +107,6 @@ export const opportunitiesMock: Opportunity[] = [
     id: 4,
     company: "Mada Al-Arab",
     title: "Mobile Development Intern",
-    trainingType: "FT2",
 
     department: "Computer Engineering",
     field: "Mobile Development",
@@ -145,7 +141,6 @@ export const opportunitiesMock: Opportunity[] = [
     id: 5,
     company: "Paltel Group",
     title: "DevOps Intern",
-    trainingType: "FT2",
 
     department: "Information Technology",
     field: "DevOps",
@@ -180,7 +175,6 @@ export const opportunitiesMock: Opportunity[] = [
     id: 6,
     company: "Foothill Solutions",
     title: "QA Engineering Intern",
-    trainingType: "FT1",
 
     department: "Information Technology",
     field: "Quality Assurance",

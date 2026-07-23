@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Chip,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Card, Chip, Divider, Typography } from "@mui/material";
 
 import { alpha } from "@mui/material/styles";
 
@@ -15,9 +8,7 @@ type ApplicationPanelProps = {
   opportunity: Opportunity;
 };
 
-function ApplicationPanel({
-  opportunity,
-}: ApplicationPanelProps) {
+function ApplicationPanel({ opportunity }: ApplicationPanelProps) {
   return (
     <Card
       variant="outlined"
@@ -28,21 +19,12 @@ function ApplicationPanel({
         },
         borderRadius: 3,
 
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          0.06,
-        ),
+        backgroundColor: alpha(theme.palette.primary.main, 0.06),
         backgroundImage: "none",
 
-        borderColor: alpha(
-          theme.palette.primary.main,
-          0.25,
-        ),
+        borderColor: alpha(theme.palette.primary.main, 0.25),
 
-        boxShadow: `0 4px 14px ${alpha(
-          theme.palette.primary.main,
-          0.06,
-        )}`,
+        boxShadow: `0 4px 14px ${alpha(theme.palette.primary.main, 0.06)}`,
       })}
     >
       <Typography
@@ -63,10 +45,7 @@ function ApplicationPanel({
           p: 2.5,
           textAlign: "center",
           backgroundColor: "background.paper",
-          border: `1px solid ${alpha(
-            theme.palette.primary.main,
-            0.18,
-          )}`,
+          border: `1px solid ${alpha(theme.palette.primary.main, 0.18)}`,
           borderRadius: 2,
         })}
       >
@@ -97,10 +76,7 @@ function ApplicationPanel({
       <Divider
         sx={(theme) => ({
           my: 2.5,
-          borderColor: alpha(
-            theme.palette.primary.main,
-            0.2,
-          ),
+          borderColor: alpha(theme.palette.primary.main, 0.2),
         })}
       />
 
@@ -111,14 +87,6 @@ function ApplicationPanel({
           gap: 1,
         }}
       >
-        <Chip
-          label={opportunity.trainingType}
-          color="primary"
-          sx={{
-            fontWeight: 700,
-          }}
-        />
-
         <Chip
           label={opportunity.workMode}
           variant="outlined"

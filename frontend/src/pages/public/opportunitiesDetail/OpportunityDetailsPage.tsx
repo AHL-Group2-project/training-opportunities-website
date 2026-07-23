@@ -1,13 +1,6 @@
-import {
-  Box,
-  Button,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
-import {
-  Link,
-  useParams,
-} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { opportunitiesMock } from "../OpportunitiesPage/mock";
 
@@ -19,9 +12,7 @@ import CompanyCard from "./CompanyCard";
 function OpportunityDetailsPage() {
   const { id } = useParams();
 
-  const opportunity = opportunitiesMock.find(
-    (item) => item.id === Number(id),
-  );
+  const opportunity = opportunitiesMock.find((item) => item.id === Number(id));
 
   if (!opportunity) {
     return (
@@ -31,11 +22,7 @@ function OpportunityDetailsPage() {
           textAlign: "center",
         }}
       >
-        <Typography
-          component="h1"
-          variant="h4"
-          sx={{ fontWeight: 700 }}
-        >
+        <Typography component="h1" variant="h4" sx={{ fontWeight: 700 }}>
           Opportunity not found
         </Typography>
 
@@ -75,9 +62,7 @@ function OpportunityDetailsPage() {
         pb: 6,
       }}
     >
-      <OpportunityDetailsHeader
-        opportunity={opportunity}
-      />
+      <OpportunityDetailsHeader opportunity={opportunity} />
 
       <Box
         sx={{
@@ -92,9 +77,7 @@ function OpportunityDetailsPage() {
         }}
       >
         {/* العمود الرئيسي */}
-        <OpportunityContent
-          opportunity={opportunity}
-        />
+        <OpportunityContent opportunity={opportunity} />
 
         {/* العمود الجانبي */}
         <Box
@@ -104,13 +87,9 @@ function OpportunityDetailsPage() {
             gap: 3,
           }}
         >
-          <ApplicationPanel
-            opportunity={opportunity}
-          />
+          <ApplicationPanel opportunity={opportunity} />
 
-          <CompanyCard
-            opportunity={opportunity}
-          />
+          <CompanyCard opportunity={opportunity} />
         </Box>
       </Box>
     </Box>
