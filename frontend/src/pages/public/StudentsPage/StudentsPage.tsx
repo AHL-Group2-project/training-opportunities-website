@@ -1,9 +1,18 @@
+import { useState } from "react";
 import { Container, Typography, Grid, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import StudentCard from "./StudentCard";
 import { students } from "../../../mock/students";
 
 export default function StudentsPage() {
+  const [search, setSearch] = useState("");
+
+  const filteredStudents = students.filter((student) =>
+    `${student.name} ${student.major} ${student.skills.join(" ")}`
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
+
   return (
     <Container
       sx={{
@@ -28,6 +37,8 @@ export default function StudentsPage() {
       <TextField
         fullWidth
         placeholder="Search students, skills..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         slotProps={{
           input: {
             startAdornment: (
@@ -50,7 +61,7 @@ export default function StudentsPage() {
       />
 
       <Grid container spacing={2}>
-        {students.map((student) => (
+        {filteredStudents.map((student) => (
           <Grid
             key={student.id}
             size={{ xs: 12, sm: 6, md: 3 }}
