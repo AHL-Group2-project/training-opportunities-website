@@ -27,19 +27,17 @@ function AppRouter() {
           userName="Student User"
           notificationCount={1}
         />
-        <Box
-          component="main"
-          sx={{ flex: 1, backgroundColor: "#F0F4FA", pt: 0 }}
-        >
-
-            <Routes>
-              <Route path="/" element={<div>Landing Page</div>} />
-              <Route path="*" element={<div>404 Not Found</div>} />
-              <Route path="/students" element={<StudentsPage />} />
-              <Route path="/students/:id" element={<PublicStudentProfilePage />}/>
-            </Routes>
-          </Box>
-        
+        <Box component="main" sx={{ flex: 1, backgroundColor: "white", pt: 0 }}>
+          <Routes>
+            <Route path="/" element={<div>Landing Page</div>} />
+            <Route path="*" element={<div>404 Not Found</div>} />
+            <Route path="/students" element={<StudentsPage />} />
+            <Route
+              path="/students/:id"
+              element={<PublicStudentProfilePage />}
+            />
+          </Routes>
+        </Box>
 
         <Footer />
       </Box>
