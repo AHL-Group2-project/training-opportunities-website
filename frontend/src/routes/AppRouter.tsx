@@ -13,41 +13,38 @@ function AppRouter() {
   const { user, isAuthenticated } = useAuth();
 
   return (
-      <BrowserRouter>
-        <Box
-          sx={{
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            overflowX: "hidden",
-          }}
-        >
-          {/* props to navbar for testing */}
-          <Navbar
-            role={user?.role ?? "public"}
-            isAuthenticated={isAuthenticated}
-            userName={user?.name ?? "Guest"}
-            notificationCount={1}
-          />
-          <Box
-            component="main"
-            sx={{ flex: 1, backgroundColor: "white", pt: 0 }}
-          >
-            <Routes>
-              <Route path="/" element={<LandingPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/students" element={<StudentsPage />} />
-              <Route
+    <BrowserRouter>
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          overflowX: "hidden",
+        }}
+      >
+        {/* props to navbar for testing */}
+        <Navbar
+          role={user?.role ?? "public"}
+          isAuthenticated={isAuthenticated}
+          userName={user?.name ?? "Guest"}
+          notificationCount={1}
+        />
+        <Box component="main" sx={{ flex: 1, backgroundColor: "white", pt: 0 }}>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/students" element={<StudentsPage />} />
+            <Route
               path="/students/:id"
               element={<PublicStudentProfilePage />}
             />
-              <Route path="*" element={<div>404 Not Found</div>} />
-            </Routes>
-          </Box>
-
-          <Footer />
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Routes>
         </Box>
-      </BrowserRouter>
+
+        <Footer />
+      </Box>
+    </BrowserRouter>
   );
 }
 

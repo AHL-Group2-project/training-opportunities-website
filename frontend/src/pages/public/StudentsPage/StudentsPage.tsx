@@ -10,7 +10,7 @@ export default function StudentsPage() {
   const filteredStudents = students.filter((student) =>
     `${student.name} ${student.major} ${student.skills.join(" ")}`
       .toLowerCase()
-      .includes(search.toLowerCase())
+      .includes(search.toLowerCase()),
   );
 
   return (
