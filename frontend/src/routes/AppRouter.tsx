@@ -6,6 +6,8 @@ import type { UserRole } from "../components/layout/navigation";
 import StudentsPage from "../pages/public/StudentsPage/StudentsPage";
 import PublicStudentProfilePage from "../pages/public/StudentsPage/PublicStudentProfilePage";
 
+import LandingPage from "../pages/public/LandingPage/LandingPage";
+
 function AppRouter() {
   //test navbar
   const demoRole: UserRole = "student"; // roles: "public", "student", "supervisor", "admin"
@@ -29,7 +31,7 @@ function AppRouter() {
         />
         <Box component="main" sx={{ flex: 1, backgroundColor: "white", pt: 0 }}>
           <Routes>
-            <Route path="/" element={<div>Landing Page</div>} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="*" element={<div>404 Not Found</div>} />
             <Route path="/students" element={<StudentsPage />} />
             <Route
