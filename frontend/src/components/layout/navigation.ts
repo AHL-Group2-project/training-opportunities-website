@@ -3,6 +3,7 @@ export type UserRole = "public" | "student" | "supervisor" | "admin";
 export type NavItem = {
   label: string;
   path: string;
+  action?: "logout";
 };
 
 export type NavEntry =
@@ -80,8 +81,8 @@ export function getNavEntries(role: UserRole): NavEntry[] {
   }
 }
 
-export const accountMenuItems: NavItem[] = [
+export const accountMenuItems = [
   { label: "Profile", path: "/profile" },
   { label: "Settings", path: "/settings" },
-  { label: "Logout", path: "/logout" },
+  { label: "Logout", action: "logout" },
 ];
