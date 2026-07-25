@@ -2,13 +2,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
-import type { UserRole } from "../components/layout/navigation";
+import { useAuth } from "../context/authContext";
+import LandingPage from "../pages/public/LandingPage/LandingPage";
+import LoginPage from "../pages/auth/LoginPage";
+import StudentsPage from "../pages/public/StudentsPage/StudentsPage";
+import PublicStudentProfilePage from "../pages/public/StudentsPage/PublicStudentProfilePage";
 import CompaniesPage from "../pages/public/CompaniesPage/CompaniesPage";
 import CompanyProfilePage from "../pages/public/CompaniesPage/CompanyProfilePage";
 
 function AppRouter() {
   //test navbar
-  const demoRole: UserRole = "public"; // roles: "public", "student", "supervisor", "admin"
+  const { user, isAuthenticated } = useAuth();
 
   return (
     <BrowserRouter>
@@ -22,20 +26,24 @@ function AppRouter() {
       >
         {/* props to navbar for testing */}
         <Navbar
-          role={demoRole}
-          isAuthenticated={true}
-          userName="Student User"
+          role={user?.role ?? "public"}
+          isAuthenticated={isAuthenticated}
+          userName={user?.name ?? "Guest"}
           notificationCount={1}
         />
         <Box component="main" sx={{ flex: 1, backgroundColor: "white", pt: 0 }}>
-          <Box sx={{ p: { xs: 2, sm: 3 } }}>
-            <Routes>
-              <Route path="/" element={<div>Landing Page</div>} />
-              <Route path="/companies" element={<CompaniesPage />} />
-              <Route path="/companies/:id" element={<CompanyProfilePage />} />
-              <Route path="*" element={<div>404 Not Found</div>} />
-            </Routes>
-          </Box>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/students" element={<StudentsPage />} />
+            <Route
+              path="/students/:id"
+              element={<PublicStudentProfilePage />}
+            />
+            <Route path="/companies" element={<CompaniesPage />} />
+            <Route path="/companies/:id" element={<CompanyProfilePage />} />
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Routes>
         </Box>
 
         <Footer />
