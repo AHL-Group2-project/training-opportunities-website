@@ -1,6 +1,3 @@
-// Mock data مؤقتة - أسماء الحقول لسا مش متفق عليها رسمياً مع الـ Backend
-// الحقيقي mappingلما يجهز الـ API ، لازم نتأكد من توافق الأسماء أو نعمل
-
 export interface Opportunity {
   id: number;
   title: string;

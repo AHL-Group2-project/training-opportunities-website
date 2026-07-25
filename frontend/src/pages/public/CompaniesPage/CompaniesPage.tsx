@@ -9,6 +9,13 @@ function CompaniesPage() {
         sx={{
           background: "linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)",
           py: 8,
+          width: "100vw",
+          position: "relative",
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          mt: "-24px",
         }}
       >
         <Container maxWidth="lg">

@@ -57,6 +57,13 @@ function CompanyProfilePage() {
           background: "linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)",
           py: 8,
           mb: 4,
+          width: "100vw",
+          position: "relative",
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          mt: "-24px",
         }}
       >
         <Container maxWidth="lg">
@@ -69,69 +76,50 @@ function CompanyProfilePage() {
             All companies
           </Button>
 
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-            }}
-          >
-            <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-              <Avatar
-                sx={{
-                  width: 64,
-                  height: 64,
-                  bgcolor: stringToBackgroundColor(company.name),
-                  color: stringToColor(company.name),
-                  fontWeight: "bold",
-                  fontSize: 24,
-                }}
+          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Avatar
+              sx={{
+                width: 64,
+                height: 64,
+                bgcolor: stringToBackgroundColor(company.name),
+                color: stringToColor(company.name),
+                fontWeight: "bold",
+                fontSize: 24,
+              }}
+            >
+              {initials}
+            </Avatar>
+            <Box>
+              <Typography variant="h4">{company.name}</Typography>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                sx={{ mb: 0.5 }}
               >
-                {initials}
-              </Avatar>
-              <Box>
-                <Typography variant="h4">{company.name}</Typography>
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  sx={{ mb: 0.5 }}
-                >
-                  {company.industry}
-                </Typography>
+                {company.industry}
+              </Typography>
+              <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
                 <Stack
                   direction="row"
                   spacing={2}
                   sx={{ alignItems: "center" }}
                 >
-                  <Stack
-                    direction="row"
-                    spacing={2}
-                    sx={{ alignItems: "center" }}
-                  >
-                    <LocationOnOutlinedIcon fontSize="small" color="action" />
-                    <Typography variant="body2">{company.location}</Typography>
-                  </Stack>
-                  <Stack
-                    direction="row"
-                    spacing={2}
-                    sx={{ alignItems: "center" }}
-                  >
-                    <LanguageOutlinedIcon fontSize="small" color="action" />
-                    <Typography variant="body2">{company.website}</Typography>
-                  </Stack>
+                  <LocationOnOutlinedIcon fontSize="small" color="action" />
+                  <Typography variant="body2">{company.location}</Typography>
                 </Stack>
-              </Box>
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  sx={{ alignItems: "center" }}
+                >
+                  <LanguageOutlinedIcon fontSize="small" color="action" />
+                  <Typography variant="body2">{company.website}</Typography>
+                </Stack>
+              </Stack>
             </Box>
-
-            <Stack direction="row" spacing={1}>
-              <Button variant="outlined">Follow</Button>
-              <Button variant="contained">Contact</Button>
-            </Stack>
           </Box>
         </Container>
       </Box>
-
-      {/* باقي المحتوى */}
       <Container maxWidth="lg" sx={{ pb: 4 }}>
         <Grid container spacing={3}>
           <Grid size={{ xs: 12, md: 8 }}>
@@ -280,25 +268,6 @@ function CompanyProfilePage() {
                     </Grid>
                   );
                 })}
-              </Grid>
-            </Box>
-
-            <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mt: 3 }}>
-              <Typography variant="h6" sx={{ mb: 2 }}>
-                Gallery
-              </Typography>
-              <Grid container spacing={2}>
-                {[1, 2, 3, 4].map((n) => (
-                  <Grid size={{ xs: 6, sm: 3 }} key={n}>
-                    <Box
-                      sx={{
-                        height: 140,
-                        borderRadius: 2,
-                        bgcolor: "grey.100",
-                      }}
-                    />
-                  </Grid>
-                ))}
               </Grid>
             </Box>
           </Grid>
