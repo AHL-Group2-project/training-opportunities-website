@@ -59,6 +59,11 @@ function CompanyCard({
         height: 280,
         display: "flex",
         flexDirection: "column",
+        transition: "transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-6px)",
+          boxShadow: 10,
+        },
       }}
     >
       <CardActionArea
