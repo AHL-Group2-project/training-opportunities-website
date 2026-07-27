@@ -1,6 +1,5 @@
 import { Box, Card, Chip, Typography } from "@mui/material";
-
-import type { Opportunity } from "../OpportunitiesPage/opportunity.types";
+import type { Opportunity } from "../../../mock/opportunities";
 
 type OpportunityContentProps = {
   opportunity: Opportunity;
@@ -15,14 +14,11 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         gap: 3,
       }}
     >
-      {/* وصف الفرصة - أزرق فاتح */}
+      {/* About this opportunity */}
       <Card
         variant="outlined"
         sx={{
-          p: {
-            xs: 2.5,
-            md: 3.5,
-          },
+          p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
           backgroundColor: "#EFF6FF",
           backgroundImage: "none",
@@ -33,33 +29,20 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         <Typography
           component="h2"
           variant="h6"
-          sx={{
-            color: "#1E3A8A",
-            fontWeight: 700,
-          }}
+          sx={{ color: "#1E3A8A", fontWeight: 700 }}
         >
           About this opportunity
         </Typography>
-
-        <Typography
-          sx={{
-            mt: 2,
-            color: "#475569",
-            lineHeight: 1.8,
-          }}
-        >
+        <Typography sx={{ mt: 2, color: "#475569", lineHeight: 1.8 }}>
           {opportunity.description}
         </Typography>
       </Card>
 
-      {/* المسؤوليات - أخضر فاتح */}
+      {/* Responsibilities */}
       <Card
         variant="outlined"
         sx={{
-          p: {
-            xs: 2.5,
-            md: 3.5,
-          },
+          p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
           backgroundColor: "#ECFDF5",
           backgroundImage: "none",
@@ -70,23 +53,12 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         <Typography
           component="h2"
           variant="h6"
-          sx={{
-            color: "#065F46",
-            fontWeight: 700,
-          }}
+          sx={{ color: "#065F46", fontWeight: 700 }}
         >
           Responsibilities
         </Typography>
-
-        <Box
-          component="ul"
-          sx={{
-            mt: 2,
-            mb: 0,
-            pl: 3,
-          }}
-        >
-          {opportunity.responsibilities.map((responsibility) => (
+        <Box component="ul" sx={{ mt: 2, mb: 0, pl: 3 }}>
+          {opportunity.responsibilities?.map((responsibility) => (
             <Typography
               component="li"
               key={responsibility}
@@ -94,10 +66,7 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
                 mb: 1.25,
                 color: "#475569",
                 lineHeight: 1.6,
-
-                "&::marker": {
-                  color: "#059669",
-                },
+                "&::marker": { color: "#059669" },
               }}
             >
               {responsibility}
@@ -106,14 +75,11 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         </Box>
       </Card>
 
-      {/* المتطلبات - برتقالي فاتح */}
+      {/* Requirements */}
       <Card
         variant="outlined"
         sx={{
-          p: {
-            xs: 2.5,
-            md: 3.5,
-          },
+          p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
           backgroundColor: "#FFF7ED",
           backgroundImage: "none",
@@ -124,23 +90,12 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         <Typography
           component="h2"
           variant="h6"
-          sx={{
-            color: "#9A3412",
-            fontWeight: 700,
-          }}
+          sx={{ color: "#9A3412", fontWeight: 700 }}
         >
           Requirements
         </Typography>
-
-        <Box
-          component="ul"
-          sx={{
-            mt: 2,
-            mb: 0,
-            pl: 3,
-          }}
-        >
-          {opportunity.requirements.map((requirement) => (
+        <Box component="ul" sx={{ mt: 2, mb: 0, pl: 3 }}>
+          {opportunity.requirements?.map((requirement) => (
             <Typography
               component="li"
               key={requirement}
@@ -148,10 +103,7 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
                 mb: 1.25,
                 color: "#475569",
                 lineHeight: 1.6,
-
-                "&::marker": {
-                  color: "#EA580C",
-                },
+                "&::marker": { color: "#EA580C" },
               }}
             >
               {requirement}
@@ -160,14 +112,11 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         </Box>
       </Card>
 
-      {/* المهارات - بنفسجي فاتح */}
+      {/* Skills */}
       <Card
         variant="outlined"
         sx={{
-          p: {
-            xs: 2.5,
-            md: 3.5,
-          },
+          p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
           backgroundColor: "#F5F3FF",
           backgroundImage: "none",
@@ -178,22 +127,11 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
         <Typography
           component="h2"
           variant="h6"
-          sx={{
-            color: "#5B21B6",
-            fontWeight: 700,
-          }}
+          sx={{ color: "#5B21B6", fontWeight: 700 }}
         >
           Required skills
         </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: 1,
-            mt: 2,
-          }}
-        >
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1, mt: 2 }}>
           {opportunity.skills.map((skill) => (
             <Chip
               key={skill}

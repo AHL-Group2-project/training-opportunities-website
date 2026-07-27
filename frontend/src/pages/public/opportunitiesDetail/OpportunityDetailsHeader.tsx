@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
-import type { Opportunity } from "../OpportunitiesPage/opportunity.types";
+import type { Opportunity } from "../../../mock/opportunities";
 
 type OpportunityDetailsHeaderProps = {
   opportunity: Opportunity;
@@ -24,7 +24,6 @@ function OpportunityDetailsHeader({
         borderColor: "divider",
       }}
     >
-      {/* الرجوع لصفحة الفرص */}
       <Button
         component={Link}
         to="/opportunities"
@@ -39,7 +38,6 @@ function OpportunityDetailsHeader({
         ← All opportunities
       </Button>
 
-      {/* معلومات الفرصة */}
       <Box
         sx={{
           display: "flex",

@@ -1,64 +1,56 @@
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
-
 import OpportunitiesHeader from "./OpportunitiesHeader";
 import OpportunityFilters from "./OpportunityFilters";
-import OpportunityCard from "./OpportunityCard";
-
-import { opportunitiesMock } from "./mock";
+import OpportunityCard from "../../../components/ui/OpportunityCard";
+import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 
 function OpportunitiesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [department, setDepartment] = useState("all");
   const [field, setField] = useState("all");
 
+  // TODO: Replace with API call
+  // useEffect(() => {
+  //   api.get("/opportunities").then(res => setOpportunities(res.data));
+  // }, []);
+
+  const [opportunities] = useState(MOCK_OPPORTUNITIES);
+
   return (
-    <Box
-      sx={{
-        maxWidth: "1520px",
-        mx: "auto",
-        px: {
-          xs: 1,
-          sm: 2,
-        },
-        pb: 6,
-      }}
-    >
+    <Box sx={{ py: 4, px: { xs: 2, md: 4 }, maxWidth: 1200, mx: "auto" }}>
       <OpportunitiesHeader />
 
-      <Box sx={{ mt: 4 }}>
+      {/* Filters */}
+      <Box sx={{ mb: 3 }}>
         <OpportunityFilters
           searchTerm={searchTerm}
-          department={department}
-          field={field}
           onSearchChange={setSearchTerm}
+          department={department}
           onDepartmentChange={setDepartment}
+          field={field}
           onFieldChange={setField}
         />
       </Box>
 
-      <Typography
-        sx={{
-          mt: 3,
-          mb: 2,
-          color: "text.secondary",
-        }}
-      >
-        {opportunitiesMock.length} results
+      {/* Results count */}
+      <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+        {opportunities.length} results
       </Typography>
 
+      {/* Cards grid */}
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",
-            md: "repeat(2, 1fr)",
-            lg: "repeat(3, 1fr)",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
           },
           gap: 3,
         }}
       >
-        {opportunitiesMock.map((opportunity) => (
+        {opportunities.map((opportunity) => (
           <OpportunityCard key={opportunity.id} opportunity={opportunity} />
         ))}
       </Box>

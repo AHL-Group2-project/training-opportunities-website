@@ -94,12 +94,14 @@ function Navbar({
             component="img"
             src={logo}
             alt="logo"
+            onClick={() => navigate("/")}
             sx={{
               width: 60,
               height: 60,
               borderRadius: 2,
               objectFit: "cover",
               flexShrink: 0,
+              cursor: "pointer",
             }}
           />
           <Stack spacing={0} sx={{ minWidth: 0 }}>

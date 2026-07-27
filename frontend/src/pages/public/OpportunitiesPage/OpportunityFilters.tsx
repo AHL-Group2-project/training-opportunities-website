@@ -23,7 +23,7 @@ function OpportunityFilters({
       variant="outlined"
       sx={{
         p: 2,
-        borderRadius: 3,
+        borderRadius: 2,
         bgcolor: "#F4F7FC",
         borderColor: "#D8E0EC",
       }}
@@ -35,7 +35,6 @@ function OpportunityFilters({
         }}
         spacing={2}
       >
-        {/* البحث */}
         <TextField
           fullWidth
           size="small"
@@ -52,7 +51,6 @@ function OpportunityFilters({
           }}
         />
 
-        {/* فلتر القسم */}
         <TextField
           select
           size="small"
@@ -75,7 +73,6 @@ function OpportunityFilters({
           <MenuItem value="business">Business</MenuItem>
         </TextField>
 
-        {/* فلتر المجال */}
         <TextField
           select
           size="small"

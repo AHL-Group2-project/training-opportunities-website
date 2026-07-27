@@ -2,7 +2,7 @@ import { Avatar, Box, Card, Chip, Typography } from "@mui/material";
 
 import { alpha } from "@mui/material/styles";
 
-import type { Opportunity } from "../OpportunitiesPage/opportunity.types";
+import type { Opportunity } from "../../../mock/opportunities";
 
 type CompanyCardProps = {
   opportunity: Opportunity;

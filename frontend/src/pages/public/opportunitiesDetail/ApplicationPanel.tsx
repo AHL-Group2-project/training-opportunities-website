@@ -2,7 +2,7 @@ import { Box, Button, Card, Chip, Divider, Typography } from "@mui/material";
 
 import { alpha } from "@mui/material/styles";
 
-import type { Opportunity } from "../OpportunitiesPage/opportunity.types";
+import type { Opportunity } from "../../../mock/opportunities";
 
 type ApplicationPanelProps = {
   opportunity: Opportunity;

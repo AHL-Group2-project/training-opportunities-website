@@ -7,12 +7,6 @@ import OpportunityCard from "../../../components/ui/OpportunityCard";
 
 function FeaturedOpportunities() {
   const navigate = useNavigate();
-
-  // for API
-  // useEffect(() => {
-  //   api.get("/opportunities").then(res => setOpportunities(res.data));
-  // }, []);
-
   const [opportunities] = useState(MOCK_OPPORTUNITIES);
 
   return (
@@ -57,6 +51,7 @@ function FeaturedOpportunities() {
               lg: "repeat(4, 1fr)",
             },
             gap: 3,
+            justifyItems: "center",
           }}
         >
           {opportunities.map((opportunity) => (
