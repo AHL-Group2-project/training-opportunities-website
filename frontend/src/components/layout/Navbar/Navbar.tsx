@@ -23,29 +23,21 @@ import {
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
-import { accountMenuItems, getNavEntries, type UserRole } from "../navigation";
+import { accountMenuItems, getNavEntries } from "../navigation";
 import logo from "../../../assets/images/logo.png";
 
-type NavbarProps = {
-  role?: UserRole;
-  isAuthenticated?: boolean;
-  notificationCount?: number;
-  userName?: string;
-};
+function Navbar() {
+  const { user, isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+  const role = user?.role ?? "public";
+  const userName = user?.name ?? "Guest";
+  const notificationCount = 0; // TODO: Replace with real notification count from API
 
-function Navbar({
-  role = "public",
-  isAuthenticated = false,
-  notificationCount = 0,
-  userName = "Guest",
-}: NavbarProps) {
   const navEntries = useMemo(() => getNavEntries(role), [role]);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeEntry, setActiveEntry] = useState<string | null>(null);
   const [groupAnchor, setGroupAnchor] = useState<HTMLElement | null>(null);
   const [accountAnchor, setAccountAnchor] = useState<HTMLElement | null>(null);
-  const { logout } = useAuth();
-  const navigate = useNavigate();
 
   const closeGroupMenu = () => {
     setActiveEntry(null);
@@ -63,7 +55,6 @@ function Navbar({
         .toUpperCase() || "U",
     [userName],
   );
-
   return (
     <AppBar
       position="sticky"
