@@ -1,22 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AuthContext, type AuthUser } from "./authContext";
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [isReady, setIsReady] = useState(false);
+function getStoredUser(): AuthUser | null {
+  const stored = localStorage.getItem("user");
+  if (!stored) return null;
+  try {
+    return JSON.parse(stored) as AuthUser;
+  } catch {
+    localStorage.removeItem("user");
+    return null;
+  }
+}
 
-  useEffect(() => {
-    const stored = localStorage.getItem("user");
-    if (stored) {
-      try {
-        const parsed = JSON.parse(stored) as AuthUser;
-        setUser(parsed);
-      } catch {
-        localStorage.removeItem("user");
-      }
-    }
-    setIsReady(true);
-  }, []);
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<AuthUser | null>(getStoredUser);
 
   const login = (userData: AuthUser) => {
     setUser(userData);
@@ -29,10 +26,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
   };
-
-  if (!isReady) {
-    return null; // or a loading spinner
-  }
 
   return (
     <AuthContext.Provider
