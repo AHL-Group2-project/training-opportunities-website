@@ -7,6 +7,7 @@ export interface AuthUser {
   email: string;
   role: UserRole;
   token: string;
+  companyId?: number;
 }
 
 export interface AuthContextType {
