@@ -321,16 +321,20 @@ function CreateOpportunityPage() {
               options={SKILLS}
               value={skills}
               onChange={(_, newValue) => setSkills(newValue)}
-              renderValue={(value) =>
-                value.map((option) => (
-                  <Chip
-                    key={option}
-                    label={option}
-                    variant="outlined"
-                    size="small"
-                    sx={{ mr: 0.5 }}
-                  />
-                ))
+              renderTags={(value, getTagProps) =>
+                value.map((option, index) => {
+                  const { key, ...tagProps } = getTagProps({ index });
+                  return (
+                    <Chip
+                      key={key}
+                      label={option}
+                      variant="outlined"
+                      size="small"
+                      sx={{ mr: 0.5 }}
+                      {...tagProps}
+                    />
+                  );
+                })
               }
               renderInput={(params) => (
                 <TextField
