@@ -15,6 +15,13 @@ import UnauthorizedPage from "../pages/error/UnauthorizedPage";
 import RoleRoute from "./RoleRoute";
 import PublicRoute from "./PublicRoute";
 
+import ApplicationsPage from "../pages/student/ApplicationsPage/ApplicationsPage";
+import InternshipRequestPage from "../pages/student/InternshipRequestPage/InternshipRequestPage";
+
+import ManageOpportunitiesPage from "../pages/supervisor/ManageOpportunitiesPage/ManageOpportunitiesPage";
+import CreateOpportunityPage from "../pages/supervisor/CreateOpportunityPage/CreateOpportunityPage";
+import CompanyManagementPage from "../pages/supervisor/CompanyManagementPage/CompanyManagementPage";
+
 function AppRouter() {
   return (
     <BrowserRouter>
@@ -54,9 +61,10 @@ function AppRouter() {
                 path="/dashboard"
                 element={<div>Student Dashboard (coming soon)</div>}
               />
+              <Route path="/applications" element={<ApplicationsPage />} />
               <Route
-                path="/applications"
-                element={<div>Applications (coming soon)</div>}
+                path="/training/request"
+                element={<InternshipRequestPage />}
               />
               <Route
                 path="/training/hours"
@@ -98,7 +106,19 @@ function AppRouter() {
               />
               <Route
                 path="/supervisor/opportunities"
-                element={<div>Manage Opportunities (coming soon)</div>}
+                element={<ManageOpportunitiesPage />}
+              />
+              <Route
+                path="/supervisor/opportunities/new"
+                element={<CreateOpportunityPage />}
+              />
+              <Route
+                path="/supervisor/opportunities/:id/edit"
+                element={<CreateOpportunityPage />}
+              />
+              <Route
+                path="/supervisor/companies"
+                element={<CompanyManagementPage />}
               />
               <Route
                 path="/supervisor/announcements"

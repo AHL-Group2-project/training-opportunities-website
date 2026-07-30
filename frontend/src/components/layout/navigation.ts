@@ -44,11 +44,13 @@ const studentNavEntries: NavEntry[] = [
 const supervisorNavEntries: NavEntry[] = [
   { type: "link", item: { label: "Dashboard", path: "/supervisor/dashboard" } },
   { type: "link", item: { label: "Students", path: "/supervisor/students" } },
+  { type: "link", item: { label: "Requests", path: "/supervisor/requests" } },
   {
     type: "group",
     label: "Manage",
     items: [
       { label: "Opportunities", path: "/supervisor/opportunities" },
+      { label: "Companies", path: "/supervisor/companies" },
       { label: "Announcements", path: "/supervisor/announcements" },
     ],
   },
@@ -56,12 +58,14 @@ const supervisorNavEntries: NavEntry[] = [
 
 const adminNavEntries: NavEntry[] = [
   { type: "link", item: { label: "Dashboard", path: "/supervisor/dashboard" } },
-  { type: "link", item: { label: "Users", path: "/supervisor/students" } },
+  { type: "link", item: { label: "Students", path: "/supervisor/students" } },
+  { type: "link", item: { label: "Requests", path: "/supervisor/requests" } },
   {
     type: "group",
     label: "Management",
     items: [
       { label: "Opportunities", path: "/supervisor/opportunities" },
+      { label: "Companies", path: "/supervisor/companies" },
       { label: "Announcements", path: "/supervisor/announcements" },
     ],
   },
@@ -83,6 +87,5 @@ export function getNavEntries(role: UserRole): NavEntry[] {
 
 export const accountMenuItems = [
   { label: "Profile", path: "/profile" },
-  { label: "Settings", path: "/settings" },
   { label: "Logout", action: "logout" },
 ];
