@@ -1,4 +1,5 @@
-export type UserRole = "public" | "student" | "supervisor" | "admin";
+export type UserRole =
+  "public" | "student" | "supervisor" | "admin" | "company";
 
 export type NavItem = {
   label: string;
@@ -71,6 +72,19 @@ const adminNavEntries: NavEntry[] = [
   },
 ];
 
+const companyNavEntries: NavEntry[] = [
+  { type: "link", item: { label: "Dashboard", path: "/company/dashboard" } },
+  {
+    type: "link",
+    item: { label: "My Opportunities", path: "/company/opportunities" },
+  },
+  {
+    type: "link",
+    item: { label: "Completion Requests", path: "/company/requests" },
+  },
+  { type: "link", item: { label: "Profile", path: "/company/profile" } },
+];
+
 export function getNavEntries(role: UserRole): NavEntry[] {
   switch (role) {
     case "student":
@@ -79,6 +93,8 @@ export function getNavEntries(role: UserRole): NavEntry[] {
       return supervisorNavEntries;
     case "admin":
       return adminNavEntries;
+    case "company":
+      return companyNavEntries;
     case "public":
     default:
       return publicNavEntries;

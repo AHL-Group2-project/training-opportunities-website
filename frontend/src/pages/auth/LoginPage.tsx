@@ -76,11 +76,13 @@ function LoginPage() {
         email: user.email,
         role: user.role,
         token: "mock-token",
+        companyId: user.companyId,
       });
 
       if (user.role === "student") navigate("/dashboard");
-      if (user.role === "supervisor") navigate("/supervisor/dashboard");
-      if (user.role === "admin") navigate("/supervisor/dashboard");
+      else if (user.role === "supervisor") navigate("/supervisor/dashboard");
+      else if (user.role === "admin") navigate("/supervisor/dashboard");
+      else if (user.role === "company") navigate("/company/dashboard");
 
       setLoading(false);
     }, 1000);
