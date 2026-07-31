@@ -82,7 +82,6 @@ const companyNavEntries: NavEntry[] = [
     type: "link",
     item: { label: "Completion Requests", path: "/company/requests" },
   },
-  { type: "link", item: { label: "Profile", path: "/company/profile" } },
 ];
 
 export function getNavEntries(role: UserRole): NavEntry[] {

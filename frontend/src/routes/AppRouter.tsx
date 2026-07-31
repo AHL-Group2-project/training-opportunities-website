@@ -7,7 +7,7 @@ import LoginPage from "../pages/auth/LoginPage";
 import StudentsPage from "../pages/public/StudentsPage/StudentsPage";
 import PublicStudentProfilePage from "../pages/public/StudentsPage/PublicStudentProfilePage";
 import CompaniesPage from "../pages/public/CompaniesPage/CompaniesPage";
-import CompanyProfilePage from "../pages/public/CompaniesPage/CompanyProfilePage";
+import PublicCompanyProfilePage from "../pages/public/CompaniesPage/CompanyProfilePage";
 import OpportunitiesPage from "../pages/public/OpportunitiesPage/OpportunitiesPage";
 import OpportunityDetailsPage from "../pages/public/opportunitiesDetail/OpportunityDetailsPage";
 import NotFoundPage from "../pages/error/NotFoundPage";
@@ -23,6 +23,11 @@ import ManageOpportunitiesPage from "../pages/supervisor/ManageOpportunitiesPage
 import CreateOpportunityPage from "../pages/supervisor/CreateOpportunityPage/CreateOpportunityPage";
 import CompanyManagementPage from "../pages/supervisor/CompanyManagementPage/CompanyManagementPage";
 
+import CompanyDashboardPage from "../pages/company/CompanyDashboardPage/CompanyDashboardPage";
+import CompanyOpportunitiesPage from "../pages/company/CompanyOpportunitiesPage/CompanyOpportunitiesPage";
+import CompanyRequestsPage from "../pages/company/CompanyRequestsPage/CompanyRequestsPage";
+import CompanyProfilePage from "../pages/company/CompanyProfilePage/CompanyProfilePage";
+
 function AppRouter() {
   return (
     <BrowserRouter>
@@ -30,7 +35,7 @@ function AppRouter() {
         sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
         <Navbar />
-        <Box component="main" sx={{ flex: 1 }}>
+        <Box component="main" sx={{ flex: 1, bgcolor: "white" }}>
           <Routes>
             {/* Public routes */}
             <Route path="/" element={<LandingPage />} />
@@ -40,7 +45,10 @@ function AppRouter() {
               element={<OpportunityDetailsPage />}
             />
             <Route path="/companies" element={<CompaniesPage />} />
-            <Route path="/companies/:id" element={<CompanyProfilePage />} />
+            <Route
+              path="/companies/:id"
+              element={<PublicCompanyProfilePage />}
+            />
             <Route path="/students" element={<StudentsPage />} />
             <Route
               path="/students/:id"
@@ -124,6 +132,22 @@ function AppRouter() {
                 path="/supervisor/announcements"
                 element={<div>Announcements (coming soon)</div>}
               />
+            </Route>
+            {/* Company routes */}
+            <Route element={<RoleRoute allowedRoles={["company"]} />}>
+              <Route
+                path="/company/dashboard"
+                element={<CompanyDashboardPage />}
+              />
+              <Route
+                path="/company/opportunities"
+                element={<CompanyOpportunitiesPage />}
+              />
+              <Route
+                path="/company/requests"
+                element={<CompanyRequestsPage />}
+              />
+              <Route path="/company/profile" element={<CompanyProfilePage />} />
             </Route>
 
             {/* Error pages */}
