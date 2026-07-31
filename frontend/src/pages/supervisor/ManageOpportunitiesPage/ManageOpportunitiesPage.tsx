@@ -25,6 +25,7 @@ import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { useAuth } from "../../../context/authContext";
 
 type OpportunityStatus = "active" | "closed" | "draft";
 
@@ -35,6 +36,11 @@ function ManageOpportunitiesPage() {
   const [statusFilter, setStatusFilter] = useState<"all" | OpportunityStatus>(
     "all",
   );
+  const { user } = useAuth();
+  if (user?.role === "company") {
+    navigate("/company/opportunities");
+    return null;
+  }
 
   const filtered = opportunities.filter((opp) => {
     const matchesSearch =

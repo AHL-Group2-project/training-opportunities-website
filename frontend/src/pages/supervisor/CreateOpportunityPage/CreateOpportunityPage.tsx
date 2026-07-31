@@ -19,6 +19,7 @@ import { MOCK_COMPANIES } from "../../../mock/Companies";
 import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import SaveIcon from "@mui/icons-material/Save";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useAuth } from "../../../context/authContext";
 
 const DEPARTMENTS = [
   "Computer Engineering",
@@ -84,6 +85,9 @@ function CreateOpportunityPage() {
   const navigate = useNavigate();
   const { id } = useParams();
   const isEdit = Boolean(id);
+  const { user } = useAuth();
+  const isCompanyUser = user?.role === "company";
+  const userCompanyId = user?.companyId; // Renamed to avoid conflict
 
   // Find existing opportunity if editing
   const existing = isEdit
@@ -92,7 +96,13 @@ function CreateOpportunityPage() {
 
   // Form state
   const [title, setTitle] = useState(existing?.title || "");
-  const [companyId, setCompanyId] = useState(existing?.company || "");
+  const [selectedCompanyId, setSelectedCompanyId] = useState(
+    isEdit
+      ? existing?.company || ""
+      : isCompanyUser
+        ? userCompanyId?.toString() || ""
+        : "",
+  );
   const [type, setType] = useState(existing?.type || "");
   const [workMode, setWorkMode] = useState(existing?.workMode || "");
   const [department, setDepartment] = useState(existing?.department || "");
@@ -113,7 +123,7 @@ function CreateOpportunityPage() {
   const handleSave = (publish: boolean) => {
     const payload = {
       title,
-      companyId,
+      companyId: selectedCompanyId,
       type,
       workMode,
       department,
@@ -173,15 +183,15 @@ function CreateOpportunityPage() {
               required
             />
 
-            <FormControl fullWidth required>
+            <FormControl fullWidth required disabled={isCompanyUser}>
               <InputLabel>Company *</InputLabel>
               <Select
-                value={companyId}
+                value={selectedCompanyId}
                 label="Company *"
-                onChange={(e) => setCompanyId(e.target.value)}
+                onChange={(e) => setSelectedCompanyId(e.target.value)}
               >
                 {MOCK_COMPANIES.map((c) => (
-                  <MenuItem key={c.id} value={c.id}>
+                  <MenuItem key={c.id} value={c.id.toString()}>
                     {c.name}
                   </MenuItem>
                 ))}
