@@ -5,13 +5,14 @@ function PublicRoute() {
   const { user, isAuthenticated } = useAuth();
 
   if (isAuthenticated && user) {
-    if (user.role === "student") {
-      return <Navigate to="/dashboard" replace />;
+    switch (user.role) {
+      case "student":
+        return <Navigate to="/dashboard" replace />;
+      case "company":
+        return <Navigate to="/company/dashboard" replace />;
+      default:
+        return <Navigate to="/supervisor/dashboard" replace />;
     }
-    if (user.role === "company") {
-      return <Navigate to="/company/dashboard" replace />;
-    }
-    return <Navigate to="/supervisor/dashboard" replace />;
   }
 
   return <Outlet />;

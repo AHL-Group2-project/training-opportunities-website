@@ -236,20 +236,28 @@ function Navbar() {
                     key={item.label}
                     onClick={() => {
                       setAccountAnchor(null);
-                      if (item.label === "Logout") {
-                        logout();
-                        navigate("/");
-                        return;
+
+                      switch (item.label) {
+                        case "Logout":
+                          logout();
+                          navigate("/");
+                          return;
+                        // Route based on role
+                        case "Profile":
+                          switch (user?.role) {
+                            case "company":
+                              navigate("/company/profile");
+                              break;
+                            case "student":
+                              navigate("/profile");
+                              break;
+                            default:
+                              navigate("/profile");
+                          }
+                          return;
+                        default:
+                          if (item.path) navigate(item.path);
                       }
-                      // Route based on role
-                      if (item.label === "Profile") {
-                        if (user?.role === "company")
-                          navigate("/company/profile");
-                        else if (user?.role === "student") navigate("/profile");
-                        else navigate("/profile");
-                        return;
-                      }
-                      navigate(item.path!);
                     }}
                   >
                     {item.label}

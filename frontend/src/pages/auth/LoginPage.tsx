@@ -79,10 +79,22 @@ function LoginPage() {
         companyId: user.companyId,
       });
 
-      if (user.role === "student") navigate("/dashboard");
-      else if (user.role === "supervisor") navigate("/supervisor/dashboard");
-      else if (user.role === "admin") navigate("/supervisor/dashboard");
-      else if (user.role === "company") navigate("/company/dashboard");
+      switch (user.role) {
+        case "student":
+          navigate("/dashboard");
+          break;
+        case "supervisor":
+          navigate("/supervisor/dashboard");
+          break;
+        case "admin":
+          navigate("/supervisor/dashboard");
+          break;
+        case "company":
+          navigate("/company/dashboard");
+          break;
+        default:
+          navigate("/");
+      }
 
       setLoading(false);
     }, 1000);
