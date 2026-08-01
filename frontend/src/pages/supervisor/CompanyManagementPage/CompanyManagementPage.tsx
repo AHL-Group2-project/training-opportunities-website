@@ -31,6 +31,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
+import { useAuth } from "../../../context/authContext";
 
 const INDUSTRIES = [
   "Technology",
@@ -73,6 +74,9 @@ function CompanyManagementPage() {
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
+  const { user } = useAuth();
+  const isAdmin = user?.role === "admin";
 
   // TODO: Replace with API call
   // useEffect(() => {
@@ -126,8 +130,17 @@ function CompanyManagementPage() {
       // TODO: PATCH /api/companies/:id
       console.log("UPDATE", editingCompany.id, payload);
     } else {
-      // TODO: POST /api/companies
-      console.log("CREATE", payload);
+      // TODO: POST /api/admin/companies
+      // Backend will:
+      // 1. Create company record with activationStatus: "pending"
+      // 2. Generate secure activation token
+      // 3. Send email to company.email with link: /activate?token=xyz
+      console.log("CREATE company + send activation email", payload);
+
+      // Show feedback to admin
+      alert(
+        `Company "${name}" created. Activation email will be sent to ${email}`,
+      );
     }
 
     setDialogOpen(false);
@@ -163,18 +176,20 @@ function CompanyManagementPage() {
             Manage companies offering internships
           </Typography>
         </Box>
-        <Button
-          variant="contained"
-          startIcon={<AddIcon />}
-          onClick={() => handleOpenDialog()}
-          sx={{
-            bgcolor: "#1C2B4A",
-            textTransform: "none",
-            "&:hover": { bgcolor: "#2a3f6b" },
-          }}
-        >
-          Add Company
-        </Button>
+        {isAdmin && (
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            onClick={() => handleOpenDialog()}
+            sx={{
+              bgcolor: "#1C2B4A",
+              textTransform: "none",
+              "&:hover": { bgcolor: "#2a3f6b" },
+            }}
+          >
+            Add Company
+          </Button>
+        )}
       </Box>
 
       {/* Filters */}
@@ -221,18 +236,29 @@ function CompanyManagementPage() {
                 <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
                   Location
                 </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Status
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Actions
-                </TableCell>
+                {isAdmin && (
+                  <>
+                    <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+                      Status
+                    </TableCell>
+                    <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+                      Activation
+                    </TableCell>
+                    <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+                      Actions
+                    </TableCell>
+                  </>
+                )}
               </TableRow>
             </TableHead>
             <TableBody>
               {filtered.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={5} align="center" sx={{ py: 4 }}>
+                  <TableCell
+                    colSpan={isAdmin ? 6 : 3}
+                    align="center"
+                    sx={{ py: 4 }}
+                  >
                     <Typography color="text.secondary">
                       No companies found
                     </Typography>
@@ -263,48 +289,83 @@ function CompanyManagementPage() {
                     </TableCell>
                     <TableCell>{company.industry || "—"}</TableCell>
                     <TableCell>{company.location || "—"}</TableCell>
-                    <TableCell>
-                      <Chip
-                        label={
-                          company.isActive !== false ? "Active" : "Inactive"
-                        }
-                        size="small"
-                        sx={{
-                          bgcolor:
-                            company.isActive !== false ? "#ECFDF5" : "#F3F4F6",
-                          color:
-                            company.isActive !== false ? "#059669" : "#6B7280",
-                          fontWeight: 600,
-                          fontSize: "0.75rem",
-                        }}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Box sx={{ display: "flex", gap: 0.5 }}>
-                        <IconButton
-                          size="small"
-                          onClick={() => navigate(`/companies/${company.id}`)}
-                        >
-                          <VisibilityIcon fontSize="small" />
-                        </IconButton>
-                        <IconButton
-                          size="small"
-                          onClick={() => handleOpenDialog(company)}
-                        >
-                          <EditIcon fontSize="small" />
-                        </IconButton>
-                        <IconButton
-                          size="small"
-                          onClick={() => handleToggleActive(company.id)}
-                        >
-                          {company.isActive !== false ? (
-                            <ToggleOnIcon fontSize="small" color="success" />
-                          ) : (
-                            <ToggleOffIcon fontSize="small" />
-                          )}
-                        </IconButton>
-                      </Box>
-                    </TableCell>
+                    {isAdmin && (
+                      <>
+                        <TableCell>
+                          <Chip
+                            label={
+                              company.isActive !== false ? "Active" : "Inactive"
+                            }
+                            size="small"
+                            sx={{
+                              bgcolor:
+                                company.isActive !== false
+                                  ? "#ECFDF5"
+                                  : "#F3F4F6",
+                              color:
+                                company.isActive !== false
+                                  ? "#059669"
+                                  : "#6B7280",
+                              fontWeight: 600,
+                              fontSize: "0.75rem",
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          <Chip
+                            label={
+                              company.activationStatus === "active"
+                                ? "Active"
+                                : "Pending"
+                            }
+                            size="small"
+                            sx={{
+                              bgcolor:
+                                company.activationStatus === "active"
+                                  ? "#ECFDF5"
+                                  : "#FEF3C7",
+                              color:
+                                company.activationStatus === "active"
+                                  ? "#059669"
+                                  : "#D97706",
+                              fontWeight: 600,
+                              fontSize: "0.75rem",
+                            }}
+                          />
+                        </TableCell>
+                        <TableCell>
+                          <Box sx={{ display: "flex", gap: 0.5 }}>
+                            <IconButton
+                              size="small"
+                              onClick={() =>
+                                navigate(`/companies/${company.id}`)
+                              }
+                            >
+                              <VisibilityIcon fontSize="small" />
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              onClick={() => handleOpenDialog(company)}
+                            >
+                              <EditIcon fontSize="small" />
+                            </IconButton>
+                            <IconButton
+                              size="small"
+                              onClick={() => handleToggleActive(company.id)}
+                            >
+                              {company.isActive !== false ? (
+                                <ToggleOnIcon
+                                  fontSize="small"
+                                  color="success"
+                                />
+                              ) : (
+                                <ToggleOffIcon fontSize="small" />
+                              )}
+                            </IconButton>
+                          </Box>
+                        </TableCell>
+                      </>
+                    )}
                   </TableRow>
                 ))
               )}

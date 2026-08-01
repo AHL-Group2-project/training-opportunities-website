@@ -26,6 +26,7 @@ export interface Company {
   website: string;
   verified: boolean;
   isActive?: boolean;
+  activationStatus: "pending" | "active" | "inactive";
   email?: string;
   phone?: string;
   opportunities: Opportunity[];
@@ -45,6 +46,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "asaltech.ps",
     verified: true,
     isActive: true,
+    activationStatus: "active",
     email: "careers@asaltech.ps",
     phone: "+970 9 234 5678",
     opportunities: [
@@ -89,6 +91,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "designstudio.ps",
     verified: false,
     isActive: true,
+    activationStatus: "active",
     email: "hello@designstudio.ps",
     phone: "+970 9 298 7654",
     opportunities: [
@@ -119,6 +122,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "palsoft.ps",
     verified: true,
     isActive: true,
+    activationStatus: "active",
     email: "jobs@palsoft.ps",
     phone: "+970 9 251 0000",
     opportunities: [
@@ -163,6 +167,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "hebrondigital.ps",
     verified: false,
     isActive: true,
+    activationStatus: "active",
     email: "careers@hebrondigital.ps",
     phone: "+970 2 222 3333",
     opportunities: [
@@ -193,6 +198,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "bethlehemnet.ps",
     verified: true,
     isActive: true,
+    activationStatus: "active",
     email: "hr@bethlehemnet.ps",
     phone: "+970 2 277 8888",
     opportunities: [
@@ -237,6 +243,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "jeninagritech.ps",
     verified: false,
     isActive: true,
+    activationStatus: "active",
     email: "jobs@jeninagritech.ps",
     phone: "+970 4 250 1234",
     opportunities: [
@@ -269,6 +276,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "nablusfintech.ps",
     verified: true,
     isActive: true,
+    activationStatus: "active",
     email: "careers@nablusfintech.ps",
     phone: "+970 9 235 9999",
     opportunities: [
@@ -313,6 +321,7 @@ export const MOCK_COMPANIES: Company[] = [
     website: "gazacreative.ps",
     verified: false,
     isActive: true,
+    activationStatus: "active",
     email: "jobs@gazacreative.ps",
     phone: "+970 8 282 7777",
     opportunities: [
