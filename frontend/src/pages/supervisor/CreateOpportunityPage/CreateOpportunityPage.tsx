@@ -88,6 +88,7 @@ function CreateOpportunityPage() {
   const { user } = useAuth();
   const isCompanyUser = user?.role === "company";
   const userCompanyId = user?.companyId; // Renamed to avoid conflict
+  const isAdmin = user?.role === "admin";
 
   // Find existing opportunity if editing
   const existing = isEdit
@@ -120,6 +121,12 @@ function CreateOpportunityPage() {
     existing?.requirements?.join("\n") || "",
   );
 
+  const getOpportunitiesListPath = () => {
+    if (isCompanyUser) return "/company/opportunities";
+    if (isAdmin) return "/admin/opportunities";
+    return "/supervisor/opportunities";
+  };
+
   const handleSave = (publish: boolean) => {
     const payload = {
       title,
@@ -139,9 +146,8 @@ function CreateOpportunityPage() {
       status: publish ? "active" : "draft",
     };
 
-    // TODO: POST /api/opportunities or PATCH /api/opportunities/:id
     console.log(publish ? "PUBLISH" : "SAVE DRAFT", payload);
-    navigate("/supervisor/opportunities");
+    navigate(getOpportunitiesListPath());
   };
 
   return (
@@ -150,7 +156,7 @@ function CreateOpportunityPage() {
       <Box sx={{ mb: 4 }}>
         <Button
           startIcon={<ArrowBackIcon />}
-          onClick={() => navigate("/supervisor/opportunities")}
+          onClick={() => navigate(getOpportunitiesListPath())}
           sx={{ textTransform: "none", color: "text.secondary", mb: 1 }}
         >
           Back to Opportunities
@@ -422,7 +428,7 @@ function CreateOpportunityPage() {
       >
         <Button
           variant="outlined"
-          onClick={() => navigate("/supervisor/opportunities")}
+          onClick={() => navigate(getOpportunitiesListPath())}
           sx={{ textTransform: "none" }}
         >
           Cancel

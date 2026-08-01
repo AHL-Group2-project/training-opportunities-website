@@ -41,6 +41,17 @@ function ManageOpportunitiesPage() {
     navigate("/company/opportunities");
     return null;
   }
+  const getNewOpportunityPath = () => {
+    if (user?.role === "company") return "/company/opportunities/new";
+    if (user?.role === "admin") return "/admin/opportunities/new";
+    return "/supervisor/opportunities/new";
+  };
+
+  const getEditOpportunityPath = (id: number) => {
+    if (user?.role === "company") return `/company/opportunities/${id}/edit`;
+    if (user?.role === "admin") return `/admin/opportunities/${id}/edit`;
+    return `/supervisor/opportunities/${id}/edit`;
+  };
 
   const filtered = opportunities.filter((opp) => {
     const matchesSearch =
@@ -95,12 +106,8 @@ function ManageOpportunitiesPage() {
         <Button
           variant="contained"
           startIcon={<AddIcon />}
-          onClick={() => navigate("/supervisor/opportunities/new")}
-          sx={{
-            bgcolor: "#1C2B4A",
-            textTransform: "none",
-            "&:hover": { bgcolor: "#2a3f6b" },
-          }}
+          onClick={() => navigate(getNewOpportunityPath())}
+          sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
         >
           New Opportunity
         </Button>
@@ -205,9 +212,7 @@ function ManageOpportunitiesPage() {
                           <IconButton
                             size="small"
                             onClick={() =>
-                              navigate(
-                                `/supervisor/opportunities/${opp.id}/edit`,
-                              )
+                              navigate(getEditOpportunityPath(opp.id))
                             }
                           >
                             <EditIcon fontSize="small" />
