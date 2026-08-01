@@ -8,6 +8,8 @@ function PublicRoute() {
     switch (user.role) {
       case "student":
         return <Navigate to="/dashboard" replace />;
+      case "admin":
+        return <Navigate to="/admin/dashboard" replace />;
       case "company":
         return <Navigate to="/company/dashboard" replace />;
       default:

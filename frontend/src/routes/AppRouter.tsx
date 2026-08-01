@@ -28,6 +28,8 @@ import CompanyOpportunitiesPage from "../pages/company/CompanyOpportunitiesPage/
 import CompanyRequestsPage from "../pages/company/CompanyRequestsPage/CompanyRequestsPage";
 import CompanyProfilePage from "../pages/company/CompanyProfilePage/CompanyProfilePage";
 
+import CompanyActivationPage from "../pages/auth/CompanyActivationPage";
+
 function AppRouter() {
   return (
     <BrowserRouter>
@@ -54,6 +56,7 @@ function AppRouter() {
               path="/students/:id"
               element={<PublicStudentProfilePage />}
             />
+            <Route path="/activate" element={<CompanyActivationPage />} />
 
             <Route element={<PublicRoute />}>
               <Route path="/login" element={<LoginPage />} />
@@ -96,10 +99,8 @@ function AppRouter() {
               />
             </Route>
 
-            {/* Supervisor + Admin routes */}
-            <Route
-              element={<RoleRoute allowedRoles={["supervisor", "admin"]} />}
-            >
+            {/* Supervisor routes */}
+            <Route element={<RoleRoute allowedRoles={["supervisor"]} />}>
               <Route
                 path="/supervisor/dashboard"
                 element={<div>Supervisor Dashboard (coming soon)</div>}
@@ -113,9 +114,14 @@ function AppRouter() {
                 element={<div>Pending Requests (coming soon)</div>}
               />
               <Route
+                path="/supervisor/companies"
+                element={<CompanyManagementPage />}
+              />
+              <Route
                 path="/supervisor/opportunities"
                 element={<ManageOpportunitiesPage />}
               />
+
               <Route
                 path="/supervisor/opportunities/new"
                 element={<CreateOpportunityPage />}
@@ -124,15 +130,53 @@ function AppRouter() {
                 path="/supervisor/opportunities/:id/edit"
                 element={<CreateOpportunityPage />}
               />
-              <Route
-                path="/supervisor/companies"
-                element={<CompanyManagementPage />}
-              />
+
               <Route
                 path="/supervisor/announcements"
                 element={<div>Announcements (coming soon)</div>}
               />
             </Route>
+
+            {/* Admin routes */}
+            <Route element={<RoleRoute allowedRoles={["admin"]} />}>
+              <Route
+                path="/admin/dashboard"
+                element={<div>Admin Dashboard (coming soon)</div>}
+              />
+              <Route
+                path="/admin/students"
+                element={<div>Admin Students (coming soon)</div>}
+              />
+              <Route
+                path="/admin/requests"
+                element={<div>Admin Requests (coming soon)</div>}
+              />
+              <Route
+                path="/admin/supervisors"
+                element={<div>Supervisor Management (coming soon)</div>}
+              />
+              <Route
+                path="/admin/companies"
+                element={<CompanyManagementPage />}
+              />
+              <Route
+                path="/admin/opportunities"
+                element={<ManageOpportunitiesPage />}
+              />
+              <Route
+                path="/admin/opportunities/new"
+                element={<CreateOpportunityPage />}
+              />
+              <Route
+                path="/admin/opportunities/:id/edit"
+                element={<CreateOpportunityPage />}
+              />
+              <Route
+                path="/admin/announcements"
+                element={<div>Announcements (coming soon)</div>}
+              />
+            </Route>
+
             {/* Company routes */}
             <Route element={<RoleRoute allowedRoles={["company"]} />}>
               <Route
@@ -142,6 +186,14 @@ function AppRouter() {
               <Route
                 path="/company/opportunities"
                 element={<CompanyOpportunitiesPage />}
+              />
+              <Route
+                path="/company/opportunities/new"
+                element={<CreateOpportunityPage />}
+              />
+              <Route
+                path="/company/opportunities/:id/edit"
+                element={<CreateOpportunityPage />}
               />
               <Route
                 path="/company/requests"

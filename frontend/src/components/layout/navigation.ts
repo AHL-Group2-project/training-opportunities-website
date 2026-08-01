@@ -48,26 +48,35 @@ const supervisorNavEntries: NavEntry[] = [
   { type: "link", item: { label: "Requests", path: "/supervisor/requests" } },
   {
     type: "group",
+    label: "Training",
+    items: [
+      { label: "Hours Review", path: "/supervisor/hours" },
+      { label: "Reports Review", path: "/supervisor/reports" },
+    ],
+  },
+  {
+    type: "group",
     label: "Manage",
     items: [
       { label: "Opportunities", path: "/supervisor/opportunities" },
-      { label: "Companies", path: "/supervisor/companies" },
+      { label: "Companies", path: "/supervisor/companies" }, // View-only
       { label: "Announcements", path: "/supervisor/announcements" },
     ],
   },
 ];
 
 const adminNavEntries: NavEntry[] = [
-  { type: "link", item: { label: "Dashboard", path: "/supervisor/dashboard" } },
-  { type: "link", item: { label: "Students", path: "/supervisor/students" } },
-  { type: "link", item: { label: "Requests", path: "/supervisor/requests" } },
+  { type: "link", item: { label: "Dashboard", path: "/admin/dashboard" } },
+  { type: "link", item: { label: "Students", path: "/admin/students" } },
+  { type: "link", item: { label: "Requests", path: "/admin/requests" } },
+  { type: "link", item: { label: "Supervisors", path: "/admin/supervisors" } },
   {
     type: "group",
     label: "Management",
     items: [
-      { label: "Opportunities", path: "/supervisor/opportunities" },
-      { label: "Companies", path: "/supervisor/companies" },
-      { label: "Announcements", path: "/supervisor/announcements" },
+      { label: "Companies", path: "/admin/companies" },
+      { label: "Opportunities", path: "/admin/opportunities" },
+      { label: "Announcements", path: "/admin/announcements" },
     ],
   },
 ];
