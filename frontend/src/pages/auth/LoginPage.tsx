@@ -16,6 +16,9 @@ import { useNavigate } from "react-router-dom";
 import { MOCK_USERS } from "../../mock/users";
 import { useAuth } from "../../context/authContext";
 import logo from "../../assets/images/logo.png";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import BusinessIcon from "@mui/icons-material/Business";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -83,10 +86,10 @@ function LoginPage() {
         case "student":
           navigate("/dashboard");
           break;
-        case "supervisor":
-          navigate("/supervisor/dashboard");
-          break;
         case "admin":
+          navigate("/admin/dashboard");
+          break;
+        case "supervisor":
           navigate("/supervisor/dashboard");
           break;
         case "company":
@@ -256,6 +259,51 @@ function LoginPage() {
             </Stack>
           </Stack>
         </Box>
+        <Card
+          variant="outlined"
+          sx={{
+            mt: 3,
+            borderRadius: 2,
+            borderColor: "#e5e7eb",
+            bgcolor: "#FAFAF9",
+          }}
+        >
+          <CardContent
+            sx={{ display: "flex", alignItems: "center", gap: 2, py: 2.5 }}
+          >
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                borderRadius: 2,
+                bgcolor: "#1C2B4A",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <BusinessIcon sx={{ color: "white", fontSize: 22 }} />
+            </Box>
+            <Box>
+              <Typography
+                variant="subtitle2"
+                sx={{ fontWeight: 700, color: "#1C2B4A" }}
+              >
+                Are you a company?
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Contact us on this email:{" "}
+                <Box
+                  component="span"
+                  sx={{ fontWeight: 600, color: "#1C2B4A" }}
+                >
+                  admin@university.edu.ps
+                </Box>
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
       </Container>
     </Box>
   );

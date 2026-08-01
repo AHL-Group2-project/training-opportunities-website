@@ -67,7 +67,7 @@ function CompanyOpportunitiesPage() {
         <Button
           variant="contained"
           startIcon={<AddIcon />}
-          onClick={() => navigate("/supervisor/opportunities/new")}
+          onClick={() => navigate("/company/opportunities/new")}
           sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
         >
           New Opportunity
