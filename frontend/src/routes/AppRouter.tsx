@@ -14,6 +14,10 @@ import NotFoundPage from "../pages/error/NotFoundPage";
 import UnauthorizedPage from "../pages/error/UnauthorizedPage";
 import RoleRoute from "./RoleRoute";
 import PublicRoute from "./PublicRoute";
+import StudentsListPage from "../pages/supervisor/StudentsListPage";
+import StudentDetailPage from "../pages/supervisor/StudentDetailPage";
+import ReportsPage from "../pages/public/StudentsPage/ReportsPage";
+import StudentProfilePage from "../pages/student/StudentProfilePage";
 
 function AppRouter() {
   return (
@@ -62,10 +66,7 @@ function AppRouter() {
                 path="/training/hours"
                 element={<div>Hours Tracker (coming soon)</div>}
               />
-              <Route
-                path="/training/reports"
-                element={<div>Reports (coming soon)</div>}
-              />
+              <Route path="/training/reports" element={<ReportsPage />} />
               <Route
                 path="/training/ft1"
                 element={<div>FT1 (coming soon)</div>}
@@ -78,10 +79,7 @@ function AppRouter() {
                 path="/notifications"
                 element={<div>Notifications (coming soon)</div>}
               />
-              <Route
-                path="/profile"
-                element={<div>Student Profile (coming soon)</div>}
-              />
+              <Route path="/profile" element={<StudentProfilePage />} />
             </Route>
 
             {/* Supervisor + Admin routes */}
@@ -94,7 +92,11 @@ function AppRouter() {
               />
               <Route
                 path="/supervisor/students"
-                element={<div>Supervisor Students (coming soon)</div>}
+                element={<StudentsListPage />}
+              />
+              <Route
+                path="/supervisor/students/:id"
+                element={<StudentDetailPage />}
               />
               <Route
                 path="/supervisor/opportunities"
