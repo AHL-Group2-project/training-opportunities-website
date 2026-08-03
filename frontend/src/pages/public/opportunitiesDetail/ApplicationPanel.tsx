@@ -1,6 +1,7 @@
 import { Box, Button, Card, Chip, Divider, Typography } from "@mui/material";
 
 import { alpha } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 import type { Opportunity } from "../../../mock/opportunities";
 
@@ -107,15 +108,17 @@ function ApplicationPanel({ opportunity }: ApplicationPanelProps) {
       </Box>
 
       <Button
-        fullWidth
+        component={Link}
+        to={`/opportunities/${opportunity.id}/apply`}
         variant="contained"
-        size="large"
+        fullWidth
         sx={{
-          mt: 3,
-          py: 1.25,
-          borderRadius: 2,
+          borderRadius: 3,
+          py: 1.5,
           textTransform: "none",
           fontWeight: 700,
+          textDecoration: "none",
+          mt: 3,
         }}
       >
         Apply now
