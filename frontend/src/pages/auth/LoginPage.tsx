@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -20,6 +20,21 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import BusinessIcon from "@mui/icons-material/Business";
 
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MINUTES = 3;
+
+function getLoginAttempts(): { count: number; lockedUntil: number | null } {
+  const data = localStorage.getItem("login_attempts");
+  return data ? JSON.parse(data) : { count: 0, lockedUntil: null };
+}
+
+function setLoginAttempts(count: number, lockedUntil: number | null) {
+  localStorage.setItem(
+    "login_attempts",
+    JSON.stringify({ count, lockedUntil }),
+  );
+}
+
 function LoginPage() {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -28,6 +43,23 @@ function LoginPage() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [serverError, setServerError] = useState("");
+  const [lockoutRemaining, setLockoutRemaining] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const attempts = getLoginAttempts();
+      if (attempts.lockedUntil && Date.now() < attempts.lockedUntil) {
+        setLockoutRemaining(
+          Math.ceil((attempts.lockedUntil - Date.now()) / 1000),
+        );
+      } else {
+        setLockoutRemaining(0);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const isLocked = lockoutRemaining > 0;
 
   const validate = () => {
     const newErrors = { email: "", password: "" };
@@ -55,6 +87,12 @@ function LoginPage() {
 
   const handleSubmit = async () => {
     setServerError("");
+    if (isLocked) {
+      const mins = Math.ceil(lockoutRemaining / 60);
+      setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
+      return;
+    }
+
     if (!validate()) return;
 
     setLoading(true);
@@ -68,10 +106,43 @@ function LoginPage() {
       );
 
       if (!user) {
-        setServerError("Invalid email or password.");
+        const freshAttempts = getLoginAttempts();
+
+        // If somehow already locked (edge case), don't increment
+        if (
+          freshAttempts.lockedUntil &&
+          Date.now() < freshAttempts.lockedUntil
+        ) {
+          const mins = Math.ceil(
+            (freshAttempts.lockedUntil - Date.now()) / 60000,
+          );
+          setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
+          setLoading(false);
+          return;
+        }
+
+        const newCount = freshAttempts.count + 1;
+
+        if (newCount >= MAX_ATTEMPTS) {
+          const lockedUntil = Date.now() + LOCKOUT_MINUTES * 60000;
+          setLoginAttempts(0, lockedUntil);
+          setLockoutRemaining(LOCKOUT_MINUTES * 60);
+          setServerError(
+            `Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`,
+          );
+        } else {
+          setLoginAttempts(newCount, null);
+          setServerError(
+            `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`,
+          );
+        }
+
         setLoading(false);
         return;
       }
+
+      setLoginAttempts(0, null);
+      setLockoutRemaining(0);
 
       login({
         id: user.id,
