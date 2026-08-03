@@ -1,126 +1,105 @@
-import { Box, Button, Card, Chip, Divider, Typography } from "@mui/material";
-
-import { alpha } from "@mui/material/styles";
-
+import { Box, Button, Typography } from "@mui/material";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import type { Opportunity } from "../../../mock/opportunities";
 
-type ApplicationPanelProps = {
+interface ApplicationPanelProps {
   opportunity: Opportunity;
-};
+  hasApplied: boolean;
+  isDeadlinePassed: boolean;
+  isSeatsFilled: boolean;
+  isAuthenticated: boolean;
+  onApply: () => void;
+}
 
-function ApplicationPanel({ opportunity }: ApplicationPanelProps) {
+function ApplicationPanel({
+  opportunity,
+  hasApplied,
+  isDeadlinePassed,
+  isSeatsFilled,
+  isAuthenticated,
+  onApply,
+}: ApplicationPanelProps) {
+  const getButtonText = () => {
+    if (!isAuthenticated) return "Login to Apply";
+    if (hasApplied) return "Already Applied";
+    if (isDeadlinePassed) return "Deadline Passed";
+    if (isSeatsFilled) return "Seats Filled";
+    return "Apply Now";
+  };
+
+  const isDisabled =
+    !isAuthenticated || hasApplied || isDeadlinePassed || isSeatsFilled;
+
   return (
-    <Card
-      variant="outlined"
-      sx={(theme) => ({
-        p: {
-          xs: 2.5,
-          md: 3,
-        },
+    <Box
+      sx={{
         borderRadius: 3,
-
-        backgroundColor: alpha(theme.palette.primary.main, 0.06),
-        backgroundImage: "none",
-
-        borderColor: alpha(theme.palette.primary.main, 0.25),
-
-        boxShadow: `0 4px 14px ${alpha(theme.palette.primary.main, 0.06)}`,
-      })}
+        border: "1px solid #e5e7eb",
+        p: 3,
+        bgcolor: "white",
+      }}
     >
       <Typography
-        sx={{
-          color: "text.secondary",
-          fontWeight: 700,
-          textTransform: "uppercase",
-          letterSpacing: 0.8,
-          fontSize: "0.85rem",
-        }}
+        variant="h6"
+        sx={{ fontWeight: 700, color: "#1C2B4A", mb: 2 }}
       >
-        Application closes in
+        Apply for this position
       </Typography>
 
-      <Box
-        sx={(theme) => ({
-          mt: 2,
-          p: 2.5,
-          textAlign: "center",
-          backgroundColor: "background.paper",
-          border: `1px solid ${alpha(theme.palette.primary.main, 0.18)}`,
-          borderRadius: 2,
-        })}
-      >
-        <Typography
-          sx={{
-            color: "primary.main",
-            fontWeight: 700,
-            fontSize: "2.5rem",
-            lineHeight: 1,
-          }}
-        >
-          {opportunity.daysLeft}
-        </Typography>
-
-        <Typography
-          sx={{
-            mt: 1,
-            color: "text.secondary",
-            fontSize: "0.8rem",
-            fontWeight: 600,
-            textTransform: "uppercase",
-          }}
-        >
-          Days remaining
-        </Typography>
-      </Box>
-
-      <Divider
-        sx={(theme) => ({
-          my: 2.5,
-          borderColor: alpha(theme.palette.primary.main, 0.2),
-        })}
-      />
-
-      <Box
-        sx={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: 1,
-        }}
-      >
-        <Chip
-          label={opportunity.workMode}
-          variant="outlined"
-          sx={{ backgroundColor: "background.paper" }}
-        />
-
-        <Chip
-          label={opportunity.duration}
-          variant="outlined"
-          sx={{ backgroundColor: "background.paper" }}
-        />
-
-        <Chip
-          label={`${opportunity.seats} seats`}
-          variant="outlined"
-          sx={{ backgroundColor: "background.paper" }}
-        />
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mb: 3 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <WorkOutlineOutlinedIcon
+            sx={{ color: "text.secondary", fontSize: 20 }}
+          />
+          <Typography variant="body2" color="text.secondary">
+            {opportunity.type}
+          </Typography>
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <LocationOnOutlinedIcon
+            sx={{ color: "text.secondary", fontSize: 20 }}
+          />
+          <Typography variant="body2" color="text.secondary">
+            {opportunity.location}
+          </Typography>
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <CalendarTodayOutlinedIcon
+            sx={{ color: "text.secondary", fontSize: 20 }}
+          />
+          <Typography variant="body2" color="text.secondary">
+            {opportunity.daysLeft} days left
+          </Typography>
+        </Box>
       </Box>
 
       <Button
-        fullWidth
         variant="contained"
-        size="large"
+        fullWidth
+        disabled={isDisabled}
+        onClick={onApply}
         sx={{
-          mt: 3,
-          py: 1.25,
-          borderRadius: 2,
+          bgcolor: isDisabled ? "grey.300" : "#1C2B4A",
           textTransform: "none",
-          fontWeight: 700,
+          py: 1.2,
+          "&:hover": { bgcolor: isDisabled ? "grey.300" : "#2a3f6b" },
         }}
       >
-        Apply now
+        {getButtonText()}
       </Button>
-    </Card>
+
+      {opportunity.seats && (
+        <Typography
+          variant="caption"
+          color="text.secondary"
+          sx={{ mt: 1, display: "block", textAlign: "center" }}
+        >
+          {opportunity.applicants} applied • {opportunity.seats} seats
+        </Typography>
+      )}
+    </Box>
   );
 }
 

@@ -6,7 +6,8 @@ export interface Opportunity {
   location: string;
   seats: number;
   daysLeft: number;
-  appliedCount: number;
+  applicants: number;
+  status?: "active" | "closed" | "draft";
 }
 
 export interface PastIntern {
@@ -24,41 +25,52 @@ export interface Company {
   activeOpportunities: number;
   website: string;
   verified: boolean;
+  isActive?: boolean;
+  activationStatus: "pending" | "active" | "inactive";
+  email?: string;
+  phone?: string;
   opportunities: Opportunity[];
   pastInterns: PastIntern[];
   gallery: string[];
 }
 
-export const mockCompanies: Company[] = [
+export const MOCK_COMPANIES: Company[] = [
   {
     id: 1,
-    name: "TechCorp",
+    name: "AsalTech Solutions",
     industry: "Software",
+    logo: "/src/assets/images/companies/asal.png",
     description: "Leading software house delivering enterprise solutions.",
     location: "Nablus",
     activeOpportunities: 3,
-    website: "techcorp.ps",
+    website: "asaltech.ps",
     verified: true,
+    isActive: true,
+    activationStatus: "active",
+    email: "careers@asaltech.ps",
+    phone: "+970 9 234 5678",
     opportunities: [
       {
         id: 1,
         title: "Frontend Developer Intern",
-        type: "FT1",
+        type: "Full-time",
         skills: ["React", "TypeScript", "MUI"],
         location: "Nablus",
         seats: 2,
         daysLeft: 12,
-        appliedCount: 18,
+        applicants: 18,
+        status: "active",
       },
       {
         id: 2,
         title: "Backend Developer Intern",
-        type: "FT2",
+        type: "Full-time",
         skills: ["Node.js", "Express", "MongoDB"],
         location: "Nablus",
         seats: 1,
         daysLeft: 20,
-        appliedCount: 9,
+        applicants: 9,
+        status: "active",
       },
     ],
     pastInterns: [
@@ -70,23 +82,29 @@ export const mockCompanies: Company[] = [
   },
   {
     id: 2,
-    name: "Design Studio",
+    name: "Foothill",
     industry: "Design",
+    logo: "/src/assets/images/companies/foothill.png",
     description: "Creative studio crafting modern digital experiences.",
     location: "Ramallah",
     activeOpportunities: 1,
     website: "designstudio.ps",
     verified: false,
+    isActive: true,
+    activationStatus: "active",
+    email: "hello@designstudio.ps",
+    phone: "+970 9 298 7654",
     opportunities: [
       {
         id: 3,
         title: "UI/UX Design Intern",
-        type: "FT1",
+        type: "Remote",
         skills: ["Figma", "Adobe XD"],
         location: "Ramallah",
         seats: 1,
         daysLeft: 15,
-        appliedCount: 6,
+        applicants: 6,
+        status: "active",
       },
     ],
     pastInterns: [{ name: "Yousef Karam", major: "Communications Eng." }],
@@ -96,32 +114,39 @@ export const mockCompanies: Company[] = [
     id: 3,
     name: "PalSoft Solutions",
     industry: "Software",
+    logo: "/src/assets/images/companies/palsoft.png",
     description:
       "Custom software development and IT consulting for local businesses.",
     location: "Ramallah",
     activeOpportunities: 2,
     website: "palsoft.ps",
     verified: true,
+    isActive: true,
+    activationStatus: "active",
+    email: "jobs@palsoft.ps",
+    phone: "+970 9 251 0000",
     opportunities: [
       {
         id: 4,
         title: "Full Stack Developer Intern",
-        type: "FT1",
+        type: "Hybrid",
         skills: ["React", "Node.js", "PostgreSQL"],
         location: "Ramallah",
         seats: 2,
         daysLeft: 18,
-        appliedCount: 14,
+        applicants: 14,
+        status: "active",
       },
       {
         id: 5,
         title: "QA Engineer Intern",
-        type: "FT2",
+        type: "Full-time",
         skills: ["Selenium", "Jest", "Manual Testing"],
         location: "Ramallah",
         seats: 1,
         daysLeft: 10,
-        appliedCount: 7,
+        applicants: 7,
+        status: "closed",
       },
     ],
     pastInterns: [
@@ -134,22 +159,28 @@ export const mockCompanies: Company[] = [
     id: 4,
     name: "Hebron Digital Works",
     industry: "Marketing",
+    logo: "/src/assets/images/companies/hebrondigital.png",
     description:
       "Digital marketing agency helping brands grow their online presence.",
     location: "Hebron",
     activeOpportunities: 1,
     website: "hebrondigital.ps",
     verified: false,
+    isActive: true,
+    activationStatus: "active",
+    email: "careers@hebrondigital.ps",
+    phone: "+970 2 222 3333",
     opportunities: [
       {
         id: 6,
         title: "Social Media Marketing Intern",
-        type: "FT1",
+        type: "On-site",
         skills: ["Content Creation", "SEO", "Analytics"],
         location: "Hebron",
         seats: 3,
         daysLeft: 25,
-        appliedCount: 22,
+        applicants: 22,
+        status: "active",
       },
     ],
     pastInterns: [{ name: "Nour Titi", major: "Business Administration" }],
@@ -157,34 +188,41 @@ export const mockCompanies: Company[] = [
   },
   {
     id: 5,
-    name: "Bethlehem Networks",
+    name: "AHL Logics",
     industry: "IT Infrastructure",
+    logo: "/src/assets/images/companies/ahl.png",
     description:
       "Networking and cybersecurity solutions for enterprises across Palestine.",
-    location: "Bethlehem",
+    location: "Hebron",
     activeOpportunities: 2,
     website: "bethlehemnet.ps",
     verified: true,
+    isActive: true,
+    activationStatus: "active",
+    email: "hr@bethlehemnet.ps",
+    phone: "+970 2 277 8888",
     opportunities: [
       {
         id: 7,
         title: "Network Administrator Intern",
-        type: "FT1",
+        type: "On-site",
         skills: ["Cisco", "Linux", "Networking"],
         location: "Bethlehem",
         seats: 1,
         daysLeft: 14,
-        appliedCount: 5,
+        applicants: 5,
+        status: "draft",
       },
       {
         id: 8,
         title: "Cybersecurity Intern",
-        type: "FT2",
+        type: "Hybrid",
         skills: ["Security+", "Wireshark", "Firewalls"],
         location: "Bethlehem",
         seats: 1,
         daysLeft: 22,
-        appliedCount: 11,
+        applicants: 11,
+        status: "active",
       },
     ],
     pastInterns: [
@@ -197,22 +235,28 @@ export const mockCompanies: Company[] = [
     id: 6,
     name: "Jenin AgriTech",
     industry: "AgriTech",
+    logo: "/src/assets/images/companies/jeninagritech.png",
     description:
       "Building smart agriculture technology to support local farmers.",
     location: "Jenin",
     activeOpportunities: 1,
     website: "jeninagritech.ps",
     verified: false,
+    isActive: true,
+    activationStatus: "active",
+    email: "jobs@jeninagritech.ps",
+    phone: "+970 4 250 1234",
     opportunities: [
       {
         id: 9,
         title: "Data Analyst Intern",
-        type: "FT1",
+        type: "Remote",
         skills: ["Python", "Pandas", "Data Visualization"],
         location: "Jenin",
         seats: 2,
         daysLeft: 16,
-        appliedCount: 9,
+        applicants: 9,
+        status: "active",
       },
     ],
     pastInterns: [
@@ -224,32 +268,39 @@ export const mockCompanies: Company[] = [
     id: 7,
     name: "Nablus FinTech",
     industry: "Finance",
+    logo: "/src/assets/images/companies/nablusfintech.png",
     description:
       "Financial technology startup building payment solutions for the region.",
     location: "Nablus",
     activeOpportunities: 2,
     website: "nablusfintech.ps",
     verified: true,
+    isActive: true,
+    activationStatus: "active",
+    email: "careers@nablusfintech.ps",
+    phone: "+970 9 235 9999",
     opportunities: [
       {
         id: 10,
         title: "Backend Developer Intern",
-        type: "FT1",
+        type: "Full-time",
         skills: ["Java", "Spring Boot", "MySQL"],
         location: "Nablus",
         seats: 2,
         daysLeft: 19,
-        appliedCount: 16,
+        applicants: 16,
+        status: "active",
       },
       {
         id: 11,
         title: "Mobile Developer Intern",
-        type: "FT2",
+        type: "Hybrid",
         skills: ["Flutter", "Dart", "Firebase"],
         location: "Nablus",
         seats: 1,
         daysLeft: 8,
-        appliedCount: 13,
+        applicants: 13,
+        status: "active",
       },
     ],
     pastInterns: [
@@ -262,25 +313,34 @@ export const mockCompanies: Company[] = [
     id: 8,
     name: "Gaza Creative Media",
     industry: "Media Production",
+    logo: "/src/assets/images/companies/gazacreative.png",
     description:
       "Video production and creative media studio for regional clients.",
     location: "Gaza",
     activeOpportunities: 1,
     website: "gazacreative.ps",
     verified: false,
+    isActive: true,
+    activationStatus: "active",
+    email: "jobs@gazacreative.ps",
+    phone: "+970 8 282 7777",
     opportunities: [
       {
         id: 12,
         title: "Video Editor Intern",
-        type: "FT1",
+        type: "On-site",
         skills: ["Premiere Pro", "After Effects", "Color Grading"],
         location: "Gaza",
         seats: 2,
         daysLeft: 20,
-        appliedCount: 10,
+        applicants: 10,
+        status: "active",
       },
     ],
     pastInterns: [{ name: "Sami Barakat", major: "Media Studies" }],
     gallery: [],
   },
 ];
+
+// Also export as lowercase for backward compatibility
+export const mockCompanies = MOCK_COMPANIES;

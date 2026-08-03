@@ -24,6 +24,7 @@ export interface Opportunity {
   description?: string;
   responsibilities?: string[];
   requirements?: string[];
+  status?: "active" | "closed" | "draft";
 }
 
 export const MOCK_OPPORTUNITIES: Opportunity[] = [
@@ -44,6 +45,7 @@ export const MOCK_OPPORTUNITIES: Opportunity[] = [
     seats: 3,
     daysLeft: 6,
     applicants: 42,
+    status: "active",
     description:
       "Join the frontend team and help build responsive and accessible web applications for real clients.",
     responsibilities: [
@@ -76,6 +78,7 @@ export const MOCK_OPPORTUNITIES: Opportunity[] = [
     seats: 2,
     daysLeft: 12,
     applicants: 31,
+    status: "active",
     description:
       "Work on scalable APIs and backend services powering enterprise applications for local and international clients.",
     responsibilities: [
@@ -108,6 +111,7 @@ export const MOCK_OPPORTUNITIES: Opportunity[] = [
     seats: 2,
     daysLeft: 3,
     applicants: 18,
+    status: "active",
     description:
       "Join the mobile development team and contribute to building cross-platform mobile applications using Flutter.",
     responsibilities: [
@@ -140,6 +144,7 @@ export const MOCK_OPPORTUNITIES: Opportunity[] = [
     seats: 1,
     daysLeft: 8,
     applicants: 24,
+    status: "active",
     description:
       "Work with the design team to create user-friendly interfaces and improve the overall user experience.",
     responsibilities: [
