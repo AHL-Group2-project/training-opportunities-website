@@ -17,8 +17,7 @@ import OpportunitiesPage from "../pages/public/OpportunitiesPage/OpportunitiesPa
 import OpportunityDetailsPage from "../pages/public/opportunitiesDetail/OpportunityDetailsPage";
 
 import StudentDashboardPage from "../pages/public/StudentDashboardPage/StudentDashboardPage";
-import HoursPage from "../pages/shared/HoursPage/HoursPage";
-
+import HoursPage from "../pages/HoursPage/HoursPage";
 import OpportunityApplicationPage from "../pages/students/OpportunityApplication/OpportunityApplicationPage";
 import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard/SupervisorDashboard";
 import PendingRequestsPage from "../pages/supervisor/PendingRequests/PendingRequestsPage";
