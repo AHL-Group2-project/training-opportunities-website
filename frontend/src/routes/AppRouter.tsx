@@ -1,17 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
+
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+
 import LandingPage from "../pages/public/LandingPage/LandingPage";
 import LoginPage from "../pages/auth/LoginPage";
+
 import StudentsPage from "../pages/public/StudentsPage/StudentsPage";
 import PublicStudentProfilePage from "../pages/public/StudentsPage/PublicStudentProfilePage";
+
 import CompaniesPage from "../pages/public/CompaniesPage/CompaniesPage";
 import PublicCompanyProfilePage from "../pages/public/CompaniesPage/CompanyProfilePage";
+
 import OpportunitiesPage from "../pages/public/OpportunitiesPage/OpportunitiesPage";
 import OpportunityDetailsPage from "../pages/public/opportunitiesDetail/OpportunityDetailsPage";
+
+import StudentDashboardPage from "../pages/public/StudentDashboardPage/StudentDashboardPage";
+import HoursPage from "../pages/shared/HoursPage/HoursPage";
+
 import NotFoundPage from "../pages/error/NotFoundPage";
 import UnauthorizedPage from "../pages/error/UnauthorizedPage";
+
 import ProtectedRoute from "./ProtectedRoute";
 import RoleRoute from "./RoleRoute";
 import PublicRoute from "./PublicRoute";
@@ -70,7 +80,7 @@ function AppRouter() {
             <Route element={<ProtectedRoute />}>
               <Route
                 path="/dashboard"
-                element={<div>Student Dashboard (coming soon)</div>}
+                element={<StudentDashboardPage />}
               />
               <Route path="/applications" element={<ApplicationsPage />} />
               <Route
@@ -79,17 +89,9 @@ function AppRouter() {
               />
               <Route
                 path="/training/hours"
-                element={<div>Hours Tracker (coming soon)</div>}
+                element={<HoursPage />}
               />
               <Route path="/training/reports" element={<ReportsPage />} />
-              <Route
-                path="/training/ft1"
-                element={<div>FT1 (coming soon)</div>}
-              />
-              <Route
-                path="/training/ft2"
-                element={<div>FT2 (coming soon)</div>}
-              />
               <Route
                 path="/notifications"
                 element={<div>Notifications (coming soon)</div>}
@@ -123,7 +125,6 @@ function AppRouter() {
                 path="/supervisor/opportunities"
                 element={<ManageOpportunitiesPage />}
               />
-
               <Route
                 path="/supervisor/opportunities/new"
                 element={<CreateOpportunityPage />}
@@ -132,10 +133,13 @@ function AppRouter() {
                 path="/supervisor/opportunities/:id/edit"
                 element={<CreateOpportunityPage />}
               />
-
               <Route
                 path="/supervisor/announcements"
                 element={<div>Announcements (coming soon)</div>}
+              />
+              <Route
+                path="/training/hours/:studentId"
+                element={<HoursPage />}
               />
             </Route>
 
@@ -177,6 +181,10 @@ function AppRouter() {
                 path="/admin/announcements"
                 element={<div>Announcements (coming soon)</div>}
               />
+              <Route
+                path="/training/hours/:studentId"
+                element={<HoursPage />}
+              />
             </Route>
 
             {/* Company routes */}
@@ -202,6 +210,10 @@ function AppRouter() {
                 element={<CompanyRequestsPage />}
               />
               <Route path="/company/profile" element={<CompanyProfilePage />} />
+              <Route
+                path="/training/hours/:studentId"
+                element={<HoursPage />}
+              />
             </Route>
 
             {/* Error pages */}
