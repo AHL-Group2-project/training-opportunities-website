@@ -19,6 +19,10 @@ import OpportunityDetailsPage from "../pages/public/opportunitiesDetail/Opportun
 import StudentDashboardPage from "../pages/public/StudentDashboardPage/StudentDashboardPage";
 import HoursPage from "../pages/shared/HoursPage/HoursPage";
 
+import OpportunityApplicationPage from "../pages/students/OpportunityApplication/OpportunityApplicationPage";
+import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard/SupervisorDashboard";
+import PendingRequestsPage from "../pages/supervisor/PendingRequests/PendingRequestsPage";
+
 import NotFoundPage from "../pages/error/NotFoundPage";
 import UnauthorizedPage from "../pages/error/UnauthorizedPage";
 
@@ -84,6 +88,10 @@ function AppRouter() {
               />
               <Route path="/applications" element={<ApplicationsPage />} />
               <Route
+                path="/opportunities/:id/apply"
+                element={<OpportunityApplicationPage />}
+              />
+              <Route
                 path="/training/request"
                 element={<InternshipRequestPage />}
               />
@@ -103,7 +111,7 @@ function AppRouter() {
             <Route element={<RoleRoute allowedRoles={["supervisor"]} />}>
               <Route
                 path="/supervisor/dashboard"
-                element={<div>Supervisor Dashboard (coming soon)</div>}
+                element={<SupervisorDashboard />}
               />
               <Route
                 path="/supervisor/students"
@@ -115,7 +123,7 @@ function AppRouter() {
               />
               <Route
                 path="/supervisor/requests"
-                element={<div>Pending Requests (coming soon)</div>}
+                element={<PendingRequestsPage />}
               />
               <Route
                 path="/supervisor/companies"
