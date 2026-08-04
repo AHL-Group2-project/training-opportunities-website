@@ -70,13 +70,15 @@ function LoginPage() {
         return;
       }
 
-      login({
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-        token: "mock-token",
-      });
+   login({
+  id: user.id,
+
+  name: user.name,
+  email: user.email,
+  role: user.role,
+
+  token: "mock-token",
+});
 
       if (user.role === "student") navigate("/dashboard");
       if (user.role === "supervisor") navigate("/supervisor/dashboard");
