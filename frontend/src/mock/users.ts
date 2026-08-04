@@ -72,8 +72,8 @@ export const MOCK_USERS: MockUser[] = [
   /* ─── Supervisor ─── */
   {
     id: 201,
-    name: "Dr. Maher Salamin",
-    email: "maher@university.edu.ps",
+    name: "supervisor",
+    email: "supervisor@university.edu.ps",
     password: "123456",
     role: "supervisor",
   },

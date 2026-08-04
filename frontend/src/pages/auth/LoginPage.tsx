@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -16,6 +16,24 @@ import { useNavigate } from "react-router-dom";
 import { MOCK_USERS } from "../../mock/users";
 import { useAuth } from "../../context/authContext";
 import logo from "../../assets/images/logo.png";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import BusinessIcon from "@mui/icons-material/Business";
+
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MINUTES = 3;
+
+function getLoginAttempts(): { count: number; lockedUntil: number | null } {
+  const data = localStorage.getItem("login_attempts");
+  return data ? JSON.parse(data) : { count: 0, lockedUntil: null };
+}
+
+function setLoginAttempts(count: number, lockedUntil: number | null) {
+  localStorage.setItem(
+    "login_attempts",
+    JSON.stringify({ count, lockedUntil }),
+  );
+}
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -25,6 +43,23 @@ function LoginPage() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [serverError, setServerError] = useState("");
+  const [lockoutRemaining, setLockoutRemaining] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const attempts = getLoginAttempts();
+      if (attempts.lockedUntil && Date.now() < attempts.lockedUntil) {
+        setLockoutRemaining(
+          Math.ceil((attempts.lockedUntil - Date.now()) / 1000),
+        );
+      } else {
+        setLockoutRemaining(0);
+      }
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const isLocked = lockoutRemaining > 0;
 
   const validate = () => {
     const newErrors = { email: "", password: "" };
@@ -52,6 +87,12 @@ function LoginPage() {
 
   const handleSubmit = async () => {
     setServerError("");
+    if (isLocked) {
+      const mins = Math.ceil(lockoutRemaining / 60);
+      setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
+      return;
+    }
+
     if (!validate()) return;
 
     setLoading(true);
@@ -65,24 +106,69 @@ function LoginPage() {
       );
 
       if (!user) {
-        setServerError("Invalid email or password.");
+        const freshAttempts = getLoginAttempts();
+
+        // If somehow already locked (edge case), don't increment
+        if (
+          freshAttempts.lockedUntil &&
+          Date.now() < freshAttempts.lockedUntil
+        ) {
+          const mins = Math.ceil(
+            (freshAttempts.lockedUntil - Date.now()) / 60000,
+          );
+          setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
+          setLoading(false);
+          return;
+        }
+
+        const newCount = freshAttempts.count + 1;
+
+        if (newCount >= MAX_ATTEMPTS) {
+          const lockedUntil = Date.now() + LOCKOUT_MINUTES * 60000;
+          setLoginAttempts(0, lockedUntil);
+          setLockoutRemaining(LOCKOUT_MINUTES * 60);
+          setServerError(
+            `Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`,
+          );
+        } else {
+          setLoginAttempts(newCount, null);
+          setServerError(
+            `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`,
+          );
+        }
+
         setLoading(false);
         return;
       }
 
-   login({
-  id: user.id,
+      setLoginAttempts(0, null);
+      setLockoutRemaining(0);
 
-  name: user.name,
-  email: user.email,
-  role: user.role,
+      login({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        token: "mock-token",
+        companyId: user.companyId,
+      });
 
-  token: "mock-token",
-});
-
-      if (user.role === "student") navigate("/dashboard");
-      if (user.role === "supervisor") navigate("/supervisor/dashboard");
-      if (user.role === "admin") navigate("/supervisor/dashboard");
+      switch (user.role) {
+        case "student":
+          navigate("/dashboard");
+          break;
+        case "admin":
+          navigate("/admin/dashboard");
+          break;
+        case "supervisor":
+          navigate("/supervisor/dashboard");
+          break;
+        case "company":
+          navigate("/company/dashboard");
+          break;
+        default:
+          navigate("/");
+      }
 
       setLoading(false);
     }, 1000);
@@ -244,6 +330,51 @@ function LoginPage() {
             </Stack>
           </Stack>
         </Box>
+        <Card
+          variant="outlined"
+          sx={{
+            mt: 3,
+            borderRadius: 2,
+            borderColor: "#e5e7eb",
+            bgcolor: "#FAFAF9",
+          }}
+        >
+          <CardContent
+            sx={{ display: "flex", alignItems: "center", gap: 2, py: 2.5 }}
+          >
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                borderRadius: 2,
+                bgcolor: "#1C2B4A",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <BusinessIcon sx={{ color: "white", fontSize: 22 }} />
+            </Box>
+            <Box>
+              <Typography
+                variant="subtitle2"
+                sx={{ fontWeight: 700, color: "#1C2B4A" }}
+              >
+                Are you a company?
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Contact us on this email:{" "}
+                <Box
+                  component="span"
+                  sx={{ fontWeight: 600, color: "#1C2B4A" }}
+                >
+                  admin@university.edu.ps
+                </Box>
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
       </Container>
     </Box>
   );

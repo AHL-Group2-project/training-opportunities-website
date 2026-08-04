@@ -233,18 +233,32 @@ function Navbar() {
               >
                 {accountMenuItems.map((item) => (
                   <MenuItem
-                    key={item.path}
+                    key={item.label}
                     onClick={() => {
                       setAccountAnchor(null);
 
-                      if (item.label === "Logout") {
-                        logout();
-                        navigate("/");
-                        return;
+                      switch (item.label) {
+                        case "Logout":
+                          logout();
+                          navigate("/");
+                          return;
+                        // Route based on role
+                        case "Profile":
+                          switch (user?.role) {
+                            case "company":
+                              navigate("/company/profile");
+                              break;
+                            case "student":
+                              navigate("/profile");
+                              break;
+                            default:
+                              navigate("/profile");
+                          }
+                          return;
+                        default:
+                          if (item.path) navigate(item.path);
                       }
                     }}
-                    component={item.label === "Logout" ? "button" : RouterLink}
-                    {...(item.label === "Logout" ? {} : { to: item.path })}
                   >
                     {item.label}
                   </MenuItem>
