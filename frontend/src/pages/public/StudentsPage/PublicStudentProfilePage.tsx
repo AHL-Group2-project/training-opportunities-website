@@ -1,12 +1,12 @@
 import { Container, Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-import ProfileHero from "../../../components/profileComp/ProfileHero";
-import ProfileSidebar from "../../../components/profileComp/ProfileSidebar";
-import SkillsCard from "../../../components/profileComp/SkillsCard";
-import ProjectsCard from "../../../components/profileComp/ProjectsCard";
-import ExperienceCard from "../../../components/profileComp/ExperienceCard";
-import CertificatesCard from "../../../components/profileComp/CertificatesCard";
+import ProfileHero from "./profileComp/ProfileHero";
+import ProfileSidebar from "./profileComp/ProfileSidebar";
+import SkillsCard from "./profileComp/SkillsCard";
+import ProjectsCard from "./profileComp/ProjectsCard";
+import ExperienceCard from "./profileComp/ExperienceCard";
+
 
 import { students } from "../../../mock/students";
 
@@ -37,7 +37,6 @@ export default function PublicStudentProfilePage() {
             <SkillsCard student={student} />
             <ProjectsCard student={student} />
             <ExperienceCard student={student} />
-            <CertificatesCard student={student} />
           </Grid>
         </Grid>
       </Container>

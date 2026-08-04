@@ -5,28 +5,28 @@ type Props = {
   student: Student;
 };
 
-export default function CertificatesCard({ student }: Props) {
+export default function SkillsCard({ student }: Props) {
   return (
     <Card
       sx={{
         borderRadius: 3,
+        mb: 3,
       }}
     >
       <CardContent>
         <Typography variant="h6" sx={{ mb: 2 }}>
-          Certificates
+          Skills
         </Typography>
 
         <Stack
           direction="row"
-          spacing={2}
+          spacing={1}
           sx={{
             flexWrap: "wrap",
-            gap: 2,
           }}
         >
-          {student.certificates.map((certificate) => (
-            <Chip key={certificate} label={certificate} />
+          {student.skills.map((skill) => (
+            <Chip key={skill} label={skill} />
           ))}
         </Stack>
       </CardContent>

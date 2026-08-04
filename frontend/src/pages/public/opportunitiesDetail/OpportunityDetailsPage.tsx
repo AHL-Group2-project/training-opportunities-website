@@ -1,7 +1,8 @@
-// src/pages/public/opportunitiesDetail/OpportunityDetailsPage.tsx
 import { Box, Button, Typography } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
-import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities"; // ← changed: MOCK_OPPORTUNITIES
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
+import { MOCK_APPLICATIONS } from "../../../mock/applications";
+import { useAuth } from "../../../context/authContext";
 import OpportunityDetailsHeader from "./OpportunityDetailsHeader";
 import OpportunityContent from "./OpportunityContent";
 import ApplicationPanel from "./ApplicationPanel";
@@ -9,8 +10,10 @@ import CompanyCard from "./CompanyCard";
 
 function OpportunityDetailsPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { user, isAuthenticated } = useAuth();
 
-  const opportunity = MOCK_OPPORTUNITIES.find((item) => item.id === Number(id)); // ← changed
+  const opportunity = MOCK_OPPORTUNITIES.find((item) => item.id === Number(id));
 
   if (!opportunity) {
     return (
@@ -33,6 +36,23 @@ function OpportunityDetailsPage() {
     );
   }
 
+  // Check if already applied
+  const hasApplied =
+    isAuthenticated && user
+      ? MOCK_APPLICATIONS.some(
+          (a) => a.studentId === user.id && a.opportunityId === opportunity.id,
+        )
+      : false;
+
+  // Check if deadline passed
+  const isDeadlinePassed =
+    opportunity.daysLeft !== undefined && opportunity.daysLeft <= 0;
+
+  // Check if seats filled (auto-close)
+  const isSeatsFilled =
+    opportunity.seats !== undefined &&
+    opportunity.applicants >= opportunity.seats;
+
   return (
     <Box
       sx={{
@@ -54,7 +74,14 @@ function OpportunityDetailsPage() {
       >
         <OpportunityContent opportunity={opportunity} />
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <ApplicationPanel opportunity={opportunity} />
+          <ApplicationPanel
+            opportunity={opportunity}
+            hasApplied={hasApplied}
+            isDeadlinePassed={isDeadlinePassed}
+            isSeatsFilled={isSeatsFilled}
+            isAuthenticated={isAuthenticated}
+            onApply={() => navigate(`/opportunities/${opportunity.id}/apply`)}
+          />
           <CompanyCard opportunity={opportunity} />
         </Box>
       </Box>
