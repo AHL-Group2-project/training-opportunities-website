@@ -18,6 +18,7 @@ import OpportunityDetailsPage from "../pages/public/opportunitiesDetail/Opportun
 
 import StudentDashboardPage from "../pages/public/StudentDashboardPage/StudentDashboardPage";
 import HoursPage from "../pages/HoursPage/HoursPage";
+
 import OpportunityApplicationPage from "../pages/students/OpportunityApplication/OpportunityApplicationPage";
 import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard/SupervisorDashboard";
 import PendingRequestsPage from "../pages/supervisor/PendingRequests/PendingRequestsPage";
@@ -44,8 +45,15 @@ import CompanyDashboardPage from "../pages/company/CompanyDashboardPage/CompanyD
 import CompanyOpportunitiesPage from "../pages/company/CompanyOpportunitiesPage/CompanyOpportunitiesPage";
 import CompanyRequestsPage from "../pages/company/CompanyRequestsPage/CompanyRequestsPage";
 import CompanyProfilePage from "../pages/company/CompanyProfilePage/CompanyProfilePage";
+import CompanyApplicationsPage from "../pages/company/CompanyApplicationsPage/CompanyApplicationsPage";
 
 import CompanyActivationPage from "../pages/auth/CompanyActivationPage";
+
+/* ═══ ADMIN PAGES ═══ */
+import AdminDashboardPage from "../pages/admin/AdminDashboardPage/AdminDashboardPage";
+import AdminStudentsPage from "../pages/admin/AdminStudentsPage/AdminStudentsPage";
+import AdminRequestsPage from "../pages/admin/AdminRequestsPage/AdminRequestsPage";
+import AdminSupervisorsPage from "../pages/admin/AdminSupervisorsPage/AdminSupervisorsPage";
 
 function AppRouter() {
   return (
@@ -54,7 +62,7 @@ function AppRouter() {
         sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
         <Navbar />
-        <Box component="main" sx={{ flex: 1, bgcolor: "white" }}>
+        <Box component="main" sx={{ flex: 1, bgcolor: "background.default" }}>
           <Routes>
             {/* Public routes */}
             <Route path="/" element={<LandingPage />} />
@@ -81,10 +89,7 @@ function AppRouter() {
 
             {/* Student routes */}
             <Route element={<ProtectedRoute />}>
-              <Route
-                path="/dashboard"
-                element={<StudentDashboardPage />}
-              />
+              <Route path="/dashboard" element={<StudentDashboardPage />} />
               <Route path="/applications" element={<ApplicationsPage />} />
               <Route
                 path="/opportunities/:id/apply"
@@ -94,10 +99,7 @@ function AppRouter() {
                 path="/training/request"
                 element={<InternshipRequestPage />}
               />
-              <Route
-                path="/training/hours"
-                element={<HoursPage />}
-              />
+              <Route path="/training/hours" element={<HoursPage />} />
               <Route path="/training/reports" element={<ReportsPage />} />
               <Route
                 path="/notifications"
@@ -141,10 +143,6 @@ function AppRouter() {
                 element={<CreateOpportunityPage />}
               />
               <Route
-                path="/supervisor/announcements"
-                element={<div>Announcements (coming soon)</div>}
-              />
-              <Route
                 path="/training/hours/:studentId"
                 element={<HoursPage />}
               />
@@ -152,21 +150,12 @@ function AppRouter() {
 
             {/* Admin routes */}
             <Route element={<RoleRoute allowedRoles={["admin"]} />}>
-              <Route
-                path="/admin/dashboard"
-                element={<div>Admin Dashboard (coming soon)</div>}
-              />
-              <Route
-                path="/admin/students"
-                element={<div>Admin Students (coming soon)</div>}
-              />
-              <Route
-                path="/admin/requests"
-                element={<div>Admin Requests (coming soon)</div>}
-              />
+              <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+              <Route path="/admin/students" element={<AdminStudentsPage />} />
+              <Route path="/admin/requests" element={<AdminRequestsPage />} />
               <Route
                 path="/admin/supervisors"
-                element={<div>Supervisor Management (coming soon)</div>}
+                element={<AdminSupervisorsPage />}
               />
               <Route
                 path="/admin/companies"
@@ -183,10 +172,6 @@ function AppRouter() {
               <Route
                 path="/admin/opportunities/:id/edit"
                 element={<CreateOpportunityPage />}
-              />
-              <Route
-                path="/admin/announcements"
-                element={<div>Announcements (coming soon)</div>}
               />
               <Route
                 path="/training/hours/:studentId"
@@ -211,6 +196,10 @@ function AppRouter() {
               <Route
                 path="/company/opportunities/:id/edit"
                 element={<CreateOpportunityPage />}
+              />
+              <Route
+                path="/company/applications"
+                element={<CompanyApplicationsPage />}
               />
               <Route
                 path="/company/requests"
