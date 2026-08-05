@@ -4,7 +4,6 @@ import WelcomeBanner from "./WelcomeBanner";
 import StatsCards from "./StatsCards";
 import QuickActions from "./QuickActions";
 
-
 export default function StudentDashboardPage() {
   return (
     <Container
@@ -19,7 +18,6 @@ export default function StudentDashboardPage() {
         <StatsCards />
 
         <QuickActions />
-
       </Stack>
     </Container>
   );

@@ -1,10 +1,4 @@
-import {
-  Button,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export default function QuickActions() {
@@ -13,10 +7,7 @@ export default function QuickActions() {
   return (
     <Card sx={{ borderRadius: 4 }}>
       <CardContent>
-        <Typography
-          variant="h6"
-          sx={{ mb: 3 }}
-        >
+        <Typography variant="h6" sx={{ mb: 3 }}>
           Quick Actions
         </Typography>
 
@@ -52,14 +43,14 @@ export default function QuickActions() {
           </Grid>
 
           <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-  <Button
-    fullWidth
-    variant="contained"
-    onClick={() => navigate("/companies")}
-  >
-    Browse Companies
-  </Button>
-</Grid>
+            <Button
+              fullWidth
+              variant="contained"
+              onClick={() => navigate("/companies")}
+            >
+              Browse Companies
+            </Button>
+          </Grid>
         </Grid>
       </CardContent>
     </Card>

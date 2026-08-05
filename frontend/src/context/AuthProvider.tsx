@@ -14,21 +14,14 @@ function getStoredUser(): AuthUser | null {
   }
 }
 
-export function AuthProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(getStoredUser);
 
   const login = (userData: AuthUser) => {
     setUser(userData);
 
     localStorage.setItem("token", userData.token);
-    localStorage.setItem(
-      "user",
-      JSON.stringify(userData)
-    );
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
   const logout = () => {

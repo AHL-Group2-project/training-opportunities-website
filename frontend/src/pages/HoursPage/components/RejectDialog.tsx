@@ -52,7 +52,10 @@ export default function RejectDialog({
         />
       </DialogContent>
       <DialogActions sx={{ px: 3, pb: 2 }}>
-        <Button onClick={onClose} sx={{ textTransform: "none", color: "text.secondary" }}>
+        <Button
+          onClick={onClose}
+          sx={{ textTransform: "none", color: "text.secondary" }}
+        >
           Cancel
         </Button>
         <Button

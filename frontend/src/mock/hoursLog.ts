@@ -17,13 +17,12 @@ export interface HoursEntry {
   trainingType: TrainingType;
 }
 
-
 export const HOURS_CONFIG = {
   maxHoursPerDay: 8,
   maxHoursPerEntry: 8,
   minStartTime: "08:00",
   maxStartTime: "19:00",
-  forbiddenDay: 5, 
+  forbiddenDay: 5,
   requiredFt1Hours: 150,
   requiredFt2Hours: 150,
 } as const;

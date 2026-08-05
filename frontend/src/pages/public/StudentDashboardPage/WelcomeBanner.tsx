@@ -17,8 +17,8 @@ export default function WelcomeBanner() {
     currentHour < 12
       ? "Good Morning"
       : currentHour < 18
-      ? "Good Afternoon"
-      : "Good Evening";
+        ? "Good Afternoon"
+        : "Good Evening";
 
   return (
     <Card
@@ -37,9 +37,7 @@ export default function WelcomeBanner() {
             {greeting}, {user?.name}
           </Typography>
 
-          <Typography color="text.secondary">
-            {today}
-          </Typography>
+          <Typography color="text.secondary">{today}</Typography>
 
           <Typography color="text.secondary">
             Welcome back to your Field Training dashboard.

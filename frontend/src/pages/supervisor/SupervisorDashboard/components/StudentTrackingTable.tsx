@@ -150,9 +150,7 @@ function StudentTrackingTable() {
 
               <TableCell sx={{ fontWeight: 700 }}>Company</TableCell>
 
-              <TableCell sx={{ fontWeight: 700 }}>
-                Training Type
-              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Training Type</TableCell>
 
               <TableCell sx={{ fontWeight: 700 }}>Progress</TableCell>
 
@@ -229,9 +227,7 @@ function StudentTrackingTable() {
 
                   {/* الشركة */}
                   <TableCell>
-                    <Typography variant="body2">
-                      {student.company}
-                    </Typography>
+                    <Typography variant="body2">{student.company}</Typography>
                   </TableCell>
 
                   {/* نوع التدريب */}
@@ -271,9 +267,7 @@ function StudentTrackingTable() {
                             width: `${student.progress}%`,
                             height: "100%",
                             backgroundColor:
-                              student.progress === 100
-                                ? "#2E9D65"
-                                : "#6D4CCB",
+                              student.progress === 100 ? "#2E9D65" : "#6D4CCB",
                             borderRadius: 10,
                           }}
                         />

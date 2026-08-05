@@ -7,7 +7,6 @@ import SkillsCard from "./profileComp/SkillsCard";
 import ProjectsCard from "./profileComp/ProjectsCard";
 import ExperienceCard from "./profileComp/ExperienceCard";
 
-
 import { students } from "../../../mock/students";
 
 export default function PublicStudentProfilePage() {

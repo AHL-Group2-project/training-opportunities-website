@@ -61,10 +61,7 @@ export interface Training {
 
   deadlines: Deadline[];
 
-  supervisorStatus:
-    | "Not Started"
-    | "Pending"
-    | "Approved";
+  supervisorStatus: "Not Started" | "Pending" | "Approved";
 
   evaluation: Evaluation;
 }

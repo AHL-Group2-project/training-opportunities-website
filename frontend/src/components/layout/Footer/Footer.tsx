@@ -25,11 +25,13 @@ function Footer() {
     <Box
       component="footer"
       sx={{
+        backgroundColor: "rgba(11, 15, 25, 0.6)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        color: "#94A3B8",
+        py: 4,
         mt: "auto",
-        background:
-          "linear-gradient(135deg, #111827 0%, #1f2937 55%, #0f172a 100%)",
-        color: "#f9fafb",
-        py: { xs: 2.5, md: 2.5 },
+        borderTop: "1px solid rgba(255, 255, 255, 0.06)",
       }}
     >
       <Container maxWidth="xl">

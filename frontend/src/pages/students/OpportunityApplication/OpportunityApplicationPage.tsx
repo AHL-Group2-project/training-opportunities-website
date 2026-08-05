@@ -30,9 +30,7 @@ function OpportunityApplicationPage() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const opportunity = MOCK_OPPORTUNITIES.find(
-    (item) => item.id === Number(id),
-  );
+  const opportunity = MOCK_OPPORTUNITIES.find((item) => item.id === Number(id));
 
   if (!opportunity) {
     return (
@@ -43,11 +41,7 @@ function OpportunityApplicationPage() {
           textAlign: "center",
         }}
       >
-        <Typography
-          component="h1"
-          variant="h4"
-          sx={{ fontWeight: 700 }}
-        >
+        <Typography component="h1" variant="h4" sx={{ fontWeight: 700 }}>
           Opportunity not found
         </Typography>
 
@@ -159,8 +153,7 @@ function OpportunityApplicationPage() {
           </Typography>
 
           <Typography color="text.secondary">
-            Complete the application form and upload the required
-            documents.
+            Complete the application form and upload the required documents.
           </Typography>
         </Box>
 
@@ -259,12 +252,9 @@ function OpportunityApplicationPage() {
             Student information
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
-            Review your account information and enter the required
-            university details.
+          <Typography variant="body2" color="text.secondary">
+            Review your account information and enter the required university
+            details.
           </Typography>
 
           <Box
@@ -310,9 +300,7 @@ function OpportunityApplicationPage() {
               fullWidth
               label="University ID"
               value={studentId}
-              onChange={(event) =>
-                setStudentId(event.target.value)
-              }
+              onChange={(event) => setStudentId(event.target.value)}
               slotProps={{
                 inputLabel: {
                   shrink: true,
@@ -326,9 +314,7 @@ function OpportunityApplicationPage() {
               type="tel"
               label="Phone number"
               value={phoneNumber}
-              onChange={(event) =>
-                setPhoneNumber(event.target.value)
-              }
+              onChange={(event) => setPhoneNumber(event.target.value)}
               slotProps={{
                 inputLabel: {
                   shrink: true,
@@ -345,9 +331,7 @@ function OpportunityApplicationPage() {
             label="Cover letter"
             placeholder="Tell the company why you are interested in this opportunity..."
             value={coverLetter}
-            onChange={(event) =>
-              setCoverLetter(event.target.value)
-            }
+            onChange={(event) => setCoverLetter(event.target.value)}
             slotProps={{
               inputLabel: {
                 shrink: true,
@@ -370,11 +354,7 @@ function OpportunityApplicationPage() {
             Required documents
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ mb: 3 }}
-          >
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
             Upload your CV. Accepted formats: PDF, DOC and DOCX.
           </Typography>
 
@@ -423,9 +403,7 @@ function OpportunityApplicationPage() {
                   type="file"
                   accept=".pdf,.doc,.docx"
                   onChange={(event) =>
-                    setCvFile(
-                      event.target.files?.[0] ?? null,
-                    )
+                    setCvFile(event.target.files?.[0] ?? null)
                   }
                 />
               </Button>
@@ -445,7 +423,6 @@ function OpportunityApplicationPage() {
                 </Button>
               )}
             </Box>
-
           </Box>
 
           {/* Actions */}

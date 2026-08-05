@@ -56,17 +56,7 @@ function Navbar() {
     [userName],
   );
   return (
-    <AppBar
-      position="sticky"
-      elevation={0}
-      color="transparent"
-      sx={{
-        borderBottom: 1,
-        borderColor: "divider",
-        backdropFilter: "blur(14px)",
-        backgroundColor: "rgba(246, 243, 238, 0.9)",
-      }}
-    >
+    <AppBar position="sticky" elevation={0}>
       <Toolbar
         sx={{
           minHeight: 72,

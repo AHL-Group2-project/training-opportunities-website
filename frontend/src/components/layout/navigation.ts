@@ -8,23 +8,13 @@ export type NavItem = {
 };
 
 export type NavEntry =
-  | {
-      type: "link";
-      item: NavItem;
-    }
-  | {
-      type: "group";
-      label: string;
-      items: NavItem[];
-    };
+  | { type: "link"; item: NavItem }
+  | { type: "group"; label: string; items: NavItem[] };
 
 const publicNavEntries: NavEntry[] = [
   { type: "link", item: { label: "Opportunities", path: "/opportunities" } },
   { type: "link", item: { label: "Companies", path: "/companies" } },
-  {
-    type: "link",
-    item: { label: "Students", path: "/students" },
-  },
+  { type: "link", item: { label: "Students", path: "/students" } },
 ];
 
 const studentNavEntries: NavEntry[] = [
@@ -35,9 +25,8 @@ const studentNavEntries: NavEntry[] = [
     label: "Training",
     items: [
       { label: "Hours", path: "/training/hours" },
+      { label: "Request", path: "/training/request" },
       { label: "Reports", path: "/training/reports" },
-      { label: "FT1", path: "/training/ft1" },
-      { label: "FT2", path: "/training/ft2" },
     ],
   },
 ];
@@ -48,19 +37,10 @@ const supervisorNavEntries: NavEntry[] = [
   { type: "link", item: { label: "Requests", path: "/supervisor/requests" } },
   {
     type: "group",
-    label: "Training",
-    items: [
-      { label: "Hours Review", path: "/supervisor/hours" },
-      { label: "Reports Review", path: "/supervisor/reports" },
-    ],
-  },
-  {
-    type: "group",
     label: "Manage",
     items: [
       { label: "Opportunities", path: "/supervisor/opportunities" },
-      { label: "Companies", path: "/supervisor/companies" }, // View-only
-      { label: "Announcements", path: "/supervisor/announcements" },
+      { label: "Companies", path: "/supervisor/companies" },
     ],
   },
 ];
@@ -76,7 +56,6 @@ const adminNavEntries: NavEntry[] = [
     items: [
       { label: "Companies", path: "/admin/companies" },
       { label: "Opportunities", path: "/admin/opportunities" },
-      { label: "Announcements", path: "/admin/announcements" },
     ],
   },
 ];
@@ -86,6 +65,10 @@ const companyNavEntries: NavEntry[] = [
   {
     type: "link",
     item: { label: "My Opportunities", path: "/company/opportunities" },
+  },
+  {
+    type: "link",
+    item: { label: "Applications", path: "/company/applications" },
   },
   {
     type: "link",

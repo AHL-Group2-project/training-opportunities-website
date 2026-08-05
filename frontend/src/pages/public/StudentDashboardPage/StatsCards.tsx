@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  Chip,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Chip, Grid, Typography } from "@mui/material";
 
 import { useAuth } from "../../../context/authContext";
 import { students } from "../../../mock/students";
@@ -57,10 +51,7 @@ export default function StatsCards() {
       <Grid size={{ xs: 12, md: 3 }}>
         <Card sx={{ borderRadius: 4 }}>
           <CardContent>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-            >
+            <Typography variant="body2" color="text.secondary">
               Applications
             </Typography>
 
@@ -79,10 +70,7 @@ export default function StatsCards() {
       <Grid size={{ xs: 12, md: 3 }}>
         <Card sx={{ borderRadius: 4 }}>
           <CardContent>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-            >
+            <Typography variant="body2" color="text.secondary">
               Hours Logged
             </Typography>
 
@@ -101,18 +89,11 @@ export default function StatsCards() {
       <Grid size={{ xs: 12, md: 3 }}>
         <Card sx={{ borderRadius: 4 }}>
           <CardContent>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ mb: 2 }}
-            >
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               FT1
             </Typography>
 
-            <Chip
-              label={ft1Status.label}
-              color={ft1Status.color}
-            />
+            <Chip label={ft1Status.label} color={ft1Status.color} />
           </CardContent>
         </Card>
       </Grid>
@@ -120,18 +101,11 @@ export default function StatsCards() {
       <Grid size={{ xs: 12, md: 3 }}>
         <Card sx={{ borderRadius: 4 }}>
           <CardContent>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ mb: 2 }}
-            >
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               FT2
             </Typography>
 
-            <Chip
-              label={ft2Status.label}
-              color={ft2Status.color}
-            />
+            <Chip label={ft2Status.label} color={ft2Status.color} />
           </CardContent>
         </Card>
       </Grid>
