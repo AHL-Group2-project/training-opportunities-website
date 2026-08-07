@@ -13,7 +13,6 @@ function CompanyCard({ opportunity }: CompanyCardProps) {
 
   return (
     <Card
-      variant="outlined"
       sx={(theme) => ({
         p: {
           xs: 2.5,

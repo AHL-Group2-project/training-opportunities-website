@@ -26,7 +26,7 @@ function OpportunityCard({ opportunity }: Props) {
         maxWidth: 320,
         borderRadius: 2,
         border: "1px solid",
-        borderColor: "grey.200",
+        borderColor: "divider",
         boxShadow: "none",
         transition: "transform .2s, box-shadow .2s",
         display: "flex",
@@ -44,7 +44,7 @@ function OpportunityCard({ opportunity }: Props) {
         alt={opportunity.company}
         height="100"
         image={opportunity.logo || "/logo.png"}
-        sx={{ objectFit: "contain", p: 1.5, bgcolor: "white" }}
+        sx={{ objectFit: "contain", p: 1.5, bgcolor: "transparent" }}
       />
 
       <CardContent sx={{ flexGrow: 1, py: 1.5, px: 2 }}>
@@ -54,8 +54,8 @@ function OpportunityCard({ opportunity }: Props) {
           size="small"
           sx={{
             mb: 0.75,
-            bgcolor: "#EEF4FF",
-            color: "#4A90D9",
+            bgcolor: "rgba(74, 144, 217, 0.1)",
+            color: "info.main",
             fontWeight: 500,
             height: 22,
             fontSize: "0.7rem",
@@ -67,7 +67,7 @@ function OpportunityCard({ opportunity }: Props) {
           variant="h6"
           component="div"
           sx={{
-            color: "#1C2B4A",
+            color: "text.primary",
             fontWeight: 700,
             fontSize: "1rem",
             lineHeight: 1.3,
@@ -91,7 +91,7 @@ function OpportunityCard({ opportunity }: Props) {
               key={skill}
               label={skill}
               size="small"
-              variant="outlined"
+
               sx={{ fontSize: "0.7rem", height: 22 }}
             />
           ))}
@@ -126,7 +126,7 @@ function OpportunityCard({ opportunity }: Props) {
         <Button
           size="small"
           onClick={() => navigate(`/opportunities/${opportunity.id}`)}
-          sx={{ color: "#4A90D9", fontWeight: 600, fontSize: "0.8rem" }}
+          sx={{ color: "info.main", fontWeight: 600, fontSize: "0.8rem" }}
         >
           View Details
         </Button>

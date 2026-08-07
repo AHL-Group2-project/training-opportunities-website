@@ -16,44 +16,36 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
     >
       {/* About this opportunity */}
       <Card
-        variant="outlined"
         sx={{
           p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
-          backgroundColor: "#EFF6FF",
-          backgroundImage: "none",
-          borderColor: "#BFDBFE",
-          boxShadow: "0 4px 14px rgba(37, 99, 235, 0.06)",
+          borderLeft: "4px solid #3B82F6",
         }}
       >
         <Typography
           component="h2"
           variant="h6"
-          sx={{ color: "#1E3A8A", fontWeight: 700 }}
+          sx={{ color: "#3B82F6", fontWeight: 700 }}
         >
           About this opportunity
         </Typography>
-        <Typography sx={{ mt: 2, color: "#475569", lineHeight: 1.8 }}>
+        <Typography sx={{ mt: 2, color: "text.secondary", lineHeight: 1.8 }}>
           {opportunity.description}
         </Typography>
       </Card>
 
       {/* Responsibilities */}
       <Card
-        variant="outlined"
         sx={{
           p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
-          backgroundColor: "#ECFDF5",
-          backgroundImage: "none",
-          borderColor: "#A7F3D0",
-          boxShadow: "0 4px 14px rgba(5, 150, 105, 0.06)",
+          borderLeft: "4px solid #10B981",
         }}
       >
         <Typography
           component="h2"
           variant="h6"
-          sx={{ color: "#065F46", fontWeight: 700 }}
+          sx={{ color: "#10B981", fontWeight: 700 }}
         >
           Responsibilities
         </Typography>
@@ -64,9 +56,9 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
               key={responsibility}
               sx={{
                 mb: 1.25,
-                color: "#475569",
+                color: "text.secondary",
                 lineHeight: 1.6,
-                "&::marker": { color: "#059669" },
+                "&::marker": { color: "#10B981" },
               }}
             >
               {responsibility}
@@ -77,20 +69,16 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
 
       {/* Requirements */}
       <Card
-        variant="outlined"
         sx={{
           p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
-          backgroundColor: "#FFF7ED",
-          backgroundImage: "none",
-          borderColor: "#FED7AA",
-          boxShadow: "0 4px 14px rgba(234, 88, 12, 0.06)",
+          borderLeft: "4px solid #F59E0B",
         }}
       >
         <Typography
           component="h2"
           variant="h6"
-          sx={{ color: "#9A3412", fontWeight: 700 }}
+          sx={{ color: "#F59E0B", fontWeight: 700 }}
         >
           Requirements
         </Typography>
@@ -101,9 +89,9 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
               key={requirement}
               sx={{
                 mb: 1.25,
-                color: "#475569",
+                color: "text.secondary",
                 lineHeight: 1.6,
-                "&::marker": { color: "#EA580C" },
+                "&::marker": { color: "#F59E0B" },
               }}
             >
               {requirement}
@@ -114,20 +102,16 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
 
       {/* Skills */}
       <Card
-        variant="outlined"
         sx={{
           p: { xs: 2.5, md: 3.5 },
           borderRadius: 3,
-          backgroundColor: "#F5F3FF",
-          backgroundImage: "none",
-          borderColor: "#DDD6FE",
-          boxShadow: "0 4px 14px rgba(109, 40, 217, 0.06)",
+          borderLeft: "4px solid #A855F7",
         }}
       >
         <Typography
           component="h2"
           variant="h6"
-          sx={{ color: "#5B21B6", fontWeight: 700 }}
+          sx={{ color: "#A855F7", fontWeight: 700 }}
         >
           Required skills
         </Typography>
@@ -137,10 +121,10 @@ function OpportunityContent({ opportunity }: OpportunityContentProps) {
               key={skill}
               label={skill}
               sx={{
-                backgroundColor: "#FFFFFF",
-                color: "#5B21B6",
-                border: "1px solid #C4B5FD",
+                backgroundColor: "rgba(168, 85, 247, 0.15)",
+                color: "#C084FC",
                 fontWeight: 600,
+                border: "1px solid rgba(168, 85, 247, 0.3)",
               }}
             />
           ))}

@@ -55,22 +55,25 @@ export default function HoursTable({
   return (
     <TableContainer
       component={Paper}
-      sx={{ borderRadius: 2, border: "1px solid #e5e7eb", overflow: "hidden" }}
+      sx={{
+        borderRadius: 2,
+        overflow: "hidden",
+        boxShadow: "none",
+        background: "transparent",
+        border: "none",
+      }}
     >
       <Table size="small">
         <TableHead>
-          <TableRow sx={{ bgcolor: "#5C6BC0" }}>
-            {COLUMNS.map((h, idx, arr) => (
+          <TableRow sx={{ bgcolor: "background.paper" }}>
+            {COLUMNS.map((h) => (
               <TableCell
                 key={h}
                 sx={{
-                  color: "white",
+                  color: "text.primary",
                   fontWeight: 700,
                   fontSize: 12,
-                  borderRight:
-                    idx < arr.length - 1
-                      ? "1px solid rgba(255,255,255,0.2)"
-                      : "none",
+                  borderRight: "none",
                   whiteSpace: "nowrap",
                 }}
               >

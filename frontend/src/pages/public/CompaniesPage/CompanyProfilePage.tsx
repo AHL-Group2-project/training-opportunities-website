@@ -57,7 +57,6 @@ function CompanyProfilePage() {
     <Box>
       <Box
         sx={{
-          background: "linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)",
           py: 8,
           width: "100vw",
           position: "relative",
@@ -134,7 +133,7 @@ function CompanyProfilePage() {
                 px: 2,
                 py: 1.5,
                 borderRadius: 2,
-                bgcolor: "rgba(255,255,255,0.7)",
+                bgcolor: "background.paper",
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
@@ -157,7 +156,7 @@ function CompanyProfilePage() {
                 px: 2,
                 py: 1.5,
                 borderRadius: 2,
-                bgcolor: "rgba(255,255,255,0.7)",
+                bgcolor: "background.paper",
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
@@ -259,12 +258,7 @@ function CompanyProfilePage() {
 
                     <Stack direction="row" spacing={1} sx={{ mb: 1.5 }}>
                       {opp.skills.map((skill) => (
-                        <Chip
-                          key={skill}
-                          label={skill}
-                          size="small"
-                          variant="outlined"
-                        />
+                        <Chip key={skill} label={skill} size="small" />
                       ))}
                     </Stack>
 
@@ -385,10 +379,11 @@ function CompanyProfilePage() {
                 severity="info"
               >
                 <Typography variant="body2" sx={{ fontWeight: "bold" }}>
-                  PPU verified partner
+                  Verified partner
                 </Typography>
                 <Typography variant="caption">
-                  This company has signed the PPU field training agreement.
+                  This company has signed the university field training
+                  agreement.
                 </Typography>
               </Alert>
             )}

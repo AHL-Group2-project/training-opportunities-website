@@ -64,10 +64,7 @@ function CompanyActivationPage() {
 
   return (
     <Container maxWidth="sm" sx={{ py: 8 }}>
-      <Card
-        variant="outlined"
-        sx={{ borderRadius: 3, borderColor: "grey.200" }}
-      >
+      <Card sx={{ borderRadius: 3, borderColor: "divider" }}>
         <CardContent sx={{ p: 4 }}>
           <Box sx={{ textAlign: "center", mb: 3 }}>
             <Box
@@ -75,7 +72,7 @@ function CompanyActivationPage() {
                 width: 56,
                 height: 56,
                 borderRadius: "50%",
-                bgcolor: "#1C2B4A",
+                bgcolor: "text.primary",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -85,7 +82,10 @@ function CompanyActivationPage() {
             >
               <LockOutlinedIcon sx={{ color: "white", fontSize: 28 }} />
             </Box>
-            <Typography variant="h5" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: 700, color: "text.primary" }}
+            >
               Activate Your Account
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
@@ -122,10 +122,9 @@ function CompanyActivationPage() {
               fullWidth
               onClick={handleActivate}
               sx={{
-                bgcolor: "#1C2B4A",
+                bgcolor: "text.primary",
                 textTransform: "none",
                 py: 1.2,
-                "&:hover": { bgcolor: "#2a3f6b" },
               }}
             >
               Activate Account

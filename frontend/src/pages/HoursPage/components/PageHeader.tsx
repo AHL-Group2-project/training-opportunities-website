@@ -32,7 +32,10 @@ export default function PageHeader({
       }}
     >
       <Box>
-        <Typography variant="h4" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: 700, color: "text.primary" }}
+        >
           {title}
         </Typography>
       </Box>

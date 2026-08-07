@@ -49,7 +49,6 @@ function CompaniesPage() {
     <Box>
       <Box
         sx={{
-          background: "linear-gradient(135deg, #EEF2FF 0%, #F5F3FF 100%)",
           py: 8,
           width: "100vw",
           position: "relative",

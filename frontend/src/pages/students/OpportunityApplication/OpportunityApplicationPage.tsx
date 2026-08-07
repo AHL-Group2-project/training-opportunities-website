@@ -30,9 +30,7 @@ function OpportunityApplicationPage() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const opportunity = MOCK_OPPORTUNITIES.find(
-    (item) => item.id === Number(id),
-  );
+  const opportunity = MOCK_OPPORTUNITIES.find((item) => item.id === Number(id));
 
   if (!opportunity) {
     return (
@@ -43,11 +41,7 @@ function OpportunityApplicationPage() {
           textAlign: "center",
         }}
       >
-        <Typography
-          component="h1"
-          variant="h4"
-          sx={{ fontWeight: 700 }}
-        >
+        <Typography component="h1" variant="h4" sx={{ fontWeight: 700 }}>
           Opportunity not found
         </Typography>
 
@@ -132,7 +126,7 @@ function OpportunityApplicationPage() {
           sx={{
             mb: 2,
             px: 0,
-            color: "#1C2B4A",
+            color: "text.primary",
             textTransform: "none",
             fontWeight: 600,
             "&:hover": {
@@ -151,7 +145,7 @@ function OpportunityApplicationPage() {
             variant="h4"
             sx={{
               mb: 1,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
@@ -159,8 +153,7 @@ function OpportunityApplicationPage() {
           </Typography>
 
           <Typography color="text.secondary">
-            Complete the application form and upload the required
-            documents.
+            Complete the application form and upload the required documents.
           </Typography>
         </Box>
 
@@ -184,7 +177,7 @@ function OpportunityApplicationPage() {
             p: 3,
             mb: 3,
             border: "1px solid",
-            borderColor: "#DDE3EC",
+            borderColor: "divider",
             borderRadius: 3,
             backgroundColor: "#F4F8FF",
           }}
@@ -203,7 +196,7 @@ function OpportunityApplicationPage() {
             variant="h5"
             sx={{
               mb: 2,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
@@ -221,7 +214,7 @@ function OpportunityApplicationPage() {
               label={opportunity.location}
               size="small"
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "transparent",
               }}
             />
 
@@ -229,7 +222,7 @@ function OpportunityApplicationPage() {
               label={`${opportunity.seats} seats`}
               size="small"
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "transparent",
               }}
             />
           </Box>
@@ -243,7 +236,7 @@ function OpportunityApplicationPage() {
           sx={{
             p: { xs: 2.5, sm: 4 },
             border: "1px solid",
-            borderColor: "grey.200",
+            borderColor: "divider",
             borderRadius: 3,
           }}
         >
@@ -252,19 +245,16 @@ function OpportunityApplicationPage() {
             variant="h6"
             sx={{
               mb: 0.5,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
             Student information
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
-            Review your account information and enter the required
-            university details.
+          <Typography variant="body2" color="text.secondary">
+            Review your account information and enter the required university
+            details.
           </Typography>
 
           <Box
@@ -310,9 +300,7 @@ function OpportunityApplicationPage() {
               fullWidth
               label="University ID"
               value={studentId}
-              onChange={(event) =>
-                setStudentId(event.target.value)
-              }
+              onChange={(event) => setStudentId(event.target.value)}
               slotProps={{
                 inputLabel: {
                   shrink: true,
@@ -326,9 +314,7 @@ function OpportunityApplicationPage() {
               type="tel"
               label="Phone number"
               value={phoneNumber}
-              onChange={(event) =>
-                setPhoneNumber(event.target.value)
-              }
+              onChange={(event) => setPhoneNumber(event.target.value)}
               slotProps={{
                 inputLabel: {
                   shrink: true,
@@ -345,9 +331,7 @@ function OpportunityApplicationPage() {
             label="Cover letter"
             placeholder="Tell the company why you are interested in this opportunity..."
             value={coverLetter}
-            onChange={(event) =>
-              setCoverLetter(event.target.value)
-            }
+            onChange={(event) => setCoverLetter(event.target.value)}
             slotProps={{
               inputLabel: {
                 shrink: true,
@@ -363,18 +347,14 @@ function OpportunityApplicationPage() {
             variant="h6"
             sx={{
               mb: 0.5,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
             Required documents
           </Typography>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ mb: 3 }}
-          >
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
             Upload your CV. Accepted formats: PDF, DOC and DOCX.
           </Typography>
 
@@ -397,7 +377,7 @@ function OpportunityApplicationPage() {
 
               <Button
                 component="label"
-                variant="outlined"
+
                 fullWidth
                 sx={{
                   minHeight: 54,
@@ -423,9 +403,7 @@ function OpportunityApplicationPage() {
                   type="file"
                   accept=".pdf,.doc,.docx"
                   onChange={(event) =>
-                    setCvFile(
-                      event.target.files?.[0] ?? null,
-                    )
+                    setCvFile(event.target.files?.[0] ?? null)
                   }
                 />
               </Button>
@@ -445,7 +423,6 @@ function OpportunityApplicationPage() {
                 </Button>
               )}
             </Box>
-
           </Box>
 
           {/* Actions */}
@@ -481,7 +458,7 @@ function OpportunityApplicationPage() {
               disabled={!cvFile}
               sx={{
                 px: 4,
-                backgroundColor: "#1C2B4A",
+                backgroundColor: "primary.main",
                 textTransform: "none",
                 borderRadius: 2,
                 boxShadow: "none",

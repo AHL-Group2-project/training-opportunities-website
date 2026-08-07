@@ -21,7 +21,7 @@ export default function ProjectsCard({ student }: Props) {
         <Grid container spacing={2}>
           {student.projects.map((project) => (
             <Grid key={project.title} size={{ xs: 12, md: 6 }}>
-              <Card variant="outlined" sx={{ p: 2 }}>
+              <Card sx={{ p: 2 }}>
                 <Typography
                   sx={{
                     fontWeight: 600,

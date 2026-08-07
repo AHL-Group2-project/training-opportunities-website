@@ -73,11 +73,7 @@ export default function ProfileEditSkills({ skills, onChange, field }: Props) {
             if (e.key === "Enter") handleAdd(newSkill);
           }}
         />
-        <Button
-          variant="outlined"
-          startIcon={<AddIcon />}
-          onClick={() => handleAdd(newSkill)}
-        >
+        <Button startIcon={<AddIcon />} onClick={() => handleAdd(newSkill)}>
           Add
         </Button>
       </Stack>

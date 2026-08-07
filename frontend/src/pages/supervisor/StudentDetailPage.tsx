@@ -137,7 +137,7 @@ export default function StudentDetailPage() {
 
       <Container maxWidth="lg" sx={{ pb: 6 }}>
         {/* About */}
-        <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
+        <Paper sx={{ p: 3, mb: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             About
           </Typography>
@@ -147,7 +147,7 @@ export default function StudentDetailPage() {
         </Paper>
 
         {/* Internship Progress Card */}
-        <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
+        <Paper sx={{ p: 3, mb: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
             Internship Progress
           </Typography>
@@ -208,7 +208,7 @@ export default function StudentDetailPage() {
         </Paper>
 
         {/* Reports List */}
-        <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
+        <Paper sx={{ p: 3, mb: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
             Reports
           </Typography>
@@ -220,7 +220,7 @@ export default function StudentDetailPage() {
           ) : (
             <Stack spacing={2}>
               {progress.reports.map((report) => (
-                <Paper key={report.id} variant="outlined" sx={{ p: 2 }}>
+                <Paper key={report.id} sx={{ p: 2 }}>
                   <Stack
                     direction={{ xs: "column", sm: "row" }}
                     sx={{
@@ -273,7 +273,7 @@ export default function StudentDetailPage() {
 
         {/* Evaluation Form */}
         {isCompleted && (
-          <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
+          <Paper sx={{ p: 3, mb: 3 }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
               Evaluation Form
             </Typography>
@@ -333,7 +333,7 @@ export default function StudentDetailPage() {
         )}
 
         {/* Previous Internships */}
-        <Paper variant="outlined" sx={{ p: 3 }}>
+        <Paper sx={{ p: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
             Previous Internships
           </Typography>

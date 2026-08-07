@@ -80,7 +80,9 @@ function OrbitRing({
                 width: 44,
                 height: 44,
                 borderRadius: "50%",
-                backgroundColor: "white",
+                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.10)",
                 display: "flex",
                 alignItems: "center",
@@ -115,7 +117,7 @@ function HeroSection() {
   return (
     <Box
       sx={{
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         py: { xs: 8, md: 12 },
         overflow: "hidden",
         width: "100%",
@@ -139,11 +141,11 @@ function HeroSection() {
                 fontWeight: 800,
                 fontSize: { xs: "2.2rem", md: "2.8rem" },
                 lineHeight: 1.2,
-                color: "#1C2B4A",
+                color: "text.primary",
               }}
             >
               Find Your{" "}
-              <Box component="span" sx={{ color: "#4A90D9" }}>
+              <Box component="span" sx={{ color: "primary.main" }}>
                 Internship
               </Box>
             </Typography>
@@ -168,34 +170,20 @@ function HeroSection() {
           >
             <Button
               variant="contained"
+              color="primary"
               size="large"
               endIcon={<ArrowForwardIcon />}
               onClick={() => navigate("/opportunities")}
-              sx={{
-                bgcolor: "#1C2B4A",
-                px: 4,
-                py: 1.5,
-                fontWeight: 600,
-                "&:hover": { bgcolor: "#2a3f6b" },
-              }}
+              sx={{ px: 4, py: 1.5, fontWeight: 600 }}
             >
               Browse Opportunities
             </Button>
             <Button
               variant="outlined"
+              color="primary"
               size="large"
               onClick={() => navigate("/login")}
-              sx={{
-                borderColor: "#1C2B4A",
-                color: "#1C2B4A",
-                px: 4,
-                py: 1.5,
-                fontWeight: 600,
-                "&:hover": {
-                  backgroundColor: "#f0f4fa",
-                  borderColor: "#1C2B4A",
-                },
-              }}
+              sx={{ px: 4, py: 1.5, fontWeight: 600 }}
             >
               Login
             </Button>
@@ -239,7 +227,7 @@ function HeroSection() {
             width: 72,
             height: 72,
             borderRadius: "50%",
-            backgroundColor: "#1C2B4A",
+            backgroundColor: "primary.main",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

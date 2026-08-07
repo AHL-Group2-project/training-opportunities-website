@@ -481,8 +481,8 @@ export default function HoursPage() {
                 onClick={addRow}
                 sx={{
                   textTransform: "none",
-                  borderColor: "#1C2B4A",
-                  color: "#1C2B4A",
+                  borderColor: "primary.main",
+                  color: "text.primary",
                   fontWeight: 600,
                 }}
               >
@@ -494,7 +494,7 @@ export default function HoursPage() {
                 variant="contained"
                 onClick={handleSubmitHours}
                 sx={{
-                  bgcolor: "#1C2B4A",
+                  bgcolor: "text.primary",
                   textTransform: "none",
                   fontWeight: 600,
                   px: 3,

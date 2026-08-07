@@ -86,7 +86,7 @@ export default function ReportsPage() {
       </Typography>
 
       {/* Submit Form */}
-      <Paper variant="outlined" sx={{ p: 3, mb: 4 }}>
+      <Paper sx={{ p: 3, mb: 4 }}>
         <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
           Submit a Report
         </Typography>

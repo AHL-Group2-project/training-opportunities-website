@@ -20,12 +20,12 @@ function ApplicationsPage() {
   const [applications] = useState(MOCK_APPLICATIONS);
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "white" }}>
+    <Box sx={{ minHeight: "100vh", bgcolor: "transparent" }}>
       <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
         {/* Header */}
         <Typography
           variant="h4"
-          sx={{ fontWeight: 700, color: "#1C2B4A", mb: 1 }}
+          sx={{ fontWeight: 700, color: "text.primary", mb: 1 }}
         >
           My Applications
         </Typography>
@@ -35,12 +35,11 @@ function ApplicationsPage() {
 
         {/* How it works - improved */}
         <Card
-          variant="outlined"
           sx={{
             mb: 4,
             borderRadius: 2,
-            borderColor: "#4A90D9",
-            bgcolor: "#F0F7FF",
+            borderColor: "info.main",
+            bgcolor: "rgba(59, 130, 246, 0.1)",
             boxShadow: "none",
           }}
         >
@@ -48,12 +47,12 @@ function ApplicationsPage() {
             sx={{ display: "flex", gap: 2, alignItems: "flex-start", py: 2 }}
           >
             <InfoOutlinedIcon
-              sx={{ color: "#4A90D9", fontSize: 24, mt: 0.3, flexShrink: 0 }}
+              sx={{ color: "info.main", fontSize: 24, mt: 0.3, flexShrink: 0 }}
             />
             <Box>
               <Typography
                 variant="subtitle2"
-                sx={{ fontWeight: 700, color: "#1C2B4A", mb: 0.5 }}
+                sx={{ fontWeight: 700, color: "text.primary", mb: 0.5 }}
               >
                 How it works
               </Typography>
@@ -71,10 +70,13 @@ function ApplicationsPage() {
                     textTransform: "none",
                     p: 0,
                     minWidth: 0,
-                    color: "#4A90D9",
+                    color: "info.main",
                     fontWeight: 600,
                     textDecoration: "underline",
-                    "&:hover": { bgcolor: "transparent", color: "#1C2B4A" },
+                    "&:hover": {
+                      bgcolor: "transparent",
+                      color: "text.primary",
+                    },
                   }}
                 >
                   training request
@@ -87,17 +89,14 @@ function ApplicationsPage() {
 
         {/* Applications List */}
         {applications.length === 0 ? (
-          <Card
-            variant="outlined"
-            sx={{ borderRadius: 2, textAlign: "center", py: 8 }}
-          >
+          <Card sx={{ borderRadius: 2, textAlign: "center", py: 8 }}>
             <CardContent>
               <WorkOutlineRoundedIcon
                 sx={{ fontSize: 48, color: "grey.300", mb: 2 }}
               />
               <Typography
                 variant="h6"
-                sx={{ fontWeight: 600, color: "#1C2B4A", mb: 1 }}
+                sx={{ fontWeight: 600, color: "text.primary", mb: 1 }}
               >
                 No applications yet
               </Typography>
@@ -107,7 +106,7 @@ function ApplicationsPage() {
               <Button
                 variant="contained"
                 onClick={() => navigate("/opportunities")}
-                sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
+                sx={{ textTransform: "none" }}
               >
                 Browse Opportunities
               </Button>
@@ -118,10 +117,10 @@ function ApplicationsPage() {
             {applications.map((app) => (
               <Card
                 key={app.id}
-                variant="outlined"
+
                 sx={{
                   borderRadius: 2,
-                  borderColor: "grey.200",
+                  borderColor: "divider",
                   transition: "box-shadow 0.2s",
                   "&:hover": { boxShadow: "0 2px 8px rgba(0,0,0,0.08)" },
                 }}
@@ -139,7 +138,7 @@ function ApplicationsPage() {
                     <Box sx={{ flex: 1 }}>
                       <Typography
                         variant="h6"
-                        sx={{ fontWeight: 700, color: "#1C2B4A", mb: 0.5 }}
+                        sx={{ fontWeight: 700, color: "text.primary", mb: 0.5 }}
                       >
                         {app.position}
                       </Typography>
@@ -173,8 +172,8 @@ function ApplicationsPage() {
                         label="Submitted"
                         size="small"
                         sx={{
-                          bgcolor: "#ECFDF5",
-                          color: "#059669",
+                          bgcolor: "rgba(16, 185, 129, 0.1)",
+                          color: "success.main",
                           fontWeight: 600,
                           fontSize: "0.8rem",
                         }}
@@ -185,7 +184,7 @@ function ApplicationsPage() {
                         onClick={() =>
                           navigate(`/opportunities/${app.opportunityId}`)
                         }
-                        sx={{ textTransform: "none", color: "#4A90D9" }}
+                        sx={{ textTransform: "none", color: "info.main" }}
                       >
                         View
                       </Button>

@@ -80,11 +80,10 @@ function CompaniesStrip() {
   return (
     <Box
       sx={{
-        backgroundColor: "white",
         py: 4,
         borderTop: "1px solid",
         borderBottom: "1px solid",
-        borderColor: "grey.100",
+        borderColor: "divider",
         overflow: "hidden",
       }}
     >
@@ -94,7 +93,7 @@ function CompaniesStrip() {
           sx={{
             display: "block",
             textAlign: "center",
-            color: "#4B5563",
+            color: "text.secondary",
             letterSpacing: 2,
             mb: 3,
           }}

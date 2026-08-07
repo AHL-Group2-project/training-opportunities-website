@@ -74,6 +74,7 @@ function CompanyManagementPage() {
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [tempPassword, setTempPassword] = useState("");
 
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
@@ -111,6 +112,7 @@ function CompanyManagementPage() {
       setDescription("");
       setEmail("");
       setPhone("");
+      setTempPassword("");
     }
     setDialogOpen(true);
   };
@@ -124,6 +126,7 @@ function CompanyManagementPage() {
       description,
       email,
       phone,
+      tempPassword,
     };
 
     if (editingCompany) {
@@ -132,14 +135,14 @@ function CompanyManagementPage() {
     } else {
       // TODO: POST /api/admin/companies
       // Backend will:
-      // 1. Create company record with activationStatus: "pending"
-      // 2. Generate secure activation token
-      // 3. Send email to company.email with link: /activate?token=xyz
-      console.log("CREATE company + send activation email", payload);
+      // 1. Create company record
+      // 2. Hash the temporary password
+      // 3. Send email to company.email with the credentials
+      console.log("CREATE company + send credentials", payload);
 
       // Show feedback to admin
       alert(
-        `Company "${name}" created. Activation email will be sent to ${email}`,
+        `Company account for "${name}" created. Credentials have been emailed to ${email}.`,
       );
     }
 
@@ -169,7 +172,10 @@ function CompanyManagementPage() {
         }}
       >
         <Box>
-          <Typography variant="h4" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 700, color: "text.primary" }}
+          >
             Companies
           </Typography>
           <Typography variant="body1" color="text.secondary">
@@ -182,9 +188,7 @@ function CompanyManagementPage() {
             startIcon={<AddIcon />}
             onClick={() => handleOpenDialog()}
             sx={{
-              bgcolor: "#1C2B4A",
               textTransform: "none",
-              "&:hover": { bgcolor: "#2a3f6b" },
             }}
           >
             Add Company
@@ -219,34 +223,19 @@ function CompanyManagementPage() {
       </Box>
 
       {/* Table */}
-      <Card
-        variant="outlined"
-        sx={{ borderRadius: 2, borderColor: "grey.200" }}
-      >
+      <Card sx={{ borderRadius: 2, borderColor: "divider" }}>
         <TableContainer>
           <Table>
             <TableHead>
-              <TableRow sx={{ bgcolor: "#f6f3ee" }}>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Company
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Industry
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Location
-                </TableCell>
+              <TableRow sx={{ bgcolor: "background.paper" }}>
+                <TableCell sx={{ fontWeight: 700 }}>Company</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Industry</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Location</TableCell>
                 {isAdmin && (
                   <>
-                    <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                      Status
-                    </TableCell>
-                    <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                      Activation
-                    </TableCell>
-                    <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                      Actions
-                    </TableCell>
+                    <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
+                    <TableCell sx={{ fontWeight: 700 }}>Activation</TableCell>
+                    <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
                   </>
                 )}
               </TableRow>
@@ -282,7 +271,9 @@ function CompanyManagementPage() {
                             objectFit: "contain",
                           }}
                         />
-                        <Typography sx={{ fontWeight: 600, color: "#1C2B4A" }}>
+                        <Typography
+                          sx={{ fontWeight: 600, color: "text.primary" }}
+                        >
                           {company.name}
                         </Typography>
                       </Box>
@@ -455,6 +446,31 @@ function CompanyManagementPage() {
               onChange={(e) => setPhone(e.target.value)}
               fullWidth
             />
+
+            {!editingCompany && (
+              <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
+                <TextField
+                  label="Temporary Password *"
+                  type="text"
+                  value={tempPassword}
+                  onChange={(e) => setTempPassword(e.target.value)}
+                  fullWidth
+                  required
+                  helperText="This password will be emailed to the company so they can log in."
+                />
+                <Button
+                  variant="outlined"
+                  sx={{ mt: 1, minWidth: 140, textTransform: "none" }}
+                  onClick={() =>
+                    setTempPassword(
+                      Math.random().toString(36).slice(-8) + "A1!",
+                    )
+                  }
+                >
+                  Generate
+                </Button>
+              </Box>
+            )}
           </Box>
         </DialogContent>
         <DialogActions>
@@ -468,12 +484,12 @@ function CompanyManagementPage() {
             variant="contained"
             onClick={handleSave}
             sx={{
-              bgcolor: "#1C2B4A",
               textTransform: "none",
-              "&:hover": { bgcolor: "#2a3f6b" },
             }}
           >
-            Save
+            {editingCompany
+              ? "Save Changes"
+              : "Create Account & Send Credentials"}
           </Button>
         </DialogActions>
       </Dialog>

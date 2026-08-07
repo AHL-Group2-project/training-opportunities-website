@@ -1,4 +1,11 @@
-import { MenuItem, Paper, Stack, TextField } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+} from "@mui/material";
 
 type OpportunityFiltersProps = {
   searchTerm: string;
@@ -19,50 +26,27 @@ function OpportunityFilters({
   onFieldChange,
 }: OpportunityFiltersProps) {
   return (
-    <Paper
-      variant="outlined"
-      sx={{
-        p: 2,
-        borderRadius: 2,
-        bgcolor: "#F4F7FC",
-        borderColor: "#D8E0EC",
-      }}
-    >
-      <Stack
-        direction={{
-          xs: "column",
-          md: "row",
+    <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 3 }}>
+      <TextField
+        label="Search by title, company, or skill"
+        value={searchTerm}
+        onChange={(event) => {
+          onSearchChange(event.target.value);
         }}
-        spacing={2}
-      >
-        <TextField
-          fullWidth
-          size="small"
-          placeholder="Search by title, company, or skill..."
-          value={searchTerm}
-          onChange={(event) => {
-            onSearchChange(event.target.value);
-          }}
-          sx={{
-            flex: 1,
-            minWidth: {
-              md: 300,
-            },
-          }}
-        />
+        size="small"
+        fullWidth
+      />
 
-        <TextField
-          select
-          size="small"
+      <FormControl size="small" sx={{ minWidth: 200 }}>
+        <InputLabel id="department-filter-label">
+          Filter by department
+        </InputLabel>
+        <Select
+          labelId="department-filter-label"
           value={department}
+          label="Filter by department"
           onChange={(event) => {
-            onDepartmentChange(event.target.value);
-          }}
-          sx={{
-            minWidth: {
-              xs: "100%",
-              md: 210,
-            },
+            onDepartmentChange(event.target.value as string);
           }}
         >
           <MenuItem value="all">All Departments</MenuItem>
@@ -71,20 +55,17 @@ function OpportunityFilters({
             Information Technology
           </MenuItem>
           <MenuItem value="business">Business</MenuItem>
-        </TextField>
+        </Select>
+      </FormControl>
 
-        <TextField
-          select
-          size="small"
+      <FormControl size="small" sx={{ minWidth: 200 }}>
+        <InputLabel id="field-filter-label">Filter by field</InputLabel>
+        <Select
+          labelId="field-filter-label"
           value={field}
+          label="Filter by field"
           onChange={(event) => {
-            onFieldChange(event.target.value);
-          }}
-          sx={{
-            minWidth: {
-              xs: "100%",
-              md: 190,
-            },
+            onFieldChange(event.target.value as string);
           }}
         >
           <MenuItem value="all">All Fields</MenuItem>
@@ -93,9 +74,9 @@ function OpportunityFilters({
           <MenuItem value="mobile">Mobile</MenuItem>
           <MenuItem value="data">Data Analysis</MenuItem>
           <MenuItem value="qa">Quality Assurance</MenuItem>
-        </TextField>
-      </Stack>
-    </Paper>
+        </Select>
+      </FormControl>
+    </Stack>
   );
 }
 

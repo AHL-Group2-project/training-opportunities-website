@@ -26,6 +26,7 @@ import { useAuth } from "../../../context/authContext";
 import { MOCK_COMPANIES } from "../../../mock/Companies";
 import { MOCK_SUPERVISORS } from "../../../mock/supervisors";
 import { MOCK_INTERNSHIP_REQUESTS } from "../../../mock/internshipRequests";
+import { MOCK_STUDENT_PROFILES } from "../../../mock/studentTrainingState";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
@@ -88,6 +89,13 @@ function InternshipRequestPage() {
       r.studentId === user?.id && r.type === "ft1" && r.status === "completed",
   );
 
+  const studentProfile = MOCK_STUDENT_PROFILES.find(
+    (s) => s.userId === user?.id,
+  );
+  const assignedSupervisor = studentProfile?.supervisorId
+    ? MOCK_SUPERVISORS.find((s) => s.id === studentProfile.supervisorId)
+    : null;
+
   const handleNext = () => {
     if (activeStep === steps.length - 1) {
       handleSubmit();
@@ -136,13 +144,10 @@ function InternshipRequestPage() {
   if (submitted) {
     return (
       <Container maxWidth="md" sx={{ py: 8 }}>
-        <Card
-          variant="outlined"
-          sx={{ borderRadius: 3, p: 4, textAlign: "center" }}
-        >
+        <Card sx={{ borderRadius: 3, p: 4, textAlign: "center" }}>
           <Typography
             variant="h4"
-            sx={{ fontWeight: 700, color: "#1C2B4A", mb: 2 }}
+            sx={{ fontWeight: 700, color: "text.primary", mb: 2 }}
           >
             Request Submitted Successfully
           </Typography>
@@ -154,7 +159,7 @@ function InternshipRequestPage() {
             <Button
               variant="contained"
               onClick={() => navigate("/training/requests")}
-              sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
+              sx={{ bgcolor: "text.primary", textTransform: "none" }}
             >
               View My Requests
             </Button>
@@ -177,7 +182,7 @@ function InternshipRequestPage() {
         return (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             <FormControl>
-              <FormLabel sx={{ fontWeight: 600, color: "#1C2B4A", mb: 1 }}>
+              <FormLabel sx={{ fontWeight: 600, color: "text.primary", mb: 1 }}>
                 Select Internship Type
               </FormLabel>
               <RadioGroup
@@ -342,20 +347,27 @@ function InternshipRequestPage() {
               }}
             />
 
-            <FormControl fullWidth>
-              <InputLabel>Supervisor</InputLabel>
-              <Select
-                value={supervisorId}
-                label="Supervisor"
-                onChange={(e) => setSupervisorId(e.target.value)}
-              >
-                {MOCK_SUPERVISORS.map((s) => (
-                  <MenuItem key={s.id} value={s.id}>
-                    {s.name} — {s.department}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+            {assignedSupervisor ? (
+              <Alert severity="info" sx={{ borderRadius: 2 }}>
+                Your request will be routed directly to your assigned
+                Supervisor: <strong>{assignedSupervisor.name}</strong>
+              </Alert>
+            ) : (
+              <FormControl fullWidth>
+                <InputLabel>Supervisor</InputLabel>
+                <Select
+                  value={supervisorId}
+                  label="Supervisor"
+                  onChange={(e) => setSupervisorId(e.target.value)}
+                >
+                  {MOCK_SUPERVISORS.map((s) => (
+                    <MenuItem key={s.id} value={s.id}>
+                      {s.name} — {s.department}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            )}
 
             <TextField
               label="Description"
@@ -430,18 +442,20 @@ function InternshipRequestPage() {
             <ReviewItem label="Position" value={position} />
             <ReviewItem label="Department" value={department} />
             <ReviewItem label="Field" value={field} />
-            <ReviewItem label="Work Mode" value={workMode} />
-            <ReviewItem label="Duration" value={`${startDate} to ${endDate}`} />
-            <ReviewItem
-              label="Expected Hours"
-              value={expectedHours.toString()}
-            />
+            <ReviewItem label="Start Date" value={startDate} />
+            <ReviewItem label="End Date" value={endDate} />
             <ReviewItem
               label="Supervisor"
               value={
-                MOCK_SUPERVISORS.find((s) => s.id === Number(supervisorId))
-                  ?.name
+                assignedSupervisor
+                  ? assignedSupervisor.name
+                  : MOCK_SUPERVISORS.find((s) => s.id === Number(supervisorId))
+                      ?.name
               }
+            />
+            <ReviewItem
+              label="Expected Hours"
+              value={expectedHours.toString()}
             />
             <ReviewItem
               label="Attachments"
@@ -470,7 +484,7 @@ function InternshipRequestPage() {
     <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}>
       <Typography
         variant="h4"
-        sx={{ fontWeight: 700, color: "#1C2B4A", mb: 1 }}
+        sx={{ fontWeight: 700, color: "text.primary", mb: 1 }}
       >
         Submit Internship Request
       </Typography>
@@ -486,7 +500,7 @@ function InternshipRequestPage() {
         ))}
       </Stepper>
 
-      <Card variant="outlined" sx={{ borderRadius: 3, mb: 3 }}>
+      <Card sx={{ borderRadius: 3, mb: 3 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           {renderStepContent()}
         </CardContent>
@@ -505,9 +519,8 @@ function InternshipRequestPage() {
           onClick={handleNext}
           disabled={activeStep === 4 && !confirmed}
           sx={{
-            bgcolor: "#1C2B4A",
+            bgcolor: "text.primary",
             textTransform: "none",
-            "&:hover": { bgcolor: "#2a3f6b" },
           }}
         >
           {activeStep === steps.length - 1 ? "Submit Request" : "Next"}
@@ -529,7 +542,10 @@ function ReviewItem({
       <Typography variant="body2" color="text.secondary">
         {label}
       </Typography>
-      <Typography variant="body2" sx={{ fontWeight: 600, color: "#1C2B4A" }}>
+      <Typography
+        variant="body2"
+        sx={{ fontWeight: 600, color: "text.primary" }}
+      >
         {value || "—"}
       </Typography>
     </Box>

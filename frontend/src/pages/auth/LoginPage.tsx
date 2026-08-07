@@ -178,7 +178,7 @@ function LoginPage() {
     <Box
       sx={{
         minHeight: "calc(100vh - 270px)",
-        backgroundColor: "white",
+        backgroundColor: "transparent",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -188,11 +188,11 @@ function LoginPage() {
       <Container maxWidth="xs">
         <Box
           sx={{
-            backgroundColor: "white",
+            backgroundColor: "background.paper",
             borderRadius: 4,
             border: "1px solid",
-            borderColor: "grey.200",
-            boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
+            borderColor: "divider",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
             p: { xs: 3, sm: 5 },
           }}
         >
@@ -207,7 +207,7 @@ function LoginPage() {
               />
               <Stack sx={{ spacing: 0.5, alignItems: "center" }}>
                 <Typography
-                  sx={{ variant: "h6", fontWeight: 700, color: "#1C2B4A" }}
+                  sx={{ variant: "h6", fontWeight: 700, color: "text.primary" }}
                 >
                   Welcome back
                 </Typography>
@@ -217,7 +217,7 @@ function LoginPage() {
               </Stack>
             </Stack>
 
-            <Divider sx={{ borderColor: "grey.100" }} />
+            <Divider sx={{ borderColor: "divider" }} />
 
             {/* Form */}
             <Stack spacing={2.5}>
@@ -236,10 +236,7 @@ function LoginPage() {
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: 2,
-                    "&:hover fieldset": { borderColor: "#4A90D9" },
-                    "&.Mui-focused fieldset": { borderColor: "#1C2B4A" },
                   },
-                  "& label.Mui-focused": { color: "#1C2B4A" },
                 }}
               />
 
@@ -277,10 +274,7 @@ function LoginPage() {
                 sx={{
                   "& .MuiOutlinedInput-root": {
                     borderRadius: 2,
-                    "&:hover fieldset": { borderColor: "#4A90D9" },
-                    "&.Mui-focused fieldset": { borderColor: "#1C2B4A" },
                   },
-                  "& label.Mui-focused": { color: "#1C2B4A" },
                 }}
               />
 
@@ -292,20 +286,15 @@ function LoginPage() {
 
               <Button
                 variant="contained"
+                color="primary"
                 fullWidth
                 size="large"
                 onClick={handleSubmit}
                 disabled={loading}
                 sx={{
-                  bgcolor: "#1C2B4A",
                   fontWeight: 600,
                   py: 1.5,
                   borderRadius: 2,
-                  "&:hover": { bgcolor: "#2a3f6b" },
-                  "&.Mui-disabled": {
-                    bgcolor: "grey.300",
-                    color: "grey.500",
-                  },
                 }}
               >
                 {loading ? "Signing in..." : "Sign In"}
@@ -321,7 +310,7 @@ function LoginPage() {
                   fontSize: 13,
                   "&:hover": {
                     backgroundColor: "transparent",
-                    color: "#1C2B4A",
+                    color: "text.primary",
                   },
                 }}
               >
@@ -331,12 +320,11 @@ function LoginPage() {
           </Stack>
         </Box>
         <Card
-          variant="outlined"
           sx={{
             mt: 3,
             borderRadius: 2,
-            borderColor: "#e5e7eb",
-            bgcolor: "#FAFAF9",
+            borderColor: "divider",
+            bgcolor: "background.paper",
           }}
         >
           <CardContent
@@ -347,19 +335,21 @@ function LoginPage() {
                 width: 44,
                 height: 44,
                 borderRadius: 2,
-                bgcolor: "#1C2B4A",
+                bgcolor: "primary.main",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 flexShrink: 0,
               }}
             >
-              <BusinessIcon sx={{ color: "white", fontSize: 22 }} />
+              <BusinessIcon
+                sx={{ color: "primary.contrastText", fontSize: 22 }}
+              />
             </Box>
             <Box>
               <Typography
                 variant="subtitle2"
-                sx={{ fontWeight: 700, color: "#1C2B4A" }}
+                sx={{ fontWeight: 700, color: "text.primary" }}
               >
                 Are you a company?
               </Typography>
@@ -367,7 +357,7 @@ function LoginPage() {
                 Contact us on this email:{" "}
                 <Box
                   component="span"
-                  sx={{ fontWeight: 600, color: "#1C2B4A" }}
+                  sx={{ fontWeight: 600, color: "text.primary" }}
                 >
                   admin@university.edu.ps
                 </Box>

@@ -56,17 +56,7 @@ function Navbar() {
     [userName],
   );
   return (
-    <AppBar
-      position="sticky"
-      elevation={0}
-      color="transparent"
-      sx={{
-        borderBottom: 1,
-        borderColor: "divider",
-        backdropFilter: "blur(14px)",
-        backgroundColor: "rgba(246, 243, 238, 0.9)",
-      }}
-    >
+    <AppBar position="sticky" elevation={0}>
       <Toolbar
         sx={{
           minHeight: 72,
@@ -95,11 +85,11 @@ function Navbar() {
               cursor: "pointer",
             }}
           />
-          <Stack spacing={0} sx={{ minWidth: 0 }}>
+          <Stack spacing={0} sx={{ minWidth: 0, color: "inherit" }}>
             <Typography variant="subtitle1" noWrap sx={{ fontWeight: 700 }}>
               Internship Hub
             </Typography>
-            <Typography variant="caption" color="text.secondary" noWrap>
+            <Typography variant="caption" sx={{ opacity: 0.7 }} noWrap>
               Internship management platform
             </Typography>
           </Stack>
@@ -126,7 +116,7 @@ function Navbar() {
                   key={entry.item.path}
                   component={RouterLink}
                   to={entry.item.path}
-                  sx={{ px: 1.5, py: 1, color: "text.primary" }}
+                  sx={{ px: 1.5, py: 1, color: "inherit" }}
                 >
                   {entry.item.label}
                 </Button>
@@ -151,7 +141,7 @@ function Navbar() {
                     setGroupAnchor(event.currentTarget);
                   }}
                   endIcon={<KeyboardArrowDownRoundedIcon fontSize="small" />}
-                  sx={{ px: 1.5, py: 1, color: "text.primary" }}
+                  sx={{ px: 1.5, py: 1, color: "inherit" }}
                 >
                   {entry.label}
                 </Button>
@@ -197,7 +187,10 @@ function Navbar() {
           {isAuthenticated ? (
             <>
               <Tooltip title="Notifications">
-                <IconButton aria-label="Notifications">
+                <IconButton
+                  aria-label="Notifications"
+                  onClick={() => navigate("/notifications")}
+                >
                   <Badge
                     badgeContent={notificationCount}
                     color="primary"

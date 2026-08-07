@@ -11,13 +11,7 @@ export const students: Student[] = [
     location: "Hebron, Palestine",
     availableFor: "Open to FT2",
 
-    skills: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Node.js",
-      "Material UI",
-    ],
+    skills: ["React", "TypeScript", "Next.js", "Node.js", "Material UI"],
 
     ft1: true,
     ft2: false,
@@ -49,11 +43,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Meta React",
-      "JavaScript Advanced",
-      "Git & GitHub",
-    ],
+    certificates: ["Meta React", "JavaScript Advanced", "Git & GitHub"],
 
     training: {
       ft1: {
@@ -136,13 +126,7 @@ export const students: Student[] = [
     location: "Nablus, Palestine",
     availableFor: "Open to Full-time",
 
-    skills: [
-      "Python",
-      "SQL",
-      "Power BI",
-      "Excel",
-      "Tableau",
-    ],
+    skills: ["Python", "SQL", "Power BI", "Excel", "Tableau"],
 
     ft1: true,
     ft2: true,
@@ -163,10 +147,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Google Data Analytics",
-      "Power BI",
-    ],
+    certificates: ["Google Data Analytics", "Power BI"],
 
     training: {
       ft1: {
@@ -237,12 +218,7 @@ export const students: Student[] = [
     location: "Bethlehem, Palestine",
     availableFor: "Looking for FT2",
 
-    skills: [
-      "Flutter",
-      "Firebase",
-      "Dart",
-      "Git",
-    ],
+    skills: ["Flutter", "Firebase", "Dart", "Git"],
 
     ft1: false,
     ft2: false,
@@ -257,9 +233,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Flutter Development",
-    ],
+    certificates: ["Flutter Development"],
 
     training: {
       ft1: {
@@ -303,12 +277,7 @@ export const students: Student[] = [
     location: "Hebron, Palestine",
     availableFor: "Open to FT1",
 
-    skills: [
-      "Java",
-      "Spring Boot",
-      "MySQL",
-      "Docker",
-    ],
+    skills: ["Java", "Spring Boot", "MySQL", "Docker"],
 
     ft1: true,
     ft2: false,
@@ -329,10 +298,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Spring Boot",
-      "Docker Essentials",
-    ],
+    certificates: ["Spring Boot", "Docker Essentials"],
 
     training: {
       ft1: {
@@ -365,7 +331,7 @@ export const students: Student[] = [
       },
     },
   },
-    {
+  {
     id: 5,
     name: "Omar Hamdan",
     initials: "OH",
@@ -375,13 +341,7 @@ export const students: Student[] = [
     location: "Jerusalem, Palestine",
     availableFor: "Open to AI Internship",
 
-    skills: [
-      "Python",
-      "TensorFlow",
-      "PyTorch",
-      "OpenCV",
-      "Machine Learning",
-    ],
+    skills: ["Python", "TensorFlow", "PyTorch", "OpenCV", "Machine Learning"],
 
     ft1: true,
     ft2: true,
@@ -407,10 +367,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Machine Learning",
-      "Deep Learning Specialization",
-    ],
+    certificates: ["Machine Learning", "Deep Learning Specialization"],
 
     training: {
       ft1: {
@@ -474,13 +431,7 @@ export const students: Student[] = [
     location: "Ramallah, Palestine",
     availableFor: "Open to FT2",
 
-    skills: [
-      "React",
-      "JavaScript",
-      "CSS",
-      "Figma",
-      "Material UI",
-    ],
+    skills: ["React", "JavaScript", "CSS", "Figma", "Material UI"],
 
     ft1: false,
     ft2: false,
@@ -495,10 +446,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Meta Front-End",
-      "Figma UI Design",
-    ],
+    certificates: ["Meta Front-End", "Figma UI Design"],
 
     training: {
       ft1: {
@@ -535,13 +483,7 @@ export const students: Student[] = [
     location: "Hebron, Palestine",
     availableFor: "Open to FT2",
 
-    skills: [
-      "Linux",
-      "Python",
-      "Wireshark",
-      "Burp Suite",
-      "Networking",
-    ],
+    skills: ["Linux", "Python", "Wireshark", "Burp Suite", "Networking"],
 
     ft1: true,
     ft2: true,
@@ -562,10 +504,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Cisco CCNA",
-      "Ethical Hacking",
-    ],
+    certificates: ["Cisco CCNA", "Ethical Hacking"],
 
     training: {
       ft1: {
@@ -622,13 +561,7 @@ export const students: Student[] = [
     location: "Bethlehem, Palestine",
     availableFor: "Open to FT1",
 
-    skills: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "TypeScript",
-    ],
+    skills: ["React", "Node.js", "Express", "MongoDB", "TypeScript"],
 
     ft1: true,
     ft2: false,
@@ -649,10 +582,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "MongoDB Basics",
-      "Node.js",
-    ],
+    certificates: ["MongoDB Basics", "Node.js"],
 
     training: {
       ft1: {
@@ -678,7 +608,7 @@ export const students: Student[] = [
       },
     },
   },
-    {
+  {
     id: 9,
     name: "Lina Khalil",
     initials: "LK",
@@ -688,13 +618,7 @@ export const students: Student[] = [
     location: "Ramallah, Palestine",
     availableFor: "Open to Data Internship",
 
-    skills: [
-      "Python",
-      "Pandas",
-      "NumPy",
-      "Machine Learning",
-      "Power BI",
-    ],
+    skills: ["Python", "Pandas", "NumPy", "Machine Learning", "Power BI"],
 
     ft1: true,
     ft2: true,
@@ -720,10 +644,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Data Analysis with Python",
-      "Power BI Fundamentals",
-    ],
+    certificates: ["Data Analysis with Python", "Power BI Fundamentals"],
 
     training: {
       ft1: {
@@ -787,13 +708,7 @@ export const students: Student[] = [
     location: "Nablus, Palestine",
     availableFor: "Open to Embedded Internship",
 
-    skills: [
-      "C++",
-      "Arduino",
-      "Embedded Systems",
-      "IoT",
-      "Electronics",
-    ],
+    skills: ["C++", "Arduino", "Embedded Systems", "IoT", "Electronics"],
 
     ft1: true,
     ft2: false,
@@ -819,10 +734,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Embedded Systems Basics",
-      "IoT Fundamentals",
-    ],
+    certificates: ["Embedded Systems Basics", "IoT Fundamentals"],
 
     training: {
       ft1: {
@@ -859,13 +771,7 @@ export const students: Student[] = [
     location: "Jenin, Palestine",
     availableFor: "Open to Backend Internship",
 
-    skills: [
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "SQL",
-      "REST API",
-    ],
+    skills: ["Node.js", "Express", "MongoDB", "SQL", "REST API"],
 
     ft1: false,
     ft2: true,
@@ -891,10 +797,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Backend Development",
-      "Database Design",
-    ],
+    certificates: ["Backend Development", "Database Design"],
 
     training: {
       ft1: {
@@ -958,13 +861,7 @@ export const students: Student[] = [
     location: "Tulkarm, Palestine",
     availableFor: "Open to AI Research Internship",
 
-    skills: [
-      "Python",
-      "NLP",
-      "PyTorch",
-      "Transformers",
-      "Deep Learning",
-    ],
+    skills: ["Python", "NLP", "PyTorch", "Transformers", "Deep Learning"],
 
     ft1: true,
     ft2: false,
@@ -990,10 +887,7 @@ export const students: Student[] = [
       },
     ],
 
-    certificates: [
-      "Deep Learning",
-      "Natural Language Processing",
-    ],
+    certificates: ["Deep Learning", "Natural Language Processing"],
 
     training: {
       ft1: {
@@ -1038,4 +932,5 @@ export const students: Student[] = [
         notes: "",
       },
     },
-  },];
+  },
+];

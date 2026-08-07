@@ -36,14 +36,15 @@ function ApplicationPanel({
     <Box
       sx={{
         borderRadius: 3,
-        border: "1px solid #e5e7eb",
+        border: "1px solid",
+        borderColor: "divider",
         p: 3,
-        bgcolor: "white",
+        bgcolor: "background.paper",
       }}
     >
       <Typography
         variant="h6"
-        sx={{ fontWeight: 700, color: "#1C2B4A", mb: 2 }}
+        sx={{ fontWeight: 700, color: "text.primary", mb: 2 }}
       >
         Apply for this position
       </Typography>
@@ -77,14 +78,13 @@ function ApplicationPanel({
 
       <Button
         variant="contained"
+        color="primary"
         fullWidth
         disabled={isDisabled}
         onClick={onApply}
         sx={{
-          bgcolor: isDisabled ? "grey.300" : "#1C2B4A",
           textTransform: "none",
           py: 1.2,
-          "&:hover": { bgcolor: isDisabled ? "grey.300" : "#2a3f6b" },
         }}
       >
         {getButtonText()}

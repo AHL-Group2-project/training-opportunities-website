@@ -27,8 +27,8 @@ export default function FtToggle({
           display: "flex",
           alignItems: "center",
           gap: 0.5,
-          bgcolor: "#f6f3ee",
-          borderRadius: 2,
+          bgcolor: "rgba(0, 0, 0, 0.2)",
+          borderRadius: 4,
           p: 0.5,
           border: "1px solid",
           borderColor: "divider",
@@ -42,7 +42,9 @@ export default function FtToggle({
           <ChevronLeftIcon />
         </IconButton>
         <Box sx={{ px: 2, py: 0.5, minWidth: 60, textAlign: "center" }}>
-          <Typography sx={{ fontWeight: 700, color: "#1C2B4A", fontSize: 15 }}>
+          <Typography
+            sx={{ fontWeight: 700, color: "text.primary", fontSize: 15 }}
+          >
             {activeFt}
           </Typography>
         </Box>

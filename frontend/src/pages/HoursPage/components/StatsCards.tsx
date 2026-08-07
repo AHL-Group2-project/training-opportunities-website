@@ -19,7 +19,8 @@ export default function StatsCards({
     minWidth: 140,
     p: 2,
     borderRadius: 2,
-    border: "1px solid #e5e7eb",
+    border: "1px solid",
+    borderColor: "divider",
   };
 
   return (
@@ -52,7 +53,10 @@ export default function StatsCards({
         <Typography variant="caption" color="text.secondary">
           Required / Approved
         </Typography>
-        <Typography variant="h5" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+        <Typography
+          variant="h5"
+          sx={{ fontWeight: 700, color: "text.primary" }}
+        >
           {formatHours(companyApproved)}{" "}
           <Typography component="span" variant="caption" color="text.secondary">
             / {requiredHours}:00
