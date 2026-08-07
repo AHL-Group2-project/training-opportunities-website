@@ -66,7 +66,7 @@ export default function HoursTable({
       <Table size="small">
         <TableHead>
           <TableRow sx={{ bgcolor: "background.paper" }}>
-            {COLUMNS.map((h, idx, arr) => (
+            {COLUMNS.map((h) => (
               <TableCell
                 key={h}
                 sx={{
