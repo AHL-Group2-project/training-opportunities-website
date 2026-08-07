@@ -25,13 +25,13 @@ function Footer() {
     <Box
       component="footer"
       sx={{
-        backgroundColor: "rgba(11, 15, 25, 0.6)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
+        backgroundColor: "rgba(15, 23, 42, 0.85)", // Match navbar exactly
+        backdropFilter: "blur(18px) saturate(140%)",
+        WebkitBackdropFilter: "blur(18px) saturate(140%)",
         color: "#94A3B8",
         py: 4,
         mt: "auto",
-        borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
       }}
     >
       <Container maxWidth="xl">

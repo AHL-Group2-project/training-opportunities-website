@@ -27,7 +27,7 @@ function stringToColor(text: string): string {
     hash = text.charCodeAt(i) + ((hash << 5) - hash);
   }
   const hue = hash % 360;
-  return `hsl(${hue}, 70%, 45%)`;
+  return `hsl(${hue}, 70%, 65%)`;
 }
 
 function stringToBackgroundColor(text: string): string {
@@ -36,7 +36,7 @@ function stringToBackgroundColor(text: string): string {
     hash = text.charCodeAt(i) + ((hash << 5) - hash);
   }
   const hue = hash % 360;
-  return `hsl(${hue}, 70%, 92%)`;
+  return `hsl(${hue}, 70%, 15%)`;
 }
 
 function CompanyCard({

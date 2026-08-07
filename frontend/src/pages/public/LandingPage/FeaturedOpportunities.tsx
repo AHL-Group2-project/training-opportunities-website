@@ -12,11 +12,10 @@ function FeaturedOpportunities() {
   return (
     <Box
       sx={{
-        backgroundColor: "white",
         py: 4,
         borderTop: "1px solid",
         borderBottom: "1px solid",
-        borderColor: "grey.100",
+        borderColor: "divider",
         overflow: "hidden",
       }}
     >
@@ -29,13 +28,16 @@ function FeaturedOpportunities() {
             mb: 3,
           }}
         >
-          <Typography variant="h5" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: 700, color: "text.primary" }}
+          >
             Featured Opportunities
           </Typography>
           <Button
             endIcon={<ArrowForwardIcon />}
             onClick={() => navigate("/opportunities")}
-            sx={{ color: "#4A90D9", fontWeight: 600 }}
+            sx={{ color: "primary.main", fontWeight: 600 }}
           >
             View all
           </Button>

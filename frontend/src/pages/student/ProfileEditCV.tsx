@@ -30,7 +30,7 @@ export default function ProfileEditCV({ cvFileName, onChange }: Props) {
           <Button
             component="label"
             size="small"
-            variant="outlined"
+
             startIcon={<UploadFileIcon />}
           >
             Replace

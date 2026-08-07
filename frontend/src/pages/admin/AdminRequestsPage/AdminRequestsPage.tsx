@@ -88,7 +88,7 @@ export default function AdminRequestsPage() {
       <TableContainer component={Paper} sx={{ borderRadius: 3 }}>
         <Table>
           <TableHead>
-            <TableRow sx={{ bgcolor: "#f8fafc" }}>
+            <TableRow sx={{ bgcolor: "background.paper" }}>
               <TableCell sx={{ fontWeight: 700 }}>Student</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Request</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>

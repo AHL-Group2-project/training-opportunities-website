@@ -15,32 +15,32 @@ const supervisorStats = [
     title: "Total Students",
     value: 48,
     icon: GroupsOutlined,
-    iconColor: "#6D4CCB",
-    iconBackground: "#F0EBFF",
+    iconColor: "#A855F7",
+    iconBackground: "rgba(168, 85, 247, 0.15)",
   },
   {
     id: 2,
     title: "Active Internships",
     value: 32,
     icon: BusinessCenterOutlined,
-    iconColor: "#1976D2",
-    iconBackground: "#E9F3FF",
+    iconColor: "#3B82F6",
+    iconBackground: "rgba(59, 130, 246, 0.15)",
   },
   {
     id: 3,
     title: "Pending Evaluations",
     value: 9,
     icon: PendingActionsOutlined,
-    iconColor: "#E58A00",
-    iconBackground: "#FFF4DF",
+    iconColor: "#F59E0B",
+    iconBackground: "rgba(245, 158, 11, 0.15)",
   },
   {
     id: 4,
     title: "Completed Internships",
     value: 16,
     icon: AssignmentTurnedInOutlined,
-    iconColor: "#2E9D65",
-    iconBackground: "#E6F7EE",
+    iconColor: "#10B981",
+    iconBackground: "rgba(16, 185, 129, 0.15)",
   },
 ];
 
@@ -50,7 +50,7 @@ function SupervisorDashboard() {
       sx={{
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#FAFAFC",
+        backgroundColor: "transparent", // Let the theme handle the background
         px: { xs: 2, sm: 3, md: 5 },
         py: 4,
       }}

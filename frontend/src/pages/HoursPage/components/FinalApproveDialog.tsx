@@ -32,7 +32,7 @@ export default function FinalApproveDialog({
 }: FinalApproveDialogProps) {
   return (
     <Dialog open={open} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+      <DialogTitle sx={{ fontWeight: 700, color: "text.primary" }}>
         Final Approve {activeFt}
       </DialogTitle>
       <DialogContent>

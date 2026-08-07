@@ -17,7 +17,6 @@ export default function StudentsPage() {
     <Container
       sx={{
         py: 6,
-        bgcolor: "#ffffff",
         minHeight: "100vh",
       }}
     >
@@ -26,12 +25,12 @@ export default function StudentsPage() {
       </Typography>
 
       <Typography variant="h4" sx={{ mb: 1, fontWeight: "bold" }}>
-        Meet PPU field training students
+        Meet Palestinian field training students
       </Typography>
 
       <Typography color="text.secondary" sx={{ mb: 4 }}>
-        Explore portfolios of PPU students actively training with partner
-        companies.
+        Explore portfolios of university students actively training with partner
+        companies across Palestine.
       </Typography>
 
       <TextField

@@ -100,16 +100,16 @@ const requestsMock: InternshipRequest[] = [
 
 const statusStyles = {
   Pending: {
-    color: "#C77700",
-    backgroundColor: "#FFF4DF",
+    color: "#eab308",
+    backgroundColor: "rgba(234, 179, 8, 0.1)",
   },
   Approved: {
-    color: "#258354",
-    backgroundColor: "#E7F7EF",
+    color: "#22c55e",
+    backgroundColor: "rgba(34, 197, 94, 0.1)",
   },
   Rejected: {
-    color: "#C63D3D",
-    backgroundColor: "#FDECEC",
+    color: "#ef4444",
+    backgroundColor: "rgba(239, 68, 68, 0.1)",
   },
 };
 
@@ -188,7 +188,7 @@ function PendingRequestsPage() {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundColor: "#FAFAFC",
+        backgroundColor: "transparent",
         px: { xs: 2, sm: 3, md: 5 },
         py: 4,
       }}
@@ -216,7 +216,7 @@ function PendingRequestsPage() {
         elevation={0}
         sx={{
           border: "1px solid",
-          borderColor: "grey.200",
+          borderColor: "divider",
           borderRadius: 3,
           overflow: "hidden",
         }}
@@ -226,7 +226,7 @@ function PendingRequestsPage() {
           sx={{
             px: { xs: 1, sm: 3 },
             borderBottom: "1px solid",
-            borderColor: "grey.200",
+            borderColor: "divider",
           }}
         >
           <Tabs
@@ -270,7 +270,7 @@ function PendingRequestsPage() {
             alignItems: "center",
             gap: 2,
             borderBottom: "1px solid",
-            borderColor: "grey.200",
+            borderColor: "divider",
           }}
         >
           <FormControl
@@ -342,7 +342,7 @@ function PendingRequestsPage() {
           <TableContainer>
             <Table sx={{ minWidth: 950 }}>
               <TableHead>
-                <TableRow sx={{ backgroundColor: "#FAFAFC" }}>
+                <TableRow sx={{ backgroundColor: "background.paper" }}>
                   <TableCell sx={{ fontWeight: 700 }}>Student</TableCell>
 
                   <TableCell sx={{ fontWeight: 700 }}>Company</TableCell>
@@ -391,7 +391,7 @@ function PendingRequestsPage() {
                             sx={{
                               width: 40,
                               height: 40,
-                              backgroundColor: "#EEE8FF",
+                              backgroundColor: "rgba(109, 76, 203, 0.1)",
                               color: "#6D4CCB",
                               fontSize: 14,
                               fontWeight: 700,
@@ -428,7 +428,7 @@ function PendingRequestsPage() {
                           size="small"
                           sx={{
                             color: "#6D4CCB",
-                            backgroundColor: "#F0EBFF",
+                            backgroundColor: "rgba(109, 76, 203, 0.1)",
                             fontWeight: 600,
                           }}
                         />
@@ -452,7 +452,7 @@ function PendingRequestsPage() {
                       <TableCell align="right">
                         <Button
                           size="small"
-                          variant="outlined"
+
                           onClick={() => openReviewDialog(request)}
                           sx={{
                             textTransform: "none",
@@ -484,7 +484,7 @@ function PendingRequestsPage() {
                 mx: "auto",
                 mb: 2,
                 borderRadius: "50%",
-                backgroundColor: "#F0EBFF",
+                backgroundColor: "rgba(109, 76, 203, 0.1)",
                 color: "#6D4CCB",
                 display: "flex",
                 alignItems: "center",
@@ -558,14 +558,14 @@ function PendingRequestsPage() {
                   p: 2,
                   mb: 3,
                   borderRadius: 2.5,
-                  backgroundColor: "#F8F6FF",
+                  backgroundColor: "rgba(109, 76, 203, 0.05)",
                 }}
               >
                 <Avatar
                   sx={{
                     width: 52,
                     height: 52,
-                    backgroundColor: "#E8E0FF",
+                    backgroundColor: "rgba(109, 76, 203, 0.1)",
                     color: "#6D4CCB",
                     fontWeight: 700,
                   }}
@@ -645,7 +645,7 @@ function PendingRequestsPage() {
                   mt: 3,
                   p: 2,
                   border: "1px solid",
-                  borderColor: "grey.200",
+                  borderColor: "divider",
                   borderRadius: 2.5,
                 }}
               >
@@ -718,7 +718,7 @@ function PendingRequestsPage() {
                       mt: 3,
                       p: 2,
                       borderRadius: 2.5,
-                      backgroundColor: "#FDECEC",
+                      backgroundColor: "rgba(239, 68, 68, 0.1)",
                     }}
                   >
                     <Typography

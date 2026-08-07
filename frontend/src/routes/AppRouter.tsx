@@ -36,6 +36,7 @@ import StudentProfilePage from "../pages/student/StudentProfilePage";
 
 import ApplicationsPage from "../pages/student/ApplicationsPage/ApplicationsPage";
 import InternshipRequestPage from "../pages/student/InternshipRequestPage/InternshipRequestPage";
+import NotificationsPage from "../pages/shared/NotificationsPage/NotificationsPage";
 
 import ManageOpportunitiesPage from "../pages/supervisor/ManageOpportunitiesPage/ManageOpportunitiesPage";
 import CreateOpportunityPage from "../pages/supervisor/CreateOpportunityPage/CreateOpportunityPage";
@@ -62,7 +63,7 @@ function AppRouter() {
         sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
         <Navbar />
-        <Box component="main" sx={{ flex: 1, bgcolor: "background.default" }}>
+        <Box component="main" sx={{ flex: 1 }}>
           <Routes>
             {/* Public routes */}
             <Route path="/" element={<LandingPage />} />
@@ -101,10 +102,7 @@ function AppRouter() {
               />
               <Route path="/training/hours" element={<HoursPage />} />
               <Route path="/training/reports" element={<ReportsPage />} />
-              <Route
-                path="/notifications"
-                element={<div>Notifications (coming soon)</div>}
-              />
+              <Route path="/notifications" element={<NotificationsPage />} />
               <Route path="/profile" element={<StudentProfilePage />} />
             </Route>
 
@@ -125,10 +123,6 @@ function AppRouter() {
               <Route
                 path="/supervisor/requests"
                 element={<PendingRequestsPage />}
-              />
-              <Route
-                path="/supervisor/companies"
-                element={<CompanyManagementPage />}
               />
               <Route
                 path="/supervisor/opportunities"

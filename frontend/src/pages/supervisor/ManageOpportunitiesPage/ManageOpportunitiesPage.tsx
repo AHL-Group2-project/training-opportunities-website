@@ -96,7 +96,10 @@ function ManageOpportunitiesPage() {
         }}
       >
         <Box>
-          <Typography variant="h4" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 700, color: "text.primary" }}
+          >
             Manage Opportunities
           </Typography>
           <Typography variant="body1" color="text.secondary">
@@ -107,7 +110,7 @@ function ManageOpportunitiesPage() {
           variant="contained"
           startIcon={<AddIcon />}
           onClick={() => navigate(getNewOpportunityPath())}
-          sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
+          sx={{ textTransform: "none" }}
         >
           New Opportunity
         </Button>
@@ -140,32 +143,17 @@ function ManageOpportunitiesPage() {
       </Box>
 
       {/* Table */}
-      <Card
-        variant="outlined"
-        sx={{ borderRadius: 2, borderColor: "grey.200" }}
-      >
+      <Card sx={{ borderRadius: 2, borderColor: "divider" }}>
         <TableContainer>
           <Table>
             <TableHead>
-              <TableRow sx={{ bgcolor: "#f6f3ee" }}>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Position
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Company
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Type
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Status
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Applications
-                </TableCell>
-                <TableCell sx={{ fontWeight: 700, color: "#1C2B4A" }}>
-                  Actions
-                </TableCell>
+              <TableRow sx={{ bgcolor: "background.paper" }}>
+                <TableCell sx={{ fontWeight: 700 }}>Position</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Company</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Type</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Applications</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -181,7 +169,9 @@ function ManageOpportunitiesPage() {
                 filtered.map((opp) => (
                   <TableRow key={opp.id} hover>
                     <TableCell>
-                      <Typography sx={{ fontWeight: 600, color: "#1C2B4A" }}>
+                      <Typography
+                        sx={{ fontWeight: 600, color: "text.primary" }}
+                      >
                         {opp.title}
                       </Typography>
                     </TableCell>

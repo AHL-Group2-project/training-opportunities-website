@@ -24,7 +24,7 @@ function UnauthorizedPage() {
         sx={{
           fontSize: { xs: "4rem", md: "6rem" },
           fontWeight: 800,
-          color: "#1C2B4A",
+          color: "text.primary",
           lineHeight: 1,
         }}
       >
@@ -35,7 +35,7 @@ function UnauthorizedPage() {
         variant="h5"
         sx={{
           fontWeight: 700,
-          color: "#1C2B4A",
+          color: "text.primary",
           mt: 2,
         }}
       >
@@ -59,8 +59,7 @@ function UnauthorizedPage() {
         sx={{
           mt: 4,
           textTransform: "none",
-          bgcolor: "#1C2B4A",
-          "&:hover": { bgcolor: "#2a3d5c" },
+          bgcolor: "text.primary",
         }}
       >
         Back to Home

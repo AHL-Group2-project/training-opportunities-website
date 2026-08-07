@@ -23,7 +23,7 @@ export default function AdminSupervisorsPage() {
       <TableContainer component={Paper} sx={{ borderRadius: 3 }}>
         <Table>
           <TableHead>
-            <TableRow sx={{ bgcolor: "#f8fafc" }}>
+            <TableRow sx={{ bgcolor: "background.paper" }}>
               <TableCell sx={{ fontWeight: 700 }}>Name</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Email</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Assigned Students</TableCell>

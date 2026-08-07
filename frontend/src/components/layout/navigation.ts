@@ -38,10 +38,7 @@ const supervisorNavEntries: NavEntry[] = [
   {
     type: "group",
     label: "Manage",
-    items: [
-      { label: "Opportunities", path: "/supervisor/opportunities" },
-      { label: "Companies", path: "/supervisor/companies" },
-    ],
+    items: [{ label: "Opportunities", path: "/supervisor/opportunities" }],
   },
 ];
 

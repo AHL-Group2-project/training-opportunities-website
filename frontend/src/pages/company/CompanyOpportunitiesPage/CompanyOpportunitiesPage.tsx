@@ -57,7 +57,10 @@ function CompanyOpportunitiesPage() {
         }}
       >
         <Box>
-          <Typography variant="h4" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 700, color: "text.primary" }}
+          >
             My Opportunities
           </Typography>
           <Typography variant="body1" color="text.secondary">
@@ -68,17 +71,17 @@ function CompanyOpportunitiesPage() {
           variant="contained"
           startIcon={<AddIcon />}
           onClick={() => navigate("/company/opportunities/new")}
-          sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
+          sx={{ bgcolor: "text.primary", textTransform: "none" }}
         >
           New Opportunity
         </Button>
       </Box>
 
-      <Card variant="outlined" sx={{ borderRadius: 2 }}>
+      <Card sx={{ borderRadius: 2 }}>
         <TableContainer>
           <Table>
             <TableHead>
-              <TableRow sx={{ bgcolor: "#f6f3ee" }}>
+              <TableRow sx={{ bgcolor: "background.paper" }}>
                 <TableCell sx={{ fontWeight: 700 }}>Title</TableCell>
                 <TableCell sx={{ fontWeight: 700 }}>Type</TableCell>
                 <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>

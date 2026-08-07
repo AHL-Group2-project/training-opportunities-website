@@ -10,9 +10,11 @@ import {
   TableHead,
   TableRow,
   Typography,
+  Card,
 } from "@mui/material";
 
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import { alpha } from "@mui/material/styles";
 
 type InternshipStatus = "Active" | "Completed" | "Pending";
 
@@ -67,31 +69,28 @@ const students: Student[] = [
 
 const statusStyles = {
   Active: {
-    color: "#1976D2",
-    backgroundColor: "#EAF3FF",
+    color: "#3B82F6",
+    backgroundColor: "rgba(59, 130, 246, 0.15)",
   },
   Completed: {
-    color: "#258354",
-    backgroundColor: "#E7F7EF",
+    color: "#10B981",
+    backgroundColor: "rgba(16, 185, 129, 0.15)",
   },
   Pending: {
-    color: "#C77700",
-    backgroundColor: "#FFF4DF",
+    color: "#F59E0B",
+    backgroundColor: "rgba(245, 158, 11, 0.15)",
   },
 };
 
 function StudentTrackingTable() {
   return (
-    <Box
+    <Card
       sx={{
-        backgroundColor: "white",
-        border: "1px solid",
-        borderColor: "grey.200",
-        borderRadius: 3,
+        width: "100%",
         overflow: "hidden",
       }}
     >
-      {/* عنوان الجدول */}
+      {/* Header */}
       <Box
         sx={{
           px: 3,
@@ -100,7 +99,7 @@ function StudentTrackingTable() {
           alignItems: "center",
           justifyContent: "space-between",
           borderBottom: "1px solid",
-          borderColor: "grey.200",
+          borderColor: "divider",
         }}
       >
         <Box>
@@ -126,7 +125,6 @@ function StudentTrackingTable() {
         </Box>
 
         <Button
-          variant="outlined"
           sx={{
             textTransform: "none",
             borderRadius: 2,
@@ -137,28 +135,17 @@ function StudentTrackingTable() {
         </Button>
       </Box>
 
-      {/* الجدول */}
+      {/* Table */}
       <TableContainer sx={{ overflowX: "auto" }}>
         <Table sx={{ minWidth: 850 }}>
           <TableHead>
-            <TableRow
-              sx={{
-                backgroundColor: "#FAFAFC",
-              }}
-            >
-              <TableCell sx={{ fontWeight: 700 }}>Student</TableCell>
-
-              <TableCell sx={{ fontWeight: 700 }}>Company</TableCell>
-
-              <TableCell sx={{ fontWeight: 700 }}>Training Type</TableCell>
-
-              <TableCell sx={{ fontWeight: 700 }}>Progress</TableCell>
-
-              <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
-
-              <TableCell align="right" sx={{ fontWeight: 700 }}>
-                Action
-              </TableCell>
+            <TableRow>
+              <TableCell>Student</TableCell>
+              <TableCell>Company</TableCell>
+              <TableCell>Training Type</TableCell>
+              <TableCell>Progress</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell align="right">Action</TableCell>
             </TableRow>
           </TableHead>
 
@@ -180,7 +167,6 @@ function StudentTrackingTable() {
                     },
                   }}
                 >
-                  {/* الطالب */}
                   <TableCell>
                     <Box
                       sx={{
@@ -193,8 +179,8 @@ function StudentTrackingTable() {
                         sx={{
                           width: 40,
                           height: 40,
-                          backgroundColor: "#EEE8FF",
-                          color: "#6D4CCB",
+                          backgroundColor: "rgba(168, 85, 247, 0.15)",
+                          color: "#C084FC",
                           fontSize: 14,
                           fontWeight: 700,
                         }}
@@ -225,25 +211,22 @@ function StudentTrackingTable() {
                     </Box>
                   </TableCell>
 
-                  {/* الشركة */}
                   <TableCell>
                     <Typography variant="body2">{student.company}</Typography>
                   </TableCell>
 
-                  {/* نوع التدريب */}
                   <TableCell>
                     <Chip
                       label={student.trainingType}
                       size="small"
                       sx={{
-                        color: "#6D4CCB",
-                        backgroundColor: "#F0EBFF",
+                        color: "#C084FC",
+                        backgroundColor: "rgba(168, 85, 247, 0.15)",
                         fontWeight: 600,
                       }}
                     />
                   </TableCell>
 
-                  {/* نسبة التقدم */}
                   <TableCell>
                     <Box
                       sx={{
@@ -257,7 +240,7 @@ function StudentTrackingTable() {
                         sx={{
                           flex: 1,
                           height: 7,
-                          backgroundColor: "#ECECF1",
+                          backgroundColor: "rgba(255, 255, 255, 0.1)",
                           borderRadius: 10,
                           overflow: "hidden",
                         }}
@@ -267,7 +250,7 @@ function StudentTrackingTable() {
                             width: `${student.progress}%`,
                             height: "100%",
                             backgroundColor:
-                              student.progress === 100 ? "#2E9D65" : "#6D4CCB",
+                              student.progress === 100 ? "#10B981" : "#A855F7",
                             borderRadius: 10,
                           }}
                         />
@@ -286,7 +269,6 @@ function StudentTrackingTable() {
                     </Box>
                   </TableCell>
 
-                  {/* الحالة */}
                   <TableCell>
                     <Chip
                       label={student.status}
@@ -300,7 +282,6 @@ function StudentTrackingTable() {
                     />
                   </TableCell>
 
-                  {/* زر العرض */}
                   <TableCell align="right">
                     <Button
                       size="small"
@@ -320,7 +301,7 @@ function StudentTrackingTable() {
           </TableBody>
         </Table>
       </TableContainer>
-    </Box>
+    </Card>
   );
 }
 

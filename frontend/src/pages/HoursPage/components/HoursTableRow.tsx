@@ -63,12 +63,12 @@ export default function HoursTableRow({
   return (
     <TableRow
       sx={{
-        bgcolor: idx % 2 === 0 ? "white" : "#fafafa",
-        ...(err && { bgcolor: "#fff5f5 !important" }),
+        bgcolor: idx % 2 === 0 ? "rgba(255, 255, 255, 0.05)" : "transparent",
+        ...(err && { bgcolor: "rgba(255, 0, 0, 0.1) !important" }),
       }}
     >
       {/* Day */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         {canEditThis ? (
           <Select
             value={row.day}
@@ -88,7 +88,7 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* Date */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         {canEditThis ? (
           <TextField
             type="date"
@@ -109,7 +109,7 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* Start */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         {canEditThis ? (
           <TextField
             type="time"
@@ -145,7 +145,7 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* End */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         {canEditThis ? (
           <TextField
             type="time"
@@ -177,7 +177,7 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* Location */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         {canEditThis ? (
           <Select
             value={row.location}
@@ -239,13 +239,13 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* Hours */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         <Typography
           sx={{
             fontFamily: "monospace",
             fontSize: 13,
             fontWeight: 600,
-            color: err ? "error.main" : "#1C2B4A",
+            color: err ? "error.main" : "text.primary",
           }}
         >
           {formatHours(hours)}
@@ -253,7 +253,7 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* Company Review */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
           <Chip
             label={compStyle.label}
@@ -317,7 +317,7 @@ export default function HoursTableRow({
       </TableCell>
 
       {/* Status */}
-      <TableCell sx={{ borderRight: "1px solid #e5e7eb", p: 1 }}>
+      <TableCell sx={{ p: 1 }}>
         <Chip
           label={row.status === "approved" ? "Logged" : "Pending"}
           size="small"

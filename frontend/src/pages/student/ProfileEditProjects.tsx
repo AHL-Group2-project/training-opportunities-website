@@ -128,7 +128,6 @@ export default function ProfileEditProjects({ projects, onChange }: Props) {
           />
         </Stack>
         <Button
-          variant="outlined"
           startIcon={<AddIcon />}
           onClick={handleAdd}
           sx={{ alignSelf: "flex-start" }}

@@ -21,10 +21,6 @@ function StatCard({
       sx={{
         width: "100%",
         p: 2.5,
-        borderRadius: 3,
-        border: "1px solid",
-        borderColor: "grey.200",
-        boxShadow: "none",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",

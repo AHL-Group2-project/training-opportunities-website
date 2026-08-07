@@ -30,11 +30,16 @@ function StatCard({
         gap: 2,
       }}
     >
-      <Box sx={{ p: 1.5, borderRadius: 2, bgcolor: "#e0e7ff" }}>
-        <Icon sx={{ color: "#20324a", fontSize: 28 }} />
+      <Box
+        sx={{ p: 1.5, borderRadius: 2, bgcolor: "rgba(255, 255, 255, 0.1)" }}
+      >
+        <Icon sx={{ color: "primary.main", fontSize: 28 }} />
       </Box>
       <Box>
-        <Typography variant="h4" sx={{ fontWeight: 700, color: "#20324a" }}>
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: 700, color: "text.primary" }}
+        >
           {value}
         </Typography>
         <Typography variant="body2" color="text.secondary">

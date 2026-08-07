@@ -161,7 +161,10 @@ function CreateOpportunityPage() {
         >
           Back to Opportunities
         </Button>
-        <Typography variant="h4" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+        <Typography
+          variant="h4"
+          sx={{ fontWeight: 700, color: "text.primary" }}
+        >
           {isEdit ? "Edit Opportunity" : "Create Opportunity"}
         </Typography>
         <Typography variant="body1" color="text.secondary">
@@ -169,14 +172,14 @@ function CreateOpportunityPage() {
         </Typography>
       </Box>
 
-      <Card
-        variant="outlined"
-        sx={{ borderRadius: 3, borderColor: "grey.200" }}
-      >
+      <Card sx={{ borderRadius: 3, borderColor: "divider" }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             {/* Basic Info */}
-            <Typography variant="h6" sx={{ fontWeight: 700, color: "#1C2B4A" }}>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: 700, color: "text.primary" }}
+            >
               Basic Information
             </Typography>
 
@@ -241,7 +244,7 @@ function CreateOpportunityPage() {
             {/* Details */}
             <Typography
               variant="h6"
-              sx={{ fontWeight: 700, color: "#1C2B4A", mt: 1 }}
+              sx={{ fontWeight: 700, color: "text.primary", mt: 1 }}
             >
               Details
             </Typography>
@@ -344,7 +347,7 @@ function CreateOpportunityPage() {
                     <Chip
                       key={key}
                       label={option}
-                      variant="outlined"
+
                       size="small"
                       sx={{ mr: 0.5 }}
                       {...tagProps}
@@ -376,7 +379,7 @@ function CreateOpportunityPage() {
             {/* Content */}
             <Typography
               variant="h6"
-              sx={{ fontWeight: 700, color: "#1C2B4A", mt: 1 }}
+              sx={{ fontWeight: 700, color: "text.primary", mt: 1 }}
             >
               Content
             </Typography>
@@ -446,9 +449,8 @@ function CreateOpportunityPage() {
           startIcon={<SaveIcon />}
           onClick={() => handleSave(true)}
           sx={{
-            bgcolor: "#1C2B4A",
+            bgcolor: "text.primary",
             textTransform: "none",
-            "&:hover": { bgcolor: "#2a3f6b" },
           }}
         >
           Publish

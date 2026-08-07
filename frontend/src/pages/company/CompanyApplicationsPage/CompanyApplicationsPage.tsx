@@ -46,7 +46,7 @@ export default function CompanyApplicationsPage() {
       <TableContainer component={Paper} sx={{ borderRadius: 3 }}>
         <Table>
           <TableHead>
-            <TableRow sx={{ bgcolor: "#f8fafc" }}>
+            <TableRow sx={{ bgcolor: "background.paper" }}>
               <TableCell sx={{ fontWeight: 700 }}>Student</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Opportunity</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Applied Date</TableCell>
@@ -71,7 +71,7 @@ export default function CompanyApplicationsPage() {
                       sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
                     >
                       <Avatar
-                        sx={{ width: 32, height: 32, bgcolor: "#20324a" }}
+                        sx={{ width: 32, height: 32, bgcolor: "primary.main" }}
                       >
                         {app.student?.name?.[0]}
                       </Avatar>
@@ -102,8 +102,8 @@ export default function CompanyApplicationsPage() {
                       label="Submitted"
                       size="small"
                       sx={{
-                        bgcolor: "#e0e7ff",
-                        color: "#3730a3",
+                        bgcolor: "rgba(255, 255, 255, 0.1)",
+                        color: "primary.main",
                         fontWeight: 600,
                         borderRadius: 1,
                       }}
@@ -117,8 +117,6 @@ export default function CompanyApplicationsPage() {
                       variant="outlined"
                       sx={{
                         textTransform: "none",
-                        borderColor: "#20324a",
-                        color: "#20324a",
                       }}
                     >
                       View Profile

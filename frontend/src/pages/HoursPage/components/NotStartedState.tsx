@@ -87,7 +87,8 @@ export default function NotStartedState({
           sx={{
             p: 4,
             borderRadius: 3,
-            border: "1px solid #e5e7eb",
+            border: "1px solid",
+            borderColor: "divider",
             textAlign: "center",
           }}
         >
@@ -125,7 +126,7 @@ export default function NotStartedState({
 
           <Typography
             variant="h5"
-            sx={{ fontWeight: 700, color: "#1C2B4A", mb: 1 }}
+            sx={{ fontWeight: 700, color: "text.primary", mb: 1 }}
           >
             {activeFt} —{" "}
             {ftState.status === "request_pending"
@@ -155,7 +156,7 @@ export default function NotStartedState({
                 endIcon={<ArrowForwardIcon />}
                 onClick={() => navigate("/training/request")}
                 sx={{
-                  bgcolor: "#1C2B4A",
+                  bgcolor: "text.primary",
                   textTransform: "none",
                   fontWeight: 600,
                   py: 1.2,

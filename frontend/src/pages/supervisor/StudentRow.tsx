@@ -135,28 +135,13 @@ export default function StudentRow({ student }: StudentRowProps) {
             View Profile
           </MenuItem>
           <MenuItem
-            onClick={() =>
-              handleAction(`/supervisor/students/${student.id}/hours`)
-            }
+            onClick={() => handleAction(`/training/hours/${student.id}`)}
           >
             View Hours
           </MenuItem>
-          <MenuItem
-            onClick={() =>
-              handleAction(`/supervisor/students/${student.id}/reports`)
-            }
-          >
+          <MenuItem onClick={() => handleAction(`/training/reports`)}>
             View Reports
           </MenuItem>
-          {status === "Completed" && (
-            <MenuItem
-              onClick={() => handleAction(`/supervisor/students/${student.id}`)}
-            >
-              <Box component="span" sx={{ color: "success.main" }}>
-                Evaluate
-              </Box>
-            </MenuItem>
-          )}
         </Menu>
       </TableCell>
     </TableRow>

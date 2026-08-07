@@ -34,12 +34,12 @@ function CompanyProfilePage() {
     <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}>
       <Typography
         variant="h4"
-        sx={{ fontWeight: 700, color: "#1C2B4A", mb: 4 }}
+        sx={{ fontWeight: 700, color: "text.primary", mb: 4 }}
       >
         Company Profile
       </Typography>
 
-      <Card variant="outlined" sx={{ borderRadius: 3 }}>
+      <Card sx={{ borderRadius: 3 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
@@ -95,14 +95,12 @@ function CompanyProfilePage() {
                 mt: 2,
               }}
             >
-              <Button variant="outlined" sx={{ textTransform: "none" }}>
-                Cancel
-              </Button>
+              <Button sx={{ textTransform: "none" }}>Cancel</Button>
               <Button
                 variant="contained"
                 startIcon={<SaveIcon />}
                 onClick={handleSave}
-                sx={{ bgcolor: "#1C2B4A", textTransform: "none" }}
+                sx={{ bgcolor: "text.primary", textTransform: "none" }}
               >
                 Save Changes
               </Button>

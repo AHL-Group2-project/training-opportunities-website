@@ -69,7 +69,7 @@ function CompanyRequestsPage() {
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 6 } }}>
       <Typography
         variant="h4"
-        sx={{ fontWeight: 700, color: "#1C2B4A", mb: 1 }}
+        sx={{ fontWeight: 700, color: "text.primary", mb: 1 }}
       >
         Completion Requests
       </Typography>
@@ -77,11 +77,11 @@ function CompanyRequestsPage() {
         Review and approve student internship completions for {company?.name}
       </Typography>
 
-      <Card variant="outlined" sx={{ borderRadius: 2 }}>
+      <Card sx={{ borderRadius: 2 }}>
         <TableContainer>
           <Table>
             <TableHead>
-              <TableRow sx={{ bgcolor: "#f6f3ee" }}>
+              <TableRow sx={{ bgcolor: "background.paper" }}>
                 <TableCell sx={{ fontWeight: 700 }}>Student</TableCell>
                 <TableCell sx={{ fontWeight: 700 }}>Hours</TableCell>
                 <TableCell sx={{ fontWeight: 700 }}>Reports</TableCell>

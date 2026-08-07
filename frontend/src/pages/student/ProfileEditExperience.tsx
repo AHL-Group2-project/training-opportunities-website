@@ -121,7 +121,7 @@ export default function ProfileEditExperience({ experience, onChange }: Props) {
         onChange={(e) => setDraft({ ...draft, description: e.target.value })}
         sx={{ mb: 1 }}
       />
-      <Button variant="outlined" startIcon={<AddIcon />} onClick={handleAdd}>
+      <Button startIcon={<AddIcon />} onClick={handleAdd}>
         Add Experience
       </Button>
     </Card>

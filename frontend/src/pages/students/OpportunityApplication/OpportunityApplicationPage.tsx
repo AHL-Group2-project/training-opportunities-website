@@ -126,7 +126,7 @@ function OpportunityApplicationPage() {
           sx={{
             mb: 2,
             px: 0,
-            color: "#1C2B4A",
+            color: "text.primary",
             textTransform: "none",
             fontWeight: 600,
             "&:hover": {
@@ -145,7 +145,7 @@ function OpportunityApplicationPage() {
             variant="h4"
             sx={{
               mb: 1,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
@@ -177,7 +177,7 @@ function OpportunityApplicationPage() {
             p: 3,
             mb: 3,
             border: "1px solid",
-            borderColor: "#DDE3EC",
+            borderColor: "divider",
             borderRadius: 3,
             backgroundColor: "#F4F8FF",
           }}
@@ -196,7 +196,7 @@ function OpportunityApplicationPage() {
             variant="h5"
             sx={{
               mb: 2,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
@@ -214,7 +214,7 @@ function OpportunityApplicationPage() {
               label={opportunity.location}
               size="small"
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "transparent",
               }}
             />
 
@@ -222,7 +222,7 @@ function OpportunityApplicationPage() {
               label={`${opportunity.seats} seats`}
               size="small"
               sx={{
-                backgroundColor: "white",
+                backgroundColor: "transparent",
               }}
             />
           </Box>
@@ -236,7 +236,7 @@ function OpportunityApplicationPage() {
           sx={{
             p: { xs: 2.5, sm: 4 },
             border: "1px solid",
-            borderColor: "grey.200",
+            borderColor: "divider",
             borderRadius: 3,
           }}
         >
@@ -245,7 +245,7 @@ function OpportunityApplicationPage() {
             variant="h6"
             sx={{
               mb: 0.5,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
@@ -347,7 +347,7 @@ function OpportunityApplicationPage() {
             variant="h6"
             sx={{
               mb: 0.5,
-              color: "#1C2B4A",
+              color: "text.primary",
               fontWeight: 700,
             }}
           >
@@ -377,7 +377,7 @@ function OpportunityApplicationPage() {
 
               <Button
                 component="label"
-                variant="outlined"
+
                 fullWidth
                 sx={{
                   minHeight: 54,
@@ -458,7 +458,7 @@ function OpportunityApplicationPage() {
               disabled={!cvFile}
               sx={{
                 px: 4,
-                backgroundColor: "#1C2B4A",
+                backgroundColor: "primary.main",
                 textTransform: "none",
                 borderRadius: 2,
                 boxShadow: "none",
