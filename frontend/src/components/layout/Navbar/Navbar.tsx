@@ -241,9 +241,13 @@ function Navbar() {
                             case "company":
                               navigate("/company/profile");
                               break;
-                            case "student":
-                              navigate("/profile");
+                            case "admin":
+                              navigate("/admin/profile");
                               break;
+                            case "supervisor":
+                              navigate("/supervisor/profile");
+                              break;
+                            case "student":
                             default:
                               navigate("/profile");
                           }

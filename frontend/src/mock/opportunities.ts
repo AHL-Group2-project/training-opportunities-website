@@ -42,7 +42,7 @@ export const MOCK_OPPORTUNITIES: Opportunity[] = [
     duration: "3 months",
     skills: ["React", "TypeScript", "Git"],
     location: "Ramallah",
-    seats: 3,
+    seats: 50,
     daysLeft: 6,
     applicants: 42,
     status: "active",

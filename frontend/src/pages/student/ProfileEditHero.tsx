@@ -1,4 +1,5 @@
 import { Card, Stack, TextField, Avatar, Button, Box } from "@mui/material";
+import AvatarUpload from "../../components/AvatarUpload";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import type { EditableProfileData } from "./StudentProfilePage";
 
@@ -12,18 +13,17 @@ interface Props {
 
 export default function ProfileEditHero({ data, onChange }: Props) {
   return (
-    <Card sx={{ p: 3, borderRadius: 3 }}>
+    <Card sx={{ p: 3, borderRadius: 2 }}>
       <Stack spacing={2} sx={{ alignItems: "center" }}>
-        <Avatar
-          sx={{ width: 90, height: 90, bgcolor: "primary.main", fontSize: 34 }}
-        >
-          {data.name.slice(0, 2).toUpperCase()}
-        </Avatar>
-
-        <Button component="label" size="small" startIcon={<PhotoCameraIcon />}>
-          Upload Avatar
-          <input type="file" accept="image/*" hidden />
-        </Button>
+        <AvatarUpload
+          src={data.avatar}
+          size={90}
+          onFileSelect={(file) => {
+            // Convert file to URL for preview and pass to onChange
+            const url = URL.createObjectURL(file);
+            onChange("avatar", url);
+          }}
+        />
 
         {/* Cover photo upload removed per team decision - see task notes */}
 

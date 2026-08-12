@@ -7,7 +7,7 @@ type Props = {
 
 export default function ExperienceCard({ student }: Props) {
   return (
-    <Card sx={{ borderRadius: 3, mb: 3 }}>
+    <Card sx={{ borderRadius: 2, mb: 3 }}>
       <CardContent>
         <Typography variant="h6" sx={{ mb: 3 }}>
           Experience

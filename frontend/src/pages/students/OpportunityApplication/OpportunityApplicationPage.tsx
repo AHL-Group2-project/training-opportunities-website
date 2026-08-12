@@ -178,7 +178,7 @@ function OpportunityApplicationPage() {
             mb: 3,
             border: "1px solid",
             borderColor: "divider",
-            borderRadius: 3,
+            borderRadius: 2,
             backgroundColor: "#F4F8FF",
           }}
         >
@@ -237,7 +237,7 @@ function OpportunityApplicationPage() {
             p: { xs: 2.5, sm: 4 },
             border: "1px solid",
             borderColor: "divider",
-            borderRadius: 3,
+            borderRadius: 2,
           }}
         >
           {/* Student information */}

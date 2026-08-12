@@ -23,7 +23,7 @@ export default function ProfileEditSocialPrivacy({
   onPrivacyChange,
 }: Props) {
   return (
-    <Card sx={{ p: 3, mb: 3, borderRadius: 3 }}>
+    <Card sx={{ p: 3, mb: 3, borderRadius: 2 }}>
       <Typography variant="h6" sx={{ mb: 2 }}>
         Social Links
       </Typography>

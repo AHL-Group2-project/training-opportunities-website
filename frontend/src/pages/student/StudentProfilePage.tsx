@@ -12,7 +12,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import SaveIcon from "@mui/icons-material/Save";
 
 import { students } from "../../mock/students";
-import ProfileHero from "../../components/profileComp/ProfileHero";
 import ProfileSidebar from "../../components/profileComp/ProfileSidebar";
 import SkillsCard from "../../components/profileComp/SkillsCard";
 import ExperienceCard from "../../components/profileComp/ExperienceCard";
@@ -26,7 +25,7 @@ import ProfileEditProjects from "../student/ProfileEditProjects";
 import ProfileEditCV from "../student/ProfileEditCV";
 import ProfileEditSocialPrivacy from "../student/ProfileEditSocialPrivacy";
 
-const CURRENT_STUDENT_ID = 1;
+const CURRENT_STUDENT_ID = 101;
 
 export interface ExperienceEntry {
   year: string;
@@ -135,9 +134,7 @@ export default function StudentProfilePage() {
 
   return (
     <Box>
-      <ProfileHero />
-
-      <Container maxWidth="lg" sx={{ mt: -8, pb: 6 }}>
+      <Container maxWidth="lg" sx={{ mt: 4, pb: 6 }}>
         <Stack
           direction="row"
           sx={{ justifyContent: "flex-end", mb: 2 }}
@@ -193,7 +190,7 @@ export default function StudentProfilePage() {
                   mb: 3,
                   p: 3,
                   backgroundColor: "background.paper",
-                  borderRadius: 3,
+                  borderRadius: 2,
                 }}
               >
                 <Typography variant="h6" sx={{ mb: 1 }}>

@@ -9,8 +9,10 @@ export default function ProjectsCard({ student }: Props) {
   return (
     <Card
       sx={{
-        borderRadius: 3,
         mb: 3,
+        p: 3,
+        borderRadius: 2,
+        backgroundColor: "background.paper",
       }}
     >
       <CardContent>

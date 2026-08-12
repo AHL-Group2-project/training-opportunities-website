@@ -18,7 +18,8 @@ export default function ProfileSidebar({ student }: Props) {
     <Card
       sx={{
         p: 3,
-        borderRadius: 3,
+        borderRadius: 2,
+        position: "sticky",
       }}
     >
       <Stack

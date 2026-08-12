@@ -22,6 +22,7 @@ import HoursPage from "../pages/HoursPage/HoursPage";
 import OpportunityApplicationPage from "../pages/students/OpportunityApplication/OpportunityApplicationPage";
 import SupervisorDashboard from "../pages/supervisor/SupervisorDashboard/SupervisorDashboard";
 import PendingRequestsPage from "../pages/supervisor/PendingRequests/PendingRequestsPage";
+import SupervisorProfilePage from "../pages/supervisor/SupervisorProfilePage";
 
 import NotFoundPage from "../pages/error/NotFoundPage";
 import UnauthorizedPage from "../pages/error/UnauthorizedPage";
@@ -55,6 +56,7 @@ import AdminDashboardPage from "../pages/admin/AdminDashboardPage/AdminDashboard
 import AdminStudentsPage from "../pages/admin/AdminStudentsPage/AdminStudentsPage";
 import AdminRequestsPage from "../pages/admin/AdminRequestsPage/AdminRequestsPage";
 import AdminSupervisorsPage from "../pages/admin/AdminSupervisorsPage/AdminSupervisorsPage";
+import AdminProfilePage from "../pages/admin/AdminProfilePage";
 
 function AppRouter() {
   return (
@@ -109,6 +111,10 @@ function AppRouter() {
             {/* Supervisor routes */}
             <Route element={<RoleRoute allowedRoles={["supervisor"]} />}>
               <Route
+                path="/supervisor/profile"
+                element={<SupervisorProfilePage />}
+              />
+              <Route
                 path="/supervisor/dashboard"
                 element={<SupervisorDashboard />}
               />
@@ -144,6 +150,7 @@ function AppRouter() {
 
             {/* Admin routes */}
             <Route element={<RoleRoute allowedRoles={["admin"]} />}>
+              <Route path="/admin/profile" element={<AdminProfilePage />} />
               <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
               <Route path="/admin/students" element={<AdminStudentsPage />} />
               <Route path="/admin/requests" element={<AdminRequestsPage />} />
