@@ -26,6 +26,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { MOCK_COMPANIES } from "../../../mock/Companies";
 import type { Company } from "../../../mock/Companies";
+import { MOCK_USERS } from "../../../mock/users";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -133,16 +134,46 @@ function CompanyManagementPage() {
       // TODO: PATCH /api/companies/:id
       console.log("UPDATE", editingCompany.id, payload);
     } else {
-      // TODO: POST /api/admin/companies
-      // Backend will:
-      // 1. Create company record
-      // 2. Hash the temporary password
-      // 3. Send email to company.email with the credentials
-      console.log("CREATE company + send credentials", payload);
+      if (!name || !email || !tempPassword) {
+        alert("Please fill required fields (Name, Email, Temp Password).");
+        return;
+      }
+      const newId = companies.length > 0 ? Math.max(...companies.map(c => c.id)) + 1 : 1;
+      const newUserId = MOCK_USERS.length > 0 ? Math.max(...MOCK_USERS.map(u => u.id)) + 1 : 1;
+      
+      const newCompany: Company = {
+        id: newId,
+        name,
+        industry,
+        location,
+        website,
+        description,
+        email,
+        phone,
+        logo: "https://via.placeholder.com/150", // default logo
+        isActive: true,
+        activationStatus: "active",
+        activeOpportunities: 0,
+        verified: false,
+        opportunities: [],
+        pastInterns: [],
+        gallery: []
+      };
 
-      // Show feedback to admin
+      MOCK_COMPANIES.push(newCompany);
+      MOCK_USERS.push({
+        id: newUserId,
+        name: name,
+        email: email,
+        password: tempPassword,
+        role: "company",
+        companyId: newId,
+        mustChangePassword: true,
+      });
+
+      setCompanies([...MOCK_COMPANIES]);
       alert(
-        `Company account for "${name}" created. Credentials have been emailed to ${email}.`,
+        `Company account for "${name}" created. They can log in using email: ${email} and password: ${tempPassword}.`,
       );
     }
 

@@ -16,6 +16,7 @@ export interface MockUser {
   role: UserRole;
   companyId?: number;
   studentId?: number; // For student users, links to StudentProfile
+  mustChangePassword?: boolean;
 }
 
 export const MOCK_USERS: MockUser[] = [

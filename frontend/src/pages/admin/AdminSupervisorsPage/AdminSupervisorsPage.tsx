@@ -22,7 +22,7 @@ import { MOCK_USERS } from "../../../mock/users";
 import { MOCK_STUDENT_PROFILES } from "../../../mock/studentTrainingState";
 
 export default function AdminSupervisorsPage() {
-  const supervisors = MOCK_USERS.filter((u) => u.role === "supervisor");
+  const [supervisorsList, setSupervisorsList] = useState(MOCK_USERS.filter((u) => u.role === "supervisor"));
 
   // Add Supervisor state
   const [addDialogOpen, setAddDialogOpen] = useState(false);
@@ -40,9 +40,27 @@ export default function AdminSupervisorsPage() {
   };
 
   const handleAddSupervisor = () => {
-    // TODO: POST /api/admin/supervisors
+    if (!newSupervisorName || !newSupervisorEmail || !newSupervisorPassword) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    const newUserId = MOCK_USERS.length > 0 ? Math.max(...MOCK_USERS.map(u => u.id)) + 1 : 1;
+    
+    const newUser = {
+      id: newUserId,
+      name: newSupervisorName,
+      email: newSupervisorEmail,
+      password: newSupervisorPassword,
+      role: "supervisor" as const,
+      mustChangePassword: true,
+    };
+
+    MOCK_USERS.push(newUser);
+    setSupervisorsList(MOCK_USERS.filter((u) => u.role === "supervisor"));
+
     alert(
-      `Supervisor ${newSupervisorName} created with password: ${newSupervisorPassword}`,
+      `Supervisor ${newSupervisorName} created successfully!\nThey can log in with password: ${newSupervisorPassword}`,
     );
     setAddDialogOpen(false);
   };
@@ -79,7 +97,7 @@ export default function AdminSupervisorsPage() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {supervisors.map((sup) => {
+            {supervisorsList.map((sup) => {
               const assignedCount = MOCK_STUDENT_PROFILES.filter(
                 (s) => s.supervisorId === sup.id,
               ).length;

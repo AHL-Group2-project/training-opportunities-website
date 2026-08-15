@@ -151,25 +151,29 @@ function LoginPage() {
         email: user.email,
         role: user.role,
         token: "mock-token",
-        mustChangePassword: false,
+        mustChangePassword: user.mustChangePassword || false,
         companyId: user.companyId ? String(user.companyId) : undefined,
       });
 
-      switch (user.role) {
-        case "student":
-          navigate("/dashboard");
-          break;
-        case "admin":
-          navigate("/admin/dashboard");
-          break;
-        case "supervisor":
-          navigate("/supervisor/dashboard");
-          break;
-        case "company":
-          navigate("/company/dashboard");
-          break;
-        default:
-          navigate("/");
+      if (user.mustChangePassword) {
+        navigate("/change-password");
+      } else {
+        switch (user.role) {
+          case "student":
+            navigate("/dashboard");
+            break;
+          case "admin":
+            navigate("/admin/dashboard");
+            break;
+          case "supervisor":
+            navigate("/supervisor/dashboard");
+            break;
+          case "company":
+            navigate("/company/dashboard");
+            break;
+          default:
+            navigate("/");
+        }
       }
 
       setLoading(false);

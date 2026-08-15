@@ -28,6 +28,7 @@ import {
   MOCK_STUDENT_PROFILES,
   MOCK_TRAINING_STATES,
 } from "../../../mock/studentTrainingState";
+import { MOCK_USERS } from "../../../mock/users";
 
 function getStatusChip(status: string) {
   const map: Record<string, { label: string; color: string; bg: string }> = {
@@ -57,6 +58,7 @@ function getStatusChip(status: string) {
 }
 
 export default function AdminStudentsPage() {
+  const [students, setStudents] = useState([...MOCK_STUDENT_PROFILES]);
   const [assignDialogOpen, setAssignDialogOpen] = useState(false);
   const [selectedStudentId, setSelectedStudentId] = useState<number | null>(
     null,
@@ -81,9 +83,39 @@ export default function AdminStudentsPage() {
   };
 
   const handleAddStudent = () => {
-    // TODO: POST /api/admin/students
+    if (!newStudentName || !newStudentEmail || !newStudentMajor || !newStudentPassword) {
+      alert("Please fill all required fields.");
+      return;
+    }
+
+    const newId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
+    const newUserId = MOCK_USERS.length > 0 ? Math.max(...MOCK_USERS.map(u => u.id)) + 1 : 1;
+    
+    const newProfile = {
+      id: newId,
+      userId: newUserId,
+      name: newStudentName,
+      major: newStudentMajor,
+      gpa: 0,
+      year: 3,
+      email: newStudentEmail,
+    };
+
+    MOCK_STUDENT_PROFILES.push(newProfile);
+    MOCK_USERS.push({
+      id: newUserId,
+      name: newStudentName,
+      email: newStudentEmail,
+      password: newStudentPassword,
+      role: "student",
+      studentId: newId,
+      mustChangePassword: true,
+    });
+
+    setStudents([...MOCK_STUDENT_PROFILES]);
+
     alert(
-      `Student ${newStudentName} created with password: ${newStudentPassword}`,
+      `Student ${newStudentName} created successfully!\nThey can log in with password: ${newStudentPassword}`,
     );
     setAddDialogOpen(false);
   };
@@ -140,7 +172,7 @@ export default function AdminStudentsPage() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {MOCK_STUDENT_PROFILES.map((student) => {
+            {students.map((student) => {
               const state = MOCK_TRAINING_STATES.find(
                 (s) => s.studentId === student.id,
               );
