@@ -9,7 +9,6 @@ import {
   IconButton,
   Badge,
 } from "@mui/material";
-import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import EditIcon from "@mui/icons-material/Edit";
 
 export interface ProfileField {
@@ -101,7 +100,7 @@ export default function DynamicProfileForm({
       {/* Grid of Fields */}
       <Grid container spacing={4}>
         {fields.map((field) => (
-          <Grid item xs={12} sm={6} key={field.id}>
+          <Grid size={{ xs: 12, sm: 6 }} key={field.id}>
             <Typography
               variant="caption"
               color="text.secondary"

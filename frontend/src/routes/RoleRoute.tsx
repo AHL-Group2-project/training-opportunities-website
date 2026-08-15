@@ -1,6 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../context/authContext";
-import type { UserRole } from "../mock/users";
+import { useAuth, type UserRole } from "../context/authContext";
 
 interface RoleRouteProps {
   allowedRoles: UserRole[];

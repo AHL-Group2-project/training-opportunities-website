@@ -75,6 +75,10 @@ export interface Student {
   major: string;
 
   year: string;
+  graduationYear?: string;
+  email?: string;
+  contactEmail?: string;
+  phone?: string;
 
   bio: string;
 

@@ -351,16 +351,11 @@ function LoginPage() {
                 variant="subtitle2"
                 sx={{ fontWeight: 700, color: "text.primary" }}
               >
-                Are you a company?
+                Need an account?
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Contact us on this email:{" "}
-                <Box
-                  component="span"
-                  sx={{ fontWeight: 600, color: "text.primary" }}
-                >
-                  admin@university.edu.ps
-                </Box>
+                Contact your university administrator to get access to the
+                platform.
               </Typography>
             </Box>
           </CardContent>

@@ -15,14 +15,11 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../../context/authContext";
 import { MOCK_APPLICATIONS } from "../../../mock/applications";
 import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import { students } from "../../../mock/students";
 
 export default function CompanyApplicationsPage() {
-  const { user } = useAuth();
-
   const applications = useMemo(() => {
     return MOCK_APPLICATIONS.map((app) => {
       const student = students.find((s) => s.id === app.studentId);

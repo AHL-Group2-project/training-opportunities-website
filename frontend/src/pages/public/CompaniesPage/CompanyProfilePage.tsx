@@ -286,7 +286,7 @@ function CompanyProfilePage() {
                       }}
                     >
                       <Typography variant="body2" color="text.secondary">
-                        {opp.appliedCount} applied
+                        {opp.applicants} applied
                       </Typography>
                       <Button variant="contained" size="medium">
                         Apply

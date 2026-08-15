@@ -1,6 +1,5 @@
-import { Card, Stack, TextField, Avatar, Button, Box } from "@mui/material";
+import { Card, Stack, TextField, Box } from "@mui/material";
 import AvatarUpload from "../../components/AvatarUpload";
-import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import type { EditableProfileData } from "./StudentProfilePage";
 
 interface Props {
@@ -56,6 +55,20 @@ export default function ProfileEditHero({ data, onChange }: Props) {
               fullWidth
               value={data.graduationYear}
               onChange={(e) => onChange("graduationYear", e.target.value)}
+            />
+            <TextField
+              label="Contact Email"
+              size="small"
+              fullWidth
+              value={data.contactEmail}
+              onChange={(e) => onChange("contactEmail", e.target.value)}
+            />
+            <TextField
+              label="Phone Number"
+              size="small"
+              fullWidth
+              value={data.phone}
+              onChange={(e) => onChange("phone", e.target.value)}
             />
           </Stack>
         </Box>

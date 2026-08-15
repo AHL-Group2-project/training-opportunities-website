@@ -11,7 +11,6 @@ import {
   Select,
   TextField,
   Typography,
-  Chip,
   Autocomplete,
 } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
@@ -335,26 +334,12 @@ function CreateOpportunityPage() {
               />
             </Box>
 
-            <Autocomplete<string, true, false, false>
+            <Autocomplete
               multiple
               options={SKILLS}
               value={skills}
               onChange={(_, newValue) => setSkills(newValue)}
-              renderTags={(value, getTagProps) =>
-                value.map((option, index) => {
-                  const { key, ...tagProps } = getTagProps({ index });
-                  return (
-                    <Chip
-                      key={key}
-                      label={option}
 
-                      size="small"
-                      sx={{ mr: 0.5 }}
-                      {...tagProps}
-                    />
-                  );
-                })
-              }
               renderInput={(params) => (
                 <TextField
                   {...params}

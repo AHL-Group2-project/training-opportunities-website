@@ -26,23 +26,7 @@ function CompanyRequestsPage() {
     MOCK_COMPLETION_REQUESTS.filter((r) => r.companyId === companyId),
   );
 
-  const handleApprove = (id: number) => {
-    // TODO: PATCH /api/completion-requests/:id/approve
-    setRequests((prev) =>
-      prev.map((r) =>
-        r.id === id ? { ...r, status: "approved" as const } : r,
-      ),
-    );
-  };
-
-  const handleReject = (id: number) => {
-    // TODO: PATCH /api/completion-requests/:id/reject
-    setRequests((prev) =>
-      prev.map((r) =>
-        r.id === id ? { ...r, status: "rejected" as const } : r,
-      ),
-    );
-  };
+  // Actions removed as company only approves individual hour rows.
 
   const getStatusChip = (status: string) => {
     const colors: Record<string, { color: string; bg: string }> = {
@@ -86,7 +70,6 @@ function CompanyRequestsPage() {
                 <TableCell sx={{ fontWeight: 700 }}>Hours</TableCell>
                 <TableCell sx={{ fontWeight: 700 }}>Reports</TableCell>
                 <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
-                <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -109,33 +92,6 @@ function CompanyRequestsPage() {
                     </TableCell>
                     <TableCell>{req.reportsSubmitted}</TableCell>
                     <TableCell>{getStatusChip(req.status)}</TableCell>
-                    <TableCell>
-                      {req.status === "pending" ? (
-                        <Box sx={{ display: "flex", gap: 1 }}>
-                          <Button
-                            size="small"
-                            variant="contained"
-                            onClick={() => handleApprove(req.id)}
-                            sx={{ bgcolor: "#059669", textTransform: "none" }}
-                          >
-                            Approve
-                          </Button>
-                          <Button
-                            size="small"
-                            variant="outlined"
-                            color="error"
-                            onClick={() => handleReject(req.id)}
-                            sx={{ textTransform: "none" }}
-                          >
-                            Reject
-                          </Button>
-                        </Box>
-                      ) : (
-                        <Typography variant="body2" color="text.secondary">
-                          {req.status === "approved" ? "Approved" : "Rejected"}
-                        </Typography>
-                      )}
-                    </TableCell>
                   </TableRow>
                 ))
               )}

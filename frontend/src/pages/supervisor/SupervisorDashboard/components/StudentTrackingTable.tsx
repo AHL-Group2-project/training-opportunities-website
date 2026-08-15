@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import { alpha } from "@mui/material/styles";
 
 type InternshipStatus = "Active" | "Completed" | "Pending";
 

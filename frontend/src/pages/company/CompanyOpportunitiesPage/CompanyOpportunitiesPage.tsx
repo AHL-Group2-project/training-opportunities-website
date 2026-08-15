@@ -27,7 +27,7 @@ function CompanyOpportunitiesPage() {
   const { user } = useAuth();
   const companyId = user?.companyId;
 
-  const company = MOCK_COMPANIES.find((c) => c.id === companyId);
+  const company = MOCK_COMPANIES.find((c) => String(c.id) === companyId);
   const [opportunities] = useState(company?.opportunities || []);
 
   const getStatusChip = (status?: string) => {

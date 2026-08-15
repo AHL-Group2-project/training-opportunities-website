@@ -7,6 +7,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import SchoolIcon from "@mui/icons-material/School";
 
 import type { Student } from "../../types/student.types";
 type Props = {
@@ -59,6 +62,37 @@ export default function ProfileSidebar({ student }: Props) {
         <Button fullWidth variant="contained">
           Download Resume
         </Button>
+
+        <Divider flexItem />
+
+        <Stack spacing={1.5} sx={{ width: "100%" }}>
+          {(student.graduationYear || student.year) && (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <SchoolIcon sx={{ color: "text.secondary", fontSize: 20 }} />
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                Class of {student.graduationYear || student.year}
+              </Typography>
+            </Box>
+          )}
+
+          {student.contactEmail && (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <EmailIcon sx={{ color: "text.secondary", fontSize: 20 }} />
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                {student.contactEmail}
+              </Typography>
+            </Box>
+          )}
+
+          {student.phone && (
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <PhoneIcon sx={{ color: "text.secondary", fontSize: 20 }} />
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                {student.phone}
+              </Typography>
+            </Box>
+          )}
+        </Stack>
 
         <Divider flexItem />
 

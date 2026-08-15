@@ -1,13 +1,16 @@
 import { createContext, useContext } from "react";
-import type { UserRole } from "../mock/users";
+
+export type UserRole = "student" | "supervisor" | "admin" | "company";
 
 export interface AuthUser {
-  id: number;
+  id: string; // MongoDB ObjectId of the users document
+  profileId: string; // ObjectId of the role-specific profile (studentProfiles, supervisorProfiles, etc.)
   name: string;
   email: string;
   role: UserRole;
   token: string;
-  companyId?: number;
+  mustChangePassword: boolean;
+  companyId?: string; // Only for role === "company"
 }
 
 export interface AuthContextType {

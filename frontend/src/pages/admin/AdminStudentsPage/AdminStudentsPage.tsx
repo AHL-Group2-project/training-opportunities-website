@@ -18,9 +18,12 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Box,
+  TextField,
 } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AddIcon from "@mui/icons-material/Add";
 import {
   MOCK_STUDENT_PROFILES,
   MOCK_TRAINING_STATES,
@@ -60,6 +63,31 @@ export default function AdminStudentsPage() {
   );
   const [selectedSupervisorId, setSelectedSupervisorId] = useState("");
 
+  // Add Student state
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const [newStudentName, setNewStudentName] = useState("");
+  const [newStudentId, setNewStudentId] = useState("");
+  const [newStudentEmail, setNewStudentEmail] = useState("");
+  const [newStudentMajor, setNewStudentMajor] = useState("");
+  const [newStudentPassword, setNewStudentPassword] = useState("");
+
+  const handleOpenAddDialog = () => {
+    setNewStudentName("");
+    setNewStudentId("");
+    setNewStudentEmail("");
+    setNewStudentMajor("");
+    setNewStudentPassword(Math.random().toString(36).slice(-8) + "A1!");
+    setAddDialogOpen(true);
+  };
+
+  const handleAddStudent = () => {
+    // TODO: POST /api/admin/students
+    alert(
+      `Student ${newStudentName} created with password: ${newStudentPassword}`,
+    );
+    setAddDialogOpen(false);
+  };
+
   const handleOpenAssign = (studentId: number) => {
     setSelectedStudentId(studentId);
     setSelectedSupervisorId("");
@@ -78,9 +106,27 @@ export default function AdminStudentsPage() {
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
-        All Students
-      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+        }}
+      >
+        <Typography variant="h4" sx={{ fontWeight: 700 }}>
+          All Students
+        </Typography>
+        <Button
+          variant="contained"
+          startIcon={<AddIcon />}
+          onClick={handleOpenAddDialog}
+          sx={{ textTransform: "none" }}
+        >
+          Add Student
+        </Button>
+      </Box>
+
       <TableContainer component={Paper} sx={{ borderRadius: 3 }}>
         <Table>
           <TableHead>
@@ -186,6 +232,68 @@ export default function AdminStudentsPage() {
             disabled={!selectedSupervisorId}
           >
             Assign
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Add Student Dialog */}
+      <Dialog
+        open={addDialogOpen}
+        onClose={() => setAddDialogOpen(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>Add New Student</DialogTitle>
+        <DialogContent>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
+            <TextField
+              label="Student Name *"
+              value={newStudentName}
+              onChange={(e) => setNewStudentName(e.target.value)}
+              fullWidth
+            />
+            <TextField
+              label="University ID *"
+              value={newStudentId}
+              onChange={(e) => setNewStudentId(e.target.value)}
+              fullWidth
+            />
+            <TextField
+              label="University Email *"
+              type="email"
+              value={newStudentEmail}
+              onChange={(e) => setNewStudentEmail(e.target.value)}
+              fullWidth
+              helperText="Must use the university domain (e.g., @ppu.edu.ps)"
+            />
+            <TextField
+              label="Major *"
+              value={newStudentMajor}
+              onChange={(e) => setNewStudentMajor(e.target.value)}
+              fullWidth
+            />
+            <TextField
+              label="Temporary Password *"
+              value={newStudentPassword}
+              onChange={(e) => setNewStudentPassword(e.target.value)}
+              fullWidth
+              helperText="Provide this temporary password to the student. They will be forced to change it on their first login."
+            />
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() => setAddDialogOpen(false)}
+            sx={{ textTransform: "none" }}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            onClick={handleAddStudent}
+            sx={{ textTransform: "none" }}
+          >
+            Create Student
           </Button>
         </DialogActions>
       </Dialog>

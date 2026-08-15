@@ -1,4 +1,4 @@
-import { Card, CardContent, Stack, Typography, Box } from "@mui/material";
+import { Card, CardContent, Stack, Typography } from "@mui/material";
 import { useAuth } from "../../../context/authContext";
 import WavingHandOutlinedIcon from "@mui/icons-material/WavingHandOutlined";
 

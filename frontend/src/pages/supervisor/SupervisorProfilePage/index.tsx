@@ -16,10 +16,11 @@ import AvatarUpload from "../../../components/AvatarUpload";
 export default function SupervisorProfilePage() {
   const [isEditMode, setIsEditMode] = useState(false);
   const [profileData, setProfileData] = useState({
-    name: "Dr. Supervisor",
-    email: "supervisor@ppu.edu",
+    name: "Supervisor Name",
+    email: "supervisor@university.edu.ps",
+    university: "Palestine Polytechnic University (PPU)", // Set by admin — read-only
     department: "Software Engineering",
-    phone: "+970599000000",
+    phone: "+970-599-000000",
     avatar: "",
   });
 
@@ -121,6 +122,16 @@ export default function SupervisorProfilePage() {
                 variant="outlined"
               />
             </Stack>
+
+            {/* University is always read-only — assigned by the admin */}
+            <TextField
+              label="University"
+              value={profileData.university}
+              disabled
+              fullWidth
+              variant="outlined"
+              helperText="Your university affiliation is managed by your admin."
+            />
 
             <Stack direction={{ xs: "column", md: "row" } as const} spacing={3}>
               <TextField

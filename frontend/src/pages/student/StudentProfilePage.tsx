@@ -58,6 +58,9 @@ export interface EditableProfileData {
   university: string;
   major: string;
   graduationYear: string;
+  contactEmail: string;
+  phone: string;
+  avatar?: string;
   bio: string;
   skills: string[];
   experience: ExperienceEntry[];
@@ -78,6 +81,8 @@ export default function StudentProfilePage() {
     university: "Palestine Polytechnic University",
     major: baseStudent?.major ?? "",
     graduationYear: "2027",
+    contactEmail: baseStudent?.email ?? "",
+    phone: "",
     bio: baseStudent?.bio ?? "",
     skills: baseStudent?.skills ?? [],
     experience: baseStudent?.experience ?? [],
@@ -130,6 +135,8 @@ export default function StudentProfilePage() {
       technologies: p.technologies,
     })),
     certificates: profileData.certificates.map((c) => c.name),
+    contactEmail: profileData.contactEmail,
+    phone: profileData.phone,
   };
 
   return (

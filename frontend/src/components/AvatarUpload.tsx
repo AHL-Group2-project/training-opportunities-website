@@ -14,7 +14,7 @@ interface AvatarUploadProps {
 
 /**
  * AvatarUpload component displays a circular avatar and allows the user to upload a new image.
- * It validates file type (jpeg, png, webp) and size (max 5 MB) and shows a preview before
+ * It validates file type (jpeg, png, webp) and size (max 5 MB) and shows a preview before
  * invoking the parent callback.
  */
 const AvatarUpload: React.FC<AvatarUploadProps> = ({
@@ -36,7 +36,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
     // Validation: size (5 MB)
     const maxSize = 5 * 1024 * 1024; // 5 MB in bytes
     if (file.size > maxSize) {
-      alert("File is too large. Maximum size is 5 MB.");
+      alert("File is too large. Maximum size is 5 MB.");
       return;
     }
     const url = URL.createObjectURL(file);
