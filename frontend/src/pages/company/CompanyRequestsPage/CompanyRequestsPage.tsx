@@ -1,6 +1,4 @@
-import { useState } from "react";
 import {
-  Box,
   Container,
   Typography,
   Card,
@@ -10,7 +8,6 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Button,
   Chip,
 } from "@mui/material";
 import { useAuth } from "../../../context/authContext";
@@ -21,9 +18,9 @@ function CompanyRequestsPage() {
   const { user } = useAuth();
   const companyId = user?.companyId;
 
-  const company = MOCK_COMPANIES.find((c) => c.id === companyId);
-  const [requests, setRequests] = useState(
-    MOCK_COMPLETION_REQUESTS.filter((r) => r.companyId === companyId),
+  const company = MOCK_COMPANIES.find((c) => c.id === Number(companyId));
+  const requests = MOCK_COMPLETION_REQUESTS.filter(
+    (r) => r.companyId === Number(companyId),
   );
 
   // Actions removed as company only approves individual hour rows.

@@ -70,7 +70,7 @@ export default function ProfileSidebar({ student }: Props) {
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <SchoolIcon sx={{ color: "text.secondary", fontSize: 20 }} />
               <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                Class of {student.graduationYear || student.year}
+                Graduation {student.graduationYear || student.year}
               </Typography>
             </Box>
           )}

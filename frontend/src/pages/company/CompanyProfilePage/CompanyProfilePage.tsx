@@ -17,7 +17,7 @@ function CompanyProfilePage() {
   const { user } = useAuth();
   const companyId = user?.companyId;
 
-  const company = MOCK_COMPANIES.find((c) => c.id === companyId);
+  const company = MOCK_COMPANIES.find((c) => String(c.id) === String(companyId));
 
   const [name, setName] = useState(company?.name || "");
   const [description, setDescription] = useState(company?.description || "");

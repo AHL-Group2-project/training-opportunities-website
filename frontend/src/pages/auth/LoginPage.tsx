@@ -145,12 +145,14 @@ function LoginPage() {
       setLockoutRemaining(0);
 
       login({
-        id: user.id,
+        id: String(user.id),
+        profileId: String(user.studentId || user.id),
         name: user.name,
         email: user.email,
         role: user.role,
         token: "mock-token",
-        companyId: user.companyId,
+        mustChangePassword: false,
+        companyId: user.companyId ? String(user.companyId) : undefined,
       });
 
       switch (user.role) {

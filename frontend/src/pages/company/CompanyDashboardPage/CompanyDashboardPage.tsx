@@ -20,12 +20,12 @@ function CompanyDashboardPage() {
   const { user } = useAuth();
   const companyId = user?.companyId;
 
-  const company = MOCK_COMPANIES.find((c) => c.id === companyId);
+  const company = MOCK_COMPANIES.find((c) => c.id === Number(companyId));
   const pendingRequests = MOCK_COMPLETION_REQUESTS.filter(
-    (r) => r.companyId === companyId && r.status === "pending",
+    (r) => r.companyId === Number(companyId) && r.status === "pending",
   );
   const activeInterns = MOCK_ACTIVE_INTERNSHIPS.filter(
-    (i) => i.companyId === companyId && i.status === "active",
+    (i) => i.companyId === Number(companyId) && i.status === "active",
   );
 
   return (

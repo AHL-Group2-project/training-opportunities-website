@@ -1,5 +1,5 @@
 export type UserRole =
-  "public" | "student" | "supervisor" | "admin" | "company";
+  "student" | "supervisor" | "admin" | "company";
 
 declare global {
   interface Window {

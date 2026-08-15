@@ -20,9 +20,14 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MOCK_APPLICATIONS } from "../../../mock/applications";
+import { MOCK_APPLICATIONS, type Application } from "../../../mock/applications";
 import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import { students } from "../../../mock/students";
+
+type ExtendedApp = Application & {
+  student: typeof students[0] | undefined;
+  opportunity: typeof MOCK_OPPORTUNITIES[0] | undefined;
+};
 
 export default function CompanyApplicationsPage() {
   const applications = useMemo(() => {
@@ -35,9 +40,9 @@ export default function CompanyApplicationsPage() {
     });
   }, []);
 
-  const [selectedApp, setSelectedApp] = useState<any>(null);
+  const [selectedApp, setSelectedApp] = useState<ExtendedApp | null>(null);
 
-  const handleOpenApp = (app: any) => {
+  const handleOpenApp = (app: ExtendedApp) => {
     setSelectedApp(app);
   };
 

@@ -127,6 +127,7 @@ export default function StudentProfilePage() {
     ...baseStudent,
     name: profileData.name,
     major: profileData.major,
+    graduationYear: profileData.graduationYear,
     skills: profileData.skills,
     experience: profileData.experience,
     projects: profileData.projects.map((p) => ({

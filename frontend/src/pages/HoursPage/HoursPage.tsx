@@ -49,7 +49,7 @@ export default function HoursPage() {
   const isViewingOther = !!studentIdParam;
   const targetStudentId = isViewingOther
     ? Number(studentIdParam)
-    : (findStudentByUserId(user?.id ?? 0)?.id ?? 1);
+    : (findStudentByUserId(Number(user?.id) || 0)?.id ?? 1);
 
   const perms = getPermissions(user?.role ?? "", !isViewingOther);
 
