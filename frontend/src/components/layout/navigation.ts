@@ -69,7 +69,7 @@ const companyNavEntries: NavEntry[] = [
   },
   {
     type: "link",
-    item: { label: "Completion Requests", path: "/company/requests" },
+    item: { label: "Active Interns", path: "/company/interns" },
   },
 ];
 

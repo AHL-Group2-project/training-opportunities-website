@@ -11,9 +11,14 @@ import {
   TableRow,
   Typography,
   Chip,
-  Avatar,
   Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Avatar,
 } from "@mui/material";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { MOCK_APPLICATIONS } from "../../../mock/applications";
 import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
@@ -29,6 +34,16 @@ export default function CompanyApplicationsPage() {
       return { ...app, student, opportunity };
     });
   }, []);
+
+  const [selectedApp, setSelectedApp] = useState<any>(null);
+
+  const handleOpenApp = (app: any) => {
+    setSelectedApp(app);
+  };
+
+  const handleCloseApp = () => {
+    setSelectedApp(null);
+  };
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -48,7 +63,7 @@ export default function CompanyApplicationsPage() {
               <TableCell sx={{ fontWeight: 700 }}>Opportunity</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Applied Date</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
-              <TableCell sx={{ fontWeight: 700 }}>Contact</TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -73,10 +88,10 @@ export default function CompanyApplicationsPage() {
                         {app.student?.name?.[0]}
                       </Avatar>
                       <Box>
-                        <Typography variant="body2" fontWeight={600}>
+                        <Typography variant="body2" sx={{ fontWeight: 600 }}>
                           {app.student?.name}
                         </Typography>
-                        <Typography variant="caption" color="text.secondary">
+                        <Typography variant="caption" sx={{ color: "text.secondary" }}>
                           {app.student?.major}
                         </Typography>
                       </Box>
@@ -107,17 +122,27 @@ export default function CompanyApplicationsPage() {
                     />
                   </TableCell>
                   <TableCell>
-                    <Button
-                      component={Link}
-                      to={`/students/${app.studentId}`}
-                      size="small"
-                      variant="outlined"
-                      sx={{
-                        textTransform: "none",
-                      }}
-                    >
-                      View Profile
-                    </Button>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      <Button
+                        size="small"
+                        variant="contained"
+                        onClick={() => handleOpenApp(app)}
+                        sx={{ textTransform: "none" }}
+                      >
+                        View Application
+                      </Button>
+                      <Button
+                        component={Link}
+                        to={`/students/${app.studentId}`}
+                        size="small"
+                        variant="outlined"
+                        sx={{
+                          textTransform: "none",
+                        }}
+                      >
+                        View Profile
+                      </Button>
+                    </Box>
                   </TableCell>
                 </TableRow>
               ))
@@ -125,6 +150,67 @@ export default function CompanyApplicationsPage() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      {/* View Application Dialog */}
+      <Dialog open={!!selectedApp} onClose={handleCloseApp} maxWidth="sm" fullWidth>
+        <DialogTitle>Application Details</DialogTitle>
+        <DialogContent dividers>
+          {selectedApp && (
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Applicant
+                </Typography>
+                <Typography variant="body1">{selectedApp.student?.name}</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {selectedApp.student?.email || "No email provided"}
+                </Typography>
+              </Box>
+              
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Position
+                </Typography>
+                <Typography variant="body1">{selectedApp.opportunity?.title}</Typography>
+              </Box>
+              
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Availability Date
+                </Typography>
+                <Typography variant="body1">
+                  {selectedApp.availabilityDate
+                    ? new Date(selectedApp.availabilityDate).toLocaleDateString()
+                    : "Not specified"}
+                </Typography>
+              </Box>
+              
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Links
+                </Typography>
+                {selectedApp.cvUrl && (
+                  <Typography variant="body2">
+                    <a href={selectedApp.cvUrl} target="_blank" rel="noopener noreferrer">
+                      Download Resume / CV
+                    </a>
+                  </Typography>
+                )}
+                {selectedApp.portfolioUrl && (
+                  <Typography variant="body2">
+                    <a href={selectedApp.portfolioUrl} target="_blank" rel="noopener noreferrer">
+                      Portfolio URL
+                    </a>
+                  </Typography>
+                )}
+              </Box>
+            </Box>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseApp}>Close</Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }
