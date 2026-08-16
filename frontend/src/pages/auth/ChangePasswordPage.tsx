@@ -19,7 +19,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import { MOCK_USERS } from "../../mock/users";
+import api from "../../lib/axios";
 
 function getPasswordStrength(pw: string): {
   score: number;
@@ -96,19 +96,23 @@ export default function ChangePasswordPage() {
     }
 
     setLoading(true);
-      // Mock behavior
+    try {
+      await api.post("/auth/change-password", {
+        currentPassword: isForced ? undefined : currentPassword,
+        newPassword,
+      });
+
       if (user) {
-        const mockUser = MOCK_USERS.find(u => u.id === Number(user.id));
-        if (mockUser) {
-          mockUser.password = newPassword;
-          mockUser.mustChangePassword = false;
-        }
         login({ ...user, mustChangePassword: false });
       }
 
       setSuccess(true);
       setTimeout(() => navigate(getRoleHome()), 2000);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Failed to change password. Please try again.");
+    } finally {
       setLoading(false);
+    }
   };
 
   return (
