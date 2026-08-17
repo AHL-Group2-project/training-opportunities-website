@@ -13,7 +13,7 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
-import { MOCK_USERS } from "../../mock/users";
+import api from "../../lib/axios";
 import { useAuth } from "../../context/authContext";
 import logo from "../../assets/images/logo.png";
 import Card from "@mui/material/Card";
@@ -97,60 +97,24 @@ function LoginPage() {
 
     setLoading(true);
 
-    //TODO: Implement actual login logic here (API call)
+    try {
+      const response = await api.post("/auth/login", {
+        email: form.email,
+        password: form.password,
+      });
 
-    // Mock login
-    setTimeout(() => {
-      const user = MOCK_USERS.find(
-        (u) => u.email === form.email && u.password === form.password,
-      );
-
-      if (!user) {
-        const freshAttempts = getLoginAttempts();
-
-        // If somehow already locked (edge case), don't increment
-        if (
-          freshAttempts.lockedUntil &&
-          Date.now() < freshAttempts.lockedUntil
-        ) {
-          const mins = Math.ceil(
-            (freshAttempts.lockedUntil - Date.now()) / 60000,
-          );
-          setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
-          setLoading(false);
-          return;
-        }
-
-        const newCount = freshAttempts.count + 1;
-
-        if (newCount >= MAX_ATTEMPTS) {
-          const lockedUntil = Date.now() + LOCKOUT_MINUTES * 60000;
-          setLoginAttempts(0, lockedUntil);
-          setLockoutRemaining(LOCKOUT_MINUTES * 60);
-          setServerError(
-            `Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`,
-          );
-        } else {
-          setLoginAttempts(newCount, null);
-          setServerError(
-            `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`,
-          );
-        }
-
-        setLoading(false);
-        return;
-      }
-
+      const user = response.data;
+      
       setLoginAttempts(0, null);
       setLockoutRemaining(0);
 
       login({
         id: String(user.id),
-        profileId: String(user.studentId || user.id),
+        profileId: String(user.profileId),
         name: user.name,
         email: user.email,
         role: user.role,
-        token: "mock-token",
+        token: user.token,
         mustChangePassword: user.mustChangePassword || false,
         companyId: user.companyId ? String(user.companyId) : undefined,
       });
@@ -175,9 +139,31 @@ function LoginPage() {
             navigate("/");
         }
       }
+    } catch (error: any) {
+      const freshAttempts = getLoginAttempts();
+      
+      // If already locked
+      if (freshAttempts.lockedUntil && Date.now() < freshAttempts.lockedUntil) {
+        const mins = Math.ceil((freshAttempts.lockedUntil - Date.now()) / 60000);
+        setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
+        setLoading(false);
+        return;
+      }
 
+      const newCount = freshAttempts.count + 1;
+
+      if (newCount >= MAX_ATTEMPTS) {
+        const lockedUntil = Date.now() + LOCKOUT_MINUTES * 60000;
+        setLoginAttempts(0, lockedUntil);
+        setLockoutRemaining(LOCKOUT_MINUTES * 60);
+        setServerError(`Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`);
+      } else {
+        setLoginAttempts(newCount, null);
+        setServerError(error.response?.data?.message || `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`);
+      }
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
