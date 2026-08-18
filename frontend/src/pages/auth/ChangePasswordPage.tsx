@@ -19,6 +19,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import axios from "axios";
 import api from "../../lib/axios";
 
 function getPasswordStrength(pw: string): {
@@ -108,8 +109,12 @@ export default function ChangePasswordPage() {
 
       setSuccess(true);
       setTimeout(() => navigate(getRoleHome()), 2000);
-    } catch (err: any) {
-      setError(err.response?.data?.message || "Failed to change password. Please try again.");
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("Failed to change password. Please try again.");
+      }
     } finally {
       setLoading(false);
     }

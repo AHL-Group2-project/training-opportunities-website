@@ -13,6 +13,7 @@ import {
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import api from "../../lib/axios";
 import { useAuth } from "../../context/authContext";
 import logo from "../../assets/images/logo.png";
@@ -139,7 +140,7 @@ function LoginPage() {
             navigate("/");
         }
       }
-    } catch (error: any) {
+    } catch (error) {
       const freshAttempts = getLoginAttempts();
       
       // If already locked
@@ -159,7 +160,13 @@ function LoginPage() {
         setServerError(`Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`);
       } else {
         setLoginAttempts(newCount, null);
-        setServerError(error.response?.data?.message || `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`);
+        
+        let errorMessage = `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`;
+        if (axios.isAxiosError(error) && error.response?.data?.message) {
+          errorMessage = error.response.data.message;
+        }
+        
+        setServerError(errorMessage);
       }
     } finally {
       setLoading(false);
