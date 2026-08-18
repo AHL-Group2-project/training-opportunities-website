@@ -11,7 +11,7 @@ const generateToken = (id) => {
   });
 };
 
-export const loginUser = async (req, res) => {
+export const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -24,18 +24,26 @@ export const loginUser = async (req, res) => {
 
       let profileId = user._id;
       let companyId = undefined;
+      let name = user.email; // Fallback
 
       if (user.role === "student") {
         const profile = await StudentProfile.findOne({ userId: user._id });
-        if (profile) profileId = profile._id;
+        if (profile) {
+          profileId = profile._id;
+          name = profile.name;
+        }
       } else if (user.role === "supervisor") {
         const profile = await SupervisorProfile.findOne({ userId: user._id });
-        if (profile) profileId = profile._id;
+        if (profile) {
+          profileId = profile._id;
+          name = profile.name;
+        }
       } else if (user.role === "company") {
         const profile = await CompanyProfile.findOne({ userId: user._id });
         if (profile) {
           profileId = profile._id;
           companyId = profile._id;
+          name = profile.name;
         }
       }
 
@@ -43,7 +51,7 @@ export const loginUser = async (req, res) => {
         id: user._id,
         profileId,
         companyId,
-        name: user.email,
+        name: name,
         email: user.email,
         role: user.role,
         mustChangePassword: user.mustChangePassword,
@@ -53,17 +61,21 @@ export const loginUser = async (req, res) => {
       res.status(401).json({ message: "Invalid email or password" });
     }
   } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
+    next(error);
   }
 };
 
-export const changePassword = async (req, res) => {
+export const changePassword = async (req, res, next) => {
   try {
     const { currentPassword, newPassword } = req.body;
     const user = await User.findById(req.user._id);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
+    }
+
+    if (!newPassword || newPassword.trim() === "") {
+      return res.status(400).json({ message: "New password is required." });
     }
 
     if (!user.mustChangePassword) {
@@ -94,6 +106,6 @@ export const changePassword = async (req, res) => {
 
     res.json({ message: "Password updated successfully" });
   } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
+    next(error);
   }
 };
