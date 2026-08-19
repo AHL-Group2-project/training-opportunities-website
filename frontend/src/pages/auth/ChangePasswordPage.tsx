@@ -19,7 +19,8 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import { MOCK_USERS } from "../../mock/users";
+import axios from "axios";
+import api from "../../lib/axios";
 
 function getPasswordStrength(pw: string): {
   score: number;
@@ -96,19 +97,27 @@ export default function ChangePasswordPage() {
     }
 
     setLoading(true);
-      // Mock behavior
+    try {
+      await api.post("/auth/change-password", {
+        currentPassword: isForced ? undefined : currentPassword,
+        newPassword,
+      });
+
       if (user) {
-        const mockUser = MOCK_USERS.find(u => u.id === Number(user.id));
-        if (mockUser) {
-          mockUser.password = newPassword;
-          mockUser.mustChangePassword = false;
-        }
         login({ ...user, mustChangePassword: false });
       }
 
       setSuccess(true);
       setTimeout(() => navigate(getRoleHome()), 2000);
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("Failed to change password. Please try again.");
+      }
+    } finally {
       setLoading(false);
+    }
   };
 
   return (
@@ -128,7 +137,7 @@ export default function ChangePasswordPage() {
             <CheckCircleOutlinedIcon
               sx={{ fontSize: 64, color: "#22c55e", mb: 2 }}
             />
-            <Typography variant="h5" fontWeight={700} mb={1}>
+            <Typography sx={{ variant: "h5", fontWeight: 700, mb: 1 }}>
               Password Changed!
             </Typography>
             <Typography color="text.secondary">
@@ -138,7 +147,7 @@ export default function ChangePasswordPage() {
         ) : (
           <Card sx={{ borderRadius: 3 }}>
             <CardContent sx={{ p: { xs: 3, md: 4 } }}>
-              <Stack spacing={0.5} alignItems="center" mb={3}>
+              <Stack sx={{ spacing: 0.5, alignItems: "center", mb: 3 }}>
                 <Box
                   sx={{
                     width: 56,
@@ -153,13 +162,11 @@ export default function ChangePasswordPage() {
                 >
                   <LockResetIcon sx={{ color: "white", fontSize: 28 }} />
                 </Box>
-                <Typography variant="h5" fontWeight={700}>
+                <Typography sx={{ variant: "h5", fontWeight: 700 }}>
                   {isForced ? "Set Your New Password" : "Change Password"}
                 </Typography>
                 <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  textAlign="center"
+                  sx={{ variant: "body2", color: "text.secondary", textAlign: "center" }}
                 >
                   {isForced
                     ? "This is your first login. Please set a secure password before continuing."
@@ -235,7 +242,7 @@ export default function ChangePasswordPage() {
                     }}
                   />
                   {newPassword && (
-                    <Box mt={1}>
+                    <Box sx={{ mt: 1 }}>
                       <LinearProgress
                         variant="determinate"
                         value={(strength.score / 4) * 100}
