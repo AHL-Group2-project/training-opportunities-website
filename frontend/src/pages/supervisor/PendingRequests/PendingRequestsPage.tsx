@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   AssignmentOutlined,
@@ -33,14 +33,17 @@ import {
   DialogTitle,
   Divider,
   IconButton,
+  CircularProgress,
 } from "@mui/material";
 
-type RequestStatus = "Pending" | "Approved" | "Rejected";
-type TrainingType = "FT1" | "FT2";
-type RequestTab = "Pending" | "Approved" | "Rejected" | "All";
+import { supervisorApi } from "../../../lib/api/supervisor";
+
+type RequestStatus = "pending" | "approved" | "rejected";
+type TrainingType = "ft1" | "ft2";
+type RequestTab = "pending" | "approved" | "rejected" | "All";
 
 interface InternshipRequest {
-  id: number;
+  id: string;
   studentName: string;
   studentEmail: string;
   company: string;
@@ -53,68 +56,24 @@ interface InternshipRequest {
   rejectionComment?: string;
 }
 
-const requestsMock: InternshipRequest[] = [
-  {
-    id: 1,
-    studentName: "Lina Ahmad",
-    studentEmail: "lina.ahmad@example.com",
-    company: "Exalt Technologies",
-    position: "Frontend Engineering Intern",
-    trainingType: "FT2",
-    submittedDate: "2026-07-28",
-    status: "Pending",
-    attachmentName: "acceptance-letter.pdf",
-    attachmentUrl: "/attachments/acceptance-letter.pdf",
-  },
-  {
-    id: 2,
-    studentName: "Omar Khalil",
-    studentEmail: "omar.khalil@example.com",
-    company: "ASAL Technologies",
-    position: "Backend Developer Intern",
-    trainingType: "FT2",
-    submittedDate: "2026-07-25",
-    status: "Approved",
-  },
-  {
-    id: 3,
-    studentName: "Sara Ali",
-    studentEmail: "sara.ali@example.com",
-    company: "Hulul Group",
-    position: "Data Analyst Intern",
-    trainingType: "FT1",
-    submittedDate: "2026-07-22",
-    status: "Rejected",
-  },
-  {
-    id: 4,
-    studentName: "Yousef Nasser",
-    studentEmail: "yousef.nasser@example.com",
-    company: "Palestine Techno Park",
-    position: "Software Engineering Intern",
-    trainingType: "FT1",
-    submittedDate: "2026-07-30",
-    status: "Pending",
-  },
-];
-
 const statusStyles = {
-  Pending: {
+  pending: {
     color: "#eab308",
     backgroundColor: "rgba(234, 179, 8, 0.1)",
   },
-  Approved: {
+  approved: {
     color: "#22c55e",
     backgroundColor: "rgba(34, 197, 94, 0.1)",
   },
-  Rejected: {
+  rejected: {
     color: "#ef4444",
     backgroundColor: "rgba(239, 68, 68, 0.1)",
   },
 };
 
 function PendingRequestsPage() {
-  const [requests, setRequests] = useState<InternshipRequest[]>(requestsMock);
+  const [requests, setRequests] = useState<InternshipRequest[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const [selectedRequest, setSelectedRequest] =
     useState<InternshipRequest | null>(null);
@@ -122,12 +81,45 @@ function PendingRequestsPage() {
   const [isRejecting, setIsRejecting] = useState(false);
   const [rejectionComment, setRejectionComment] = useState("");
 
-  const [selectedTab, setSelectedTab] = useState<RequestTab>("Pending");
+  const [selectedTab, setSelectedTab] = useState<RequestTab>("pending");
 
   const [selectedType, setSelectedType] = useState<TrainingType | "All">("All");
 
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+
+  useEffect(() => {
+    fetchRequests();
+  }, []);
+
+  const fetchRequests = async () => {
+    try {
+      setLoading(true);
+      const res = await supervisorApi.getRequests();
+      const formatted = res.data.map((req: any) => ({
+        id: req._id,
+        studentName: req.studentId?.name || "Unknown",
+        studentEmail: req.studentId?.userId?.email || "No Email",
+        company: req.companyName,
+        position: req.position,
+        trainingType: req.type,
+        submittedDate: new Date(req.createdAt).toISOString().split("T")[0],
+        status: req.status,
+        attachmentName:
+          req.attachments && req.attachments.length > 0
+            ? req.attachments[0]
+            : undefined,
+        attachmentUrl:
+          req.attachments && req.attachments.length > 0 ? "#" : undefined, // Placeholder for actual download URL
+        rejectionComment: req.rejectionComment,
+      }));
+      setRequests(formatted);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filteredRequests = useMemo(() => {
     return requests.filter((request) => {
@@ -163,23 +155,29 @@ function PendingRequestsPage() {
     setRejectionComment("");
   }
 
-  function updateRequestStatus(
-    status: "Approved" | "Rejected",
+  async function updateRequestStatus(
+    status: "approved" | "rejected",
     comment?: string,
   ) {
     if (!selectedRequest) return;
 
-    setRequests((currentRequests) =>
-      currentRequests.map((request) =>
-        request.id === selectedRequest.id
-          ? {
-              ...request,
-              status,
-              rejectionComment: status === "Rejected" ? comment : undefined,
-            }
-          : request,
-      ),
-    );
+    try {
+      await supervisorApi.updateRequestStatus(selectedRequest.id, status);
+
+      setRequests((currentRequests) =>
+        currentRequests.map((request) =>
+          request.id === selectedRequest.id
+            ? {
+                ...request,
+                status,
+                rejectionComment: status === "rejected" ? comment : undefined,
+              }
+            : request,
+        ),
+      );
+    } catch (err) {
+      console.error(err);
+    }
 
     closeReviewDialog();
   }
@@ -236,19 +234,19 @@ function PendingRequestsPage() {
             scrollButtons="auto"
           >
             <Tab
-              value="Pending"
+              value="pending"
               label="Pending"
               sx={{ textTransform: "none", fontWeight: 600 }}
             />
 
             <Tab
-              value="Approved"
+              value="approved"
               label="Approved"
               sx={{ textTransform: "none", fontWeight: 600 }}
             />
 
             <Tab
-              value="Rejected"
+              value="rejected"
               label="Rejected"
               sx={{ textTransform: "none", fontWeight: 600 }}
             />
@@ -289,8 +287,8 @@ function PendingRequestsPage() {
               }
             >
               <MenuItem value="All">All Types</MenuItem>
-              <MenuItem value="FT1">FT1</MenuItem>
-              <MenuItem value="FT2">FT2</MenuItem>
+              <MenuItem value="ft1">FT1</MenuItem>
+              <MenuItem value="ft2">FT2</MenuItem>
             </Select>
           </FormControl>
 
@@ -338,7 +336,11 @@ function PendingRequestsPage() {
         </Box>
 
         {/* Table or empty state */}
-        {filteredRequests.length > 0 ? (
+        {loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", py: 9 }}>
+            <CircularProgress sx={{ color: "#6D4CCB" }} />
+          </Box>
+        ) : filteredRequests.length > 0 ? (
           <TableContainer>
             <Table sx={{ minWidth: 950 }}>
               <TableHead>
@@ -495,7 +497,7 @@ function PendingRequestsPage() {
             </Box>
 
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 0.5 }}>
-              {selectedTab === "Pending"
+              {selectedTab === "pending"
                 ? "No pending requests"
                 : "No requests found"}
             </Typography>
@@ -694,7 +696,7 @@ function PendingRequestsPage() {
                 )}
               </Box>
 
-              {isRejecting && selectedRequest.status === "Pending" && (
+              {isRejecting && selectedRequest.status === "pending" && (
                 <TextField
                   autoFocus
                   fullWidth
@@ -711,7 +713,7 @@ function PendingRequestsPage() {
                 />
               )}
 
-              {selectedRequest.status === "Rejected" &&
+              {selectedRequest.status === "rejected" &&
                 selectedRequest.rejectionComment && (
                   <Box
                     sx={{
@@ -770,7 +772,7 @@ function PendingRequestsPage() {
                     color="error"
                     startIcon={<CancelOutlined />}
                     onClick={() =>
-                      updateRequestStatus("Rejected", rejectionComment.trim())
+                      updateRequestStatus("rejected", rejectionComment.trim())
                     }
                     disabled={rejectionComment.trim().length === 0}
                     sx={{
@@ -790,7 +792,7 @@ function PendingRequestsPage() {
                     color="error"
                     startIcon={<CancelOutlined />}
                     onClick={() => setIsRejecting(true)}
-                    disabled={selectedRequest.status !== "Pending"}
+                    disabled={selectedRequest.status !== "pending"}
                     sx={{
                       textTransform: "none",
                       borderRadius: 2,
@@ -804,8 +806,8 @@ function PendingRequestsPage() {
                     variant="contained"
                     color="success"
                     startIcon={<CheckCircle />}
-                    onClick={() => updateRequestStatus("Approved")}
-                    disabled={selectedRequest.status !== "Pending"}
+                    onClick={() => updateRequestStatus("approved")}
+                    disabled={selectedRequest.status !== "pending"}
                     sx={{
                       textTransform: "none",
                       borderRadius: 2,
