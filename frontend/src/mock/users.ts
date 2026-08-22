@@ -1,5 +1,4 @@
-export type UserRole =
-  "student" | "supervisor" | "admin" | "company";
+export type UserRole = "student" | "supervisor" | "admin" | "company";
 
 declare global {
   interface Window {

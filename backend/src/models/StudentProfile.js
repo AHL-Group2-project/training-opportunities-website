@@ -41,6 +41,10 @@ const studentProfileSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
+    university: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true, collection: "studentProfiles" }
 );

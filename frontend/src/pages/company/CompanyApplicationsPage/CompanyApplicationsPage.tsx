@@ -20,13 +20,16 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { MOCK_APPLICATIONS, type Application } from "../../../mock/applications";
+import {
+  MOCK_APPLICATIONS,
+  type Application,
+} from "../../../mock/applications";
 import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import { students } from "../../../mock/students";
 
 type ExtendedApp = Application & {
-  student: typeof students[0] | undefined;
-  opportunity: typeof MOCK_OPPORTUNITIES[0] | undefined;
+  student: (typeof students)[0] | undefined;
+  opportunity: (typeof MOCK_OPPORTUNITIES)[0] | undefined;
 };
 
 export default function CompanyApplicationsPage() {
@@ -96,7 +99,10 @@ export default function CompanyApplicationsPage() {
                         <Typography variant="body2" sx={{ fontWeight: 600 }}>
                           {app.student?.name}
                         </Typography>
-                        <Typography variant="caption" sx={{ color: "text.secondary" }}>
+                        <Typography
+                          variant="caption"
+                          sx={{ color: "text.secondary" }}
+                        >
                           {app.student?.major}
                         </Typography>
                       </Box>
@@ -157,7 +163,12 @@ export default function CompanyApplicationsPage() {
       </TableContainer>
 
       {/* View Application Dialog */}
-      <Dialog open={!!selectedApp} onClose={handleCloseApp} maxWidth="sm" fullWidth>
+      <Dialog
+        open={!!selectedApp}
+        onClose={handleCloseApp}
+        maxWidth="sm"
+        fullWidth
+      >
         <DialogTitle>Application Details</DialogTitle>
         <DialogContent dividers>
           {selectedApp && (
@@ -166,44 +177,58 @@ export default function CompanyApplicationsPage() {
                 <Typography variant="subtitle2" color="text.secondary">
                   Applicant
                 </Typography>
-                <Typography variant="body1">{selectedApp.student?.name}</Typography>
+                <Typography variant="body1">
+                  {selectedApp.student?.name}
+                </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {selectedApp.student?.email || "No email provided"}
                 </Typography>
               </Box>
-              
+
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
                   Position
                 </Typography>
-                <Typography variant="body1">{selectedApp.opportunity?.title}</Typography>
+                <Typography variant="body1">
+                  {selectedApp.opportunity?.title}
+                </Typography>
               </Box>
-              
+
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
                   Availability Date
                 </Typography>
                 <Typography variant="body1">
                   {selectedApp.availabilityDate
-                    ? new Date(selectedApp.availabilityDate).toLocaleDateString()
+                    ? new Date(
+                        selectedApp.availabilityDate,
+                      ).toLocaleDateString()
                     : "Not specified"}
                 </Typography>
               </Box>
-              
+
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
                   Links
                 </Typography>
                 {selectedApp.cvUrl && (
                   <Typography variant="body2">
-                    <a href={selectedApp.cvUrl} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={selectedApp.cvUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Download Resume / CV
                     </a>
                   </Typography>
                 )}
                 {selectedApp.portfolioUrl && (
                   <Typography variant="body2">
-                    <a href={selectedApp.portfolioUrl} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={selectedApp.portfolioUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Portfolio URL
                     </a>
                   </Typography>

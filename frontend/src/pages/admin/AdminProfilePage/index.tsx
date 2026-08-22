@@ -66,17 +66,20 @@ export default function AdminProfilePage() {
                   }}
                 />
               )}
-              <Box sx={{textAlign:{ xs: "center", md: "left" }}}>
-                <Typography variant="h4" sx={{fontWeight:800}}>
+              <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+                <Typography variant="h4" sx={{ fontWeight: 800 }}>
                   {profileData.name}
                 </Typography>
                 <Typography
                   variant="subtitle1"
-                  sx={{color:"primary.main" , fontWeight:600}}
+                  sx={{ color: "primary.main", fontWeight: 600 }}
                 >
                   {profileData.role}
                 </Typography>
-                <Typography variant="body2" sx={{color:"text.secondary" , mt:1}}>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "text.secondary", mt: 1 }}
+                >
                   Manage system settings, users, and roles.
                 </Typography>
               </Box>
@@ -96,7 +99,7 @@ export default function AdminProfilePage() {
 
           <Divider sx={{ mb: 4 }} />
 
-          <Typography variant="h6" sx={{fontWeight:"bold" , mb:3}}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 3 }}>
             Account Information
           </Typography>
 

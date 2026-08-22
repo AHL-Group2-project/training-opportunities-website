@@ -105,7 +105,7 @@ function LoginPage() {
       });
 
       const user = response.data;
-      
+
       setLoginAttempts(0, null);
       setLockoutRemaining(0);
 
@@ -142,10 +142,12 @@ function LoginPage() {
       }
     } catch (error) {
       const freshAttempts = getLoginAttempts();
-      
+
       // If already locked
       if (freshAttempts.lockedUntil && Date.now() < freshAttempts.lockedUntil) {
-        const mins = Math.ceil((freshAttempts.lockedUntil - Date.now()) / 60000);
+        const mins = Math.ceil(
+          (freshAttempts.lockedUntil - Date.now()) / 60000,
+        );
         setServerError(`Too many attempts. Try again in ${mins} minute(s).`);
         setLoading(false);
         return;
@@ -157,15 +159,17 @@ function LoginPage() {
         const lockedUntil = Date.now() + LOCKOUT_MINUTES * 60000;
         setLoginAttempts(0, lockedUntil);
         setLockoutRemaining(LOCKOUT_MINUTES * 60);
-        setServerError(`Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`);
+        setServerError(
+          `Too many failed attempts. Account locked for ${LOCKOUT_MINUTES} minutes.`,
+        );
       } else {
         setLoginAttempts(newCount, null);
-        
+
         let errorMessage = `Invalid email or password. ${MAX_ATTEMPTS - newCount} attempts remaining.`;
         if (axios.isAxiosError(error) && error.response?.data?.message) {
           errorMessage = error.response.data.message;
         }
-        
+
         setServerError(errorMessage);
       }
     } finally {

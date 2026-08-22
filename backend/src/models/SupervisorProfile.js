@@ -20,6 +20,10 @@ const supervisorProfileSchema = new mongoose.Schema(
     avatar: {
       type: String,
     },
+    university: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true, collection: "supervisorProfiles" }
 );
