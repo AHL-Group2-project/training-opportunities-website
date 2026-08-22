@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import StudentProfile from "../models/StudentProfile.js";
 import SupervisorProfile from "../models/SupervisorProfile.js";
 import CompanyProfile from "../models/CompanyProfile.js";
+import AdminProfile from "../models/AdminProfile.js";
 import { JWT_SECRET } from "../middleware/authMiddleware.js";
 
 const generateToken = (id) => {
@@ -45,6 +46,19 @@ export const loginUser = async (req, res, next) => {
           companyId = profile._id;
           name = profile.name;
         }
+      } else if (user.role === "admin") {
+        const profile = await AdminProfile.findOne({ userId: user._id });
+        if (profile) {
+          profileId = profile._id;
+          name = profile.name;
+          // We can attach the university string directly, but standardizing it in the return object is better.
+        }
+      }
+
+      let adminUniversity = null;
+      if (user.role === "admin") {
+        const profile = await AdminProfile.findOne({ userId: user._id });
+        if (profile) adminUniversity = profile.university;
       }
 
       res.json({
@@ -56,6 +70,7 @@ export const loginUser = async (req, res, next) => {
         role: user.role,
         mustChangePassword: user.mustChangePassword,
         token: generateToken(user._id),
+        university: adminUniversity, // For UI validations
       });
     } else {
       res.status(401).json({ message: "Invalid email or password" });
@@ -92,12 +107,10 @@ export const changePassword = async (req, res, next) => {
 
     const isSameAsCurrent = await user.comparePassword(newPassword);
     if (isSameAsCurrent) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "Your new password must be different from your temporary password.",
-        });
+      return res.status(400).json({
+        message:
+          "Your new password must be different from your temporary password.",
+      });
     }
 
     user.password = newPassword;

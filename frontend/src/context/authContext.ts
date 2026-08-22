@@ -11,6 +11,7 @@ export interface AuthUser {
   token: string;
   mustChangePassword: boolean;
   companyId?: string; // Only for role === "company"
+  university?: string; // Exposed for admin role
 }
 
 export interface AuthContextType {
