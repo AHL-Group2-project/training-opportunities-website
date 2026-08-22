@@ -5,13 +5,13 @@ import CompanyProfile from "../models/CompanyProfile.js";
 import AdminProfile from "../models/AdminProfile.js";
 import crypto from "crypto";
 
-// Mapping of universities to their official email domains
+// Mapping of unive to their official email domains
 const UNIVERSITY_DOMAINS = {
   "Palestine Polytechnic University": "@ppu.edu.ps",
   "Palestine Polytechnic University (PPU)": "@ppu.edu.ps",
-  PPU: "@ppu.edu.ps",
+  "PPU": "@ppu.edu.ps",
   "Birzeit University": "@birzeit.edu",
-  BZU: "@birzeit.edu",
+  "BZU": "@birzeit.edu",
   "An-Najah National University": "@najah.edu.ps",
   "Al-Quds University": "@alquds.edu",
   "Arab American University": "@aaup.edu",
@@ -19,7 +19,7 @@ const UNIVERSITY_DOMAINS = {
   "Al-Quds Open University": "@qou.edu.ps",
   "Al-Zaytoonah University of Science and Technology": "@zaytoonah.edu.ps",
   "Palestine Technical University - Kadoorie": "@ptuk.edu.ps",
-  PTUK: "@ptuk.edu.ps",
+  "PTUK": "@ptuk.edu.ps",
 };
 
 // Generate a random temporary password
@@ -32,51 +32,31 @@ export const createStudent = async (req, res, next) => {
     const { name, email, universityId, major } = req.body;
 
     if (!name || !email || !universityId || !major) {
-      return res
-        .status(400)
-        .json({ message: "Please provide all required fields." });
+      return res.status(400).json({ message: "Please provide all required fields." });
     }
 
     const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
     if (!adminProfile) {
-      return res
-        .status(403)
-        .json({
-          message: "Admin profile not found. Cannot determine university.",
-        });
+      return res.status(403).json({ message: "Admin profile not found. Cannot determine university." });
     }
 
-    const expectedDomain =
-      UNIVERSITY_DOMAINS[adminProfile.university] ||
-      UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
+    const expectedDomain = UNIVERSITY_DOMAINS[adminProfile.university] || UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
     if (!expectedDomain) {
-      return res
-        .status(400)
-        .json({
-          message: `System Error: The domain for university "${adminProfile.university}" is not configured.`,
-        });
+      return res.status(400).json({ message: `System Error: The domain for university "${adminProfile.university}" is not configured.` });
     }
 
     if (!email.toLowerCase().endsWith(expectedDomain)) {
-      return res
-        .status(400)
-        .json({
-          message: `Email must end with ${expectedDomain} for ${adminProfile.university}.`,
-        });
+      return res.status(400).json({ message: `Email must end with ${expectedDomain} for ${adminProfile.university}.` });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res
-        .status(400)
-        .json({ message: "User with this email already exists." });
+      return res.status(400).json({ message: "User with this email already exists." });
     }
 
     const profileExists = await StudentProfile.findOne({ universityId });
     if (profileExists) {
-      return res
-        .status(400)
-        .json({ message: "Student with this University ID already exists." });
+      return res.status(400).json({ message: "Student with this University ID already exists." });
     }
 
     const tempPassword = generateTempPassword();
@@ -117,44 +97,26 @@ export const createSupervisor = async (req, res, next) => {
     const { name, email, department } = req.body;
 
     if (!name || !email || !department) {
-      return res
-        .status(400)
-        .json({ message: "Please provide all required fields." });
+      return res.status(400).json({ message: "Please provide all required fields." });
     }
 
     const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
     if (!adminProfile) {
-      return res
-        .status(403)
-        .json({
-          message: "Admin profile not found. Cannot determine university.",
-        });
+      return res.status(403).json({ message: "Admin profile not found. Cannot determine university." });
     }
 
-    const expectedDomain =
-      UNIVERSITY_DOMAINS[adminProfile.university] ||
-      UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
+    const expectedDomain = UNIVERSITY_DOMAINS[adminProfile.university] || UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
     if (!expectedDomain) {
-      return res
-        .status(400)
-        .json({
-          message: `System Error: The domain for university "${adminProfile.university}" is not configured.`,
-        });
+      return res.status(400).json({ message: `System Error: The domain for university "${adminProfile.university}" is not configured.` });
     }
 
     if (!email.toLowerCase().endsWith(expectedDomain)) {
-      return res
-        .status(400)
-        .json({
-          message: `Email must end with ${expectedDomain} for ${adminProfile.university}.`,
-        });
+      return res.status(400).json({ message: `Email must end with ${expectedDomain} for ${adminProfile.university}.` });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res
-        .status(400)
-        .json({ message: "User with this email already exists." });
+      return res.status(400).json({ message: "User with this email already exists." });
     }
 
     const tempPassword = generateTempPassword();
@@ -194,16 +156,12 @@ export const createCompany = async (req, res, next) => {
     const { name, email, industry } = req.body;
 
     if (!name || !email) {
-      return res
-        .status(400)
-        .json({ message: "Please provide all required fields." });
+      return res.status(400).json({ message: "Please provide all required fields." });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res
-        .status(400)
-        .json({ message: "User with this email already exists." });
+      return res.status(400).json({ message: "User with this email already exists." });
     }
 
     const tempPassword = generateTempPassword();
@@ -243,9 +201,7 @@ export const getStudents = async (req, res, next) => {
       return res.status(403).json({ message: "Admin profile not found." });
     }
 
-    const students = await StudentProfile.find({
-      university: adminProfile.university,
-    })
+    const students = await StudentProfile.find({ university: adminProfile.university })
       .populate("userId", "email isActive")
       .populate("supervisorId", "email");
 
@@ -262,9 +218,8 @@ export const getSupervisors = async (req, res, next) => {
       return res.status(403).json({ message: "Admin profile not found." });
     }
 
-    const supervisors = await SupervisorProfile.find({
-      university: adminProfile.university,
-    }).populate("userId", "email isActive");
+    const supervisors = await SupervisorProfile.find({ university: adminProfile.university })
+      .populate("userId", "email isActive");
     res.json(supervisors);
   } catch (error) {
     next(error);
@@ -274,10 +229,7 @@ export const getSupervisors = async (req, res, next) => {
 export const getCompanies = async (req, res, next) => {
   try {
     // Companies are global, no university filter
-    const companies = await CompanyProfile.find().populate(
-      "userId",
-      "email isActive"
-    );
+    const companies = await CompanyProfile.find().populate("userId", "email isActive");
     res.json(companies);
   } catch (error) {
     next(error);
@@ -304,30 +256,18 @@ export const assignSupervisorToStudent = async (req, res, next) => {
     }
 
     if (studentProfile.university !== adminProfile.university) {
-      return res
-        .status(403)
-        .json({ message: "You can only manage students in your university." });
+      return res.status(403).json({ message: "You can only manage students in your university." });
     }
 
     // Verify supervisor exists and belongs to the same university
-    const supervisorExists = await User.findOne({
-      _id: supervisorId,
-      role: "supervisor",
-    });
+    const supervisorExists = await User.findOne({ _id: supervisorId, role: "supervisor" });
     if (!supervisorExists) {
       return res.status(404).json({ message: "Supervisor not found." });
     }
 
-    const supervisorProfile = await SupervisorProfile.findOne({
-      userId: supervisorId,
-    });
-    if (
-      !supervisorProfile ||
-      supervisorProfile.university !== adminProfile.university
-    ) {
-      return res
-        .status(403)
-        .json({ message: "Supervisor does not belong to your university." });
+    const supervisorProfile = await SupervisorProfile.findOne({ userId: supervisorId });
+    if (!supervisorProfile || supervisorProfile.university !== adminProfile.university) {
+      return res.status(403).json({ message: "Supervisor does not belong to your university." });
     }
 
     await StudentProfile.updateOne(

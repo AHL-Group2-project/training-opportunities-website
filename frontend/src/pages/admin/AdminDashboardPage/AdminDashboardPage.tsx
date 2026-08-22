@@ -1,18 +1,4 @@
-import {
-  Container,
-  Grid,
-  Paper,
-  Typography,
-  Box,
-  CircularProgress,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Chip,
-} from "@mui/material";
+import { Container, Grid, Paper, Typography, Box, CircularProgress } from "@mui/material";
 import {
   GroupsOutlined,
   BusinessCenterOutlined,
@@ -69,14 +55,7 @@ function StatCard({
         <Icon sx={{ fontSize: 120, color: color }} />
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 2,
-          position: "relative",
-        }}
-      >
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2, position: "relative" }}>
         <Box
           sx={{
             p: 1.5,
@@ -89,41 +68,19 @@ function StatCard({
         >
           <Icon sx={{ color: color, fontSize: 32 }} />
         </Box>
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: 600, color: "text.secondary" }}
-        >
+        <Typography variant="h6" sx={{ fontWeight: 600, color: "text.secondary" }}>
           {title}
         </Typography>
       </Box>
-      <Box
-        sx={{
-          mt: 1,
-          position: "relative",
-          display: "flex",
-          alignItems: "baseline",
-          gap: 1,
-        }}
-      >
+      <Box sx={{ mt: 1, position: "relative", display: "flex", alignItems: "baseline", gap: 1 }}>
         {loading ? (
           <CircularProgress size={32} thickness={5} sx={{ color }} />
         ) : (
           <>
-            <Typography
-              variant="h3"
-              sx={{ fontWeight: 800, color: "text.primary" }}
-            >
+            <Typography variant="h3" sx={{ fontWeight: 800, color: "text.primary" }}>
               {value}
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: "success.main",
-                display: "flex",
-                alignItems: "center",
-                fontWeight: 600,
-              }}
-            >
+            <Typography variant="body2" sx={{ color: "success.main", display: "flex", alignItems: "center", fontWeight: 600 }}>
               <TrendingUp sx={{ fontSize: 16, mr: 0.5 }} />
               Active
             </Typography>
@@ -154,15 +111,9 @@ export default function AdminDashboardPage() {
           adminApi.getCompanies(),
         ]);
 
-        const allStudents = Array.isArray(studentsRes.data)
-          ? studentsRes.data
-          : [];
-        const allCompanies = Array.isArray(companiesRes.data)
-          ? companiesRes.data
-          : [];
-        const allSupervisors = Array.isArray(supervisorsRes.data)
-          ? supervisorsRes.data
-          : [];
+        const allStudents = Array.isArray(studentsRes.data) ? studentsRes.data : [];
+        const allCompanies = Array.isArray(companiesRes.data) ? companiesRes.data : [];
+        const allSupervisors = Array.isArray(supervisorsRes.data) ? supervisorsRes.data : [];
 
         setStats({
           students: allStudents.length,
@@ -170,6 +121,8 @@ export default function AdminDashboardPage() {
           companies: allCompanies.length,
           requests: 0, // Pending Requests feature is separate
         });
+
+
       } catch (error) {
         console.error("Failed to fetch dashboard stats", error);
       } finally {
@@ -183,22 +136,10 @@ export default function AdminDashboardPage() {
   return (
     <Container maxWidth="lg" sx={{ py: 6 }}>
       <Box sx={{ mb: 5 }}>
-        <Typography
-          variant="h3"
-          sx={{
-            fontWeight: 800,
-            color: "text.primary",
-            mb: 1,
-            letterSpacing: "-0.02em",
-          }}
-        >
+        <Typography variant="h3" sx={{ fontWeight: 800, color: "text.primary", mb: 1, letterSpacing: "-0.02em" }}>
           Dashboard Overview
         </Typography>
-        <Typography
-          variant="h6"
-          color="text.secondary"
-          sx={{ fontWeight: 400 }}
-        >
+        <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400 }}>
           Manage and monitor your university's training platform.
         </Typography>
       </Box>

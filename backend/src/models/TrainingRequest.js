@@ -57,15 +57,12 @@ const trainingRequestSchema = new mongoose.Schema(
     },
     attachments: [
       {
-        type: String, // Array of file names or URLs
+        type: String,
       },
     ],
   },
   { timestamps: true, collection: "trainingRequests" }
 );
 
-const TrainingRequest = mongoose.model(
-  "TrainingRequest",
-  trainingRequestSchema
-);
+const TrainingRequest = mongoose.model("TrainingRequest", trainingRequestSchema);
 export default TrainingRequest;
