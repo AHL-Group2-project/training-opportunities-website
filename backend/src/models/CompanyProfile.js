@@ -8,39 +8,18 @@ const companyProfileSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    industry: {
-      type: String,
-    },
-    location: {
-      type: String,
-    },
-    website: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    phone: {
-      type: String,
-    },
-    logo: {
-      type: String,
-      default: "https://via.placeholder.com/150",
-    },
-    verified: {
-      type: Boolean,
-      default: false,
-    },
-    activationStatus: {
-      type: String,
-      enum: ["pending", "active", "suspended"],
-      default: "active",
-    },
+    name: { type: String, required: true, trim: true },
+    industry: { type: String, required: true },
+    location: { type: String },
+    website: { type: String, default: "" },
+    linkedIn: { type: String, default: "" },
+    logoUrl: { type: String, default: null },
+    description: { type: String, default: "" },
+    contactEmail: { type: String },
+    phone: { type: String },
+    // Admin-controlled — not editable by the company itself
+    verified: { type: Boolean, default: false },
+    isActive: { type: Boolean, default: true },
   },
   { timestamps: true, collection: "companies" }
 );
