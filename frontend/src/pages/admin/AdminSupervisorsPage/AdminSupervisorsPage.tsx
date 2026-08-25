@@ -28,8 +28,6 @@ import { useAuth } from "../../../context/authContext";
 // Mapping of universities to their official email domains (must match backend)
 const UNIVERSITY_DOMAINS: Record<string, string> = {
   "Palestine Polytechnic University": "@ppu.edu.ps",
-  "Palestine Polytechnic University (PPU)": "@ppu.edu.ps",
-  PPU: "@ppu.edu.ps",
   "Birzeit University": "@birzeit.edu",
   BZU: "@birzeit.edu",
   "An-Najah National University": "@najah.edu.ps",
@@ -37,7 +35,7 @@ const UNIVERSITY_DOMAINS: Record<string, string> = {
   "Arab American University": "@aaup.edu",
   "Hebron University": "@hebron.edu.ps",
   "Al-Quds Open University": "@qou.edu.ps",
-  "Al-Zaytoonah University of Science and Technology": "@zaytoonah.edu.ps",
+  "Al-Zaytoonah University": "@zaytoonah.edu.ps",
   "Palestine Technical University - Kadoorie": "@ptuk.edu.ps",
   PTUK: "@ptuk.edu.ps",
 };
@@ -55,7 +53,8 @@ export default function AdminSupervisorsPage() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  // Add Supervisor state
+  // Add/Edit Supervisor state
+  const [editingSupervisor, setEditingSupervisor] = useState<any | null>(null);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [newSupervisorName, setNewSupervisorName] = useState("");
   const [newSupervisorEmail, setNewSupervisorEmail] = useState("");
@@ -91,36 +90,55 @@ export default function AdminSupervisorsPage() {
   };
 
   const handleOpenAddDialog = () => {
+    setEditingSupervisor(null);
     setNewSupervisorName("");
     setNewSupervisorEmail("");
     setNewSupervisorDepartment("");
     setAddDialogOpen(true);
   };
 
+  const handleOpenEditDialog = (supervisor: any) => {
+    setEditingSupervisor(supervisor);
+    setNewSupervisorName(supervisor.name);
+    const email = supervisor.userId?.email || supervisor.email || "";
+    setNewSupervisorEmail(email.replace(expectedDomain, ""));
+    setNewSupervisorDepartment(supervisor.department || "");
+    setAddDialogOpen(true);
+  };
+
   const handleAddSupervisor = async () => {
-    if (!newSupervisorName || !newSupervisorEmail || !newSupervisorDepartment) {
+    if (!newSupervisorName || !newSupervisorDepartment || (!editingSupervisor && !newSupervisorEmail)) {
       alert("Please fill all required fields.");
       return;
     }
 
-    const fullEmail = expectedDomain
-      ? `${newSupervisorEmail}${expectedDomain}`
-      : newSupervisorEmail;
-
     try {
-      const res = await adminApi.createSupervisor({
-        name: newSupervisorName,
-        email: fullEmail,
-        department: newSupervisorDepartment,
-      });
+      if (editingSupervisor) {
+        await adminApi.updateSupervisor(editingSupervisor._id, {
+          name: newSupervisorName,
+          department: newSupervisorDepartment,
+        });
+        setAddDialogOpen(false);
+        fetchSupervisors();
+      } else {
+        const fullEmail = expectedDomain
+          ? `${newSupervisorEmail}${expectedDomain}`
+          : newSupervisorEmail;
 
-      setGeneratedUser(newSupervisorName);
-      setGeneratedPassword(res.data.tempPassword);
-      setAddDialogOpen(false);
-      setPasswordModalOpen(true);
-      fetchSupervisors();
+        const res = await adminApi.createSupervisor({
+          name: newSupervisorName,
+          email: fullEmail,
+          department: newSupervisorDepartment,
+        });
+
+        setGeneratedUser(newSupervisorName);
+        setGeneratedPassword(res.data.tempPassword);
+        setAddDialogOpen(false);
+        setPasswordModalOpen(true);
+        fetchSupervisors();
+      }
     } catch (error: any) {
-      alert(error.response?.data?.message || "Failed to create supervisor.");
+      alert(error.response?.data?.message || `Failed to ${editingSupervisor ? 'update' : 'create'} supervisor.`);
     }
   };
 
@@ -185,6 +203,7 @@ export default function AdminSupervisorsPage() {
               <TableCell sx={{ fontWeight: 700 }}>Name</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Email</TableCell>
               <TableCell sx={{ fontWeight: 700 }}>Department</TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -196,6 +215,17 @@ export default function AdminSupervisorsPage() {
                   </TableCell>
                   <TableCell>{sup.userId?.email || sup.email}</TableCell>
                   <TableCell>{sup.department}</TableCell>
+                  <TableCell>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="secondary"
+                      onClick={() => handleOpenEditDialog(sup)}
+                      sx={{ textTransform: "none" }}
+                    >
+                      Edit
+                    </Button>
+                  </TableCell>
                 </TableRow>
               );
             })}
@@ -224,7 +254,7 @@ export default function AdminSupervisorsPage() {
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle>Add New Supervisor</DialogTitle>
+        <DialogTitle>{editingSupervisor ? "Edit Supervisor" : "Add New Supervisor"}</DialogTitle>
         <DialogContent>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
             <TextField
@@ -241,6 +271,7 @@ export default function AdminSupervisorsPage() {
               value={newSupervisorEmail}
               onChange={(e) => setNewSupervisorEmail(e.target.value)}
               fullWidth
+              disabled={!!editingSupervisor}
               slotProps={{
                 input: {
                   endAdornment: expectedDomain ? (
@@ -277,7 +308,7 @@ export default function AdminSupervisorsPage() {
             onClick={handleAddSupervisor}
             sx={{ textTransform: "none" }}
           >
-            Create Supervisor
+            {editingSupervisor ? "Save Changes" : "Create Supervisor"}
           </Button>
         </DialogActions>
       </Dialog>

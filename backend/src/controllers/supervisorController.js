@@ -1,5 +1,5 @@
 import SupervisorProfile from "../models/SupervisorProfile.js";
-import TrainingRequest from "../models/TrainingRequest.js";
+import InternshipRequest from "../models/InternshipRequest.js";
 import StudentProfile from "../models/StudentProfile.js";
 
 // GET /api/supervisor/requests
@@ -14,7 +14,7 @@ export const getSupervisorRequests = async (req, res, next) => {
     }
 
     // Fetch all requests assigned to this supervisor
-    const requests = await TrainingRequest.find({
+    const requests = await InternshipRequest.find({
       supervisorId: supervisorProfile._id,
     })
       .populate({
@@ -47,7 +47,7 @@ export const updateRequestStatus = async (req, res, next) => {
       return res.status(404).json({ message: "Supervisor profile not found." });
     }
 
-    const request = await TrainingRequest.findOne({
+    const request = await InternshipRequest.findOne({
       _id: id,
       supervisorId: supervisorProfile._id,
     });

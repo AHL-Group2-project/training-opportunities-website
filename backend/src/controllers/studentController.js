@@ -1,5 +1,5 @@
 import StudentProfile from "../models/StudentProfile.js";
-import TrainingRequest from "../models/TrainingRequest.js";
+import InternshipRequest from "../models/InternshipRequest.js";
 
 // GET /api/student/profile
 export const getStudentProfile = async (req, res, next) => {
@@ -50,7 +50,7 @@ export const submitTrainingRequest = async (req, res, next) => {
       attachments,
     } = req.body;
 
-    const request = await TrainingRequest.create({
+    const request = await InternshipRequest.create({
       studentId: studentProfile._id,
       supervisorId: studentProfile.supervisorId, // Route directly to assigned supervisor
       type,

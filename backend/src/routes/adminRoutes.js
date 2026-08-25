@@ -8,6 +8,10 @@ import {
   getSupervisors,
   getCompanies,
   assignSupervisorToStudent,
+  updateCompany,
+  toggleCompanyStatus,
+  updateStudent,
+  updateSupervisor,
 } from "../controllers/adminController.js";
 
 const router = express.Router();
@@ -20,6 +24,14 @@ router.use(authorize("admin"));
 router.post("/users/student", createStudent);
 router.post("/users/supervisor", createSupervisor);
 router.post("/users/company", createCompany);
+
+// User update routes
+router.patch("/students/:id", updateStudent);
+router.patch("/supervisors/:id", updateSupervisor);
+
+// Company management routes
+router.patch("/companies/:id", updateCompany);
+router.patch("/companies/:id/status", toggleCompanyStatus);
 
 // User listing routes
 router.get("/students", getStudents);
