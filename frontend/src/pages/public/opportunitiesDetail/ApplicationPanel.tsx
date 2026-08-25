@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import type { Opportunity } from "../../../mock/opportunities";
+import type { Opportunity } from "../../../types/opportunity.types";
 
 interface ApplicationPanelProps {
   opportunity: Opportunity;

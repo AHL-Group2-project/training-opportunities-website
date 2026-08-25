@@ -1,10 +1,10 @@
-import { useState, type FormEvent } from "react";
-
+import { useEffect, useState, type FormEvent } from "react";
 import {
   Alert,
   Box,
   Button,
   Chip,
+  CircularProgress,
   Divider,
   Paper,
   TextField,
@@ -13,12 +13,50 @@ import {
 
 import { Link, useParams } from "react-router-dom";
 
-import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
+import api from "../../../lib/axios";
+import type { Opportunity } from "../../../types/opportunity.types";
 import { useAuth } from "../../../context/authContext";
 
 function OpportunityApplicationPage() {
   const { id } = useParams();
   const { user } = useAuth();
+  const [opportunity, setOpportunity] = useState<Opportunity | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadOpportunity = async () => {
+      if (!id) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        setLoading(true);
+
+        const response = await api.get<Opportunity>(`/opportunities/${id}`);
+
+        if (isMounted) {
+          setOpportunity(response.data);
+        }
+      } catch {
+        if (isMounted) {
+          setOpportunity(null);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadOpportunity();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
 
   const [fullName, setFullName] = useState(user?.name ?? "");
   const [email, setEmail] = useState(user?.email ?? "");
@@ -30,7 +68,13 @@ function OpportunityApplicationPage() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const opportunity = MOCK_OPPORTUNITIES.find((item) => item.id === Number(id));
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   if (!opportunity) {
     return (

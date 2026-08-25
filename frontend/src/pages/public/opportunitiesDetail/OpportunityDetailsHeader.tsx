@@ -2,8 +2,7 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
-import type { Opportunity } from "../../../mock/opportunities";
-
+import type { Opportunity } from "../../../types/opportunity.types";
 type OpportunityDetailsHeaderProps = {
   opportunity: Opportunity;
 };

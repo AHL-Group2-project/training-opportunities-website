@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  Alert,
+  Autocomplete,
   Box,
   Button,
   Card,
   CardContent,
+  CircularProgress,
   Container,
   FormControl,
   InputLabel,
@@ -11,14 +14,15 @@ import {
   Select,
   TextField,
   Typography,
-  Autocomplete,
 } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
-import { MOCK_COMPANIES } from "../../../mock/Companies";
-import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
 import SaveIcon from "@mui/icons-material/Save";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+import api from "../../../lib/axios";
 import { useAuth } from "../../../context/authContext";
+import { MOCK_COMPANIES } from "../../../mock/Companies";
+import type { Opportunity } from "../../../types/opportunity.types";
 
 const DEPARTMENTS = [
   "Computer Engineering",
@@ -44,9 +48,13 @@ const FIELDS = [
   "Business Analysis",
 ];
 
-const TYPES = ["Full-time", "Part-time", "Remote", "Hybrid"];
+const TYPES = ["FT1", "FT2"];
 
-const WORK_MODES = ["On-site", "Remote", "Hybrid"];
+const WORK_MODES = [
+  { value: "on-site", label: "On-site" },
+  { value: "remote", label: "Remote" },
+  { value: "hybrid", label: "Hybrid" },
+];
 
 const DURATIONS = ["2 months", "3 months", "4 months", "6 months"];
 
@@ -80,45 +88,39 @@ const SKILLS = [
   "Postman",
 ];
 
+type OpportunityResponse = Omit<Opportunity, "companyId"> & {
+  companyId?: string | { _id: string; name?: string };
+};
+
 function CreateOpportunityPage() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const isEdit = Boolean(id);
   const { user } = useAuth();
+
+  const isEdit = Boolean(id);
   const isCompanyUser = user?.role === "company";
-  const userCompanyId = user?.companyId; // Renamed to avoid conflict
   const isAdmin = user?.role === "admin";
 
-  // Find existing opportunity if editing
-  const existing = isEdit
-    ? MOCK_OPPORTUNITIES.find((o) => o.id === Number(id))
-    : null;
-
-  // Form state
-  const [title, setTitle] = useState(existing?.title || "");
+  const [title, setTitle] = useState("");
   const [selectedCompanyId, setSelectedCompanyId] = useState(
-    isEdit
-      ? existing?.company || ""
-      : isCompanyUser
-        ? userCompanyId?.toString() || ""
-        : "",
+    isCompanyUser ? String(user?.companyId || "") : "",
   );
-  const [type, setType] = useState(existing?.type || "");
-  const [workMode, setWorkMode] = useState(existing?.workMode || "");
-  const [department, setDepartment] = useState(existing?.department || "");
-  const [field, setField] = useState(existing?.field || "");
-  const [duration, setDuration] = useState(existing?.duration || "");
-  const [location, setLocation] = useState(existing?.location || "");
-  const [skills, setSkills] = useState<string[]>(existing?.skills || []);
-  const [seats, setSeats] = useState(existing?.seats || 1);
+  const [type, setType] = useState("");
+  const [workMode, setWorkMode] = useState("");
+  const [department, setDepartment] = useState("");
+  const [field, setField] = useState("");
+  const [duration, setDuration] = useState("");
+  const [location, setLocation] = useState("");
+  const [skills, setSkills] = useState<string[]>([]);
+  const [seats, setSeats] = useState(1);
   const [deadline, setDeadline] = useState("");
-  const [description, setDescription] = useState(existing?.description || "");
-  const [responsibilities, setResponsibilities] = useState(
-    existing?.responsibilities?.join("\n") || "",
-  );
-  const [requirements, setRequirements] = useState(
-    existing?.requirements?.join("\n") || "",
-  );
+  const [description, setDescription] = useState("");
+  const [responsibilities, setResponsibilities] = useState("");
+  const [requirements, setRequirements] = useState("");
+
+  const [loading, setLoading] = useState(isEdit);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
 
   const getOpportunitiesListPath = () => {
     if (isCompanyUser) return "/company/opportunities";
@@ -126,9 +128,71 @@ function CreateOpportunityPage() {
     return "/supervisor/opportunities";
   };
 
-  const handleSave = (publish: boolean) => {
+  useEffect(() => {
+    if (!isEdit || !id) return;
+
+    const fetchOpportunity = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await api.get<OpportunityResponse>(
+          `/opportunities/${id}`,
+        );
+        const opportunity = response.data;
+        const responseCompanyId =
+          typeof opportunity.companyId === "object"
+            ? opportunity.companyId._id
+            : opportunity.companyId;
+
+        setTitle(opportunity.title || "");
+        setSelectedCompanyId(
+          responseCompanyId || String(user?.companyId || ""),
+        );
+        setType(opportunity.type || "");
+        setWorkMode(opportunity.workMode || "");
+        setDepartment(opportunity.department || "");
+        setField(opportunity.field || "");
+        setDuration(opportunity.duration || "");
+        setLocation(opportunity.location || "");
+        setSkills(opportunity.skills || []);
+        setSeats(opportunity.seats || 1);
+        setDeadline(opportunity.deadline?.slice(0, 10) || "");
+        setDescription(opportunity.description || "");
+        setResponsibilities((opportunity.responsibilities || []).join("\n"));
+        setRequirements((opportunity.requirements || []).join("\n"));
+      } catch {
+        setError("Unable to load this opportunity. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    void fetchOpportunity();
+  }, [id, isEdit, user?.companyId]);
+
+  const handleSave = async (publish: boolean) => {
+    if (
+      !title.trim() ||
+      !selectedCompanyId ||
+      !type ||
+      !workMode ||
+      !department ||
+      !field ||
+      !duration ||
+      !location ||
+      skills.length === 0 ||
+      !deadline ||
+      !description.trim() ||
+      !responsibilities.trim() ||
+      !requirements.trim()
+    ) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
     const payload = {
-      title,
+      title: title.trim(),
       companyId: selectedCompanyId,
       type,
       workMode,
@@ -139,19 +203,50 @@ function CreateOpportunityPage() {
       skills,
       seats,
       deadline,
-      description,
-      responsibilities: responsibilities.split("\n").filter(Boolean),
-      requirements: requirements.split("\n").filter(Boolean),
+      description: description.trim(),
+      responsibilities: responsibilities
+        .split("\n")
+        .map((item) => item.trim())
+        .filter(Boolean),
+      requirements: requirements
+        .split("\n")
+        .map((item) => item.trim())
+        .filter(Boolean),
       status: publish ? "active" : "draft",
     };
 
-    console.log(publish ? "PUBLISH" : "SAVE DRAFT", payload);
-    navigate(getOpportunitiesListPath());
+    try {
+      setSaving(true);
+      setError("");
+
+      if (isEdit && id) {
+        await api.put(`/opportunities/${id}`, payload);
+      } else {
+        await api.post("/opportunities", payload);
+      }
+
+      navigate(getOpportunitiesListPath());
+    } catch {
+      setError(
+        isEdit
+          ? "Unable to update the opportunity. Please try again."
+          : "Unable to create the opportunity. Please try again.",
+      );
+    } finally {
+      setSaving(false);
+    }
   };
+
+  if (loading) {
+    return (
+      <Box sx={{ py: 10, display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}>
-      {/* Header */}
       <Box sx={{ mb: 4 }}>
         <Button
           startIcon={<ArrowBackIcon />}
@@ -160,32 +255,36 @@ function CreateOpportunityPage() {
         >
           Back to Opportunities
         </Button>
+
         <Typography
           variant="h4"
           sx={{ fontWeight: 700, color: "text.primary" }}
         >
           {isEdit ? "Edit Opportunity" : "Create Opportunity"}
         </Typography>
+
         <Typography variant="body1" color="text.secondary">
           Fill in all required fields. Use select inputs where available.
         </Typography>
       </Box>
 
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
+
       <Card sx={{ borderRadius: 3, borderColor: "divider" }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            {/* Basic Info */}
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: 700, color: "text.primary" }}
-            >
+            <Typography variant="h6" sx={{ fontWeight: 700 }}>
               Basic Information
             </Typography>
 
             <TextField
               label="Title *"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(event) => setTitle(event.target.value)}
               placeholder="e.g., Frontend Engineering Intern"
               fullWidth
               required
@@ -196,13 +295,19 @@ function CreateOpportunityPage() {
               <Select
                 value={selectedCompanyId}
                 label="Company *"
-                onChange={(e) => setSelectedCompanyId(e.target.value)}
+                onChange={(event) => setSelectedCompanyId(event.target.value)}
               >
-                {MOCK_COMPANIES.map((c) => (
-                  <MenuItem key={c.id} value={c.id.toString()}>
-                    {c.name}
+                {isCompanyUser && selectedCompanyId && (
+                  <MenuItem value={selectedCompanyId}>
+                    {user?.name || "Your company"}
                   </MenuItem>
-                ))}
+                )}
+                {!isCompanyUser &&
+                  MOCK_COMPANIES.map((company) => (
+                    <MenuItem key={company.id} value={String(company.id)}>
+                      {company.name}
+                    </MenuItem>
+                  ))}
               </Select>
             </FormControl>
 
@@ -216,9 +321,9 @@ function CreateOpportunityPage() {
                   label="Type *"
                   onChange={(e) => setType(e.target.value)}
                 >
-                  {TYPES.map((t) => (
-                    <MenuItem key={t} value={t}>
-                      {t}
+                  {TYPES.map((item) => (
+                    <MenuItem key={item} value={item}>
+                      {item}
                     </MenuItem>
                   ))}
                 </Select>
@@ -231,20 +336,16 @@ function CreateOpportunityPage() {
                   label="Work Mode *"
                   onChange={(e) => setWorkMode(e.target.value)}
                 >
-                  {WORK_MODES.map((w) => (
-                    <MenuItem key={w} value={w}>
-                      {w}
+                  {WORK_MODES.map((item) => (
+                    <MenuItem key={item.value} value={item.value}>
+                      {item.label}
                     </MenuItem>
                   ))}
                 </Select>
               </FormControl>
             </Box>
 
-            {/* Details */}
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: 700, color: "text.primary", mt: 1 }}
-            >
+            <Typography variant="h6" sx={{ fontWeight: 700, mt: 1 }}>
               Details
             </Typography>
 
@@ -258,9 +359,9 @@ function CreateOpportunityPage() {
                   label="Department *"
                   onChange={(e) => setDepartment(e.target.value)}
                 >
-                  {DEPARTMENTS.map((d) => (
-                    <MenuItem key={d} value={d}>
-                      {d}
+                  {DEPARTMENTS.map((item) => (
+                    <MenuItem key={item} value={item}>
+                      {item}
                     </MenuItem>
                   ))}
                 </Select>
@@ -273,9 +374,9 @@ function CreateOpportunityPage() {
                   label="Field *"
                   onChange={(e) => setField(e.target.value)}
                 >
-                  {FIELDS.map((f) => (
-                    <MenuItem key={f} value={f}>
-                      {f}
+                  {FIELDS.map((item) => (
+                    <MenuItem key={item} value={item}>
+                      {item}
                     </MenuItem>
                   ))}
                 </Select>
@@ -296,9 +397,9 @@ function CreateOpportunityPage() {
                   label="Duration *"
                   onChange={(e) => setDuration(e.target.value)}
                 >
-                  {DURATIONS.map((d) => (
-                    <MenuItem key={d} value={d}>
-                      {d}
+                  {DURATIONS.map((item) => (
+                    <MenuItem key={item} value={item}>
+                      {item}
                     </MenuItem>
                   ))}
                 </Select>
@@ -311,9 +412,9 @@ function CreateOpportunityPage() {
                   label="Location *"
                   onChange={(e) => setLocation(e.target.value)}
                 >
-                  {LOCATIONS.map((l) => (
-                    <MenuItem key={l} value={l}>
-                      {l}
+                  {LOCATIONS.map((item) => (
+                    <MenuItem key={item} value={item}>
+                      {item}
                     </MenuItem>
                   ))}
                 </Select>
@@ -323,13 +424,8 @@ function CreateOpportunityPage() {
                 label="Seats *"
                 type="number"
                 value={seats}
-                onChange={(e) => setSeats(Number(e.target.value))}
-                slotProps={{
-                  htmlInput: {
-                    min: 1,
-                    max: 20,
-                  },
-                }}
+                onChange={(event) => setSeats(Number(event.target.value))}
+                slotProps={{ htmlInput: { min: 1, max: 20 } }}
                 required
               />
             </Box>
@@ -339,7 +435,6 @@ function CreateOpportunityPage() {
               options={SKILLS}
               value={skills}
               onChange={(_, newValue) => setSkills(newValue)}
-
               renderInput={(params) => (
                 <TextField
                   {...params}
@@ -348,24 +443,17 @@ function CreateOpportunityPage() {
                 />
               )}
             />
+
             <TextField
               label="Application Deadline *"
               type="date"
               value={deadline}
-              onChange={(e) => setDeadline(e.target.value)}
-              slotProps={{
-                inputLabel: {
-                  shrink: true,
-                },
-              }}
+              onChange={(event) => setDeadline(event.target.value)}
+              slotProps={{ inputLabel: { shrink: true } }}
               required
             />
 
-            {/* Content */}
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: 700, color: "text.primary", mt: 1 }}
-            >
+            <Typography variant="h6" sx={{ fontWeight: 700, mt: 1 }}>
               Content
             </Typography>
 
@@ -374,7 +462,7 @@ function CreateOpportunityPage() {
               multiline
               rows={4}
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={(event) => setDescription(event.target.value)}
               placeholder="Describe the internship opportunity..."
               required
             />
@@ -384,7 +472,7 @@ function CreateOpportunityPage() {
               multiline
               rows={4}
               value={responsibilities}
-              onChange={(e) => setResponsibilities(e.target.value)}
+              onChange={(event) => setResponsibilities(event.target.value)}
               placeholder="Enter each responsibility on a new line"
               helperText="Enter each item on a new line"
               required
@@ -395,7 +483,7 @@ function CreateOpportunityPage() {
               multiline
               rows={4}
               value={requirements}
-              onChange={(e) => setRequirements(e.target.value)}
+              onChange={(event) => setRequirements(event.target.value)}
               placeholder="Enter each requirement on a new line"
               helperText="Enter each item on a new line"
               required
@@ -404,7 +492,6 @@ function CreateOpportunityPage() {
         </CardContent>
       </Card>
 
-      {/* Actions */}
       <Box
         sx={{
           display: "flex",
@@ -417,28 +504,36 @@ function CreateOpportunityPage() {
         <Button
           variant="outlined"
           onClick={() => navigate(getOpportunitiesListPath())}
+          disabled={saving}
           sx={{ textTransform: "none" }}
         >
           Cancel
         </Button>
+
         <Button
           variant="outlined"
           startIcon={<SaveIcon />}
-          onClick={() => handleSave(false)}
+          onClick={() => void handleSave(false)}
+          disabled={saving}
           sx={{ textTransform: "none" }}
         >
           Save as Draft
         </Button>
+
         <Button
           variant="contained"
-          startIcon={<SaveIcon />}
-          onClick={() => handleSave(true)}
-          sx={{
-            bgcolor: "text.primary",
-            textTransform: "none",
-          }}
+          startIcon={
+            saving ? (
+              <CircularProgress size={18} color="inherit" />
+            ) : (
+              <SaveIcon />
+            )
+          }
+          onClick={() => void handleSave(true)}
+          disabled={saving}
+          sx={{ bgcolor: "text.primary", textTransform: "none" }}
         >
-          Publish
+          {saving ? "Saving..." : "Publish"}
         </Button>
       </Box>
     </Container>

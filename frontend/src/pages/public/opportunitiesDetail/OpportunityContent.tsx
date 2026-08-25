@@ -1,6 +1,5 @@
 import { Box, Card, Chip, Typography } from "@mui/material";
-import type { Opportunity } from "../../../mock/opportunities";
-
+import type { Opportunity } from "../../../types/opportunity.types";
 type OpportunityContentProps = {
   opportunity: Opportunity;
 };

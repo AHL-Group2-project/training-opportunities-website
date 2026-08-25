@@ -1,47 +1,102 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  Alert,
   Box,
-  Container,
-  Typography,
   Button,
   Card,
+  Chip,
+  CircularProgress,
+  Container,
+  IconButton,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Chip,
-  IconButton,
   Tooltip,
+  Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../context/authContext";
-import { MOCK_COMPANIES } from "../../../mock/Companies";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import DeleteIcon from "@mui/icons-material/Delete";
+import api from "../../../lib/axios";
+import { useAuth } from "../../../context/authContext";
+import type { Opportunity } from "../../../types/opportunity.types";
 
 function CompanyOpportunitiesPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
-  const companyId = user?.companyId;
 
-  const company = MOCK_COMPANIES.find((c) => String(c.id) === companyId);
-  const [opportunities] = useState(company?.opportunities || []);
+  const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [archivingId, setArchivingId] = useState<string | number | null>(null);
+
+  useEffect(() => {
+    const fetchCompanyOpportunities = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response = await api.get<Opportunity[]>(
+          "/opportunities/company/me",
+        );
+        setOpportunities(response.data);
+      } catch {
+        setError("Unable to load your opportunities. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    void fetchCompanyOpportunities();
+  }, []);
+  const handleArchive = async (opportunity: Opportunity) => {
+    const confirmed = window.confirm(
+      `Archive "${opportunity.title}"? It will no longer appear publicly.`,
+    );
+
+    if (!confirmed) return;
+
+    try {
+      setArchivingId(opportunity.id);
+      setError("");
+
+      await api.delete(`/opportunities/${opportunity.id}`);
+
+      setOpportunities((current) =>
+        current.filter((item) => item.id !== opportunity.id),
+      );
+    } catch {
+      setError("Unable to archive the opportunity. Please try again.");
+    } finally {
+      setArchivingId(null);
+    }
+  };
 
   const getStatusChip = (status?: string) => {
     const colors: Record<string, { color: string; bg: string }> = {
       active: { color: "#059669", bg: "#ECFDF5" },
       closed: { color: "#DC2626", bg: "#FEF2F2" },
       draft: { color: "#6B7280", bg: "#F3F4F6" },
+      archived: { color: "#92400E", bg: "#FEF3C7" },
     };
-    const c = colors[status || "draft"];
+
+    const currentStatus = status || "draft";
+    const colorConfig = colors[currentStatus] || colors.draft;
+
     return (
       <Chip
-        label={status || "draft"}
+        label={currentStatus.charAt(0).toUpperCase() + currentStatus.slice(1)}
         size="small"
-        sx={{ bgcolor: c.bg, color: c.color, fontWeight: 600 }}
+        sx={{
+          bgcolor: colorConfig.bg,
+          color: colorConfig.color,
+          fontWeight: 600,
+        }}
       />
     );
   };
@@ -64,9 +119,10 @@ function CompanyOpportunitiesPage() {
             My Opportunities
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            Manage opportunities for {company?.name}
+            Manage opportunities for {user?.name || "your company"}
           </Typography>
         </Box>
+
         <Button
           variant="contained"
           startIcon={<AddIcon />}
@@ -76,6 +132,12 @@ function CompanyOpportunitiesPage() {
           New Opportunity
         </Button>
       </Box>
+
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
 
       <Card sx={{ borderRadius: 2 }}>
         <TableContainer>
@@ -89,8 +151,15 @@ function CompanyOpportunitiesPage() {
                 <TableCell sx={{ fontWeight: 700 }}>Actions</TableCell>
               </TableRow>
             </TableHead>
+
             <TableBody>
-              {opportunities.length === 0 ? (
+              {loading ? (
+                <TableRow>
+                  <TableCell colSpan={5} align="center" sx={{ py: 6 }}>
+                    <CircularProgress size={32} />
+                  </TableCell>
+                </TableRow>
+              ) : opportunities.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={5} align="center" sx={{ py: 4 }}>
                     <Typography color="text.secondary">
@@ -99,33 +168,54 @@ function CompanyOpportunitiesPage() {
                   </TableCell>
                 </TableRow>
               ) : (
-                opportunities.map((opp) => (
-                  <TableRow key={opp.id} hover>
-                    <TableCell sx={{ fontWeight: 600 }}>{opp.title}</TableCell>
-                    <TableCell>{opp.type}</TableCell>
-                    <TableCell>{getStatusChip(opp.status)}</TableCell>
-                    <TableCell>{opp.applicants || 0}</TableCell>
+                opportunities.map((opportunity) => (
+                  <TableRow key={opportunity.id} hover>
+                    <TableCell sx={{ fontWeight: 600 }}>
+                      {opportunity.title}
+                    </TableCell>
+                    <TableCell>{opportunity.type}</TableCell>
+                    <TableCell>{getStatusChip(opportunity.status)}</TableCell>
+                    <TableCell>{opportunity.applicants || 0}</TableCell>
                     <TableCell>
                       <Box sx={{ display: "flex", gap: 0.5 }}>
                         <Tooltip title="View">
                           <IconButton
                             size="small"
-                            onClick={() => navigate(`/opportunities/${opp.id}`)}
+                            onClick={() =>
+                              navigate(`/opportunities/${opportunity.id}`)
+                            }
                           >
                             <VisibilityIcon fontSize="small" />
                           </IconButton>
                         </Tooltip>
+
                         <Tooltip title="Edit">
                           <IconButton
                             size="small"
                             onClick={() =>
                               navigate(
-                                `/supervisor/opportunities/${opp.id}/edit`,
+                                `/company/opportunities/${opportunity.id}/edit`,
                               )
                             }
                           >
                             <EditIcon fontSize="small" />
                           </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Archive">
+                          <span>
+                            <IconButton
+                              size="small"
+                              color="error"
+                              disabled={archivingId === opportunity.id}
+                              onClick={() => void handleArchive(opportunity)}
+                            >
+                              {archivingId === opportunity.id ? (
+                                <CircularProgress size={18} color="inherit" />
+                              ) : (
+                                <DeleteIcon fontSize="small" />
+                              )}
+                            </IconButton>
+                          </span>
                         </Tooltip>
                       </Box>
                     </TableCell>
