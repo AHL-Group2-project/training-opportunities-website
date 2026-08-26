@@ -60,6 +60,9 @@ const trainingRequestSchema = new mongoose.Schema(
         type: String,
       },
     ],
+        rejectionComment: {
+      type: String,
+    },
   },
   { timestamps: true, collection: "trainingRequests" }
 );

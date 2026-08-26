@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Container,
   Typography,
@@ -16,26 +16,71 @@ import {
   Paper,
   Stack,
   Button,
+  Pagination,
+  CircularProgress,
+  Alert,
 } from "@mui/material";
 import type { SelectChangeEvent } from "@mui/material";
 import DownloadIcon from "@mui/icons-material/Download";
-import { students } from "../../mock/students";
 import StudentRow from "./StudentRow";
-import type { Student } from "../../types/student.types";
+import {
+  getMyStudents,
+  exportMyStudents,
+} from "../../services/supervisorService";
+import type {
+  SupervisorStudentListItem,
+  StudentStatus,
+} from "../../types/supervisorStudents.types";
 
-type StatusFilter = "all" | "Completed" | "Active" | "Not Started";
+type StatusFilter = "all" | StudentStatus;
 
-function getStudentStatus(
-  student: Student,
-): "Completed" | "Active" | "Not Started" {
-  if (student.ft1 && student.ft2) return "Completed";
-  if (student.ft1 || student.ft2) return "Active";
-  return "Not Started";
-}
+const PAGE_SIZE = 10;
 
 export default function StudentsListPage() {
   const [search, setSearch] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [page, setPage] = useState(1);
+
+  const [students, setStudents] = useState<SupervisorStudentListItem[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [exporting, setExporting] = useState(false);
+
+  // debounce على مربع البحث عشان ما نضرب الـ API كل ضغطة كيبورد
+  useEffect(() => {
+    const timeout = setTimeout(() => setDebouncedSearch(search), 400);
+    return () => clearTimeout(timeout);
+  }, [search]);
+
+  // أي تغيير على البحث أو الفلتر -> رجّع لصفحة 1
+  useEffect(() => {
+    setPage(1);
+  }, [debouncedSearch, statusFilter]);
+
+  const fetchStudents = useCallback(async () => {
+    setLoading(true);
+    setError(false);
+    try {
+      const res = await getMyStudents({
+        page,
+        limit: PAGE_SIZE,
+        search: debouncedSearch || undefined,
+        status: statusFilter === "all" ? undefined : statusFilter,
+      });
+      setStudents(res.data);
+      setTotalPages(res.pagination.totalPages);
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }, [page, debouncedSearch, statusFilter]);
+
+  useEffect(() => {
+    fetchStudents();
+  }, [fetchStudents]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
@@ -45,21 +90,16 @@ export default function StudentsListPage() {
     setStatusFilter(event.target.value as StatusFilter);
   };
 
-  const filteredStudents = useMemo(() => {
-    return students.filter((student) => {
-      const matchesSearch = student.name
-        .toLowerCase()
-        .includes(search.toLowerCase());
-
-      const matchesStatus =
-        statusFilter === "all" || getStudentStatus(student) === statusFilter;
-
-      return matchesSearch && matchesStatus;
-    });
-  }, [search, statusFilter]);
-
-  const handleExport = () => {
-    console.log("Export list clicked", filteredStudents);
+  const handleExport = async () => {
+    setExporting(true);
+    try {
+      await exportMyStudents({
+        search: debouncedSearch || undefined,
+        status: statusFilter === "all" ? undefined : statusFilter,
+      });
+    } finally {
+      setExporting(false);
+    }
   };
 
   return (
@@ -81,8 +121,9 @@ export default function StudentsListPage() {
           variant="outlined"
           startIcon={<DownloadIcon />}
           onClick={handleExport}
+          disabled={exporting}
         >
-          Export list
+          {exporting ? "Exporting..." : "Export list"}
         </Button>
       </Stack>
 
@@ -111,6 +152,20 @@ export default function StudentsListPage() {
         </FormControl>
       </Stack>
 
+      {error && (
+        <Alert
+          severity="error"
+          sx={{ mb: 3 }}
+          action={
+            <Button color="inherit" size="small" onClick={fetchStudents}>
+              Try again
+            </Button>
+          }
+        >
+          Failed to load students. Please try again.
+        </Alert>
+      )}
+
       <TableContainer component={Paper} variant="outlined">
         <Table>
           <TableHead>
@@ -126,11 +181,21 @@ export default function StudentsListPage() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredStudents.map((student) => (
-              <StudentRow key={student.id} student={student} />
-            ))}
+            {loading && (
+              <TableRow>
+                <TableCell colSpan={8} align="center" sx={{ py: 4 }}>
+                  <CircularProgress size={28} />
+                </TableCell>
+              </TableRow>
+            )}
 
-            {filteredStudents.length === 0 && (
+            {!loading &&
+              !error &&
+              students.map((student) => (
+                <StudentRow key={student.id} student={student} />
+              ))}
+
+            {!loading && !error && students.length === 0 && (
               <TableRow>
                 <TableCell colSpan={8} align="center" sx={{ py: 4 }}>
                   <Typography color="text.secondary">
@@ -142,6 +207,22 @@ export default function StudentsListPage() {
           </TableBody>
         </Table>
       </TableContainer>
+
+      {!error && totalPages > 1 && (
+<Stack
+  direction="row"
+  sx={{
+    mt: 3,
+    justifyContent: "center",
+  }}
+>          <Pagination
+            count={totalPages}
+            page={page}
+            onChange={(_, value) => setPage(value)}
+            color="primary"
+          />
+        </Stack>
+      )}
     </Container>
   );
 }

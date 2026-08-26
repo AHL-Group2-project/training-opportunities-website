@@ -1,22 +1,16 @@
 import express from "express";
 import { protect, authorize } from "../middleware/authMiddleware.js";
 import {
-  getSupervisorRequests,
+  getMyRequests,
   updateRequestStatus,
-  getMyStudents,
-  exportMyStudents,
-} from "../controllers/supervisorController.js";
+} from "../controllers/supervisorRequestsController.js";
 
 const router = express.Router();
 
 router.use(protect);
 router.use(authorize("supervisor"));
 
-router.get("/requests", getSupervisorRequests);
+router.get("/requests", getMyRequests);
 router.put("/requests/:id/status", updateRequestStatus);
-
-// NEW
-router.get("/students", getMyStudents);
-router.get("/students/export", exportMyStudents);
 
 export default router;

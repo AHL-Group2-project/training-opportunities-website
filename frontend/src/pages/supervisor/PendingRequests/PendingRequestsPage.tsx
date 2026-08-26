@@ -36,7 +36,10 @@ import {
   CircularProgress,
 } from "@mui/material";
 
-import { supervisorApi } from "../../../lib/api/supervisor";
+import {
+  getMyRequests,
+  updateRequestStatus as updateRequestStatusApi,
+} from "../../../services/supervisorRequestsService";
 
 type RequestStatus = "pending" | "approved" | "rejected";
 type TrainingType = "ft1" | "ft2";
@@ -95,8 +98,8 @@ function PendingRequestsPage() {
   const fetchRequests = async () => {
     try {
       setLoading(true);
-      const res = await supervisorApi.getRequests();
-      const formatted = res.data.map((req: any) => ({
+      const data = await getMyRequests();
+      const formatted = data.map((req: any) => ({
         id: req._id,
         studentName: req.studentId?.name || "Unknown",
         studentEmail: req.studentId?.userId?.email || "No Email",
@@ -162,7 +165,7 @@ function PendingRequestsPage() {
     if (!selectedRequest) return;
 
     try {
-      await supervisorApi.updateRequestStatus(selectedRequest.id, status);
+      await updateRequestStatusApi(selectedRequest.id, status, comment);
 
       setRequests((currentRequests) =>
         currentRequests.map((request) =>
@@ -353,7 +356,9 @@ function PendingRequestsPage() {
 
                   <TableCell sx={{ fontWeight: 700 }}>Type</TableCell>
 
-                  <TableCell sx={{ fontWeight: 700 }}>Submitted Date</TableCell>
+                  <TableCell sx={{ fontWeight: 700 }}>
+                    Submitted Date
+                  </TableCell>
 
                   <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
 
@@ -454,7 +459,6 @@ function PendingRequestsPage() {
                       <TableCell align="right">
                         <Button
                           size="small"
-
                           onClick={() => openReviewDialog(request)}
                           sx={{
                             textTransform: "none",
