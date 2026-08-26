@@ -1,5 +1,17 @@
 import CompanyProfile from "../models/CompanyProfile.js";
 
+const COMPANY_EDITABLE_FIELDS = [
+  "name",
+  "industry",
+  "location",
+  "website",
+  "linkedIn",
+  "logoUrl",
+  "description",
+  "contactEmail",
+  "phone",
+];
+
 export const getMyProfile = async (req, res, next) => {
   try {
     const profile = await CompanyProfile.findOne({ userId: req.user._id });
@@ -13,9 +25,15 @@ export const getMyProfile = async (req, res, next) => {
 
 export const updateMyProfile = async (req, res, next) => {
   try {
-    // userId, verified, and isActive are admin-controlled — never editable
+    // verified and isActive are admin-controlled — never editable
     // by the company itself, even if sent in the request body.
-    const { userId, verified, isActive, ...allowedUpdates } = req.body;
+    const allowedUpdates = {};
+    for (const field of COMPANY_EDITABLE_FIELDS) {
+      if (req.body[field] !== undefined) {
+        allowedUpdates[field] = req.body[field];
+      }
+    }
+
     const profile = await CompanyProfile.findOneAndUpdate(
       { userId: req.user._id },
       allowedUpdates,
