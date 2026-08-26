@@ -54,7 +54,7 @@ export const submitTrainingRequest = async (req, res, next) => {
       studentId: studentProfile._id,
       supervisorId: studentProfile.supervisorId, // Route directly to assigned supervisor
       type,
-      companyName,
+      newCompanyName: companyName,
       position,
       department,
       field,
