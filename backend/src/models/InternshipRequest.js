@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const internshipRequestSchema = new mongoose.Schema(
   {
-    studentId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    studentId: { type: mongoose.Schema.Types.ObjectId, ref: "StudentProfile", required: true },
     supervisorId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     applicationId: { type: mongoose.Schema.Types.ObjectId, default: null },
     companyId: { type: mongoose.Schema.Types.ObjectId, default: null },
