@@ -15,7 +15,7 @@ export const getSupervisorRequests = async (req, res, next) => {
 
     // Fetch all requests assigned to this supervisor
     const requests = await InternshipRequest.find({
-      supervisorId: supervisorProfile._id,
+      supervisorId: supervisorProfile.userId,
     })
       .populate({
         path: "studentId",
@@ -49,7 +49,7 @@ export const updateRequestStatus = async (req, res, next) => {
 
     const request = await InternshipRequest.findOne({
       _id: id,
-      supervisorId: supervisorProfile._id,
+      supervisorId: supervisorProfile.userId,
     });
     if (!request) {
       return res
