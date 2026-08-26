@@ -151,8 +151,14 @@ export const updateStudent = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name, major } = req.body;
-    const student = await StudentProfile.findById(id);
-    if (!student) return res.status(404).json({ message: "Student not found." });
+
+    const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!adminProfile) {
+      return res.status(403).json({ message: "Admin profile not found." });
+    }
+
+    const student = await StudentProfile.findOne({ _id: id, university: adminProfile.university });
+    if (!student) return res.status(404).json({ message: "Student not found or belongs to another university." });
     
     if (name) student.name = name;
     if (major) student.major = major;
@@ -168,8 +174,14 @@ export const updateSupervisor = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name, department } = req.body;
-    const supervisor = await SupervisorProfile.findById(id);
-    if (!supervisor) return res.status(404).json({ message: "Supervisor not found." });
+
+    const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!adminProfile) {
+      return res.status(403).json({ message: "Admin profile not found." });
+    }
+
+    const supervisor = await SupervisorProfile.findOne({ _id: id, university: adminProfile.university });
+    if (!supervisor) return res.status(404).json({ message: "Supervisor not found or belongs to another university." });
     
     if (name) supervisor.name = name;
     if (department) supervisor.department = department;
