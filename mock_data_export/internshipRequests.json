@@ -1,0 +1,4196 @@
+[
+  {
+    "_id": {
+      "$oid": "69f18c14f4511068e1f10893"
+    },
+    "studentId": {
+      "$oid": "8920fb7d3daa5b3d85ace3b2"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "applicationId": {
+      "$oid": "aef559b9b3f62bd44ea8e99b"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "React Frontend Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0f738629e922f607f1c046c4"
+    },
+    "studentId": {
+      "$oid": "2b94065e965e821fc74ea72c"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "applicationId": {
+      "$oid": "827287053aaa8b581f78a64b"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Node.js Backend Trainee",
+    "department": "Computer Science",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "54ef3f8a8a51984ba6bed18c"
+    },
+    "studentId": {
+      "$oid": "08e07698fe263f78ddcb03d2"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "applicationId": {
+      "$oid": "fc85750bb559df1675e9f59d"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern (React/Next.js)",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "099841e5b7214729c4133646"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "applicationId": {
+      "$oid": "f9c884310a8b83c0a4d15895"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Content & Systems Intern",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d01d105709a4f2e50a819b9f"
+    },
+    "studentId": {
+      "$oid": "5846a0c96733d19381eed848"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "applicationId": {
+      "$oid": "c4fd52bc79888427a2220c3a"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Developer Intern",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "13a3ed5cc324640572d14d2b"
+    },
+    "studentId": {
+      "$oid": "5846a0c96733d19381eed848"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "applicationId": {
+      "$oid": "16430f4057958f6814046f29"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Node.js/Express)",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c77799253fd5ed36c829be12"
+    },
+    "studentId": {
+      "$oid": "19fdfbe38a11b4d3dfac7c84"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "applicationId": {
+      "$oid": "b85227fbc14354edda861165"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Vue.js Frontend Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2e43ca803d1641349321f9ce"
+    },
+    "studentId": {
+      "$oid": "19fdfbe38a11b4d3dfac7c84"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "applicationId": {
+      "$oid": "38d5ab4ebd75da6478a1c59e"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Data Analyst Intern",
+    "department": "Software Engineering",
+    "field": "Data Analysis",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "462964e61f787cde734195f3"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "applicationId": {
+      "$oid": "054d47c8893c13f0413def46"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Engineer Intern (React)",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a3378ba0a783a40eadfa0b75"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "applicationId": {
+      "$oid": "f5c6df49b3293b7ac5245257"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Node.js/Express)",
+    "department": "Computer Science",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3c66310edb39bd79f488cd85"
+    },
+    "studentId": {
+      "$oid": "38bdcd738e7943adec6fc345"
+    },
+    "supervisorId": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "applicationId": {
+      "$oid": "72beddcbc89cc71e915e17d3"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern (React/Next.js)",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c5d65e4e3c76288d42b69d2f"
+    },
+    "studentId": {
+      "$oid": "485979ad6294ff0b71cb0a76"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "applicationId": {
+      "$oid": "f6cc9bb2ce3332ba8c13dbaa"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Web Developer Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8a167825408348eb07b99d58"
+    },
+    "studentId": {
+      "$oid": "84d1379edf2f957bb697271e"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "applicationId": {
+      "$oid": "6aa718feb3ea6e4aa71db352"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Information Systems Intern",
+    "department": "Information Technology",
+    "field": "Information Systems",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d3c07bdad2b81c402f3f8fc"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "supervisorId": {
+      "$oid": "78996f5d193acf7f3262d0e6"
+    },
+    "applicationId": {
+      "$oid": "0b8717356bae7ba83a797dc9"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Web Developer Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9559b39c92192d8f19a9e5a7"
+    },
+    "studentId": {
+      "$oid": "aff7490ce360c37e5663f63d"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "applicationId": {
+      "$oid": "c840dfb56602fd0263199d47"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Development Trainee",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9987b515e8fd7a653a6fe49a"
+    },
+    "studentId": {
+      "$oid": "aff7490ce360c37e5663f63d"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "applicationId": {
+      "$oid": "b1456d427587a6ff9cdd6ade"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Node.js/Express)",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bc169c11dd27e456b0e9ecef"
+    },
+    "studentId": {
+      "$oid": "fe4fb40d00624ba442b824dd"
+    },
+    "supervisorId": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "applicationId": {
+      "$oid": "b9a8d831c71b11617f5e4fcd"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern – React",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8209726d6237212e033c263f"
+    },
+    "studentId": {
+      "$oid": "fe4fb40d00624ba442b824dd"
+    },
+    "supervisorId": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "applicationId": {
+      "$oid": "2261ab8aca548b2e213e4ff7"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Systems Engineer Intern",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "80f9636e258964b3387a0959"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "applicationId": {
+      "$oid": "ebc3bcc938cce33632504008"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Information Systems Intern",
+    "department": "Computer Engineering",
+    "field": "Information Systems",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "44d04f1fb6786c2bbe3c1fdf"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "applicationId": {
+      "$oid": "474250d9bb2477719be979ac"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Firebase/Node)",
+    "department": "Computer Engineering",
+    "field": "Backend Development",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f0061705746ee1e8ae71689d"
+    },
+    "studentId": {
+      "$oid": "699664e463401b65d4a40295"
+    },
+    "supervisorId": {
+      "$oid": "57d2342fe225011f4e4a597a"
+    },
+    "applicationId": {
+      "$oid": "e5296ca5b78deb4abadb4325"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "React Developer Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9d32f81552c24763051cd1dc"
+    },
+    "studentId": {
+      "$oid": "b067af3f4867f3d2107075a1"
+    },
+    "supervisorId": {
+      "$oid": "ce3d078973696a925ea58b5e"
+    },
+    "applicationId": {
+      "$oid": "0188f224b936b52868eca118"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Vue.js Frontend Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2d50d838c6d7bb8af890d4b8"
+    },
+    "studentId": {
+      "$oid": "72b50a994910e85d99f8b2f8"
+    },
+    "supervisorId": {
+      "$oid": "57d2342fe225011f4e4a597a"
+    },
+    "applicationId": {
+      "$oid": "0a41c919d8cf4a009040f3b5"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Web Developer Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ac1685ccf3c7746dd7fb1beb"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "applicationId": {
+      "$oid": "2c7074b01cb3fa59d97f4f50"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Engineer (React) Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "699fb92a41321b73524ed674"
+    },
+    "studentId": {
+      "$oid": "8c38e988904b876f5d72da4a"
+    },
+    "supervisorId": {
+      "$oid": "ce3d078973696a925ea58b5e"
+    },
+    "applicationId": {
+      "$oid": "9c49b4ea37d0eac4a70f0b33"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Engineer Intern (React)",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "893231a0511a9ef24687ccb4"
+    },
+    "studentId": {
+      "$oid": "8c38e988904b876f5d72da4a"
+    },
+    "supervisorId": {
+      "$oid": "ce3d078973696a925ea58b5e"
+    },
+    "applicationId": {
+      "$oid": "6d09b3ce9ff00d2acb1be8b9"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "ERP Backend Developer Intern",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f7cc552da0cb6eb640bd0b64"
+    },
+    "studentId": {
+      "$oid": "0e76094c1ae3d07e3d1b3ce9"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "applicationId": {
+      "$oid": "2a1dce38d6b8d656a6664bef"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "IT Support Technician Intern",
+    "department": "Computer Science",
+    "field": "IT Support",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8b9881bea0269c5ec5838b36"
+    },
+    "studentId": {
+      "$oid": "0e76094c1ae3d07e3d1b3ce9"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "applicationId": {
+      "$oid": "562a7cae894413d7850bc589"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Python Backend Intern",
+    "department": "Computer Science",
+    "field": "Backend Development",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2b3c0cdaf7c8f26d875d84e9"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "applicationId": {
+      "$oid": "75701b7a79e0ef7e7622548a"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "React Developer Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "71125fb0e7ec7ce5977de124"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "applicationId": {
+      "$oid": "7d8fa7e9025d56f3aa635e71"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Network Support Intern",
+    "department": "Software Engineering",
+    "field": "Networking",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7bb7381ffe9b3604327589b9"
+    },
+    "studentId": {
+      "$oid": "dc2b4ded372cded15273f4b5"
+    },
+    "supervisorId": {
+      "$oid": "b608924a12e02315a81b75df"
+    },
+    "applicationId": {
+      "$oid": "8858bb75f017efe25a0be479"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern (React/Next.js)",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6fa30a425a8d0f13d94dc7e5"
+    },
+    "studentId": {
+      "$oid": "a3f0a5ce2dcc6afddffdba56"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "applicationId": {
+      "$oid": "44ea5224e45caa7f0cb7959c"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Web Developer Intern",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "897205661d0994dac9cea599"
+    },
+    "studentId": {
+      "$oid": "d03cbcbc65cbeaf5b97f1a88"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "applicationId": {
+      "$oid": "4e7377a019fe3b34f45507d1"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Developer Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d406a597551419e8cc86e05a"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "applicationId": {
+      "$oid": "cf7c2c2f6807820a5878876a"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Development Trainee",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7f94afb42ee81262d3c609fc"
+    },
+    "studentId": {
+      "$oid": "c0c174af276551c03bc48168"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "applicationId": {
+      "$oid": "aa96409e78b3db52c9d5ddba"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "IT Support Intern",
+    "department": "Computer Science",
+    "field": "IT Support",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4c7e326401d8f9535cc38874"
+    },
+    "studentId": {
+      "$oid": "c0c174af276551c03bc48168"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "applicationId": {
+      "$oid": "ebfb413a96ff86a65fcf398e"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Cybersecurity Intern",
+    "department": "Computer Science",
+    "field": "Cybersecurity",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "963fe1f7a097a3a001ae92fd"
+    },
+    "studentId": {
+      "$oid": "f7cf6acd05a40df2e4dd79f4"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "applicationId": {
+      "$oid": "0e07a738e0bbdabeaf2ef29c"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "React Developer Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ca847def6aace87197d8e49e"
+    },
+    "studentId": {
+      "$oid": "f7cf6acd05a40df2e4dd79f4"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "applicationId": {
+      "$oid": "4921b1e2f6602df7b17a8dc3"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Cybersecurity Intern",
+    "department": "Computer Engineering",
+    "field": "Cybersecurity",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "685f7a6dae6fe787438ea8f5"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "applicationId": {
+      "$oid": "42e85c52c35cb59406feafed"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Mobile-Focused Frontend Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "728437ee23d20d445c075722"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "applicationId": {
+      "$oid": "570824c6049c0c4dde6d9e22"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "ERP Backend Developer Intern",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c6e19b476010bfb97d3dfe2b"
+    },
+    "studentId": {
+      "$oid": "b11f6316c7a3ef467f877edd"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "applicationId": {
+      "$oid": "c621423deadb92c1bdd27f9b"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern – React",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "041df452e051df7fe8a4b39a"
+    },
+    "studentId": {
+      "$oid": "4cf3af30f59b53764e69e829"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "applicationId": {
+      "$oid": "66d74cc3b496383d043ce81e"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Developer Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "901f21abbf684f7999842646"
+    },
+    "studentId": {
+      "$oid": "cd53a5487c9dafaf1e67dcc0"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "applicationId": {
+      "$oid": "e0cc0a14b5c4ee4525715518"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Node.js Backend Trainee",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "44a07d59dda95e97a8f1dc14"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "supervisorId": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "applicationId": {
+      "$oid": "b7f16a21b7225739428b4880"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Mobile-Focused Frontend Intern",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9000397c012ed314d7c9c436"
+    },
+    "studentId": {
+      "$oid": "650c651ef50b9c7ec8ee025c"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "applicationId": {
+      "$oid": "b425314813d48617a64ada34"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Engineer Intern (React)",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a6a982f5d2454331dfb4ed7b"
+    },
+    "studentId": {
+      "$oid": "650c651ef50b9c7ec8ee025c"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "applicationId": {
+      "$oid": "17157075a8b77f1f73939a00"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "QA Testing Intern",
+    "department": "Computer Systems Engineering",
+    "field": "Quality Assurance",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dcee1e3f894f0b7e04f4a07d"
+    },
+    "studentId": {
+      "$oid": "cdebaf6e06b94c8d369cae81"
+    },
+    "supervisorId": {
+      "$oid": "cfad9150c8b5f314aeb1047c"
+    },
+    "applicationId": {
+      "$oid": "6ff2e8440c89af6fb492bf5c"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Mobile-Focused Frontend Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "30c29878ceefd20e910f4a9c"
+    },
+    "studentId": {
+      "$oid": "cdebaf6e06b94c8d369cae81"
+    },
+    "supervisorId": {
+      "$oid": "cfad9150c8b5f314aeb1047c"
+    },
+    "applicationId": {
+      "$oid": "62dd5ae7fd10d79505538b63"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Cybersecurity Intern",
+    "department": "Computer Science",
+    "field": "Cybersecurity",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "70fc501b5d0aed7de0a15c1d"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "supervisorId": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "applicationId": {
+      "$oid": "14737ee1ec0be989e83bb3fb"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Node.js Backend Trainee",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cce9e0bd7408d90294436741"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "supervisorId": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "applicationId": {
+      "$oid": "e6511d332f1e44cb3553fd44"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "ERP Backend Developer Intern",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8a1d76cf81a0655c087144ad"
+    },
+    "studentId": {
+      "$oid": "f83a05589c7dfb04db72d02b"
+    },
+    "supervisorId": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "applicationId": {
+      "$oid": "86d6d6624f2538a6b5808147"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Information Systems Intern",
+    "department": "Computer Science",
+    "field": "Information Systems",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4b29829dfe69d1952b37f148"
+    },
+    "studentId": {
+      "$oid": "f6b6fe12acf633a8bd643a78"
+    },
+    "supervisorId": {
+      "$oid": "cfe55b5051da1a759bb8d1be"
+    },
+    "applicationId": {
+      "$oid": "2ebcd567982ddb5ce49ca52f"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Mobile-Focused Frontend Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2aa062a011458e51499c4005"
+    },
+    "studentId": {
+      "$oid": "aa15d6686d1cab4e95e85604"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "applicationId": {
+      "$oid": "9df80ff3e31a057d301c9ffa"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Mobile-Focused Frontend Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "56fe62f7a440e0177d4040a9"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "applicationId": {
+      "$oid": "c517d9b33480aa89262ca6d9"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Web Developer Intern",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fdb0b1c12ea59ea8ad06fe28"
+    },
+    "studentId": {
+      "$oid": "a34021330760c17c3fdb4ca5"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "applicationId": {
+      "$oid": "1028b0def7c455e0198bab38"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Backend Developer Intern (Node.js)",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "42aed0493ba51e9f77e760cc"
+    },
+    "studentId": {
+      "$oid": "a34021330760c17c3fdb4ca5"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "applicationId": {
+      "$oid": "dae8c6d7ab4c934dac5416c0"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Node.js/Express)",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2c0b51e96d419f33a15f4dfb"
+    },
+    "studentId": {
+      "$oid": "550366286518c82e2f2eb00b"
+    },
+    "supervisorId": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "applicationId": {
+      "$oid": "64846fb4c0930468a87712a2"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Backend Developer Intern (Node.js)",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b9279be688df026d3b30bf95"
+    },
+    "studentId": {
+      "$oid": "550366286518c82e2f2eb00b"
+    },
+    "supervisorId": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "applicationId": {
+      "$oid": "ade7925f9110bb12fe84a0ca"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Python Backend Intern",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1cf31608dfccc48a841bb114"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "supervisorId": {
+      "$oid": "cfe55b5051da1a759bb8d1be"
+    },
+    "applicationId": {
+      "$oid": "6d83f646576cd0b635292f77"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Information Systems Intern",
+    "department": "Computer Systems Engineering",
+    "field": "Information Systems",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64b0730df3eeafe9b66f896b"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "supervisorId": {
+      "$oid": "cfe55b5051da1a759bb8d1be"
+    },
+    "applicationId": {
+      "$oid": "fe91ae10b0120bd777475617"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "DevOps & Backend Intern",
+    "department": "Computer Systems Engineering",
+    "field": "DevOps",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "36ccb7ae545c3f61ff96989c"
+    },
+    "studentId": {
+      "$oid": "c96471b12a643549af7d897a"
+    },
+    "supervisorId": {
+      "$oid": "65d01941db874c152c550a1e"
+    },
+    "applicationId": {
+      "$oid": "8e4e03e82d1c519dbb31dabd"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Development Trainee",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1d746be18efb8dac2675b862"
+    },
+    "studentId": {
+      "$oid": "d9d37eba55afbed59ed90946"
+    },
+    "supervisorId": {
+      "$oid": "1578825eb8aa0ddb84cda78b"
+    },
+    "applicationId": {
+      "$oid": "f010e4dd88ca8aa80065e4f7"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern – React",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0fc814fa791fe46d90bbef4e"
+    },
+    "studentId": {
+      "$oid": "f3cb8ca9feb7155974356042"
+    },
+    "supervisorId": {
+      "$oid": "65d01941db874c152c550a1e"
+    },
+    "applicationId": {
+      "$oid": "6eb6bf11f56b425f40740788"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Development Trainee",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cf9a6a841914dff3c9c5268e"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "supervisorId": {
+      "$oid": "1578825eb8aa0ddb84cda78b"
+    },
+    "applicationId": {
+      "$oid": "029e47966175f7b58264fe77"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Development Trainee",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ebb4542f3b7aba4a40b695e1"
+    },
+    "studentId": {
+      "$oid": "28d557bac62de5c0a9c77263"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "applicationId": {
+      "$oid": "297420e0378ae25c3c537e48"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Backend Software Intern (Java)",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "048b266ba52de6d1b8546b70"
+    },
+    "studentId": {
+      "$oid": "28d557bac62de5c0a9c77263"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "applicationId": {
+      "$oid": "36c846b0c70a6b6b00e7fd11"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Cybersecurity Intern",
+    "department": "Software Engineering",
+    "field": "Cybersecurity",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "82b883738ac59b8fbce5db61"
+    },
+    "studentId": {
+      "$oid": "9ecd745618b63775a3e2f28d"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "applicationId": {
+      "$oid": "e838080e3c797b22e0e0ba63"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Developer Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3b5c2573110858bb19fc4a35"
+    },
+    "studentId": {
+      "$oid": "9ecd745618b63775a3e2f28d"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "applicationId": {
+      "$oid": "77c02e60bd69dae8adb8aeca"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "QA Testing Intern",
+    "department": "Software Engineering",
+    "field": "Quality Assurance",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "18dd4b6d3f14623dd4c3ed5d"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "applicationId": {
+      "$oid": "c2992e8bec581245693f795b"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Node.js Backend Trainee",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ff5878255abf63a75d7a295c"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "applicationId": {
+      "$oid": "d9c37ee0b2c892f307400953"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "QA Testing Intern",
+    "department": "Software Engineering",
+    "field": "Quality Assurance",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4a9581162d026984b2f01635"
+    },
+    "studentId": {
+      "$oid": "6e0a56b68629ed155240b966"
+    },
+    "supervisorId": {
+      "$oid": "9fab5617508e4996bdaea528"
+    },
+    "applicationId": {
+      "$oid": "ce20133d42d69099f41ac743"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Intern (React/Next.js)",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e0d38a96ebd0c45292a9120d"
+    },
+    "studentId": {
+      "$oid": "5adc9523e81880bdb01f365a"
+    },
+    "supervisorId": {
+      "$oid": "332865c4caa0ad71f0a13f9b"
+    },
+    "applicationId": {
+      "$oid": "abd1462ad1196517662aff18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Node.js Backend Trainee",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fc125387c82d2fd3a526fa67"
+    },
+    "studentId": {
+      "$oid": "eea126f93d37f8ac06cb81e1"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "applicationId": {
+      "$oid": "63a9fecfa1e921ad0d5e44ed"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Website Development Intern",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "42a63156d5967f0ace467803"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "supervisorId": {
+      "$oid": "332865c4caa0ad71f0a13f9b"
+    },
+    "applicationId": {
+      "$oid": "042ab70043bfe6e3170a6d19"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "UI Developer Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c355f2587c719bcbd4eb2d19"
+    },
+    "studentId": {
+      "$oid": "de6e75b6b6a2330d0e558fd3"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "applicationId": {
+      "$oid": "161f584e1b65fd12e641f11d"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Developer Intern",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e18d3792324e6d4ed027170"
+    },
+    "studentId": {
+      "$oid": "de6e75b6b6a2330d0e558fd3"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "applicationId": {
+      "$oid": "a935df79001c68336ce5a3e7"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Data Analyst Intern",
+    "department": "Information Technology",
+    "field": "Data Analysis",
+    "workMode": "remote",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3bf91b5416e917dcd558851e"
+    },
+    "studentId": {
+      "$oid": "d38240b74ae5b6d54f7965f0"
+    },
+    "supervisorId": {
+      "$oid": "9fab5617508e4996bdaea528"
+    },
+    "applicationId": {
+      "$oid": "8bbe611198ee3e70ffe34469"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "IT Support Intern",
+    "department": "Computer Engineering",
+    "field": "IT Support",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7349eb0fe6fff9396931dd71"
+    },
+    "studentId": {
+      "$oid": "d38240b74ae5b6d54f7965f0"
+    },
+    "supervisorId": {
+      "$oid": "9fab5617508e4996bdaea528"
+    },
+    "applicationId": {
+      "$oid": "c2f06094598eaa3060878060"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "QA Testing Intern",
+    "department": "Computer Engineering",
+    "field": "Quality Assurance",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8bc1727786fb7dbe87b47da2"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "applicationId": {
+      "$oid": "fc67451014d401c3e00c0089"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "UI Developer Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "898196c154a304ad160e7d68"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "applicationId": {
+      "$oid": "b26761854536e6c0c331fbe4"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Node.js/Express)",
+    "department": "Computer Engineering",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8c05047304afd859c187d543"
+    },
+    "studentId": {
+      "$oid": "7ca9c23ef4f05b32f33213c3"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "applicationId": {
+      "$oid": "1231d4af50e815831d19946c"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "React Frontend Intern",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "368b64dafc473118fe35c747"
+    },
+    "studentId": {
+      "$oid": "900f3c8d237a05c043f0ca7a"
+    },
+    "supervisorId": {
+      "$oid": "9be3571193296c74ebfe9dc7"
+    },
+    "applicationId": {
+      "$oid": "02c0088583541093a38d9617"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Frontend Web Developer Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "78889304056b77a61c20e183"
+    },
+    "studentId": {
+      "$oid": "3d63e2d6917c55339104476f"
+    },
+    "supervisorId": {
+      "$oid": "1c461ce8491cebed323fb24d"
+    },
+    "applicationId": {
+      "$oid": "32eda59c65daaec4b61d3d55"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Content & Systems Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on frontend development tasks and UI components.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-08-10T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "054a9b578795b31eddfc5343"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "supervisorId": {
+      "$oid": "9be3571193296c74ebfe9dc7"
+    },
+    "applicationId": {
+      "$oid": "5e8fcb973139082e0d5a0b38"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Information Systems Intern",
+    "department": "Software Engineering",
+    "field": "Information Systems",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2026-05-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "I will be working on backend API development and database management.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer.pdf",
+        "name": "offer_letter.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Excellent performance. All required hours completed and reports submitted with high quality.",
+    "submittedAt": {
+      "$date": "2026-04-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d9f8258cb310ffa06b78d3d8"
+    },
+    "studentId": {
+      "$oid": "60e667b2171a15b49e6c8799"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "applicationId": {
+      "$oid": "6940e81795b4592b33d4983d"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Web Developer Intern",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b9f26a79d1fe3ab018f9a75a"
+    },
+    "studentId": {
+      "$oid": "60e667b2171a15b49e6c8799"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "applicationId": {
+      "$oid": "8ab51e59ac8a15dcd3bbf1a4"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "QA Testing Intern",
+    "department": "Computer Science",
+    "field": "Quality Assurance",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "75b29b6ec702c3e84e9adef9"
+    },
+    "studentId": {
+      "$oid": "c452cc07858b3f830d8ae662"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "applicationId": {
+      "$oid": "aa79d9052290ded95925414b"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Backend Developer Intern (Node.js)",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-12-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship in software development.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "Completed FT1 successfully with good performance.",
+    "submittedAt": {
+      "$date": "2025-11-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "110398a2fd7a69090c886bc7"
+    },
+    "studentId": {
+      "$oid": "c452cc07858b3f830d8ae662"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "applicationId": {
+      "$oid": "e89c1212b798a713cdd17520"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Backend Intern (Node.js/Express)",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-10-31T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship building on skills from FT1.",
+    "confirmed": true,
+    "attachments": [
+      {
+        "type": "offer_letter",
+        "url": "https://res.cloudinary.com/demo/raw/upload/offer_ft2.pdf",
+        "name": "offer_ft2.pdf"
+      }
+    ],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "pending",
+    "supervisorFinalComment": null,
+    "submittedAt": {
+      "$date": "2026-07-20T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-25T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bae8d4667db0e612faf7f31d"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "supervisorId": {
+      "$oid": "1c461ce8491cebed323fb24d"
+    },
+    "applicationId": {
+      "$oid": "57b3aa2f6f79ffeb2eebf31a"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "newCompanyName": null,
+    "type": "FT1",
+    "position": "Mobile-Focused Frontend Intern",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2025-09-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT1 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT1 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2025-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-08-20T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "373be63338c8fe3ab25b94ca"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "supervisorId": {
+      "$oid": "1c461ce8491cebed323fb24d"
+    },
+    "applicationId": {
+      "$oid": "aa6c5b8b23992ba7528eae00"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "newCompanyName": null,
+    "type": "FT2",
+    "position": "Full-Stack Intern (MERN)",
+    "department": "Computer Engineering",
+    "field": "Full-Stack Development",
+    "workMode": "hybrid",
+    "startDate": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    },
+    "endDate": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    },
+    "expectedHours": 150,
+    "description": "FT2 internship completed successfully.",
+    "confirmed": true,
+    "attachments": [],
+    "status": "approved",
+    "rejectionReason": null,
+    "supervisorFinalStatus": "approved",
+    "supervisorFinalComment": "FT2 fully completed. Student demonstrated excellent technical and professional skills.",
+    "submittedAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-20T00:00:00.000Z"
+    }
+  }
+]

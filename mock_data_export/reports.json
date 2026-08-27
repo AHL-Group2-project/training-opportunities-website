@@ -1,0 +1,2018 @@
+[
+  {
+    "_id": {
+      "$oid": "b35a2e22cd7fa8375dc6e0f6"
+    },
+    "studentId": {
+      "$oid": "8920fb7d3daa5b3d85ace3b2"
+    },
+    "internshipRequestId": {
+      "$oid": "69f18c14f4511068e1f10893"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "7da438f49b7222c8bff6d709"
+    },
+    "studentId": {
+      "$oid": "2b94065e965e821fc74ea72c"
+    },
+    "internshipRequestId": {
+      "$oid": "0f738629e922f607f1c046c4"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "6fd3e1b5b8d14b642e8f29e2"
+    },
+    "studentId": {
+      "$oid": "08e07698fe263f78ddcb03d2"
+    },
+    "internshipRequestId": {
+      "$oid": "54ef3f8a8a51984ba6bed18c"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "48367524d378befb6ed0c0ab"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "internshipRequestId": {
+      "$oid": "099841e5b7214729c4133646"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Good progress, keep it up.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4a9fedae875a2799505e0350"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "internshipRequestId": {
+      "$oid": "099841e5b7214729c4133646"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b6d6fe709ed820b1ec04389e"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "internshipRequestId": {
+      "$oid": "099841e5b7214729c4133646"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "036fca9e63acc4658b03265b"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "internshipRequestId": {
+      "$oid": "462964e61f787cde734195f3"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bb8ed40b0fa7c8b07d23f15b"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "internshipRequestId": {
+      "$oid": "462964e61f787cde734195f3"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "52b0b1e41d7d465580f79df4"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "internshipRequestId": {
+      "$oid": "a3378ba0a783a40eadfa0b75"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d4e1b956aae5179e47a8e40b"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "internshipRequestId": {
+      "$oid": "a3378ba0a783a40eadfa0b75"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "310ee4602dff93ec4bdb6c4d"
+    },
+    "studentId": {
+      "$oid": "38bdcd738e7943adec6fc345"
+    },
+    "internshipRequestId": {
+      "$oid": "3c66310edb39bd79f488cd85"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "139a0896c929dba9f588b7ec"
+    },
+    "studentId": {
+      "$oid": "485979ad6294ff0b71cb0a76"
+    },
+    "internshipRequestId": {
+      "$oid": "c5d65e4e3c76288d42b69d2f"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "0ef20bed874d35873f2177e4"
+    },
+    "studentId": {
+      "$oid": "84d1379edf2f957bb697271e"
+    },
+    "internshipRequestId": {
+      "$oid": "8a167825408348eb07b99d58"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "325541f88d32ce9058219062"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "internshipRequestId": {
+      "$oid": "6d3c07bdad2b81c402f3f8fc"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "05968019659bdc856eeb86be"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "internshipRequestId": {
+      "$oid": "6d3c07bdad2b81c402f3f8fc"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "60b810b72bce0408da2fa295"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "internshipRequestId": {
+      "$oid": "6d3c07bdad2b81c402f3f8fc"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Good progress, keep it up.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f864bf27a5829ae5fad7ba0b"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "internshipRequestId": {
+      "$oid": "80f9636e258964b3387a0959"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5d4eda0b0580ffa919f0a127"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "internshipRequestId": {
+      "$oid": "80f9636e258964b3387a0959"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "071d0bdfb2ffc065a65fa3ca"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "internshipRequestId": {
+      "$oid": "44d04f1fb6786c2bbe3c1fdf"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "82116602508da7e744ebd1c4"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "internshipRequestId": {
+      "$oid": "44d04f1fb6786c2bbe3c1fdf"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aa0a76b4e924b4bd0f3e73ab"
+    },
+    "studentId": {
+      "$oid": "699664e463401b65d4a40295"
+    },
+    "internshipRequestId": {
+      "$oid": "f0061705746ee1e8ae71689d"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "8e188c15a35d3df1bcd2282e"
+    },
+    "studentId": {
+      "$oid": "b067af3f4867f3d2107075a1"
+    },
+    "internshipRequestId": {
+      "$oid": "9d32f81552c24763051cd1dc"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "98a7b01a0c7491c792f4eaf9"
+    },
+    "studentId": {
+      "$oid": "72b50a994910e85d99f8b2f8"
+    },
+    "internshipRequestId": {
+      "$oid": "2d50d838c6d7bb8af890d4b8"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "de1927d078c24052b05420bf"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "internshipRequestId": {
+      "$oid": "ac1685ccf3c7746dd7fb1beb"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0ae897e33d86cae83fedc107"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "internshipRequestId": {
+      "$oid": "ac1685ccf3c7746dd7fb1beb"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Good progress, keep it up.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "227168f4ef31dcf10d5e245e"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "internshipRequestId": {
+      "$oid": "ac1685ccf3c7746dd7fb1beb"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "47afa1c3dd806796f3b14417"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "internshipRequestId": {
+      "$oid": "2b3c0cdaf7c8f26d875d84e9"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "83853ee63209a0c1e777cbb2"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "internshipRequestId": {
+      "$oid": "2b3c0cdaf7c8f26d875d84e9"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "51363af7979100882f52f811"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "internshipRequestId": {
+      "$oid": "71125fb0e7ec7ce5977de124"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1e997de4125235c2ecb6df0e"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "internshipRequestId": {
+      "$oid": "71125fb0e7ec7ce5977de124"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ea856f5a9749b12ecdc9a5ea"
+    },
+    "studentId": {
+      "$oid": "dc2b4ded372cded15273f4b5"
+    },
+    "internshipRequestId": {
+      "$oid": "7bb7381ffe9b3604327589b9"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "f269cbf40314e3a699121fe0"
+    },
+    "studentId": {
+      "$oid": "a3f0a5ce2dcc6afddffdba56"
+    },
+    "internshipRequestId": {
+      "$oid": "6fa30a425a8d0f13d94dc7e5"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "4515447ae2c2993529b96325"
+    },
+    "studentId": {
+      "$oid": "d03cbcbc65cbeaf5b97f1a88"
+    },
+    "internshipRequestId": {
+      "$oid": "897205661d0994dac9cea599"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "202256043ba112b274ac9bd6"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "internshipRequestId": {
+      "$oid": "d406a597551419e8cc86e05a"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "812ab65f5d389df96258cc49"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "internshipRequestId": {
+      "$oid": "d406a597551419e8cc86e05a"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "07180740b738d7a431705ab3"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "internshipRequestId": {
+      "$oid": "d406a597551419e8cc86e05a"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2da335a200d33d43fe99fab7"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "internshipRequestId": {
+      "$oid": "685f7a6dae6fe787438ea8f5"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fa398e2c421f138a5d3c23a4"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "internshipRequestId": {
+      "$oid": "685f7a6dae6fe787438ea8f5"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3b402d87f44c9852618278f4"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "internshipRequestId": {
+      "$oid": "728437ee23d20d445c075722"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bb3d53bb8ae725a424d93f4e"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "internshipRequestId": {
+      "$oid": "728437ee23d20d445c075722"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "94f1b8325658dba9ea70e714"
+    },
+    "studentId": {
+      "$oid": "b11f6316c7a3ef467f877edd"
+    },
+    "internshipRequestId": {
+      "$oid": "c6e19b476010bfb97d3dfe2b"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "a8d486a2226d609a8987d8e5"
+    },
+    "studentId": {
+      "$oid": "4cf3af30f59b53764e69e829"
+    },
+    "internshipRequestId": {
+      "$oid": "041df452e051df7fe8a4b39a"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "3ffbed58696912b6b6d62776"
+    },
+    "studentId": {
+      "$oid": "cd53a5487c9dafaf1e67dcc0"
+    },
+    "internshipRequestId": {
+      "$oid": "901f21abbf684f7999842646"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "14178e721a6667428b51d6c4"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "internshipRequestId": {
+      "$oid": "44a07d59dda95e97a8f1dc14"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "548dc12a5684fa28d2703bd9"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "internshipRequestId": {
+      "$oid": "44a07d59dda95e97a8f1dc14"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Good progress, keep it up.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "90d9e3db05e158f0151e8942"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "internshipRequestId": {
+      "$oid": "44a07d59dda95e97a8f1dc14"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3302c592b3574870f132e785"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "internshipRequestId": {
+      "$oid": "70fc501b5d0aed7de0a15c1d"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b1589dff7e59444dafe3ddf7"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "internshipRequestId": {
+      "$oid": "70fc501b5d0aed7de0a15c1d"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e1e1a43e574db70d1e92be0"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "internshipRequestId": {
+      "$oid": "cce9e0bd7408d90294436741"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "20e23da0967068eac420114c"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "internshipRequestId": {
+      "$oid": "cce9e0bd7408d90294436741"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9cc4504343f6faca32959e2d"
+    },
+    "studentId": {
+      "$oid": "f83a05589c7dfb04db72d02b"
+    },
+    "internshipRequestId": {
+      "$oid": "8a1d76cf81a0655c087144ad"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "8cd89be5b9dbaea0cf38ed00"
+    },
+    "studentId": {
+      "$oid": "f6b6fe12acf633a8bd643a78"
+    },
+    "internshipRequestId": {
+      "$oid": "4b29829dfe69d1952b37f148"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "5028d78097308f321286c91d"
+    },
+    "studentId": {
+      "$oid": "aa15d6686d1cab4e95e85604"
+    },
+    "internshipRequestId": {
+      "$oid": "2aa062a011458e51499c4005"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "66dcf16937ba0732e45d3b21"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "internshipRequestId": {
+      "$oid": "56fe62f7a440e0177d4040a9"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "21450010719db1e057515a7a"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "internshipRequestId": {
+      "$oid": "56fe62f7a440e0177d4040a9"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Good progress, keep it up.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c5a97ca0c21411f412ad8630"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "internshipRequestId": {
+      "$oid": "56fe62f7a440e0177d4040a9"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "16923ef4d2f5609109ecaebe"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "internshipRequestId": {
+      "$oid": "1cf31608dfccc48a841bb114"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "af6fd24173532f33d1384c1e"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "internshipRequestId": {
+      "$oid": "1cf31608dfccc48a841bb114"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cfa053bea2abee0c806b168b"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "internshipRequestId": {
+      "$oid": "64b0730df3eeafe9b66f896b"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "45bcf2352623739e7b7cb79f"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "internshipRequestId": {
+      "$oid": "64b0730df3eeafe9b66f896b"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "02db13df921767e3698f3dfc"
+    },
+    "studentId": {
+      "$oid": "c96471b12a643549af7d897a"
+    },
+    "internshipRequestId": {
+      "$oid": "36ccb7ae545c3f61ff96989c"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "303603a6c16b18d038309518"
+    },
+    "studentId": {
+      "$oid": "d9d37eba55afbed59ed90946"
+    },
+    "internshipRequestId": {
+      "$oid": "1d746be18efb8dac2675b862"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "5f6c8b197bdb10794cecc3f6"
+    },
+    "studentId": {
+      "$oid": "f3cb8ca9feb7155974356042"
+    },
+    "internshipRequestId": {
+      "$oid": "0fc814fa791fe46d90bbef4e"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "982af51f667dc4d0db18e6a8"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "internshipRequestId": {
+      "$oid": "cf9a6a841914dff3c9c5268e"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "235858ea950bb0370e86d06d"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "internshipRequestId": {
+      "$oid": "cf9a6a841914dff3c9c5268e"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b4221cb26ee3dc2c57f42206"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "internshipRequestId": {
+      "$oid": "cf9a6a841914dff3c9c5268e"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "90ee3aabc836c6baf44d495f"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "internshipRequestId": {
+      "$oid": "18dd4b6d3f14623dd4c3ed5d"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "51662ab80ce8f130731c385e"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "internshipRequestId": {
+      "$oid": "18dd4b6d3f14623dd4c3ed5d"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7b23a65dac0d19084e6fdee8"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "internshipRequestId": {
+      "$oid": "ff5878255abf63a75d7a295c"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "abf6c1a589f191a708968a22"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "internshipRequestId": {
+      "$oid": "ff5878255abf63a75d7a295c"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "08bf2172fcdce3269e58cc0b"
+    },
+    "studentId": {
+      "$oid": "6e0a56b68629ed155240b966"
+    },
+    "internshipRequestId": {
+      "$oid": "4a9581162d026984b2f01635"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c4a1798e9a36cc45e68b55a2"
+    },
+    "studentId": {
+      "$oid": "5adc9523e81880bdb01f365a"
+    },
+    "internshipRequestId": {
+      "$oid": "e0d38a96ebd0c45292a9120d"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d7493a63f747f1000e3a9fc5"
+    },
+    "studentId": {
+      "$oid": "eea126f93d37f8ac06cb81e1"
+    },
+    "internshipRequestId": {
+      "$oid": "fc125387c82d2fd3a526fa67"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "2f4d2b331229da41a95a18f0"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "internshipRequestId": {
+      "$oid": "42a63156d5967f0ace467803"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "914e1d3475a75234edfb0c56"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "internshipRequestId": {
+      "$oid": "42a63156d5967f0ace467803"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Good progress, keep it up.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2bb6e0aaf39da81c2d996fa1"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "internshipRequestId": {
+      "$oid": "42a63156d5967f0ace467803"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "32f2e82d15bfc64cfb5f79ae"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "internshipRequestId": {
+      "$oid": "8bc1727786fb7dbe87b47da2"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "de7e7c4f2644f78abbb119b2"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "internshipRequestId": {
+      "$oid": "8bc1727786fb7dbe87b47da2"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f5cebd16114d8fbc83b4ff27"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "internshipRequestId": {
+      "$oid": "898196c154a304ad160e7d68"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "46441a66acb17bff6e42b5e4"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "internshipRequestId": {
+      "$oid": "898196c154a304ad160e7d68"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "58a3f5dff3eade02c8122b4d"
+    },
+    "studentId": {
+      "$oid": "7ca9c23ef4f05b32f33213c3"
+    },
+    "internshipRequestId": {
+      "$oid": "8c05047304afd859c187d543"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "392bfadef301d23d58b9c770"
+    },
+    "studentId": {
+      "$oid": "900f3c8d237a05c043f0ca7a"
+    },
+    "internshipRequestId": {
+      "$oid": "368b64dafc473118fe35c747"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "83915a14b016de6cfb4b3bd1"
+    },
+    "studentId": {
+      "$oid": "3d63e2d6917c55339104476f"
+    },
+    "internshipRequestId": {
+      "$oid": "78889304056b77a61c20e183"
+    },
+    "trainingType": "FT1",
+    "period": "September 2026",
+    "content": "This month I was onboarded and assigned my first tasks. I started working on the main feature and attended daily standups.",
+    "fileUrl": null,
+    "status": "Pending Review",
+    "supervisorFeedback": "",
+    "submittedAt": {
+      "$date": "2026-09-30T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "db3a76019275ca29f000f401"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "internshipRequestId": {
+      "$oid": "054a9b578795b31eddfc5343"
+    },
+    "trainingType": "FT1",
+    "period": "May 2026",
+    "content": "May summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month1.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-05-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-06-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0def1e3dbc999cf84ea81fb4"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "internshipRequestId": {
+      "$oid": "054a9b578795b31eddfc5343"
+    },
+    "trainingType": "FT1",
+    "period": "June 2026",
+    "content": "June summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month2.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Excellent work.",
+    "submittedAt": {
+      "$date": "2026-06-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-07-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "023159eaad3602d09dbb14a5"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "internshipRequestId": {
+      "$oid": "054a9b578795b31eddfc5343"
+    },
+    "trainingType": "FT1",
+    "period": "July 2026",
+    "content": "July summary: Completed assigned tasks, attended all meetings, and contributed to team deliverables.",
+    "fileUrl": "https://res.cloudinary.com/demo/raw/upload/report_month3.pdf",
+    "status": "Approved",
+    "supervisorFeedback": "Well documented and thorough.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-08-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "298a7bd69e0b18c9fc39a3ec"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "internshipRequestId": {
+      "$oid": "bae8d4667db0e612faf7f31d"
+    },
+    "trainingType": "FT1",
+    "period": "Month 1 – FT1",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f278db105e47c44cf5b0b727"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "internshipRequestId": {
+      "$oid": "bae8d4667db0e612faf7f31d"
+    },
+    "trainingType": "FT1",
+    "period": "Month 2 – FT1",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2025-09-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4406fb8242bf3b37cbb295d8"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "internshipRequestId": {
+      "$oid": "373be63338c8fe3ab25b94ca"
+    },
+    "trainingType": "FT2",
+    "period": "Month 1 – FT2",
+    "content": "Month 1: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c4101cb587dcab6449d26b2c"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "internshipRequestId": {
+      "$oid": "373be63338c8fe3ab25b94ca"
+    },
+    "trainingType": "FT2",
+    "period": "Month 2 – FT2",
+    "content": "Month 2: Delivered all required tasks and documented progress thoroughly.",
+    "fileUrl": null,
+    "status": "Approved",
+    "supervisorFeedback": "Well done.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  }
+]

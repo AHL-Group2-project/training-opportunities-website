@@ -1,0 +1,380 @@
+[
+  {
+    "_id": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "userId": {
+      "$oid": "cb79fbab44ecbce41509a513"
+    },
+    "name": "Sami Khoury",
+    "university": "Arab American University (AAUP)",
+    "department": "Software Engineering",
+    "phone": "+970-562-546635",
+    "officeHours": "Sun/Mon 14:00–16:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "4ec31002acb415e3db7b5b47"
+    },
+    "userId": {
+      "$oid": "05717b5992206b026e2dbfa6"
+    },
+    "name": "Reem Nassar",
+    "university": "Arab American University (AAUP)",
+    "department": "Software Engineering",
+    "phone": "+970-552-466206",
+    "officeHours": "Tue/Thu 09:00–11:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "userId": {
+      "$oid": "6804c4e72ca4d359ec3561d0"
+    },
+    "name": "Jana Jaradat",
+    "university": "Arab American University (AAUP)",
+    "department": "Software Engineering",
+    "phone": "+970-573-692746",
+    "officeHours": "Sun/Tue 13:00–15:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "78996f5d193acf7f3262d0e6"
+    },
+    "userId": {
+      "$oid": "2ecda708d49b6276ce38f2db"
+    },
+    "name": "Rana Erekat",
+    "university": "Bethlehem University",
+    "department": "Information Technology",
+    "phone": "+970-563-167763",
+    "officeHours": "Sun/Mon 14:00–16:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "userId": {
+      "$oid": "d3205c1ead0f592f6699bd31"
+    },
+    "name": "Anas Khoury",
+    "university": "Bethlehem University",
+    "department": "Software Engineering",
+    "phone": "+970-554-555929",
+    "officeHours": "Tue/Thu 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "userId": {
+      "$oid": "f42afff820e8f11b4f5c3dc9"
+    },
+    "name": "Nader Taweel",
+    "university": "Bethlehem University",
+    "department": "Computer Science",
+    "phone": "+970-573-517509",
+    "officeHours": "Sun/Tue 10:00–12:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "ce3d078973696a925ea58b5e"
+    },
+    "userId": {
+      "$oid": "8e4d35d58c2fbf644c86036d"
+    },
+    "name": "Lina Qasim",
+    "university": "Birzeit University",
+    "department": "Computer Science",
+    "phone": "+970-552-736827",
+    "officeHours": "Sun/Thu 10:00–11:30",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "57d2342fe225011f4e4a597a"
+    },
+    "userId": {
+      "$oid": "1f807655c4158d8b81473ecf"
+    },
+    "name": "Mazen Joba",
+    "university": "Birzeit University",
+    "department": "Computer Engineering",
+    "phone": "+970-550-721826",
+    "officeHours": "Wed/Thu 12:00–14:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "userId": {
+      "$oid": "a1406551d1e215429552a195"
+    },
+    "name": "Murad Jaber",
+    "university": "Birzeit University",
+    "department": "Computer Engineering",
+    "phone": "+970-550-775657",
+    "officeHours": "Mon/Wed 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "userId": {
+      "$oid": "40254d33f0afc3f7b77c1770"
+    },
+    "name": "Ruba Joba",
+    "university": "Palestine Polytechnic University (PPU)",
+    "department": "Information Technology",
+    "phone": "+970-560-366830",
+    "officeHours": "Sun/Tue 13:00–15:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "userId": {
+      "$oid": "7fff53af36076e0d2e3e3109"
+    },
+    "name": "Huda Zubeidat",
+    "university": "Palestine Polytechnic University (PPU)",
+    "department": "Information Technology",
+    "phone": "+970-570-348496",
+    "officeHours": "Sun/Thu 10:00–11:30",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "b608924a12e02315a81b75df"
+    },
+    "userId": {
+      "$oid": "5d0f0045b8950ce55671576a"
+    },
+    "name": "Firas Ali",
+    "university": "Palestine Polytechnic University (PPU)",
+    "department": "Information Technology",
+    "phone": "+970-562-773714",
+    "officeHours": "Sun/Tue 10:00–12:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "cfad9150c8b5f314aeb1047c"
+    },
+    "userId": {
+      "$oid": "45ce6aa26cd6fd58d5783e05"
+    },
+    "name": "Omar Salameh",
+    "university": "An-Najah National University",
+    "department": "Computer Engineering",
+    "phone": "+970-580-890462",
+    "officeHours": "Mon 09:00–12:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "userId": {
+      "$oid": "c3c498f1deab1e61f7b953f8"
+    },
+    "name": "Layan Qasim",
+    "university": "An-Najah National University",
+    "department": "Computer Science",
+    "phone": "+970-559-624843",
+    "officeHours": "Tue/Thu 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "userId": {
+      "$oid": "26a0659a3acdba5086def0d9"
+    },
+    "name": "Hassan Sharabati",
+    "university": "An-Najah National University",
+    "department": "Software Engineering",
+    "phone": "+970-588-589618",
+    "officeHours": "Tue/Thu 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "userId": {
+      "$oid": "26fedbdf3a993582b74f53bb"
+    },
+    "name": "Dina Khalil",
+    "university": "Hebron University",
+    "department": "Information Technology",
+    "phone": "+970-594-460031",
+    "officeHours": "Mon 09:00–12:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "cfe55b5051da1a759bb8d1be"
+    },
+    "userId": {
+      "$oid": "b39d992e024b8062dfaa334f"
+    },
+    "name": "Ibrahim Odeh",
+    "university": "Hebron University",
+    "department": "Computer Engineering",
+    "phone": "+970-579-813211",
+    "officeHours": "Sun/Mon 14:00–16:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "userId": {
+      "$oid": "cabede2f20ecd88318dd74b3"
+    },
+    "name": "Dina Taweel",
+    "university": "Hebron University",
+    "department": "Information Technology",
+    "phone": "+970-563-183181",
+    "officeHours": "Mon 09:00–12:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "1578825eb8aa0ddb84cda78b"
+    },
+    "userId": {
+      "$oid": "c3353ed979f9364dee2fd3e3"
+    },
+    "name": "Huda Joba",
+    "university": "Al-Quds Open University (QOU)",
+    "department": "Computer Engineering",
+    "phone": "+970-552-953804",
+    "officeHours": "Sun/Tue 13:00–15:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "65d01941db874c152c550a1e"
+    },
+    "userId": {
+      "$oid": "a55462e22bf135391aa36c1d"
+    },
+    "name": "Khaled Sharabati",
+    "university": "Al-Quds Open University (QOU)",
+    "department": "Information Technology",
+    "phone": "+970-577-427623",
+    "officeHours": "Sun/Tue 13:00–15:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "userId": {
+      "$oid": "92a74fcbab861ce14c268b36"
+    },
+    "name": "Hassan Khalil",
+    "university": "Al-Quds Open University (QOU)",
+    "department": "Computer Science",
+    "phone": "+970-568-486898",
+    "officeHours": "Wed/Thu 12:00–14:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "9fab5617508e4996bdaea528"
+    },
+    "userId": {
+      "$oid": "c57be4da5f5b3678e8b7493a"
+    },
+    "name": "Reem Erekat",
+    "university": "Al-Zaytoonah University",
+    "department": "Computer Engineering",
+    "phone": "+970-562-519912",
+    "officeHours": "Mon/Wed 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "userId": {
+      "$oid": "d2cc098d83542cd70c2da51e"
+    },
+    "name": "Nader Ali",
+    "university": "Al-Zaytoonah University",
+    "department": "Information Technology",
+    "phone": "+970-561-250330",
+    "officeHours": "Sun/Mon 14:00–16:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "332865c4caa0ad71f0a13f9b"
+    },
+    "userId": {
+      "$oid": "702f5556ed2ed18a93272d3e"
+    },
+    "name": "Jana Haddad",
+    "university": "Al-Zaytoonah University",
+    "department": "Information Technology",
+    "phone": "+970-591-309785",
+    "officeHours": "Mon/Wed 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "1c461ce8491cebed323fb24d"
+    },
+    "userId": {
+      "$oid": "a2b727ad20de112eac4dc514"
+    },
+    "name": "Kareem Qasim",
+    "university": "Palestine Technical University – Kadoorie (PTUK)",
+    "department": "Software Engineering",
+    "phone": "+970-551-798152",
+    "officeHours": "Mon/Wed 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "9be3571193296c74ebfe9dc7"
+    },
+    "userId": {
+      "$oid": "e0ddfb556c57dccdb8ecc82c"
+    },
+    "name": "Dina Barakat",
+    "university": "Palestine Technical University – Kadoorie (PTUK)",
+    "department": "Information Technology",
+    "phone": "+970-562-421963",
+    "officeHours": "Tue/Thu 11:00–13:00",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "userId": {
+      "$oid": "b88b95c21effb6174f3afdba"
+    },
+    "name": "Hana Jaber",
+    "university": "Palestine Technical University – Kadoorie (PTUK)",
+    "department": "Computer Science",
+    "phone": "+970-552-151502",
+    "officeHours": "Mon/Wed 11:00–13:00",
+    "avatarUrl": null
+  }
+]

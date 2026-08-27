@@ -1,0 +1,2642 @@
+[
+  {
+    "_id": {
+      "$oid": "aef559b9b3f62bd44ea8e99b"
+    },
+    "studentId": {
+      "$oid": "8920fb7d3daa5b3d85ace3b2"
+    },
+    "opportunityId": {
+      "$oid": "ed76abfe738baa4b7f973914"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "fullName": "Yasmine Odeh",
+    "email": "29507@aaup.edu.ps",
+    "universityId": "29507",
+    "phone": "+970-562-100222",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "827287053aaa8b581f78a64b"
+    },
+    "studentId": {
+      "$oid": "2b94065e965e821fc74ea72c"
+    },
+    "opportunityId": {
+      "$oid": "69787f42e1b53654fd213f18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Ameed Joba",
+    "email": "88805@aaup.edu.ps",
+    "universityId": "88805",
+    "phone": "+970-589-767989",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fc85750bb559df1675e9f59d"
+    },
+    "studentId": {
+      "$oid": "08e07698fe263f78ddcb03d2"
+    },
+    "opportunityId": {
+      "$oid": "93d040b9b1feba7edf841f0b"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Ibrahim Joba",
+    "email": "20106@aaup.edu.ps",
+    "universityId": "20106",
+    "phone": "+970-598-566655",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f9c884310a8b83c0a4d15895"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "opportunityId": {
+      "$oid": "c7ce0054f234895337760485"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "fullName": "Omar Salem",
+    "email": "91753@aaup.edu.ps",
+    "universityId": "91753",
+    "phone": "+970-555-266289",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c4fd52bc79888427a2220c3a"
+    },
+    "studentId": {
+      "$oid": "5846a0c96733d19381eed848"
+    },
+    "opportunityId": {
+      "$oid": "422974f86572c70e26874fa4"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "fullName": "Noor Sharabati",
+    "email": "18582@aaup.edu.ps",
+    "universityId": "18582",
+    "phone": "+970-585-608912",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "16430f4057958f6814046f29"
+    },
+    "studentId": {
+      "$oid": "5846a0c96733d19381eed848"
+    },
+    "opportunityId": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Noor Sharabati",
+    "email": "18582@aaup.edu.ps",
+    "universityId": "18582",
+    "phone": "+970-585-608912",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b85227fbc14354edda861165"
+    },
+    "studentId": {
+      "$oid": "19fdfbe38a11b4d3dfac7c84"
+    },
+    "opportunityId": {
+      "$oid": "e36928330e500521b41b7112"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "fullName": "Laila Awad",
+    "email": "27093@aaup.edu.ps",
+    "universityId": "27093",
+    "phone": "+970-590-745494",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "38d5ab4ebd75da6478a1c59e"
+    },
+    "studentId": {
+      "$oid": "19fdfbe38a11b4d3dfac7c84"
+    },
+    "opportunityId": {
+      "$oid": "230a79a63e22ea53b734060a"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "fullName": "Laila Awad",
+    "email": "27093@aaup.edu.ps",
+    "universityId": "27093",
+    "phone": "+970-590-745494",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "054d47c8893c13f0413def46"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "opportunityId": {
+      "$oid": "a77b6e64c639cfd87400188e"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Firas Haddad",
+    "email": "50744@aaup.edu.ps",
+    "universityId": "50744",
+    "phone": "+970-583-293827",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f5c6df49b3293b7ac5245257"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "opportunityId": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Firas Haddad",
+    "email": "50744@aaup.edu.ps",
+    "universityId": "50744",
+    "phone": "+970-583-293827",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8c5aa19fcd91d36769affcaa"
+    },
+    "studentId": {
+      "$oid": "e537270d2e38989f84755d0d"
+    },
+    "opportunityId": {
+      "$oid": "49dbbe0d1f2ad36a3ad16f1b"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Ziad Jaradat",
+    "email": "99166@aaup.edu.ps",
+    "universityId": "99166",
+    "phone": "+970-556-495235",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c0aa049056e5c6b2a39ebcff"
+    },
+    "studentId": {
+      "$oid": "e537270d2e38989f84755d0d"
+    },
+    "opportunityId": {
+      "$oid": "84410389334b74bedee29e90"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "fullName": "Ziad Jaradat",
+    "email": "99166@aaup.edu.ps",
+    "universityId": "99166",
+    "phone": "+970-556-495235",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dfa6afb8d9e28867b381ff9c"
+    },
+    "studentId": {
+      "$oid": "e537270d2e38989f84755d0d"
+    },
+    "opportunityId": {
+      "$oid": "7cc8a5c9b8c9f91bd0276a2e"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Ziad Jaradat",
+    "email": "99166@aaup.edu.ps",
+    "universityId": "99166",
+    "phone": "+970-556-495235",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "72beddcbc89cc71e915e17d3"
+    },
+    "studentId": {
+      "$oid": "38bdcd738e7943adec6fc345"
+    },
+    "opportunityId": {
+      "$oid": "93d040b9b1feba7edf841f0b"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Kareem Jaber",
+    "email": "38671@bethlehem.edu.ps",
+    "universityId": "38671",
+    "phone": "+970-589-304221",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f6cc9bb2ce3332ba8c13dbaa"
+    },
+    "studentId": {
+      "$oid": "485979ad6294ff0b71cb0a76"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Mazen Jaber",
+    "email": "53833@bethlehem.edu.ps",
+    "universityId": "53833",
+    "phone": "+970-585-402111",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6aa718feb3ea6e4aa71db352"
+    },
+    "studentId": {
+      "$oid": "84d1379edf2f957bb697271e"
+    },
+    "opportunityId": {
+      "$oid": "7a5c7f5f28cebeb9ba3255ea"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Rami Jaradat",
+    "email": "54083@bethlehem.edu.ps",
+    "universityId": "54083",
+    "phone": "+970-575-653289",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0b8717356bae7ba83a797dc9"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Wafa Erekat",
+    "email": "29143@bethlehem.edu.ps",
+    "universityId": "29143",
+    "phone": "+970-555-790542",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c840dfb56602fd0263199d47"
+    },
+    "studentId": {
+      "$oid": "aff7490ce360c37e5663f63d"
+    },
+    "opportunityId": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Abeer Sharabati",
+    "email": "30510@bethlehem.edu.ps",
+    "universityId": "30510",
+    "phone": "+970-565-544186",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b1456d427587a6ff9cdd6ade"
+    },
+    "studentId": {
+      "$oid": "aff7490ce360c37e5663f63d"
+    },
+    "opportunityId": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Abeer Sharabati",
+    "email": "30510@bethlehem.edu.ps",
+    "universityId": "30510",
+    "phone": "+970-565-544186",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b9a8d831c71b11617f5e4fcd"
+    },
+    "studentId": {
+      "$oid": "fe4fb40d00624ba442b824dd"
+    },
+    "opportunityId": {
+      "$oid": "309141130961b717c3b1fd24"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "fullName": "Tariq Khalil",
+    "email": "87428@bethlehem.edu.ps",
+    "universityId": "87428",
+    "phone": "+970-586-981186",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2261ab8aca548b2e213e4ff7"
+    },
+    "studentId": {
+      "$oid": "fe4fb40d00624ba442b824dd"
+    },
+    "opportunityId": {
+      "$oid": "c37700fce51d96a5cecdae5f"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "fullName": "Tariq Khalil",
+    "email": "87428@bethlehem.edu.ps",
+    "universityId": "87428",
+    "phone": "+970-586-981186",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ebc3bcc938cce33632504008"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "opportunityId": {
+      "$oid": "7a5c7f5f28cebeb9ba3255ea"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Rami Odeh",
+    "email": "44072@bethlehem.edu.ps",
+    "universityId": "44072",
+    "phone": "+970-550-253643",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "474250d9bb2477719be979ac"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "opportunityId": {
+      "$oid": "e4100cccb74a3c57303160bd"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Rami Odeh",
+    "email": "44072@bethlehem.edu.ps",
+    "universityId": "44072",
+    "phone": "+970-550-253643",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "acea04febd6ae785512b817d"
+    },
+    "studentId": {
+      "$oid": "f8ca485256a77904b386c411"
+    },
+    "opportunityId": {
+      "$oid": "800dda4b0885f7e67d1dd183"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Firas Sharabati",
+    "email": "51247@bethlehem.edu.ps",
+    "universityId": "51247",
+    "phone": "+970-568-561859",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a2451f239bb20be30e916616"
+    },
+    "studentId": {
+      "$oid": "f8ca485256a77904b386c411"
+    },
+    "opportunityId": {
+      "$oid": "0a578b4fd570cb173cebea96"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "fullName": "Firas Sharabati",
+    "email": "51247@bethlehem.edu.ps",
+    "universityId": "51247",
+    "phone": "+970-568-561859",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ade2aa7e450bd9f692139858"
+    },
+    "studentId": {
+      "$oid": "f8ca485256a77904b386c411"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Firas Sharabati",
+    "email": "51247@bethlehem.edu.ps",
+    "universityId": "51247",
+    "phone": "+970-568-561859",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e5296ca5b78deb4abadb4325"
+    },
+    "studentId": {
+      "$oid": "699664e463401b65d4a40295"
+    },
+    "opportunityId": {
+      "$oid": "4cdee90f59f69118cdb9bf53"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Dina Taweel",
+    "email": "28967@birzeit.edu.ps",
+    "universityId": "28967",
+    "phone": "+970-562-162027",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0188f224b936b52868eca118"
+    },
+    "studentId": {
+      "$oid": "b067af3f4867f3d2107075a1"
+    },
+    "opportunityId": {
+      "$oid": "e36928330e500521b41b7112"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "fullName": "Khaled Jaber",
+    "email": "12289@birzeit.edu.ps",
+    "universityId": "12289",
+    "phone": "+970-564-482250",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a41c919d8cf4a009040f3b5"
+    },
+    "studentId": {
+      "$oid": "72b50a994910e85d99f8b2f8"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Hassan Awad",
+    "email": "53944@birzeit.edu.ps",
+    "universityId": "53944",
+    "phone": "+970-564-493228",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2c7074b01cb3fa59d97f4f50"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "opportunityId": {
+      "$oid": "ad9d5aef8652de8ff635065a"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "fullName": "Layan Mansour",
+    "email": "82465@birzeit.edu.ps",
+    "universityId": "82465",
+    "phone": "+970-573-606433",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9c49b4ea37d0eac4a70f0b33"
+    },
+    "studentId": {
+      "$oid": "8c38e988904b876f5d72da4a"
+    },
+    "opportunityId": {
+      "$oid": "a77b6e64c639cfd87400188e"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Anas Zubeidat",
+    "email": "61993@birzeit.edu.ps",
+    "universityId": "61993",
+    "phone": "+970-583-902319",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d09b3ce9ff00d2acb1be8b9"
+    },
+    "studentId": {
+      "$oid": "8c38e988904b876f5d72da4a"
+    },
+    "opportunityId": {
+      "$oid": "f8c95ea3a475147ef6653f5e"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "fullName": "Anas Zubeidat",
+    "email": "61993@birzeit.edu.ps",
+    "universityId": "61993",
+    "phone": "+970-583-902319",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2a1dce38d6b8d656a6664bef"
+    },
+    "studentId": {
+      "$oid": "0e76094c1ae3d07e3d1b3ce9"
+    },
+    "opportunityId": {
+      "$oid": "3e2f8c3858e17f6bca7f8522"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "fullName": "Noor Nassar",
+    "email": "74607@birzeit.edu.ps",
+    "universityId": "74607",
+    "phone": "+970-596-697184",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "562a7cae894413d7850bc589"
+    },
+    "studentId": {
+      "$oid": "0e76094c1ae3d07e3d1b3ce9"
+    },
+    "opportunityId": {
+      "$oid": "f5d2b9dad5806641cd7adde3"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "fullName": "Noor Nassar",
+    "email": "74607@birzeit.edu.ps",
+    "universityId": "74607",
+    "phone": "+970-596-697184",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "75701b7a79e0ef7e7622548a"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "opportunityId": {
+      "$oid": "4cdee90f59f69118cdb9bf53"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Laila Naser",
+    "email": "37556@birzeit.edu.ps",
+    "universityId": "37556",
+    "phone": "+970-568-730904",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7d8fa7e9025d56f3aa635e71"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "opportunityId": {
+      "$oid": "800dda4b0885f7e67d1dd183"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Laila Naser",
+    "email": "37556@birzeit.edu.ps",
+    "universityId": "37556",
+    "phone": "+970-568-730904",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "99dae687504476cd682f5d63"
+    },
+    "studentId": {
+      "$oid": "d421f180c078957e63c12fa2"
+    },
+    "opportunityId": {
+      "$oid": "7cc8a5c9b8c9f91bd0276a2e"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Firas Nassar",
+    "email": "75025@birzeit.edu.ps",
+    "universityId": "75025",
+    "phone": "+970-575-149905",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ce60df86046f256122a57a63"
+    },
+    "studentId": {
+      "$oid": "d421f180c078957e63c12fa2"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Firas Nassar",
+    "email": "75025@birzeit.edu.ps",
+    "universityId": "75025",
+    "phone": "+970-575-149905",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "632f2df88faca2ef29e18942"
+    },
+    "studentId": {
+      "$oid": "d421f180c078957e63c12fa2"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Firas Nassar",
+    "email": "75025@birzeit.edu.ps",
+    "universityId": "75025",
+    "phone": "+970-575-149905",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8858bb75f017efe25a0be479"
+    },
+    "studentId": {
+      "$oid": "dc2b4ded372cded15273f4b5"
+    },
+    "opportunityId": {
+      "$oid": "93d040b9b1feba7edf841f0b"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Rami Qasim",
+    "email": "77027@ppu.edu.ps",
+    "universityId": "77027",
+    "phone": "+970-592-527076",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "44ea5224e45caa7f0cb7959c"
+    },
+    "studentId": {
+      "$oid": "a3f0a5ce2dcc6afddffdba56"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Ibrahim Salem",
+    "email": "68277@ppu.edu.ps",
+    "universityId": "68277",
+    "phone": "+970-592-246606",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4e7377a019fe3b34f45507d1"
+    },
+    "studentId": {
+      "$oid": "d03cbcbc65cbeaf5b97f1a88"
+    },
+    "opportunityId": {
+      "$oid": "ffaf3db84dee5db280b5d4b7"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Jana Zubeidat",
+    "email": "52254@ppu.edu.ps",
+    "universityId": "52254",
+    "phone": "+970-568-367365",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cf7c2c2f6807820a5878876a"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "opportunityId": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Noor Naser",
+    "email": "89540@ppu.edu.ps",
+    "universityId": "89540",
+    "phone": "+970-579-601642",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aa96409e78b3db52c9d5ddba"
+    },
+    "studentId": {
+      "$oid": "c0c174af276551c03bc48168"
+    },
+    "opportunityId": {
+      "$oid": "0a578b4fd570cb173cebea96"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "fullName": "Noor Khoury",
+    "email": "62754@ppu.edu.ps",
+    "universityId": "62754",
+    "phone": "+970-557-554910",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ebfb413a96ff86a65fcf398e"
+    },
+    "studentId": {
+      "$oid": "c0c174af276551c03bc48168"
+    },
+    "opportunityId": {
+      "$oid": "49dbbe0d1f2ad36a3ad16f1b"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Noor Khoury",
+    "email": "62754@ppu.edu.ps",
+    "universityId": "62754",
+    "phone": "+970-557-554910",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0e07a738e0bbdabeaf2ef29c"
+    },
+    "studentId": {
+      "$oid": "f7cf6acd05a40df2e4dd79f4"
+    },
+    "opportunityId": {
+      "$oid": "4cdee90f59f69118cdb9bf53"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Ameed Qasim",
+    "email": "10039@ppu.edu.ps",
+    "universityId": "10039",
+    "phone": "+970-553-566962",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4921b1e2f6602df7b17a8dc3"
+    },
+    "studentId": {
+      "$oid": "f7cf6acd05a40df2e4dd79f4"
+    },
+    "opportunityId": {
+      "$oid": "49dbbe0d1f2ad36a3ad16f1b"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Ameed Qasim",
+    "email": "10039@ppu.edu.ps",
+    "universityId": "10039",
+    "phone": "+970-553-566962",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "42e85c52c35cb59406feafed"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "opportunityId": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Omar Naser",
+    "email": "54591@ppu.edu.ps",
+    "universityId": "54591",
+    "phone": "+970-571-940504",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "570824c6049c0c4dde6d9e22"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "opportunityId": {
+      "$oid": "f8c95ea3a475147ef6653f5e"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "fullName": "Omar Naser",
+    "email": "54591@ppu.edu.ps",
+    "universityId": "54591",
+    "phone": "+970-571-940504",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4f677e1635f92ec525a25270"
+    },
+    "studentId": {
+      "$oid": "6ffd696d46adf14f1177d8c0"
+    },
+    "opportunityId": {
+      "$oid": "c37700fce51d96a5cecdae5f"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "fullName": "Abeer Khalil",
+    "email": "65397@ppu.edu.ps",
+    "universityId": "65397",
+    "phone": "+970-552-415376",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "withdrawn",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c621423deadb92c1bdd27f9b"
+    },
+    "studentId": {
+      "$oid": "b11f6316c7a3ef467f877edd"
+    },
+    "opportunityId": {
+      "$oid": "309141130961b717c3b1fd24"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "fullName": "Ameed Abusneineh",
+    "email": "20684@najah.edu.ps",
+    "universityId": "20684",
+    "phone": "+970-563-717045",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66d74cc3b496383d043ce81e"
+    },
+    "studentId": {
+      "$oid": "4cf3af30f59b53764e69e829"
+    },
+    "opportunityId": {
+      "$oid": "422974f86572c70e26874fa4"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "fullName": "Nadeen Taweel",
+    "email": "62366@najah.edu.ps",
+    "universityId": "62366",
+    "phone": "+970-554-298709",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e0cc0a14b5c4ee4525715518"
+    },
+    "studentId": {
+      "$oid": "cd53a5487c9dafaf1e67dcc0"
+    },
+    "opportunityId": {
+      "$oid": "69787f42e1b53654fd213f18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Sana Mansour",
+    "email": "27465@najah.edu.ps",
+    "universityId": "27465",
+    "phone": "+970-571-145785",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b7f16a21b7225739428b4880"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "opportunityId": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Omar Khalil",
+    "email": "61055@najah.edu.ps",
+    "universityId": "61055",
+    "phone": "+970-582-716510",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b425314813d48617a64ada34"
+    },
+    "studentId": {
+      "$oid": "650c651ef50b9c7ec8ee025c"
+    },
+    "opportunityId": {
+      "$oid": "a77b6e64c639cfd87400188e"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Rana Jaber",
+    "email": "41284@najah.edu.ps",
+    "universityId": "41284",
+    "phone": "+970-590-170348",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "17157075a8b77f1f73939a00"
+    },
+    "studentId": {
+      "$oid": "650c651ef50b9c7ec8ee025c"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Rana Jaber",
+    "email": "41284@najah.edu.ps",
+    "universityId": "41284",
+    "phone": "+970-590-170348",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6ff2e8440c89af6fb492bf5c"
+    },
+    "studentId": {
+      "$oid": "cdebaf6e06b94c8d369cae81"
+    },
+    "opportunityId": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Jana Mansour",
+    "email": "10680@najah.edu.ps",
+    "universityId": "10680",
+    "phone": "+970-560-616080",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "62dd5ae7fd10d79505538b63"
+    },
+    "studentId": {
+      "$oid": "cdebaf6e06b94c8d369cae81"
+    },
+    "opportunityId": {
+      "$oid": "49dbbe0d1f2ad36a3ad16f1b"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Jana Mansour",
+    "email": "10680@najah.edu.ps",
+    "universityId": "10680",
+    "phone": "+970-560-616080",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "14737ee1ec0be989e83bb3fb"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "opportunityId": {
+      "$oid": "69787f42e1b53654fd213f18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Ibrahim Jaber",
+    "email": "53994@najah.edu.ps",
+    "universityId": "53994",
+    "phone": "+970-574-247936",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e6511d332f1e44cb3553fd44"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "opportunityId": {
+      "$oid": "f8c95ea3a475147ef6653f5e"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "fullName": "Ibrahim Jaber",
+    "email": "53994@najah.edu.ps",
+    "universityId": "53994",
+    "phone": "+970-574-247936",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "581d9e859186f5c998318d1a"
+    },
+    "studentId": {
+      "$oid": "6e8cc2412972cdc8b17ad02e"
+    },
+    "opportunityId": {
+      "$oid": "f5d2b9dad5806641cd7adde3"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "fullName": "Ameed Khalil",
+    "email": "54410@najah.edu.ps",
+    "universityId": "54410",
+    "phone": "+970-563-689513",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "30f744bcc131e45feec7d19c"
+    },
+    "studentId": {
+      "$oid": "6e8cc2412972cdc8b17ad02e"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Ameed Khalil",
+    "email": "54410@najah.edu.ps",
+    "universityId": "54410",
+    "phone": "+970-563-689513",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "withdrawn",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "86d6d6624f2538a6b5808147"
+    },
+    "studentId": {
+      "$oid": "f83a05589c7dfb04db72d02b"
+    },
+    "opportunityId": {
+      "$oid": "7a5c7f5f28cebeb9ba3255ea"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Khaled Ali",
+    "email": "63311@hebron.edu.ps",
+    "universityId": "63311",
+    "phone": "+970-593-340280",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2ebcd567982ddb5ce49ca52f"
+    },
+    "studentId": {
+      "$oid": "f6b6fe12acf633a8bd643a78"
+    },
+    "opportunityId": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Hassan Jaber",
+    "email": "41800@hebron.edu.ps",
+    "universityId": "41800",
+    "phone": "+970-567-785878",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9df80ff3e31a057d301c9ffa"
+    },
+    "studentId": {
+      "$oid": "aa15d6686d1cab4e95e85604"
+    },
+    "opportunityId": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Rana Khoury",
+    "email": "20822@hebron.edu.ps",
+    "universityId": "20822",
+    "phone": "+970-578-413031",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c517d9b33480aa89262ca6d9"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Dina Zubeidat",
+    "email": "92253@hebron.edu.ps",
+    "universityId": "92253",
+    "phone": "+970-591-692169",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1028b0def7c455e0198bab38"
+    },
+    "studentId": {
+      "$oid": "a34021330760c17c3fdb4ca5"
+    },
+    "opportunityId": {
+      "$oid": "738d8a278bee42247f754adc"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Noor Jaber",
+    "email": "29941@hebron.edu.ps",
+    "universityId": "29941",
+    "phone": "+970-588-410419",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dae8c6d7ab4c934dac5416c0"
+    },
+    "studentId": {
+      "$oid": "a34021330760c17c3fdb4ca5"
+    },
+    "opportunityId": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Noor Jaber",
+    "email": "29941@hebron.edu.ps",
+    "universityId": "29941",
+    "phone": "+970-588-410419",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "64846fb4c0930468a87712a2"
+    },
+    "studentId": {
+      "$oid": "550366286518c82e2f2eb00b"
+    },
+    "opportunityId": {
+      "$oid": "738d8a278bee42247f754adc"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Dina Joba",
+    "email": "23534@hebron.edu.ps",
+    "universityId": "23534",
+    "phone": "+970-591-816954",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ade7925f9110bb12fe84a0ca"
+    },
+    "studentId": {
+      "$oid": "550366286518c82e2f2eb00b"
+    },
+    "opportunityId": {
+      "$oid": "f5d2b9dad5806641cd7adde3"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "fullName": "Dina Joba",
+    "email": "23534@hebron.edu.ps",
+    "universityId": "23534",
+    "phone": "+970-591-816954",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6d83f646576cd0b635292f77"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "opportunityId": {
+      "$oid": "7a5c7f5f28cebeb9ba3255ea"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Jana Qasim",
+    "email": "51810@hebron.edu.ps",
+    "universityId": "51810",
+    "phone": "+970-573-213584",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fe91ae10b0120bd777475617"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "opportunityId": {
+      "$oid": "84410389334b74bedee29e90"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "fullName": "Jana Qasim",
+    "email": "51810@hebron.edu.ps",
+    "universityId": "51810",
+    "phone": "+970-573-213584",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "43a3727e9b4e36985763094a"
+    },
+    "studentId": {
+      "$oid": "f9aa067da67d877883bd645b"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Mazen Mansour",
+    "email": "18929@hebron.edu.ps",
+    "universityId": "18929",
+    "phone": "+970-553-327850",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ff4c8114e5569c5bbe72aa14"
+    },
+    "studentId": {
+      "$oid": "f9aa067da67d877883bd645b"
+    },
+    "opportunityId": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Mazen Mansour",
+    "email": "18929@hebron.edu.ps",
+    "universityId": "18929",
+    "phone": "+970-553-327850",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5ebdbc68ff9406447cb056b8"
+    },
+    "studentId": {
+      "$oid": "f9aa067da67d877883bd645b"
+    },
+    "opportunityId": {
+      "$oid": "02d65154b8e3106b627c0d20"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Mazen Mansour",
+    "email": "18929@hebron.edu.ps",
+    "universityId": "18929",
+    "phone": "+970-553-327850",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8e4e03e82d1c519dbb31dabd"
+    },
+    "studentId": {
+      "$oid": "c96471b12a643549af7d897a"
+    },
+    "opportunityId": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Sara Jaradat",
+    "email": "51182@qou.edu.ps",
+    "universityId": "51182",
+    "phone": "+970-582-990947",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f010e4dd88ca8aa80065e4f7"
+    },
+    "studentId": {
+      "$oid": "d9d37eba55afbed59ed90946"
+    },
+    "opportunityId": {
+      "$oid": "309141130961b717c3b1fd24"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "fullName": "Wafa Jaber",
+    "email": "50996@qou.edu.ps",
+    "universityId": "50996",
+    "phone": "+970-588-802435",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6eb6bf11f56b425f40740788"
+    },
+    "studentId": {
+      "$oid": "f3cb8ca9feb7155974356042"
+    },
+    "opportunityId": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Reem Jaradat",
+    "email": "76982@qou.edu.ps",
+    "universityId": "76982",
+    "phone": "+970-557-380226",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "029e47966175f7b58264fe77"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "opportunityId": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Ameed Taweel",
+    "email": "86887@qou.edu.ps",
+    "universityId": "86887",
+    "phone": "+970-559-187842",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "297420e0378ae25c3c537e48"
+    },
+    "studentId": {
+      "$oid": "28d557bac62de5c0a9c77263"
+    },
+    "opportunityId": {
+      "$oid": "901a161c9b5b8d310b936557"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Murad Mansour",
+    "email": "68295@qou.edu.ps",
+    "universityId": "68295",
+    "phone": "+970-595-302179",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "36c846b0c70a6b6b00e7fd11"
+    },
+    "studentId": {
+      "$oid": "28d557bac62de5c0a9c77263"
+    },
+    "opportunityId": {
+      "$oid": "49dbbe0d1f2ad36a3ad16f1b"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Murad Mansour",
+    "email": "68295@qou.edu.ps",
+    "universityId": "68295",
+    "phone": "+970-595-302179",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e838080e3c797b22e0e0ba63"
+    },
+    "studentId": {
+      "$oid": "9ecd745618b63775a3e2f28d"
+    },
+    "opportunityId": {
+      "$oid": "422974f86572c70e26874fa4"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "fullName": "Abeer Jaber",
+    "email": "36597@qou.edu.ps",
+    "universityId": "36597",
+    "phone": "+970-580-535692",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "77c02e60bd69dae8adb8aeca"
+    },
+    "studentId": {
+      "$oid": "9ecd745618b63775a3e2f28d"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Abeer Jaber",
+    "email": "36597@qou.edu.ps",
+    "universityId": "36597",
+    "phone": "+970-580-535692",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c2992e8bec581245693f795b"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "opportunityId": {
+      "$oid": "69787f42e1b53654fd213f18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Mona Mansour",
+    "email": "59371@qou.edu.ps",
+    "universityId": "59371",
+    "phone": "+970-582-766305",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d9c37ee0b2c892f307400953"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Mona Mansour",
+    "email": "59371@qou.edu.ps",
+    "universityId": "59371",
+    "phone": "+970-582-766305",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "97fe6b1ec2582de6ea71ab17"
+    },
+    "studentId": {
+      "$oid": "a0660c8755af1ba78685b272"
+    },
+    "opportunityId": {
+      "$oid": "ffaf3db84dee5db280b5d4b7"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Khaled Qasim",
+    "email": "49671@qou.edu.ps",
+    "universityId": "49671",
+    "phone": "+970-558-418229",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ce20133d42d69099f41ac743"
+    },
+    "studentId": {
+      "$oid": "6e0a56b68629ed155240b966"
+    },
+    "opportunityId": {
+      "$oid": "93d040b9b1feba7edf841f0b"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Walid Jaber",
+    "email": "42324@zaytoonah.edu.ps",
+    "universityId": "42324",
+    "phone": "+970-569-112166",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "abd1462ad1196517662aff18"
+    },
+    "studentId": {
+      "$oid": "5adc9523e81880bdb01f365a"
+    },
+    "opportunityId": {
+      "$oid": "69787f42e1b53654fd213f18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "fullName": "Yousef Bishara",
+    "email": "22203@zaytoonah.edu.ps",
+    "universityId": "22203",
+    "phone": "+970-573-588916",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63a9fecfa1e921ad0d5e44ed"
+    },
+    "studentId": {
+      "$oid": "eea126f93d37f8ac06cb81e1"
+    },
+    "opportunityId": {
+      "$oid": "7cc8a5c9b8c9f91bd0276a2e"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Laith Jaradat",
+    "email": "84344@zaytoonah.edu.ps",
+    "universityId": "84344",
+    "phone": "+970-567-253101",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "042ab70043bfe6e3170a6d19"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "opportunityId": {
+      "$oid": "43a3a44718560d43fd06f87f"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "fullName": "Mazen Awad",
+    "email": "99689@zaytoonah.edu.ps",
+    "universityId": "99689",
+    "phone": "+970-578-514558",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "161f584e1b65fd12e641f11d"
+    },
+    "studentId": {
+      "$oid": "de6e75b6b6a2330d0e558fd3"
+    },
+    "opportunityId": {
+      "$oid": "422974f86572c70e26874fa4"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "fullName": "Ruba Natsheh",
+    "email": "72843@zaytoonah.edu.ps",
+    "universityId": "72843",
+    "phone": "+970-569-489042",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a935df79001c68336ce5a3e7"
+    },
+    "studentId": {
+      "$oid": "de6e75b6b6a2330d0e558fd3"
+    },
+    "opportunityId": {
+      "$oid": "230a79a63e22ea53b734060a"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "fullName": "Ruba Natsheh",
+    "email": "72843@zaytoonah.edu.ps",
+    "universityId": "72843",
+    "phone": "+970-569-489042",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8bbe611198ee3e70ffe34469"
+    },
+    "studentId": {
+      "$oid": "d38240b74ae5b6d54f7965f0"
+    },
+    "opportunityId": {
+      "$oid": "0a578b4fd570cb173cebea96"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "fullName": "Raya Bishara",
+    "email": "96905@zaytoonah.edu.ps",
+    "universityId": "96905",
+    "phone": "+970-556-450456",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c2f06094598eaa3060878060"
+    },
+    "studentId": {
+      "$oid": "d38240b74ae5b6d54f7965f0"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Raya Bishara",
+    "email": "96905@zaytoonah.edu.ps",
+    "universityId": "96905",
+    "phone": "+970-556-450456",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fc67451014d401c3e00c0089"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "opportunityId": {
+      "$oid": "43a3a44718560d43fd06f87f"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "fullName": "Mona Haddad",
+    "email": "52622@zaytoonah.edu.ps",
+    "universityId": "52622",
+    "phone": "+970-579-736338",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b26761854536e6c0c331fbe4"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "opportunityId": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Mona Haddad",
+    "email": "52622@zaytoonah.edu.ps",
+    "universityId": "52622",
+    "phone": "+970-579-736338",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ad24641041f984e624f31772"
+    },
+    "studentId": {
+      "$oid": "dc681686936d1cfec5a32eb3"
+    },
+    "opportunityId": {
+      "$oid": "02d65154b8e3106b627c0d20"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Mazen Ali",
+    "email": "30258@zaytoonah.edu.ps",
+    "universityId": "30258",
+    "phone": "+970-588-420021",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1231d4af50e815831d19946c"
+    },
+    "studentId": {
+      "$oid": "7ca9c23ef4f05b32f33213c3"
+    },
+    "opportunityId": {
+      "$oid": "ed76abfe738baa4b7f973914"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "fullName": "Firas Joba",
+    "email": "55600@ptuk.edu.ps",
+    "universityId": "55600",
+    "phone": "+970-585-836378",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "02c0088583541093a38d9617"
+    },
+    "studentId": {
+      "$oid": "900f3c8d237a05c043f0ca7a"
+    },
+    "opportunityId": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Murad Natsheh",
+    "email": "48859@ptuk.edu.ps",
+    "universityId": "48859",
+    "phone": "+970-596-803488",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "32eda59c65daaec4b61d3d55"
+    },
+    "studentId": {
+      "$oid": "3d63e2d6917c55339104476f"
+    },
+    "opportunityId": {
+      "$oid": "c7ce0054f234895337760485"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "fullName": "Noor Sharabati",
+    "email": "70620@ptuk.edu.ps",
+    "universityId": "70620",
+    "phone": "+970-561-290823",
+    "coverLetter": "I am excited to contribute to your team and apply my skills in a real-world environment.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e8fcb973139082e0d5a0b38"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "opportunityId": {
+      "$oid": "7a5c7f5f28cebeb9ba3255ea"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "fullName": "Jana Ali",
+    "email": "83785@ptuk.edu.ps",
+    "universityId": "83785",
+    "phone": "+970-558-525026",
+    "coverLetter": "I look forward to contributing to your team.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-04-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6940e81795b4592b33d4983d"
+    },
+    "studentId": {
+      "$oid": "60e667b2171a15b49e6c8799"
+    },
+    "opportunityId": {
+      "$oid": "ffaf3db84dee5db280b5d4b7"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "fullName": "Ibrahim Salem",
+    "email": "88492@ptuk.edu.ps",
+    "universityId": "88492",
+    "phone": "+970-586-612578",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8ab51e59ac8a15dcd3bbf1a4"
+    },
+    "studentId": {
+      "$oid": "60e667b2171a15b49e6c8799"
+    },
+    "opportunityId": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "fullName": "Ibrahim Salem",
+    "email": "88492@ptuk.edu.ps",
+    "universityId": "88492",
+    "phone": "+970-586-612578",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aa79d9052290ded95925414b"
+    },
+    "studentId": {
+      "$oid": "c452cc07858b3f830d8ae662"
+    },
+    "opportunityId": {
+      "$oid": "738d8a278bee42247f754adc"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "fullName": "Anas Bishara",
+    "email": "83156@ptuk.edu.ps",
+    "universityId": "83156",
+    "phone": "+970-562-178822",
+    "coverLetter": "I was very interested in this opportunity.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-11-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e89c1212b798a713cdd17520"
+    },
+    "studentId": {
+      "$oid": "c452cc07858b3f830d8ae662"
+    },
+    "opportunityId": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "fullName": "Anas Bishara",
+    "email": "83156@ptuk.edu.ps",
+    "universityId": "83156",
+    "phone": "+970-562-178822",
+    "coverLetter": "With my FT1 experience, I am ready to take on more responsibility in FT2.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-06-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "57b3aa2f6f79ffeb2eebf31a"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "opportunityId": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "fullName": "Ameed Khalil",
+    "email": "34140@ptuk.edu.ps",
+    "universityId": "34140",
+    "phone": "+970-595-656050",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2025-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aa6c5b8b23992ba7528eae00"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "opportunityId": {
+      "$oid": "02d65154b8e3106b627c0d20"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Ameed Khalil",
+    "email": "34140@ptuk.edu.ps",
+    "universityId": "34140",
+    "phone": "+970-595-656050",
+    "coverLetter": "Motivated to contribute and grow.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c17f33d99a3284093aba608b"
+    },
+    "studentId": {
+      "$oid": "1ba95e32a2f4302b5cd0eecc"
+    },
+    "opportunityId": {
+      "$oid": "84410389334b74bedee29e90"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "fullName": "Farah Taweel",
+    "email": "11589@ptuk.edu.ps",
+    "universityId": "11589",
+    "phone": "+970-595-725223",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1f8f2e498682dab280391be1"
+    },
+    "studentId": {
+      "$oid": "1ba95e32a2f4302b5cd0eecc"
+    },
+    "opportunityId": {
+      "$oid": "4cdee90f59f69118cdb9bf53"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "fullName": "Farah Taweel",
+    "email": "11589@ptuk.edu.ps",
+    "universityId": "11589",
+    "phone": "+970-595-725223",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d926997fb154dd6201c3c776"
+    },
+    "studentId": {
+      "$oid": "1ba95e32a2f4302b5cd0eecc"
+    },
+    "opportunityId": {
+      "$oid": "ed76abfe738baa4b7f973914"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "fullName": "Farah Taweel",
+    "email": "11589@ptuk.edu.ps",
+    "universityId": "11589",
+    "phone": "+970-595-725223",
+    "coverLetter": "I believe I am a strong candidate for this role and would love to contribute.",
+    "cvUrl": "https://res.cloudinary.com/demo/raw/upload/sample_cv.pdf",
+    "status": "pending",
+    "appliedAt": {
+      "$date": "2026-07-15T00:00:00.000Z"
+    }
+  }
+]
