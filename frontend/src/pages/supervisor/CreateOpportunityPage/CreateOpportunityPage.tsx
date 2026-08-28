@@ -136,9 +136,12 @@ function CreateOpportunityPage() {
         setLoading(true);
         setError("");
 
-        const response = await api.get<OpportunityResponse>(
-          `/opportunities/${id}`,
-        );
+        const opportunityEndpoint = isCompanyUser
+          ? `/opportunities/company/me/${id}`
+          : `/opportunities/${id}`;
+
+        const response =
+          await api.get<OpportunityResponse>(opportunityEndpoint);
         const opportunity = response.data;
         const responseCompanyId =
           typeof opportunity.companyId === "object"

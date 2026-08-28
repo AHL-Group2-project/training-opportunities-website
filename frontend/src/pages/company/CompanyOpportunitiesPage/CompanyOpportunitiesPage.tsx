@@ -22,6 +22,7 @@ import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteIcon from "@mui/icons-material/Delete";
+import RestoreIcon from "@mui/icons-material/Restore";
 import api from "../../../lib/axios";
 import { useAuth } from "../../../context/authContext";
 import type { Opportunity } from "../../../types/opportunity.types";
@@ -34,6 +35,7 @@ function CompanyOpportunitiesPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [archivingId, setArchivingId] = useState<string | number | null>(null);
+  const [restoringId, setRestoringId] = useState<string | number | null>(null);
 
   useEffect(() => {
     const fetchCompanyOpportunities = async () => {
@@ -68,7 +70,11 @@ function CompanyOpportunitiesPage() {
       await api.delete(`/opportunities/${opportunity.id}`);
 
       setOpportunities((current) =>
-        current.filter((item) => item.id !== opportunity.id),
+        current.map((item) =>
+          item.id === opportunity.id
+            ? { ...item, status: "archived" }
+            : item,
+        ),
       );
     } catch {
       setError("Unable to archive the opportunity. Please try again.");
@@ -76,7 +82,30 @@ function CompanyOpportunitiesPage() {
       setArchivingId(null);
     }
   };
+  const handleRestore = async (opportunity: Opportunity) => {
+    const confirmed = window.confirm(
+      `Restore "${opportunity.title}" as a draft?`,
+    );
 
+    if (!confirmed) return;
+
+    try {
+      setRestoringId(opportunity.id);
+      setError("");
+
+      await api.patch(`/opportunities/${opportunity.id}/restore`);
+
+      setOpportunities((current) =>
+        current.map((item) =>
+          item.id === opportunity.id ? { ...item, status: "draft" } : item,
+        ),
+      );
+    } catch {
+      setError("Unable to restore the opportunity. Please try again.");
+    } finally {
+      setRestoringId(null);
+    }
+  };
   const getStatusChip = (status?: string) => {
     const colors: Record<string, { color: string; bg: string }> = {
       active: { color: "#059669", bg: "#ECFDF5" },
@@ -178,45 +207,68 @@ function CompanyOpportunitiesPage() {
                     <TableCell>{opportunity.applicants || 0}</TableCell>
                     <TableCell>
                       <Box sx={{ display: "flex", gap: 0.5 }}>
-                        <Tooltip title="View">
-                          <IconButton
-                            size="small"
-                            onClick={() =>
-                              navigate(`/opportunities/${opportunity.id}`)
-                            }
-                          >
-                            <VisibilityIcon fontSize="small" />
-                          </IconButton>
-                        </Tooltip>
+                        {opportunity.status === "archived" ? (
+                          <Tooltip title="Restore as draft">
+                            <span>
+                              <IconButton
+                                size="small"
+                                color="warning"
+                                disabled={restoringId === opportunity.id}
+                                onClick={() => void handleRestore(opportunity)}
+                              >
+                                {restoringId === opportunity.id ? (
+                                  <CircularProgress size={18} color="inherit" />
+                                ) : (
+                                  <RestoreIcon fontSize="small" />
+                                )}
+                              </IconButton>
+                            </span>
+                          </Tooltip>
+                        ) : (
+                          <>
+                            <Tooltip title="View">
+                              <IconButton
+                                size="small"
+                                onClick={() =>
+                                  navigate(`/opportunities/${opportunity.id}`)
+                                }
+                              >
+                                <VisibilityIcon fontSize="small" />
+                              </IconButton>
+                            </Tooltip>
 
-                        <Tooltip title="Edit">
-                          <IconButton
-                            size="small"
-                            onClick={() =>
-                              navigate(
-                                `/company/opportunities/${opportunity.id}/edit`,
-                              )
-                            }
-                          >
-                            <EditIcon fontSize="small" />
-                          </IconButton>
-                        </Tooltip>
-                        <Tooltip title="Archive">
-                          <span>
-                            <IconButton
-                              size="small"
-                              color="error"
-                              disabled={archivingId === opportunity.id}
-                              onClick={() => void handleArchive(opportunity)}
-                            >
-                              {archivingId === opportunity.id ? (
-                                <CircularProgress size={18} color="inherit" />
-                              ) : (
-                                <DeleteIcon fontSize="small" />
-                              )}
-                            </IconButton>
-                          </span>
-                        </Tooltip>
+                            <Tooltip title="Edit">
+                              <IconButton
+                                size="small"
+                                onClick={() =>
+                                  navigate(
+                                    `/company/opportunities/${opportunity.id}/edit`,
+                                  )
+                                }
+                              >
+                                <EditIcon fontSize="small" />
+                              </IconButton>
+                            </Tooltip>
+
+                            <Tooltip title="Archive">
+                              <span>
+                                <IconButton
+                                  size="small"
+                                  color="error"
+                                  disabled={archivingId === opportunity.id}
+                                  onClick={() => void handleArchive(opportunity)}
+                                >
+                                  {archivingId === opportunity.id ? (
+                                    <CircularProgress size={18} color="inherit" />
+                                  ) : (
+                                    <DeleteIcon fontSize="small" />
+                                  )}
+                                </IconButton>
+                              </span>
+                            </Tooltip>
+                          </>
+                        )}
+
                       </Box>
                     </TableCell>
                   </TableRow>
