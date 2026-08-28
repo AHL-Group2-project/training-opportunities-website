@@ -44,6 +44,10 @@ const studentProfileSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+    avatarCloudinaryId: {
+      type: String,
+      default: null,
+    },
     contactEmail: {
       type: String,
     },
@@ -103,6 +107,10 @@ const studentProfileSchema = new mongoose.Schema(
     companyId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+    },
+    university: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true, collection: "studentProfiles" }

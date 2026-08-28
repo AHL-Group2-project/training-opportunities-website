@@ -1,0 +1,287 @@
+[
+  {
+    "_id": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "userId": {
+      "$oid": "d4ea8803a1a49cd412496411"
+    },
+    "name": "Jawwal",
+    "industry": "Telecommunications",
+    "location": "Ramallah",
+    "website": "https://www.jawwal.ps",
+    "linkedIn": "https://www.linkedin.com/company/jawwal",
+    "logoUrl": null,
+    "description": "The first Palestinian cellular communications company, providing mobile services across Palestine since 1999.",
+    "contactEmail": "careers@jawwal.ps",
+    "phone": "+970-2-298-1000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "userId": {
+      "$oid": "7e58d2f56bce698738c421d2"
+    },
+    "name": "AHL Logics",
+    "industry": "Software Development",
+    "location": "Hebron",
+    "website": "https://www.ahllogics.com",
+    "linkedIn": "https://www.linkedin.com/company/ahl-logics/",
+    "logoUrl": null,
+    "description": "Providing smart logistics and IT software solutions for businesses.",
+    "contactEmail": "hr@ahllogics.com",
+    "phone": "+970-2-222-8000",
+    "verified": false,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "userId": {
+      "$oid": "0fec3182464fceef4a75a20b"
+    },
+    "name": "ASAL Technologies",
+    "industry": "Software Development",
+    "location": "Rawabi",
+    "website": "https://www.asaltech.com",
+    "linkedIn": "https://www.linkedin.com/company/asaltech",
+    "logoUrl": null,
+    "description": "Leading Palestinian software house delivering high-quality software products to regional and global markets.",
+    "contactEmail": "careers@asaltech.ps",
+    "phone": "+970-9-234-5678",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "userId": {
+      "$oid": "924b79dbed73b07e0858e56b"
+    },
+    "name": "Hadara International Trading Company",
+    "industry": "ISP & Technology",
+    "location": "Ramallah",
+    "website": "https://hpco.ps/",
+    "linkedIn": null,
+    "logoUrl": null,
+    "description": "A leading internet service provider and technology solutions company operating across Palestine.",
+    "contactEmail": "it@hpco.ps",
+    "phone": "+970-2-298-2000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "userId": {
+      "$oid": "fd04c0c476d27202688d58ac"
+    },
+    "name": "IzTechValley",
+    "industry": "Information Technology",
+    "location": "Hebron",
+    "website": "https://iztechvalley.com",
+    "linkedIn": "https://www.linkedin.com/company/iztech-valley",
+    "logoUrl": null,
+    "description": "A tech hub in Hebron focusing on nurturing local tech talent and delivering innovative software products.",
+    "contactEmail": "hr@iztechvalley.com",
+    "phone": "+970-2-225-7000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "userId": {
+      "$oid": "b08ae2371a0fe526c31d2e4a"
+    },
+    "name": "Ooredoo Palestine",
+    "industry": "Telecommunications",
+    "location": "Ramallah",
+    "website": "https://www.ooredoo.ps",
+    "linkedIn": "https://ps.linkedin.com/company/ooredoops",
+    "logoUrl": null,
+    "description": "Second Palestinian cellular provider, offering mobile and data services to millions of subscribers.",
+    "contactEmail": "careers@ooredoo.ps",
+    "phone": "+970-2-298-3000",
+    "verified": false,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "userId": {
+      "$oid": "af50738010e6bd1768b6d2b5"
+    },
+    "name": "Foothill Technology Solutions",
+    "industry": "Software Development",
+    "location": "Ramallah",
+    "website": "https://www.foothillsolutions.com",
+    "linkedIn": null,
+    "logoUrl": null,
+    "description": "A software consultancy helping organizations build scalable digital products.",
+    "contactEmail": "jobs@foothillsolutions.com",
+    "phone": "+970-2-298-4000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "userId": {
+      "$oid": "dd0492f9df15b90b0f78afc2"
+    },
+    "name": "Halhul Municipality",
+    "industry": "Government / Public Sector",
+    "location": "Halhul",
+    "website": "https://halhul-city.ps/site/",
+    "linkedIn": null,
+    "logoUrl": null,
+    "description": "Serving the residents of Halhul city with public services and a growing digital transformation initiative.",
+    "contactEmail": "info@halhul-city.ps",
+    "phone": "+970-2-227-7000",
+    "verified": false,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "userId": {
+      "$oid": "2bd316f8bd72751099887808"
+    },
+    "name": "aeliasoft",
+    "industry": "Software Development",
+    "location": "Ramallah",
+    "website": "https://aeliasoft.com/",
+    "linkedIn": "https://ps.linkedin.com/company/aeliasoft",
+    "logoUrl": null,
+    "description": "A growing Palestinian software startup specializing in mobile and web application development.",
+    "contactEmail": "careers@aeliasoft.com",
+    "phone": "+970-2-298-5000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "userId": {
+      "$oid": "2646258249c476a73abf8de2"
+    },
+    "name": "cotede",
+    "industry": "Information Technology",
+    "location": "Ramallah",
+    "website": "https://cotede.co/",
+    "linkedIn": "https://www.linkedin.com/company/co-te-de-technologies/",
+    "logoUrl": null,
+    "description": "An innovation-driven Palestinian tech company working on enterprise solutions and digital products.",
+    "contactEmail": "hr@cotede.co",
+    "phone": "+970-2-298-6000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "userId": {
+      "$oid": "d67aa0a7b4d51c9b0221c829"
+    },
+    "name": "Hebron Municipality",
+    "industry": "Government / Public Sector",
+    "location": "Hebron",
+    "website": "https://hebron-city.ps/",
+    "linkedIn": null,
+    "logoUrl": null,
+    "description": "Hebron Municipality is undergoing digital modernization of its public services.",
+    "contactEmail": "info@hebron-city.ps",
+    "phone": "+970-2-222-4000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "userId": {
+      "$oid": "f9450c7111fa9e2d95a24975"
+    },
+    "name": "sada solution",
+    "industry": "Software Development",
+    "location": "Nablus",
+    "website": "https://www.sadasol.com/",
+    "linkedIn": "https://www.linkedin.com/company/sadasol?originalSubdomain=ps",
+    "logoUrl": null,
+    "description": "A Palestinian software company delivering custom ERP and business management solutions.",
+    "contactEmail": "hr@sadasol.com",
+    "phone": "+970-9-237-0000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "userId": {
+      "$oid": "5d632891bcf80fb09ebec293"
+    },
+    "name": "Olivery",
+    "industry": "Logistics Software",
+    "location": "Ramallah",
+    "website": "https://website.olivery.app/",
+    "linkedIn": "https://www.linkedin.com/company/olivery-beyond-logistics/",
+    "logoUrl": null,
+    "description": "A fast-growing startup disrupting e-commerce and logistics in Palestine and the Arab world.",
+    "contactEmail": "careers@olivery.app",
+    "phone": "+970-2-298-7000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "userId": {
+      "$oid": "ef74fc02017a3b4d70c1798b"
+    },
+    "name": "Trusted System",
+    "industry": "IT Services",
+    "location": "Hebron",
+    "website": "https://www.ts.com.ps/",
+    "linkedIn": "https://www.linkedin.com/company/trusted-systems-for-computer-&-it/",
+    "logoUrl": null,
+    "description": "A trusted Palestinian IT company providing hardware, software, and cybersecurity services to enterprises.",
+    "contactEmail": "hr@ts.com.ps",
+    "phone": "+970-2-222-9000",
+    "verified": true,
+    "isActive": true
+  },
+  {
+    "_id": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "userId": {
+      "$oid": "d4979b9232e6b3eac3bec6ca"
+    },
+    "name": "uWave",
+    "industry": "Software Development",
+    "location": "Ramallah",
+    "website": "https://www.uwave.ps/",
+    "linkedIn": null,
+    "logoUrl": null,
+    "description": "A Palestinian software company focused on building accessible and responsive digital experiences.",
+    "contactEmail": "careers@uwave.ps",
+    "phone": "+970-2-298-8000",
+    "verified": false,
+    "isActive": true
+  }
+]

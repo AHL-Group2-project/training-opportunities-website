@@ -56,7 +56,6 @@ import ChangePasswordPage from "../pages/auth/ChangePasswordPage";
 /* ═══ ADMIN PAGES ═══ */
 import AdminDashboardPage from "../pages/admin/AdminDashboardPage/AdminDashboardPage";
 import AdminStudentsPage from "../pages/admin/AdminStudentsPage/AdminStudentsPage";
-import AdminRequestsPage from "../pages/admin/AdminRequestsPage/AdminRequestsPage";
 import AdminSupervisorsPage from "../pages/admin/AdminSupervisorsPage/AdminSupervisorsPage";
 import AdminProfilePage from "../pages/admin/AdminProfilePage";
 
@@ -142,7 +141,6 @@ function AppRouter() {
             <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
             <Route path="/admin/students" element={<AdminStudentsPage />} />
             <Route path="/admin/students/:id" element={<StudentDetailPage />} />
-            <Route path="/admin/requests" element={<AdminRequestsPage />} />
             <Route
               path="/admin/supervisors"
               element={<AdminSupervisorsPage />}

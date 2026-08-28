@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -20,20 +20,18 @@ import {
   Typography,
   Alert,
   Chip,
+  CircularProgress,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/authContext";
-import { MOCK_COMPANIES } from "../../../mock/Companies";
-import { MOCK_SUPERVISORS } from "../../../mock/supervisors";
-import { MOCK_INTERNSHIP_REQUESTS } from "../../../mock/internshipRequests";
-import { MOCK_STUDENT_PROFILES } from "../../../mock/studentTrainingState";
+import { studentApi } from "../../../lib/api/student";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const steps = [
   "Internship Type",
   "Company & Position",
-  "Duration & Supervisor",
+  "Duration & Details",
   "Attachments",
   "Review",
 ];
@@ -64,13 +62,18 @@ const WORK_MODES = ["on-site", "remote", "hybrid"];
 function InternshipRequestPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
+
   const [activeStep, setActiveStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  const [loadingProfile, setLoadingProfile] = useState(true);
+  const [studentProfile, setStudentProfile] = useState<any>(null);
 
   // Form state
   const [type, setType] = useState<"ft1" | "ft2">("ft1");
-  const [companyId, setCompanyId] = useState("");
-  const [newCompanyName, setNewCompanyName] = useState("");
+  const [companyName, setCompanyName] = useState("");
   const [position, setPosition] = useState("");
   const [department, setDepartment] = useState("");
   const [field, setField] = useState("");
@@ -78,23 +81,23 @@ function InternshipRequestPage() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [expectedHours, setExpectedHours] = useState(150);
-  const [supervisorId, setSupervisorId] = useState("");
   const [description, setDescription] = useState("");
   const [attachments, setAttachments] = useState<File[]>([]);
   const [confirmed, setConfirmed] = useState(false);
 
-  // Check FT1 prerequisite for FT2
-  const ft1Completed = MOCK_INTERNSHIP_REQUESTS.some(
-    (r) =>
-      r.studentId === user?.id && r.type === "ft1" && r.status === "completed",
-  );
-
-  const studentProfile = MOCK_STUDENT_PROFILES.find(
-    (s) => s.userId === user?.id,
-  );
-  const assignedSupervisor = studentProfile?.supervisorId
-    ? MOCK_SUPERVISORS.find((s) => s.id === studentProfile.supervisorId)
-    : null;
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const res = await studentApi.getProfile();
+        setStudentProfile(res.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoadingProfile(false);
+      }
+    };
+    fetchProfile();
+  }, []);
 
   const handleNext = () => {
     if (activeStep === steps.length - 1) {
@@ -121,25 +124,74 @@ function InternshipRequestPage() {
     setAttachments((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleSubmit = () => {
-    // TODO: POST /api/internship-requests
-    console.log({
-      type,
-      companyId: companyId || null,
-      companyName: newCompanyName || null,
-      position,
-      department,
-      field,
-      workMode,
-      startDate,
-      endDate,
-      expectedHours,
-      supervisorId,
-      description,
-      attachments: attachments.map((f) => f.name),
-    });
-    setSubmitted(true);
+  const handleSubmit = async () => {
+    try {
+      setSubmitting(true);
+      setError("");
+      await studentApi.submitRequest({
+        type,
+        companyName,
+        position,
+        department,
+        field,
+        workMode,
+        startDate,
+        endDate,
+        expectedHours,
+        description,
+        attachments: attachments.map((f) => f.name), // Mocking upload for now
+      });
+      setSubmitted(true);
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Failed to submit request.");
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  if (loadingProfile) {
+    return (
+      <Container sx={{ py: 8, textAlign: "center" }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
+
+  if (!studentProfile?.supervisorId) {
+    return (
+      <Container maxWidth="md" sx={{ py: 8 }}>
+        <Card
+          sx={{
+            borderRadius: 3,
+            p: 4,
+            textAlign: "center",
+            borderColor: "error.main",
+            border: "1px solid",
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 700, color: "error.main", mb: 2 }}
+          >
+            Action Required
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 3 }}>
+            You cannot submit a training request because you have not been
+            assigned a Supervisor yet. Please contact your university's
+            administration to be assigned a supervisor before submitting a
+            request.
+          </Typography>
+          <Button
+            variant="contained"
+            onClick={() => navigate("/dashboard")}
+            sx={{ textTransform: "none" }}
+          >
+            Return to Dashboard
+          </Button>
+        </Card>
+      </Container>
+    );
+  }
 
   if (submitted) {
     return (
@@ -152,8 +204,10 @@ function InternshipRequestPage() {
             Request Submitted Successfully
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            Your internship request has been sent to your supervisor for review.
-            You will be notified when it is approved.
+            Your internship request has been sent to your supervisor (
+            <strong>{studentProfile.supervisorId.name}</strong>) for review. You
+            will be notified when it is approved, and your Hours Table will
+            become available.
           </Typography>
           <Box sx={{ display: "flex", gap: 2, justifyContent: "center" }}>
             <Button
@@ -198,64 +252,27 @@ function InternshipRequestPage() {
                   value="ft2"
                   control={<Radio />}
                   label="Field Training II (FT2)"
-                  disabled={!ft1Completed}
                 />
               </RadioGroup>
-              {type === "ft2" && !ft1Completed && (
-                <Alert severity="warning" sx={{ mt: 2 }}>
-                  You must complete FT1 before requesting FT2.
-                </Alert>
-              )}
             </FormControl>
-
-            {type === "ft2" && ft1Completed && (
-              <Alert severity="info">
-                FT1 completed. You are eligible for FT2.
-              </Alert>
-            )}
           </Box>
         );
 
       case 1:
         return (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            <FormControl fullWidth>
-              <InputLabel>Company</InputLabel>
-              <Select
-                value={companyId}
-                label="Company"
-                onChange={(e) => {
-                  setCompanyId(e.target.value);
-                  setNewCompanyName("");
-                }}
-              >
-                <MenuItem value="">
-                  <em>Select existing company</em>
-                </MenuItem>
-                {MOCK_COMPANIES.map((c) => (
-                  <MenuItem key={c.id} value={c.id}>
-                    {c.name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-
-            {!companyId && (
-              <TextField
-                label="Or add new company name"
-                value={newCompanyName}
-                onChange={(e) => setNewCompanyName(e.target.value)}
-                placeholder="Enter company name"
-              />
-            )}
-
+            <TextField
+              label="Company Name"
+              value={companyName}
+              onChange={(e) => setCompanyName(e.target.value)}
+              required
+            />
             <TextField
               label="Position / Title"
               value={position}
               onChange={(e) => setPosition(e.target.value)}
               required
             />
-
             <FormControl fullWidth>
               <InputLabel>Department</InputLabel>
               <Select
@@ -270,7 +287,6 @@ function InternshipRequestPage() {
                 ))}
               </Select>
             </FormControl>
-
             <FormControl fullWidth>
               <InputLabel>Field</InputLabel>
               <Select
@@ -285,7 +301,6 @@ function InternshipRequestPage() {
                 ))}
               </Select>
             </FormControl>
-
             <FormControl fullWidth>
               <InputLabel>Work Mode</InputLabel>
               <Select
@@ -312,63 +327,29 @@ function InternshipRequestPage() {
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
-                slotProps={{
-                  inputLabel: {
-                    shrink: true,
-                  },
-                }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 fullWidth
               />
-
               <TextField
                 label="End Date"
                 type="date"
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
-                slotProps={{
-                  inputLabel: {
-                    shrink: true,
-                  },
-                }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 fullWidth
               />
             </Box>
-
             <TextField
               label="Expected Hours"
               type="number"
               value={expectedHours}
               onChange={(e) => setExpectedHours(Number(e.target.value))}
-              slotProps={{
-                htmlInput: {
-                  min: 1,
-                  max: 500,
-                },
-              }}
+              slotProps={{ htmlInput: { min: 1, max: 500 } }}
             />
-
-            {assignedSupervisor ? (
-              <Alert severity="info" sx={{ borderRadius: 2 }}>
-                Your request will be routed directly to your assigned
-                Supervisor: <strong>{assignedSupervisor.name}</strong>
-              </Alert>
-            ) : (
-              <FormControl fullWidth>
-                <InputLabel>Supervisor</InputLabel>
-                <Select
-                  value={supervisorId}
-                  label="Supervisor"
-                  onChange={(e) => setSupervisorId(e.target.value)}
-                >
-                  {MOCK_SUPERVISORS.map((s) => (
-                    <MenuItem key={s.id} value={s.id}>
-                      {s.name} — {s.department}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            )}
-
+            <Alert severity="info" sx={{ borderRadius: 2 }}>
+              Your request will be routed directly to your assigned Supervisor:{" "}
+              <strong>{studentProfile?.supervisorId?.name}</strong>
+            </Alert>
             <TextField
               label="Description"
               multiline
@@ -390,7 +371,6 @@ function InternshipRequestPage() {
               Upload acceptance email screenshot, offer letter, or any
               supporting documents. Max 5 files, 5MB each.
             </Typography>
-
             <Button
               component="label"
               variant="outlined"
@@ -406,7 +386,6 @@ function InternshipRequestPage() {
                 onChange={handleFileUpload}
               />
             </Button>
-
             {attachments.length > 0 && (
               <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
                 {attachments.map((file, index) => (
@@ -429,16 +408,8 @@ function InternshipRequestPage() {
             <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
               Review Your Request
             </Typography>
-
             <ReviewItem label="Type" value={type.toUpperCase()} />
-            <ReviewItem
-              label="Company"
-              value={
-                companyId
-                  ? MOCK_COMPANIES.find((c) => c.id === Number(companyId))?.name
-                  : newCompanyName
-              }
-            />
+            <ReviewItem label="Company" value={companyName} />
             <ReviewItem label="Position" value={position} />
             <ReviewItem label="Department" value={department} />
             <ReviewItem label="Field" value={field} />
@@ -446,12 +417,7 @@ function InternshipRequestPage() {
             <ReviewItem label="End Date" value={endDate} />
             <ReviewItem
               label="Supervisor"
-              value={
-                assignedSupervisor
-                  ? assignedSupervisor.name
-                  : MOCK_SUPERVISORS.find((s) => s.id === Number(supervisorId))
-                      ?.name
-              }
+              value={studentProfile?.supervisorId?.name}
             />
             <ReviewItem
               label="Expected Hours"
@@ -461,7 +427,6 @@ function InternshipRequestPage() {
               label="Attachments"
               value={`${attachments.length} file(s)`}
             />
-
             <FormControlLabel
               control={
                 <Radio
@@ -472,6 +437,11 @@ function InternshipRequestPage() {
               label="I confirm this information is accurate"
               sx={{ mt: 2 }}
             />
+            {error && (
+              <Alert severity="error" sx={{ mt: 2 }}>
+                {error}
+              </Alert>
+            )}
           </Box>
         );
 
@@ -508,7 +478,7 @@ function InternshipRequestPage() {
 
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Button
-          disabled={activeStep === 0}
+          disabled={activeStep === 0 || submitting}
           onClick={handleBack}
           sx={{ textTransform: "none" }}
         >
@@ -517,13 +487,16 @@ function InternshipRequestPage() {
         <Button
           variant="contained"
           onClick={handleNext}
-          disabled={activeStep === 4 && !confirmed}
-          sx={{
-            bgcolor: "text.primary",
-            textTransform: "none",
-          }}
+          disabled={(activeStep === 4 && !confirmed) || submitting}
+          sx={{ bgcolor: "text.primary", textTransform: "none" }}
         >
-          {activeStep === steps.length - 1 ? "Submit Request" : "Next"}
+          {submitting ? (
+            <CircularProgress size={24} color="inherit" />
+          ) : activeStep === steps.length - 1 ? (
+            "Submit Request"
+          ) : (
+            "Next"
+          )}
         </Button>
       </Box>
     </Container>

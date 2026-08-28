@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -12,35 +12,61 @@ import {
   InputLabel,
   Stack,
   Chip,
+  CircularProgress,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CompanyCard from "./CompanyCard";
-import { mockCompanies } from "../../../mock/Companies";
+import api from "../../../lib/axios";
+
+export interface CompanyProfile {
+  _id?: string;
+  userId: string;
+  name: string;
+  industry: string;
+  location: string;
+  description: string;
+  logoUrl?: string;
+}
 
 function CompaniesPage() {
   const [search, setSearch] = useState("");
   const [industry, setIndustry] = useState("all");
   const [location, setLocation] = useState("all");
+  const [companies, setCompanies] = useState<CompanyProfile[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchCompanies = async () => {
+      try {
+        const response = await api.get<CompanyProfile[]>("/companies/public");
+        setCompanies(response.data);
+      } catch (error) {
+        console.error("Failed to fetch public companies:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCompanies();
+  }, []);
 
   const industries = useMemo(
-    () => Array.from(new Set(mockCompanies.map((c) => c.industry))),
-    [],
+    () => Array.from(new Set(companies.map((c) => c.industry).filter(Boolean))),
+    [companies],
   );
   const locations = useMemo(
-    () => Array.from(new Set(mockCompanies.map((c) => c.location))),
-    [],
+    () => Array.from(new Set(companies.map((c) => c.location).filter(Boolean))),
+    [companies],
   );
 
   const filteredCompanies = useMemo(() => {
-    return mockCompanies.filter((c) => {
-      const matchesSearch = c.name
-        .toLowerCase()
-        .includes(search.trim().toLowerCase());
+    return companies.filter((c) => {
+      const nameMatch = c.name ? c.name.toLowerCase().includes(search.trim().toLowerCase()) : false;
+      const matchesSearch = search.trim() === "" || nameMatch;
       const matchesIndustry = industry === "all" || c.industry === industry;
       const matchesLocation = location === "all" || c.location === location;
       return matchesSearch && matchesIndustry && matchesLocation;
     });
-  }, [search, industry, location]);
+  }, [search, industry, location, companies]);
 
   const hasActiveFilters =
     search.trim() !== "" || industry !== "all" || location !== "all";
@@ -64,7 +90,7 @@ function CompaniesPage() {
             Companies
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            {mockCompanies.length} companies hosting interns this year.
+            {companies.length} verified companies hosting interns this year.
           </Typography>
         </Container>
       </Box>
@@ -162,7 +188,11 @@ function CompaniesPage() {
       </Container>
 
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        {filteredCompanies.length === 0 ? (
+        {loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
+            <CircularProgress />
+          </Box>
+        ) : filteredCompanies.length === 0 ? (
           <Box sx={{ textAlign: "center", py: 8 }}>
             <Typography variant="h6" color="text.secondary">
               No companies match your search.
@@ -171,14 +201,15 @@ function CompaniesPage() {
         ) : (
           <Grid container spacing={2}>
             {filteredCompanies.map((company) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={company.id}>
+              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={company._id || company.userId}>
                 <CompanyCard
-                  id={company.id}
+                  id={company.userId}
                   name={company.name}
                   industry={company.industry}
-                  activeOpportunities={company.activeOpportunities}
+                  activeOpportunities={0}
                   description={company.description}
                   location={company.location}
+                  logoUrl={company.logoUrl}
                 />
               </Grid>
             ))}

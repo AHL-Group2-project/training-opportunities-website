@@ -207,6 +207,7 @@ function Navbar() {
                   sx={{ ml: 0.5 }}
                 >
                   <Avatar
+                    src={user?.avatarUrl}
                     sx={{
                       width: 34,
                       height: 34,
@@ -214,7 +215,7 @@ function Navbar() {
                       fontSize: 14,
                     }}
                   >
-                    {initials}
+                    {!user?.avatarUrl && initials}
                   </Avatar>
                 </IconButton>
               </Tooltip>
