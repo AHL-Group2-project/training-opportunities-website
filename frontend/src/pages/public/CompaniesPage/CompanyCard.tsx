@@ -12,10 +12,10 @@ import CardActionArea from "@mui/material/CardActionArea";
 import { Link } from "react-router-dom";
 
 interface CompanyCardProps {
-  id: number;
+  id: string;
   name: string;
   industry: string;
-  logo?: string;
+  logoUrl?: string;
   activeOpportunities: number;
   description: string;
   location: string;
@@ -43,7 +43,7 @@ function CompanyCard({
   id,
   name,
   industry,
-  logo,
+  logoUrl,
   activeOpportunities,
   description,
   location,
@@ -53,16 +53,19 @@ function CompanyCard({
   return (
     <Card
       sx={{
-        p: 2,
-        borderRadius: 4,
-        boxShadow: 4,
-        height: 280,
+        borderRadius: 3,
+        bgcolor: "background.paper",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+        border: "1px solid",
+        borderColor: "divider",
+        height: 260,
         display: "flex",
         flexDirection: "column",
-        transition: "transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out",
+        transition: "all 0.2s ease-in-out",
         "&:hover": {
-          transform: "translateY(-6px)",
-          boxShadow: 10,
+          transform: "translateY(-4px)",
+          boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
+          borderColor: "primary.main",
         },
       }}
     >
@@ -77,30 +80,37 @@ function CompanyCard({
         }}
       >
         <CardContent
-          sx={{ display: "flex", flexDirection: "column", height: "100%" }}
+          sx={{ display: "flex", flexDirection: "column", height: "100%", p: 3 }}
         >
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 1.5 }}>
-            {logo ? (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+            {logoUrl ? (
               <Box
                 component="img"
-                src={logo}
+                src={logoUrl}
                 alt={name}
-                sx={{ width: 48, height: 48, borderRadius: "50%" }}
+                sx={{ width: 56, height: 56, borderRadius: 2, objectFit: "contain", border: "1px solid", borderColor: "divider" }}
               />
             ) : (
               <Avatar
+                variant="rounded"
                 sx={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: 2,
                   bgcolor: stringToBackgroundColor(name),
                   color: stringToColor(name),
                   fontWeight: "bold",
+                  fontSize: "1.25rem",
                 }}
               >
                 {initials}
               </Avatar>
             )}
             <Box>
-              <Typography variant="h6">{name}</Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="h6" sx={{ fontWeight: 600, lineHeight: 1.2, mb: 0.5 }}>
+                {name}
+              </Typography>
+              <Typography variant="body2" color="primary.main" sx={{ fontWeight: 500 }}>
                 {industry}
               </Typography>
             </Box>
@@ -110,37 +120,27 @@ function CompanyCard({
             variant="body2"
             color="text.secondary"
             sx={{
-              mb: 1.5,
+              mb: 2,
               display: "-webkit-box",
               WebkitLineClamp: 3,
               WebkitBoxOrient: "vertical",
               overflow: "hidden",
+              lineHeight: 1.6,
             }}
           >
-            {description}
+            {description || "No description provided."}
           </Typography>
 
-          <Box sx={{ mt: "auto" }}>
+          <Box sx={{ mt: "auto", display: "flex", justifyContent: "flex-start" }}>
             <Stack
               direction="row"
-              sx={{ alignItems: "center", justifyContent: "space-between" }}
+              spacing={0.5}
+              sx={{ alignItems: "center", color: "text.secondary" }}
             >
-              <Stack
-                direction="row"
-                spacing={0.5}
-                sx={{ alignItems: "center" }}
-              >
-                <LocationOnOutlinedIcon fontSize="small" color="action" />
-                <Typography variant="body2">{location}</Typography>
-              </Stack>
-              <Stack
-                direction="row"
-                spacing={0.5}
-                sx={{ alignItems: "center" }}
-              >
-                <WorkOutlinedIcon fontSize="small" color="action" />
-                <Typography variant="body2">{activeOpportunities}</Typography>
-              </Stack>
+              <LocationOnOutlinedIcon fontSize="small" />
+              <Typography variant="caption" sx={{ fontWeight: 500 }}>
+                {location || "Location not specified"}
+              </Typography>
             </Stack>
           </Box>
         </CardContent>

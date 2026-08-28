@@ -1,4 +1,5 @@
 import CompanyProfile from "../models/CompanyProfile.js";
+import InternshipRequest from "../models/InternshipRequest.js";
 
 const COMPANY_EDITABLE_FIELDS = [
   "name",
@@ -42,6 +43,53 @@ export const updateMyProfile = async (req, res, next) => {
     if (!profile)
       return res.status(404).json({ message: "Company profile not found" });
     res.json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET /api/companies/public
+export const getPublicCompanies = async (req, res, next) => {
+  try {
+    // Return verified and active companies
+    const companies = await CompanyProfile.find({ isActive: true, verified: true })
+      .select("-__v") // Exclude internal fields if needed
+      .sort({ name: 1 });
+    res.json(companies);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET /api/companies/public/:id
+export const getPublicCompanyById = async (req, res, next) => {
+  try {
+    const company = await CompanyProfile.findOne({ userId: req.params.id, isActive: true, verified: true }).select("-__v").lean();
+    if (!company) {
+      return res.status(404).json({ message: "Company not found" });
+    }
+
+    const pastInternsRequests = await InternshipRequest.find({ companyId: req.params.id, status: "approved" }).populate("studentId");
+    
+    const uniqueStudents = [];
+    const studentIds = new Set();
+    
+    for (const request of pastInternsRequests) {
+      if (request.studentId && !studentIds.has(request.studentId._id.toString())) {
+        studentIds.add(request.studentId._id.toString());
+        uniqueStudents.push({
+          name: request.studentId.name,
+          major: request.studentId.major,
+          university: request.studentId.university,
+          avatarUrl: request.studentId.avatarUrl,
+          userId: request.studentId.userId,
+        });
+      }
+    }
+    
+    company.pastInterns = uniqueStudents;
+
+    res.json(company);
   } catch (error) {
     next(error);
   }

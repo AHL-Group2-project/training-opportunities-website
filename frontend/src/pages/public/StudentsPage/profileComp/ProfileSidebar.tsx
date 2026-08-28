@@ -2,73 +2,104 @@ import {
   Avatar,
   Box,
   Button,
-  Card,
   Divider,
   Stack,
   Typography,
 } from "@mui/material";
 
-import type { Student } from "../../types/student.types";
+import type { StudentProfile } from "../StudentsPage";
 type Props = {
-  student: Student;
+  student: StudentProfile;
 };
 
 export default function ProfileSidebar({ student }: Props) {
+  const initials = student.name?.slice(0, 2).toUpperCase() || "ST";
+
   return (
-    <Card
+    <Box
       sx={{
-        p: 3,
-        borderRadius: 3,
+        p: { xs: 3, md: 0 },
+        position: { md: "sticky" },
+        top: { md: 24 },
       }}
     >
       <Stack
-        spacing={2}
+        spacing={3}
         sx={{
           alignItems: "center",
         }}
       >
         <Avatar
+          src={student.avatarUrl || undefined}
           sx={{
-            width: 90,
-            height: 90,
-            bgcolor: "primary.main",
-            fontSize: 34,
+            width: 120,
+            height: 120,
+            bgcolor: "background.paper",
+            color: "primary.main",
+            fontSize: 40,
             fontWeight: 700,
+            boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+            border: "4px solid",
+            borderColor: "background.paper",
           }}
         >
-          {student.initials}
+          {!student.avatarUrl && initials}
         </Avatar>
 
         <Box
           sx={{
             textAlign: "center",
+            width: "100%",
           }}
         >
-          <Typography variant="h5">{student.name}</Typography>
+          <Typography variant="h4" sx={{ fontWeight: 700, mb: 0.5 }}>{student.name}</Typography>
 
-          <Typography sx={{ color: "text.secondary" }}>
+          <Typography variant="h6" color="primary.main" sx={{ fontWeight: 500, mb: 0.5 }}>
             {student.major}
           </Typography>
 
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            {student.year}
+          <Typography variant="body1" sx={{ color: "text.secondary" }}>
+            {student.university}
           </Typography>
         </Box>
 
-        <Button fullWidth variant="contained">
+        <Button 
+          fullWidth 
+          variant="contained" 
+          disabled 
+          sx={{ 
+            borderRadius: 2, 
+            py: 1.2, 
+            textTransform: "none", 
+            fontWeight: 600,
+            boxShadow: "none" 
+          }}
+        >
           Download Resume
         </Button>
 
-        <Divider flexItem />
+        <Divider flexItem sx={{ my: 1 }} />
 
-        <Typography sx={{ color: "text.secondary" }}>
-          {student.location}
-        </Typography>
+        <Box sx={{ width: "100%", display: "flex", flexDirection: "column", gap: 1.5 }}>
+          {student.contactEmail && (
+            <Box>
+              <Typography variant="caption" color="text.disabled" sx={{ textTransform: "uppercase", letterSpacing: 1, fontWeight: 600 }}>Email</Typography>
+              <Typography sx={{ color: "text.primary", fontWeight: 500 }}>
+                {student.contactEmail}
+              </Typography>
+            </Box>
+          )}
 
-        <Typography sx={{ color: "text.secondary" }}>
-          {student.availableFor}
-        </Typography>
+          {student.phone && (
+            <Box>
+              <Typography variant="caption" color="text.disabled" sx={{ textTransform: "uppercase", letterSpacing: 1, fontWeight: 600 }}>Phone</Typography>
+              <Typography sx={{ color: "text.primary", fontWeight: 500 }}>
+                {student.phone}
+              </Typography>
+            </Box>
+          )}
+        </Box>
       </Stack>
-    </Card>
+    </Box>
   );
 }
