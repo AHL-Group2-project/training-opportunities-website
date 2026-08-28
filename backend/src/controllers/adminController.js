@@ -386,3 +386,61 @@ export const assignSupervisorToStudent = async (req, res, next) => {
     next(error);
   }
 };
+
+
+export const getMyAdminProfile = async (req, res, next) => {
+  try {
+    const profile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Admin profile not found" });
+    res.json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateMyAdminProfile = async (req, res, next) => {
+  try {
+    const { name } = req.body;
+    const profile = await AdminProfile.findOneAndUpdate(
+      { userId: req.user._id },
+      { name },
+      { new: true }
+    );
+    if (!profile) return res.status(404).json({ message: "Admin profile not found" });
+    res.json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+import cloudinary from "../config/cloudinary.js";
+
+export const uploadAdminAvatar = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No image provided" });
+    }
+
+    const profile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!profile) {
+      await cloudinary.uploader.destroy(req.file.filename);
+      return res.status(404).json({ message: "Admin profile not found" });
+    }
+
+    if (profile.avatarCloudinaryId) {
+      await cloudinary.uploader.destroy(profile.avatarCloudinaryId);
+    }
+
+    profile.avatarUrl = req.file.path;
+    profile.avatarCloudinaryId = req.file.filename;
+    await profile.save();
+
+    res.json({
+      message: "Avatar uploaded successfully",
+      avatarUrl: profile.avatarUrl,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+

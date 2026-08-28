@@ -33,14 +33,14 @@ export const loginUser = async (req, res, next) => {
         if (profile) {
           profileId = profile._id;
           name = profile.name;
-          avatarUrl = profile.avatarUrl;
+          avatarUrl = profile.avatarUrl || profile.avatar;
         }
       } else if (user.role === "supervisor") {
         const profile = await SupervisorProfile.findOne({ userId: user._id });
         if (profile) {
           profileId = profile._id;
           name = profile.name;
-          avatarUrl = profile.avatarUrl;
+          avatarUrl = profile.avatarUrl || profile.avatar;
         }
       } else if (user.role === "company") {
         const profile = await CompanyProfile.findOne({ userId: user._id });
@@ -55,6 +55,7 @@ export const loginUser = async (req, res, next) => {
         if (profile) {
           profileId = profile._id;
           name = profile.name;
+          avatarUrl = profile.avatarUrl || profile.avatar;
         }
       }
 

@@ -12,7 +12,11 @@ import {
   toggleCompanyStatus,
   updateStudent,
   updateSupervisor,
+  getMyAdminProfile,
+  updateMyAdminProfile,
+  uploadAdminAvatar,
 } from "../controllers/adminController.js";
+import { uploadProfileImage } from "../middleware/uploadMiddleware.js";
 
 const router = express.Router();
 
@@ -40,5 +44,10 @@ router.get("/companies", getCompanies);
 
 // Assignment routes
 router.put("/students/:id/assign-supervisor", assignSupervisorToStudent);
+
+// Profile routes
+router.get("/me/profile", getMyAdminProfile);
+router.patch("/me/profile", updateMyAdminProfile);
+router.post("/me/avatar", uploadProfileImage.single("avatar"), uploadAdminAvatar);
 
 export default router;
