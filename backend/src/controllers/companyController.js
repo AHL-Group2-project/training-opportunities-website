@@ -94,3 +94,35 @@ export const getPublicCompanyById = async (req, res, next) => {
     next(error);
   }
 };
+
+import cloudinary from "../config/cloudinary.js";
+
+// POST /api/companies/me/logo
+export const uploadCompanyLogo = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No image provided" });
+    }
+
+    const profile = await CompanyProfile.findOne({ userId: req.user._id });
+    if (!profile) {
+      await cloudinary.uploader.destroy(req.file.filename);
+      return res.status(404).json({ message: "Company profile not found" });
+    }
+
+    if (profile.logoCloudinaryId) {
+      await cloudinary.uploader.destroy(profile.logoCloudinaryId);
+    }
+
+    profile.logoUrl = req.file.path;
+    profile.logoCloudinaryId = req.file.filename;
+    await profile.save();
+
+    res.json({
+      message: "Logo uploaded successfully",
+      logoUrl: profile.logoUrl,
+    });
+  } catch (error) {
+    next(error);
+  }
+};

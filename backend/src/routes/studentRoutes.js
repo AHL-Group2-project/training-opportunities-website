@@ -1,6 +1,7 @@
 import express from "express";
-import { getMyProfile, updateMyProfile, submitTrainingRequest, getPublicStudents, getPublicStudentById } from "../controllers/studentController.js";
+import { getMyProfile, updateMyProfile, submitTrainingRequest, getPublicStudents, getPublicStudentById, uploadStudentAvatar, uploadStudentDocument } from "../controllers/studentController.js";
 import { protect, authorize } from "../middleware/authMiddleware.js";
+import { uploadProfileImage, uploadDocument } from "../middleware/uploadMiddleware.js";
 
 const router = express.Router();
 
@@ -14,5 +15,9 @@ router.use(authorize("student"));
 router.get("/me/profile", getMyProfile);
 router.patch("/me/profile", updateMyProfile);
 router.post("/requests", submitTrainingRequest);
+
+// Upload routes
+router.post("/me/avatar", uploadProfileImage.single("avatar"), uploadStudentAvatar);
+router.post("/me/document", uploadDocument.single("document"), uploadStudentDocument);
 
 export default router;

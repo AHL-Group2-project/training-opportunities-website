@@ -219,11 +219,13 @@ export const createCompany = async (req, res, next) => {
     const companyProfile = await CompanyProfile.create({
       userId: user._id,
       name,
-      industry,
-      location,
-      website,
-      description,
-      phone,
+      contactEmail: email,
+      industry: industry || "Technology",
+      location: location || "",
+      website: website || "",
+      description: description || "",
+      phone: phone || "",
+      verified: true, // Automatically verify companies added by admin
     });
 
     res.status(201).json({

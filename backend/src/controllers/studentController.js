@@ -147,3 +147,70 @@ export const getPublicStudentById = async (req, res, next) => {
     next(error);
   }
 };
+
+import cloudinary from "../config/cloudinary.js";
+
+// POST /api/student/me/avatar
+export const uploadStudentAvatar = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No image provided" });
+    }
+
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!profile) {
+      // If profile doesn't exist, remove the uploaded file from Cloudinary to avoid orphans
+      await cloudinary.uploader.destroy(req.file.filename);
+      return res.status(404).json({ message: "Student profile not found" });
+    }
+
+    // Delete old avatar from Cloudinary if it exists
+    if (profile.avatarCloudinaryId) {
+      await cloudinary.uploader.destroy(profile.avatarCloudinaryId);
+    }
+
+    profile.avatarUrl = req.file.path; // Cloudinary secure URL
+    profile.avatarCloudinaryId = req.file.filename; // Cloudinary public ID
+    await profile.save();
+
+    res.json({
+      message: "Avatar uploaded successfully",
+      avatarUrl: profile.avatarUrl,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// POST /api/student/me/document
+export const uploadStudentDocument = async (req, res, next) => {
+  console.log("=== UPLOAD DOCUMENT REQUEST ===");
+  console.log("req.file:", req.file);
+  console.log("req.body:", req.body);
+  try {
+    if (!req.file) {
+      console.log("No document provided error");
+      return res.status(400).json({ message: "No document provided" });
+    }
+
+    // For CVs or other documents
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!profile) {
+      await cloudinary.uploader.destroy(req.file.filename);
+      return res.status(404).json({ message: "Student profile not found" });
+    }
+
+    // Optionally handle deleting old CV if you added a cvCloudinaryId
+    // For now, just set the cvUrl
+    profile.cvUrl = req.file.path;
+    await profile.save();
+
+    res.json({
+      message: "Document uploaded successfully",
+      cvUrl: profile.cvUrl,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+

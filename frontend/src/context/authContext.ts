@@ -12,12 +12,14 @@ export interface AuthUser {
   mustChangePassword: boolean;
   companyId?: string;
   university?: string;
+  avatarUrl?: string;
 }
 
 export interface AuthContextType {
   user: AuthUser | null;
   login: (user: AuthUser) => void;
   logout: () => void;
+  updateUser: (user: AuthUser) => void;
   isAuthenticated: boolean;
 }
 

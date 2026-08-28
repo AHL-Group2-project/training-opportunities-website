@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import api from "../../../lib/axios";
 import SaveIcon from "@mui/icons-material/Save";
+import { useAuth } from "../../../context/authContext";
 
 interface CompanyProfile {
   _id: string;
@@ -40,6 +41,7 @@ function CompanyProfilePage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const { user, updateUser } = useAuth();
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -63,6 +65,10 @@ function CompanyProfilePage() {
         setEmail(data.contactEmail || "");
         setPhone(data.phone || "");
         setLinkedIn(data.linkedIn || "");
+        
+        if (user && data.logoUrl && user.avatarUrl !== data.logoUrl) {
+          updateUser({ ...user, avatarUrl: data.logoUrl });
+        }
       } catch (err) {
         console.error("Failed to fetch company profile", err);
         setError("Failed to load company profile. Please refresh the page.");
@@ -143,10 +149,44 @@ function CompanyProfilePage() {
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
-              <Avatar
-                src={company?.logoUrl || undefined}
-                sx={{ width: 80, height: 80 }}
-              />
+              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 1 }}>
+                <Avatar
+                  src={company?.logoUrl || undefined}
+                  sx={{ width: 80, height: 80 }}
+                />
+                <Button variant="outlined" size="small" component="label">
+                  Upload Logo
+                  <input
+                    type="file"
+                    hidden
+                    accept="image/*"
+                    onChange={async (e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        try {
+                          setSaving(true);
+                          const formData = new FormData();
+                          formData.append("logo", e.target.files[0]);
+                          const res = await api.post("/companies/me/logo", formData, {
+                            headers: {
+                              "Content-Type": "multipart/form-data"
+                            }
+                          });
+                          setCompany((prev) => prev ? { ...prev, logoUrl: res.data.logoUrl } : null);
+                          if (user) {
+                            updateUser({ ...user, avatarUrl: res.data.logoUrl });
+                          }
+                          setSuccess(true);
+                        } catch (err) {
+                          console.error("Failed to upload logo", err);
+                          setError("Failed to upload logo.");
+                        } finally {
+                          setSaving(false);
+                        }
+                      }
+                    }}
+                  />
+                </Button>
+              </Box>
               <Box sx={{ flex: 1 }}>
                 <Typography variant="h6" sx={{ fontWeight: 700 }}>
                   {company?.name}

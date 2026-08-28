@@ -66,7 +66,10 @@ export default function ProfileSidebar({ student }: Props) {
         <Button 
           fullWidth 
           variant="contained" 
-          disabled 
+          disabled={!student.cvUrl}
+          href={student.cvUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           sx={{ 
             borderRadius: 2, 
             py: 1.2, 

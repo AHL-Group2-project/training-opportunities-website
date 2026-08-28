@@ -44,6 +44,10 @@ const studentProfileSchema = new mongoose.Schema(
       type: String,
       default: null,
     },
+    avatarCloudinaryId: {
+      type: String,
+      default: null,
+    },
     contactEmail: {
       type: String,
     },

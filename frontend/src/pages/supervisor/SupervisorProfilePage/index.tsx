@@ -25,6 +25,8 @@ interface SupervisorProfileData {
   avatarUrl: string | null;
 }
 
+import { useAuth } from "../../../context/authContext";
+
 const EMPTY_PROFILE: SupervisorProfileData = {
   name: "",
   university: "",
@@ -35,6 +37,7 @@ const EMPTY_PROFILE: SupervisorProfileData = {
 };
 
 export default function SupervisorProfilePage() {
+  const { user, updateUser } = useAuth();
   const [isEditMode, setIsEditMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -120,24 +123,44 @@ export default function SupervisorProfilePage() {
 
         <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 2, boxShadow: 3 }}>
           <Stack
-            direction={{ xs: "column", md: "row" } as const}
+            direction={{ xs: "column", md: "row" }}
             spacing={3}
-            justifyContent="space-between"
-            alignItems={{ xs: "center", md: "flex-start" }}
-            mb={4}
+            sx={{
+              justifyContent: "space-between",
+              alignItems: { xs: "center", md: "flex-start" },
+              mb: 4,
+            }}
           >
             <Stack
-              direction={{ xs: "column", md: "row" } as const}
+              direction={{ xs: "column", md: "row" }}
               spacing={3}
-              alignItems="center"
+              sx={{ alignItems: "center" }}
             >
               {isEditMode ? (
                 <AvatarUpload
                   src={profileData.avatarUrl ?? ""}
                   size={120}
-                  onFileSelect={(file) =>
-                    handleChange("avatarUrl", URL.createObjectURL(file))
-                  }
+                  onFileSelect={async (file) => {
+                    try {
+                      setIsSaving(true);
+                      const formData = new FormData();
+                      formData.append("avatar", file);
+                      const res = await api.post("/supervisors/me/avatar", formData, {
+                        headers: {
+                          "Content-Type": undefined
+                        }
+                      });
+                      handleChange("avatarUrl", res.data.avatarUrl);
+                      if (user) {
+                        updateUser({ ...user, avatarUrl: res.data.avatarUrl });
+                      }
+                    } catch (err) {
+                      console.error("Failed to upload avatar:", err);
+                      setError("Failed to upload avatar. Please try again.");
+                    } finally {
+                      setIsSaving(false);
+                    }
+                  }}
                 />
               ) : (
                 <Box
@@ -156,18 +179,15 @@ export default function SupervisorProfilePage() {
                   }}
                 />
               )}
-              <Box textAlign={{ xs: "center", md: "left" }}>
-                <Typography variant="h4" fontWeight="800">
+              <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+                <Typography variant="h4" sx={{ fontWeight: "800" }}>
                   {profileData.name}
                 </Typography>
                 <Typography
-                  variant="subtitle1"
-                  color="primary.main"
-                  fontWeight="600"
-                >
+                  variant="subtitle1" sx={{ color: "primary.main", fontWeight: "600" }}>
                   {profileData.department}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" mt={1}>
+                <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
                   Guiding students towards their full potential.
                 </Typography>
               </Box>
@@ -196,7 +216,7 @@ export default function SupervisorProfilePage() {
 
           <Divider sx={{ mb: 4 }} />
 
-          <Typography variant="h6" fontWeight="bold" mb={3}>
+          <Typography variant="h6" sx={{ fontWeight: "bold", mb: 3 }}>
             Personal Information
           </Typography>
 

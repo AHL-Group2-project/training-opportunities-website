@@ -14,6 +14,7 @@ const companyProfileSchema = new mongoose.Schema(
     website: { type: String, default: "" },
     linkedIn: { type: String, default: "" },
     logoUrl: { type: String, default: null },
+    logoCloudinaryId: { type: String, default: null },
     description: { type: String, default: "" },
     contactEmail: { type: String },
     phone: { type: String },

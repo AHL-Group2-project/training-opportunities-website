@@ -17,6 +17,7 @@ export interface StudentProfile {
   phone?: string;
   skills?: string[];
   avatarUrl?: string;
+  cvUrl?: string;
   social?: {
     linkedin?: string;
     github?: string;

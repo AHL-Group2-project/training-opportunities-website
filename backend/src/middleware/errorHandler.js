@@ -1,4 +1,7 @@
 const errorHandler = (err, req, res, next) => {
+  console.error("ErrorHandler caught:", err);
+  const fs = require("fs");
+  fs.appendFileSync("error_log.txt", err.stack + "\n");
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
   res.status(statusCode).json({
