@@ -1,5 +1,9 @@
 import Opportunity from "../models/Opportunity.js";
 import CompanyProfile from "../models/CompanyProfile.js";
+import Application from "../models/Application.js";
+
+const getApplicantCount = (opportunityId) =>
+  Application.countDocuments({ opportunityId });
 
 const escapeRegex = (value = "") => {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -40,27 +44,28 @@ export const getOpportunities = async (req, res, next) => {
       .populate("companyId", "name logo industry location")
       .sort({ createdAt: -1 });
 
-    const result = opportunities.map((opportunity) => {
-      const opportunityObject = opportunity.toObject();
+    const result = await Promise.all(
+      opportunities.map(async (opportunity) => {
+        const opportunityObject = opportunity.toObject();
 
-      const daysLeft = Math.max(
-        0,
-        Math.ceil(
-          (new Date(opportunity.deadline).getTime() - Date.now()) /
-          (1000 * 60 * 60 * 24)
-        )
-      );
+        const daysLeft = Math.max(
+          0,
+          Math.ceil(
+            (new Date(opportunity.deadline).getTime() - Date.now()) /
+              (1000 * 60 * 60 * 24)
+          )
+        );
 
-      return {
-        ...opportunityObject,
-        id: opportunity._id,
-        company: opportunity.companyId?.name,
-        logo: opportunity.companyId?.logo,
-        daysLeft,
-        applicants: 0,
-      };
-    });
-
+        return {
+          ...opportunityObject,
+          id: opportunity._id,
+          company: opportunity.companyId?.name,
+          logo: opportunity.companyId?.logo,
+          daysLeft,
+          applicants: await getApplicantCount(opportunity._id),
+        };
+      })
+    );
     res.json(result);
   } catch (error) {
     next(error);
@@ -165,7 +170,7 @@ export const createOpportunity = async (req, res, next) => {
       company: opportunity.companyId?.name,
       logo: opportunity.companyId?.logo,
       daysLeft,
-      applicants: 0,
+      applicants: await getApplicantCount(opportunity._id),
     });
   } catch (error) {
     if (error.name === "ValidationError" || error.name === "CastError") {
@@ -194,30 +199,31 @@ export const getCompanyOpportunities = async (req, res, next) => {
       .populate("companyId", "name logo industry location")
       .sort({ createdAt: -1 });
 
-    const result = opportunities.map((opportunity) => {
-      const opportunityObject = opportunity.toObject();
+    const result = await Promise.all(
+      opportunities.map(async (opportunity) => {
+        const opportunityObject = opportunity.toObject();
 
-      const deadlineTime = opportunity.deadline
-        ? new Date(opportunity.deadline).getTime()
-        : Number.NaN;
+        const deadlineTime = opportunity.deadline
+          ? new Date(opportunity.deadline).getTime()
+          : Number.NaN;
 
-      const daysLeft = Number.isNaN(deadlineTime)
-        ? null
-        : Math.max(
-          0,
-          Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
-        );
+        const daysLeft = Number.isNaN(deadlineTime)
+          ? null
+          : Math.max(
+              0,
+              Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
+            );
 
-      return {
-        ...opportunityObject,
-        id: opportunity._id,
-        company: opportunity.companyId?.name,
-        logo: opportunity.companyId?.logo,
-        daysLeft,
-        applicants: 0,
-      };
-    });
-
+        return {
+          ...opportunityObject,
+          id: opportunity._id,
+          company: opportunity.companyId?.name,
+          logo: opportunity.companyId?.logo,
+          daysLeft,
+          applicants: await getApplicantCount(opportunity._id),
+        };
+      })
+    );
     res.json(result);
   } catch (error) {
     next(error);
@@ -246,9 +252,9 @@ export const getOpportunityById = async (req, res, next) => {
     const daysLeft = Number.isNaN(deadlineTime)
       ? null
       : Math.max(
-        0,
-        Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
-      );
+          0,
+          Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
+        );
 
     res.json({
       ...opportunityObject,
@@ -256,7 +262,7 @@ export const getOpportunityById = async (req, res, next) => {
       company: opportunity.companyId?.name,
       logo: opportunity.companyId?.logo,
       daysLeft,
-      applicants: 0,
+      applicants: await getApplicantCount(opportunity._id),
     });
   } catch (error) {
     if (error.name === "CastError") {
@@ -283,10 +289,7 @@ export const getCompanyOpportunityById = async (req, res, next) => {
     const opportunity = await Opportunity.findOne({
       _id: req.params.id,
       companyId: company._id,
-    }).populate(
-      "companyId",
-      "name logo industry location description website",
-    );
+    }).populate("companyId", "name logo industry location description website");
 
     if (!opportunity) {
       return res.status(404).json({
@@ -303,11 +306,9 @@ export const getCompanyOpportunityById = async (req, res, next) => {
     const daysLeft = Number.isNaN(deadlineTime)
       ? null
       : Math.max(
-        0,
-        Math.ceil(
-          (deadlineTime - Date.now()) / (1000 * 60 * 60 * 24),
-        ),
-      );
+          0,
+          Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
+        );
 
     res.json({
       ...opportunityObject,
@@ -315,7 +316,7 @@ export const getCompanyOpportunityById = async (req, res, next) => {
       company: opportunity.companyId?.name,
       logo: opportunity.companyId?.logo,
       daysLeft,
-      applicants: 0,
+      applicants: await getApplicantCount(opportunity._id),
     });
   } catch (error) {
     if (error.name === "CastError") {
@@ -427,9 +428,9 @@ export const updateOpportunity = async (req, res, next) => {
     const daysLeft = Number.isNaN(deadlineTime)
       ? null
       : Math.max(
-        0,
-        Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
-      );
+          0,
+          Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
+        );
 
     res.json({
       ...opportunityObject,
@@ -437,7 +438,7 @@ export const updateOpportunity = async (req, res, next) => {
       company: opportunity.companyId?.name,
       logo: opportunity.companyId?.logo,
       daysLeft,
-      applicants: 0,
+      applicants: await getApplicantCount(opportunity._id),
     });
   } catch (error) {
     if (error.name === "ValidationError" || error.name === "CastError") {
@@ -514,13 +515,11 @@ export const restoreOpportunity = async (req, res, next) => {
       });
 
       isAllowed =
-        company &&
-        opportunity.companyId.toString() === company._id.toString();
+        company && opportunity.companyId.toString() === company._id.toString();
     }
 
     if (req.user.role === "supervisor") {
-      isAllowed =
-        opportunity.createdBy?.toString() === req.user._id.toString();
+      isAllowed = opportunity.createdBy?.toString() === req.user._id.toString();
     }
 
     if (!isAllowed) {

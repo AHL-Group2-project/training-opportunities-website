@@ -10,6 +10,7 @@ interface ApplicationPanelProps {
   isDeadlinePassed: boolean;
   isSeatsFilled: boolean;
   isAuthenticated: boolean;
+  isStudent: boolean;
   onApply: () => void;
 }
 
@@ -19,10 +20,12 @@ function ApplicationPanel({
   isDeadlinePassed,
   isSeatsFilled,
   isAuthenticated,
+  isStudent,
   onApply,
 }: ApplicationPanelProps) {
   const getButtonText = () => {
     if (!isAuthenticated) return "Login to Apply";
+    if (!isStudent) return "Students Only";
     if (hasApplied) return "Already Applied";
     if (isDeadlinePassed) return "Deadline Passed";
     if (isSeatsFilled) return "Seats Filled";
@@ -30,7 +33,8 @@ function ApplicationPanel({
   };
 
   const isDisabled =
-    !isAuthenticated || hasApplied || isDeadlinePassed || isSeatsFilled;
+    isAuthenticated &&
+    (!isStudent || hasApplied || isDeadlinePassed || isSeatsFilled);
 
   return (
     <Box
@@ -58,6 +62,7 @@ function ApplicationPanel({
             {opportunity.type}
           </Typography>
         </Box>
+
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <LocationOnOutlinedIcon
             sx={{ color: "text.secondary", fontSize: 20 }}
@@ -66,12 +71,15 @@ function ApplicationPanel({
             {opportunity.location}
           </Typography>
         </Box>
+
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <CalendarTodayOutlinedIcon
             sx={{ color: "text.secondary", fontSize: 20 }}
           />
           <Typography variant="body2" color="text.secondary">
-            {opportunity.daysLeft} days left
+            {opportunity.daysLeft == null
+              ? "No deadline"
+              : `${opportunity.daysLeft} days left`}
           </Typography>
         </Box>
       </Box>
@@ -90,7 +98,7 @@ function ApplicationPanel({
         {getButtonText()}
       </Button>
 
-      {opportunity.seats && (
+      {Boolean(opportunity.seats) && (
         <Typography
           variant="caption"
           color="text.secondary"

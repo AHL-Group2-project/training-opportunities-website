@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { MOCK_APPLICATIONS } from "../../../mock/applications";
 import { useAuth } from "../../../context/authContext";
 import api from "../../../lib/axios";
 import type { Opportunity } from "../../../types/opportunity.types";
@@ -11,103 +10,165 @@ import OpportunityContent from "./OpportunityContent";
 import ApplicationPanel from "./ApplicationPanel";
 import CompanyCard from "./CompanyCard";
 
+interface StudentApplication {
+  opportunityId: string | null;
+}
+
 function OpportunityDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
 
+  const isStudent = isAuthenticated && user?.role === "student";
+
   const [opportunity, setOpportunity] = useState<Opportunity | null>(null);
+  const [hasApplied, setHasApplied] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [retryKey, setRetryKey] = useState(0);
+  const [loadedKey, setLoadedKey] = useState("");
+
+  const requestKey = JSON.stringify([
+    id,
+    isAuthenticated,
+    user?.id,
+    user?.role,
+    retryKey,
+  ]);
 
   useEffect(() => {
     let isMounted = true;
 
     const loadOpportunity = async () => {
+      setLoading(true);
+      setError("");
+      setHasApplied(false);
+      setOpportunity(null);
+
       if (!id) {
         setError("Opportunity not found");
+        setLoadedKey(requestKey);
         setLoading(false);
         return;
       }
 
-      try {
-        setLoading(true);
-        setError("");
+      let checkingApplications = false;
 
+      try {
         const response = await api.get<Opportunity>(`/opportunities/${id}`);
+
+        let alreadyApplied = false;
+
+        if (isStudent) {
+          checkingApplications = true;
+
+          const applicationsResponse =
+            await api.get<StudentApplication[]>("/applications/me");
+
+          alreadyApplied = applicationsResponse.data.some(
+            (application) =>
+              application.opportunityId !== null &&
+              String(application.opportunityId) === String(response.data.id),
+          );
+        }
 
         if (isMounted) {
           setOpportunity(response.data);
+          setHasApplied(alreadyApplied);
         }
       } catch (requestError) {
-        if (isMounted) {
-          if (
-            axios.isAxiosError(requestError) &&
-            requestError.response?.status === 404
-          ) {
-            setError("Opportunity not found");
-          } else {
-            setError("Unable to load opportunity. Please try again.");
-          }
+        if (!isMounted) return;
+
+        if (checkingApplications) {
+          setError(
+            "Unable to check whether you already applied. Please try again.",
+          );
+        } else if (
+          axios.isAxiosError(requestError) &&
+          requestError.response?.status === 404
+        ) {
+          setError("Opportunity not found");
+        } else {
+          setError("Unable to load opportunity. Please try again.");
         }
       } finally {
         if (isMounted) {
+          setLoadedKey(requestKey);
           setLoading(false);
         }
       }
     };
 
-    loadOpportunity();
+    void loadOpportunity();
 
     return () => {
       isMounted = false;
     };
-  }, [id]);
+  }, [id, isStudent, requestKey]);
 
-  if (loading) {
+  if (loading || loadedKey !== requestKey) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}>
-        <CircularProgress />
+        <CircularProgress aria-label="Loading opportunity and application status" />
       </Box>
     );
   }
 
   if (error || !opportunity) {
     return (
-      <Box sx={{ py: 10, textAlign: "center" }}>
-        <Typography component="h1" variant="h4" sx={{ fontWeight: 700 }}>
+      <Box sx={{ py: 10, px: 2, textAlign: "center" }}>
+        <Typography component="h1" variant="h5" sx={{ fontWeight: 700 }}>
           {error || "Opportunity not found"}
         </Typography>
 
-        <Typography sx={{ mt: 2, color: "text.secondary" }}>
-          The opportunity you are looking for could not be loaded.
-        </Typography>
-
-        <Button
-          component={Link}
-          to="/opportunities"
-          variant="contained"
-          sx={{ mt: 3, textTransform: "none" }}
+        <Box
+          sx={{
+            mt: 3,
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+          }}
         >
-          Back to opportunities
-        </Button>
+          <Button
+            variant="outlined"
+            onClick={() => setRetryKey((current) => current + 1)}
+            sx={{ textTransform: "none" }}
+          >
+            Retry
+          </Button>
+
+          <Button
+            component={Link}
+            to="/opportunities"
+            variant="contained"
+            sx={{ textTransform: "none" }}
+          >
+            Back to opportunities
+          </Button>
+        </Box>
       </Box>
     );
   }
 
-  const hasApplied =
-    isAuthenticated && user
-      ? MOCK_APPLICATIONS.some(
-          (application) =>
-            String(application.studentId) === String(user.id) &&
-            String(application.opportunityId) === String(opportunity.id),
-        )
-      : false;
-
   const isDeadlinePassed =
-    opportunity.daysLeft !== null && opportunity.daysLeft <= 0;
+    opportunity.daysLeft != null && opportunity.daysLeft <= 0;
 
   const isSeatsFilled = opportunity.applicants >= opportunity.seats;
+
+  const handleApply = () => {
+    if (!isAuthenticated) {
+      navigate("/login", {
+        state: { from: `/opportunities/${opportunity.id}/apply` },
+      });
+      return;
+    }
+
+    if (!isStudent || hasApplied || isDeadlinePassed || isSeatsFilled) {
+      return;
+    }
+
+    navigate(`/opportunities/${opportunity.id}/apply`);
+  };
 
   return (
     <Box
@@ -138,7 +199,8 @@ function OpportunityDetailsPage() {
             isDeadlinePassed={isDeadlinePassed}
             isSeatsFilled={isSeatsFilled}
             isAuthenticated={isAuthenticated}
-            onApply={() => navigate(`/opportunities/${opportunity.id}/apply`)}
+            isStudent={isStudent}
+            onApply={handleApply}
           />
 
           <CompanyCard opportunity={opportunity} />
