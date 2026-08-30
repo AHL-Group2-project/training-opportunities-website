@@ -1,35 +1,48 @@
-import { Card, CardContent, Chip, Stack, Typography } from "@mui/material";
+import { Box, Chip, Stack, Typography } from "@mui/material";
 
-import type { Student } from "../../types/student.types";
+import type { StudentProfile } from "../StudentsPage";
 type Props = {
-  student: Student;
+  student: StudentProfile;
 };
 
 export default function SkillsCard({ student }: Props) {
-  return (
-    <Card
-      sx={{
-        borderRadius: 3,
-        mb: 3,
-      }}
-    >
-      <CardContent>
-        <Typography variant="h6" sx={{ mb: 2 }}>
-          Skills
-        </Typography>
+  const skills = student.skills || [];
+  
+  if (skills.length === 0) return null;
 
-        <Stack
-          direction="row"
-          spacing={1}
-          sx={{
-            flexWrap: "wrap",
-          }}
-        >
-          {student.skills.map((skill) => (
-            <Chip key={skill} label={skill} />
-          ))}
-        </Stack>
-      </CardContent>
-    </Card>
+  return (
+    <Box component="section" sx={{ mb: 6 }}>
+      <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
+        Skills
+      </Typography>
+
+      <Stack
+        direction="row"
+        sx={{
+          flexWrap: "wrap",
+          gap: 1.5
+        }}
+      >
+        {skills.map((skill) => (
+          <Chip 
+            key={skill} 
+            label={skill} 
+            variant="outlined"
+            sx={{ 
+              borderRadius: 1.5, 
+              border: "1px solid", 
+              borderColor: "divider",
+              bgcolor: "transparent",
+              color: "text.primary",
+              fontWeight: 500,
+              px: 0.5,
+              "&:hover": {
+                bgcolor: "action.hover",
+              }
+            }} 
+          />
+        ))}
+      </Stack>
+    </Box>
   );
 }

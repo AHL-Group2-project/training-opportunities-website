@@ -1,0 +1,1333 @@
+[
+  {
+    "_id": {
+      "$oid": "9f3d55c19c06b44e02a5bb03"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d4ea8803a1a49cd412496411"
+      }
+    },
+    "title": "Frontend Web Developer Intern",
+    "type": "FT1",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 9,
+    "status": "active",
+    "description": "Jawwal is looking for a motivated Frontend Web Developer Intern to join our growing team.",
+    "skills": [
+      "React",
+      "HTML/CSS",
+      "JavaScript",
+      "Git"
+    ],
+    "responsibilities": [
+      "Build responsive UI components",
+      "Maintain web portals",
+      "Work with UX team"
+    ],
+    "requirements": [
+      "3rd or 4th year CS/CE student",
+      "React fundamentals"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "738d8a278bee42247f754adc"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d4ea8803a1a49cd412496411"
+      }
+    },
+    "title": "Backend Developer Intern (Node.js)",
+    "type": "FT1",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 12,
+    "status": "active",
+    "description": "Jawwal is looking for a motivated Backend Developer Intern (Node.js) to join our growing team.",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "REST APIs"
+    ],
+    "responsibilities": [
+      "Develop REST APIs",
+      "Write database queries"
+    ],
+    "requirements": [
+      "3rd or 4th year student",
+      "Node.js basics"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "800dda4b0885f7e67d1dd183"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d4ea8803a1a49cd412496411"
+      }
+    },
+    "title": "Network Support Intern",
+    "type": "FT2",
+    "department": "Computer Systems Engineering",
+    "field": "Networking",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "3 months",
+    "seats": 8,
+    "status": "active",
+    "description": "Jawwal is looking for a motivated Network Support Intern to join our growing team.",
+    "skills": [
+      "Cisco",
+      "TCP/IP",
+      "Linux",
+      "Troubleshooting"
+    ],
+    "responsibilities": [
+      "Assist network monitoring",
+      "Support infrastructure team"
+    ],
+    "requirements": [
+      "IT/Networking major"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ed76abfe738baa4b7f973914"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "7e58d2f56bce698738c421d2"
+      }
+    },
+    "title": "React Frontend Intern",
+    "type": "FT1",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "location": "Hebron",
+    "duration": "4 months",
+    "seats": 10,
+    "status": "active",
+    "description": "AHL Logics is looking for a motivated React Frontend Intern to join our growing team.",
+    "skills": [
+      "React",
+      "TypeScript",
+      "Redux",
+      "Git"
+    ],
+    "responsibilities": [
+      "Build logistics dashboard UI",
+      "Implement feature designs"
+    ],
+    "requirements": [
+      "3rd/4th year CS student",
+      "React experience"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f5d2b9dad5806641cd7adde3"
+    },
+    "companyId": {
+      "$oid": "72aecb5e19c27b5482715f3e"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "7e58d2f56bce698738c421d2"
+      }
+    },
+    "title": "Python Backend Intern",
+    "type": "FT2",
+    "department": "Computer Engineering",
+    "field": "Backend Development",
+    "workMode": "remote",
+    "location": "Hebron",
+    "duration": "3 months",
+    "seats": 12,
+    "status": "active",
+    "description": "AHL Logics is looking for a motivated Python Backend Intern to join our growing team.",
+    "skills": [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "responsibilities": [
+      "Build API endpoints",
+      "Write data processing scripts"
+    ],
+    "requirements": [
+      "CS or CE student",
+      "Python skills"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a77b6e64c639cfd87400188e"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "0fec3182464fceef4a75a20b"
+      }
+    },
+    "title": "Frontend Engineer Intern (React)",
+    "type": "FT1",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Rawabi",
+    "duration": "3 months",
+    "seats": 12,
+    "status": "active",
+    "description": "ASAL Technologies is looking for a motivated Frontend Engineer Intern (React) to join our growing team.",
+    "skills": [
+      "React",
+      "TypeScript",
+      "Jest",
+      "Figma"
+    ],
+    "responsibilities": [
+      "Implement UI from Figma designs",
+      "Write component unit tests",
+      "Participate in code reviews"
+    ],
+    "requirements": [
+      "4th year CE/CS student",
+      "TypeScript preferred"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "901a161c9b5b8d310b936557"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "0fec3182464fceef4a75a20b"
+      }
+    },
+    "title": "Backend Software Intern (Java)",
+    "type": "FT1",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "location": "Rawabi",
+    "duration": "3 months",
+    "seats": 8,
+    "status": "active",
+    "description": "ASAL Technologies is looking for a motivated Backend Software Intern (Java) to join our growing team.",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "JUnit"
+    ],
+    "responsibilities": [
+      "Develop microservices",
+      "Write integration tests"
+    ],
+    "requirements": [
+      "CS/CE student",
+      "OOP knowledge"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d110b1574d5dfc605932748f"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "0fec3182464fceef4a75a20b"
+      }
+    },
+    "title": "QA Testing Intern",
+    "type": "FT2",
+    "department": "Computer Engineering",
+    "field": "Quality Assurance",
+    "workMode": "hybrid",
+    "location": "Rawabi",
+    "duration": "2 months",
+    "seats": 4,
+    "status": "active",
+    "description": "ASAL Technologies is looking for a motivated QA Testing Intern to join our growing team.",
+    "skills": [
+      "Selenium",
+      "Postman",
+      "JIRA",
+      "Manual Testing"
+    ],
+    "responsibilities": [
+      "Write and execute test cases",
+      "Report bugs in JIRA"
+    ],
+    "requirements": [
+      "Any CS-related major"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "422974f86572c70e26874fa4"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "924b79dbed73b07e0858e56b"
+      }
+    },
+    "title": "Web Developer Intern",
+    "type": "FT1",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "3 months",
+    "seats": 7,
+    "status": "active",
+    "description": "Hadara International Trading Company is looking for a motivated Web Developer Intern to join our growing team.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "responsibilities": [
+      "Update company website",
+      "Assist with client portal UI"
+    ],
+    "requirements": [
+      "2nd year student or above"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c37700fce51d96a5cecdae5f"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "924b79dbed73b07e0858e56b"
+      }
+    },
+    "title": "Systems Engineer Intern",
+    "type": "FT2",
+    "department": "Computer Systems Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "4 months",
+    "seats": 6,
+    "status": "active",
+    "description": "Hadara International Trading Company is looking for a motivated Systems Engineer Intern to join our growing team.",
+    "skills": [
+      "Linux",
+      "Python",
+      "Networking",
+      "Bash"
+    ],
+    "responsibilities": [
+      "Monitor server infrastructure",
+      "Write automation scripts"
+    ],
+    "requirements": [
+      "CE/CS student",
+      "Linux basics"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ae531e9224c8d637531d0362"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "fd04c0c476d27202688d58ac"
+      }
+    },
+    "title": "Frontend Development Trainee",
+    "type": "FT1",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Hebron",
+    "duration": "3 months",
+    "seats": 7,
+    "status": "active",
+    "description": "IzTechValley is looking for a motivated Frontend Development Trainee to join our growing team.",
+    "skills": [
+      "React",
+      "CSS",
+      "JavaScript"
+    ],
+    "responsibilities": [
+      "Build training management interfaces",
+      "Work with senior developers"
+    ],
+    "requirements": [
+      "CS or CE major, any year"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69787f42e1b53654fd213f18"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "fd04c0c476d27202688d58ac"
+      }
+    },
+    "title": "Node.js Backend Trainee",
+    "type": "FT1",
+    "department": "Computer Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "location": "Hebron",
+    "duration": "4 months",
+    "seats": 8,
+    "status": "active",
+    "description": "IzTechValley is looking for a motivated Node.js Backend Trainee to join our growing team.",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB"
+    ],
+    "responsibilities": [
+      "Help build REST APIs",
+      "Learn backend architecture"
+    ],
+    "requirements": [
+      "CS or CE major"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "43a3a44718560d43fd06f87f"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "b08ae2371a0fe526c31d2e4a"
+      }
+    },
+    "title": "UI Developer Intern",
+    "type": "FT1",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 9,
+    "status": "active",
+    "description": "Ooredoo Palestine is looking for a motivated UI Developer Intern to join our growing team.",
+    "skills": [
+      "Angular",
+      "TypeScript",
+      "SCSS",
+      "Git"
+    ],
+    "responsibilities": [
+      "Maintain customer-facing portals",
+      "Implement new UI features"
+    ],
+    "requirements": [
+      "3rd/4th year student",
+      "Angular or React knowledge"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3fec42ccb5d92cd64f9d9b1a"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "b08ae2371a0fe526c31d2e4a"
+      }
+    },
+    "title": "Backend API Intern",
+    "type": "FT2",
+    "department": "Software Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "4 months",
+    "seats": 6,
+    "status": "active",
+    "description": "Ooredoo Palestine is looking for a motivated Backend API Intern to join our growing team.",
+    "skills": [
+      "Java",
+      "Spring",
+      "Oracle DB",
+      "REST"
+    ],
+    "responsibilities": [
+      "Develop telecom billing APIs",
+      "Support backend team"
+    ],
+    "requirements": [
+      "CS/CE student",
+      "Java knowledge"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a578b4fd570cb173cebea96"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "b08ae2371a0fe526c31d2e4a"
+      }
+    },
+    "title": "IT Support Intern",
+    "type": "FT1",
+    "department": "Software Engineering",
+    "field": "IT Support",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "4 months",
+    "seats": 7,
+    "status": "active",
+    "description": "Ooredoo Palestine is looking for a motivated IT Support Intern to join our growing team.",
+    "skills": [
+      "Windows Server",
+      "Active Directory",
+      "Troubleshooting"
+    ],
+    "responsibilities": [
+      "Help Desk support",
+      "User account management"
+    ],
+    "requirements": [
+      "IT major, 2nd year+"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4cdee90f59f69118cdb9bf53"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "af50738010e6bd1768b6d2b5"
+      }
+    },
+    "title": "React Developer Intern",
+    "type": "FT1",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "remote",
+    "location": "Ramallah",
+    "duration": "4 months",
+    "seats": 3,
+    "status": "active",
+    "description": "Foothill Technology Solutions is looking for a motivated React Developer Intern to join our growing team.",
+    "skills": [
+      "React",
+      "Redux",
+      "Styled Components",
+      "REST APIs"
+    ],
+    "responsibilities": [
+      "Build dashboards for clients",
+      "Work in Scrum team"
+    ],
+    "requirements": [
+      "3rd/4th year student"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "02d65154b8e3106b627c0d20"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "af50738010e6bd1768b6d2b5"
+      }
+    },
+    "title": "Full-Stack Intern (MERN)",
+    "type": "FT2",
+    "department": "Computer Engineering",
+    "field": "Full-Stack Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "4 months",
+    "seats": 8,
+    "status": "active",
+    "description": "Foothill Technology Solutions is looking for a motivated Full-Stack Intern (MERN) to join our growing team.",
+    "skills": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express"
+    ],
+    "responsibilities": [
+      "Build and maintain full-stack features"
+    ],
+    "requirements": [
+      "CS/CE, familiar with MERN stack"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3e2f8c3858e17f6bca7f8522"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "dd0492f9df15b90b0f78afc2"
+      }
+    },
+    "title": "IT Support Technician Intern",
+    "type": "FT1",
+    "department": "Software Engineering",
+    "field": "IT Support",
+    "workMode": "on-site",
+    "location": "Halhul",
+    "duration": "2 months",
+    "seats": 11,
+    "status": "active",
+    "description": "Halhul Municipality is looking for a motivated IT Support Technician Intern to join our growing team.",
+    "skills": [
+      "Windows",
+      "Networking",
+      "MS Office",
+      "Troubleshooting"
+    ],
+    "responsibilities": [
+      "Provide desktop support",
+      "Maintain office networks"
+    ],
+    "requirements": [
+      "IT/CE student"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c7ce0054f234895337760485"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "dd0492f9df15b90b0f78afc2"
+      }
+    },
+    "title": "Web Content & Systems Intern",
+    "type": "FT1",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Halhul",
+    "duration": "4 months",
+    "seats": 3,
+    "status": "active",
+    "description": "Halhul Municipality is looking for a motivated Web Content & Systems Intern to join our growing team.",
+    "skills": [
+      "HTML",
+      "WordPress",
+      "CSS",
+      "Content Management"
+    ],
+    "responsibilities": [
+      "Manage municipality website",
+      "Create digital content"
+    ],
+    "requirements": [
+      "CS/IT student"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "07a49e1208bf564d02a61798"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "2bd316f8bd72751099887808"
+      }
+    },
+    "title": "Mobile-Focused Frontend Intern",
+    "type": "FT1",
+    "department": "Computer Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "3 months",
+    "seats": 7,
+    "status": "active",
+    "description": "aeliasoft is looking for a motivated Mobile-Focused Frontend Intern to join our growing team.",
+    "skills": [
+      "React Native",
+      "JavaScript",
+      "REST APIs",
+      "Figma"
+    ],
+    "responsibilities": [
+      "Contribute to mobile app UI",
+      "Test on iOS and Android simulators"
+    ],
+    "requirements": [
+      "CS student with mobile interest"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e4100cccb74a3c57303160bd"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "2bd316f8bd72751099887808"
+      }
+    },
+    "title": "Backend Intern (Firebase/Node)",
+    "type": "FT2",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "remote",
+    "location": "Ramallah",
+    "duration": "3 months",
+    "seats": 10,
+    "status": "active",
+    "description": "aeliasoft is looking for a motivated Backend Intern (Firebase/Node) to join our growing team.",
+    "skills": [
+      "Node.js",
+      "Firebase",
+      "REST APIs",
+      "Git"
+    ],
+    "responsibilities": [
+      "Build serverless functions",
+      "Manage database rules"
+    ],
+    "requirements": [
+      "CS/CE student"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "309141130961b717c3b1fd24"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "2646258249c476a73abf8de2"
+      }
+    },
+    "title": "Frontend Intern – React",
+    "type": "FT1",
+    "department": "Computer Science",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 5,
+    "status": "active",
+    "description": "cotede is looking for a motivated Frontend Intern – React to join our growing team.",
+    "skills": [
+      "React",
+      "JavaScript",
+      "CSS Modules",
+      "Git"
+    ],
+    "responsibilities": [
+      "Contribute to product UI",
+      "Implement user-facing features"
+    ],
+    "requirements": [
+      "CS/CE 3rd year+"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "84410389334b74bedee29e90"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "2646258249c476a73abf8de2"
+      }
+    },
+    "title": "DevOps & Backend Intern",
+    "type": "FT2",
+    "department": "Software Engineering",
+    "field": "DevOps",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 5,
+    "status": "active",
+    "description": "cotede is looking for a motivated DevOps & Backend Intern to join our growing team.",
+    "skills": [
+      "Docker",
+      "Linux",
+      "CI/CD",
+      "Python"
+    ],
+    "responsibilities": [
+      "Manage deployment pipelines",
+      "Script infrastructure automation"
+    ],
+    "requirements": [
+      "CS/CE with interest in DevOps"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7a5c7f5f28cebeb9ba3255ea"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d67aa0a7b4d51c9b0221c829"
+      }
+    },
+    "title": "Information Systems Intern",
+    "type": "FT1",
+    "department": "Information Technology",
+    "field": "Information Systems",
+    "workMode": "on-site",
+    "location": "Hebron",
+    "duration": "4 months",
+    "seats": 9,
+    "status": "active",
+    "description": "Hebron Municipality is looking for a motivated Information Systems Intern to join our growing team.",
+    "skills": [
+      "SQL",
+      "Excel",
+      "Power BI",
+      "Data Entry"
+    ],
+    "responsibilities": [
+      "Maintain municipal databases",
+      "Generate management reports"
+    ],
+    "requirements": [
+      "IT/IS student"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7cc8a5c9b8c9f91bd0276a2e"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d67aa0a7b4d51c9b0221c829"
+      }
+    },
+    "title": "Website Development Intern",
+    "type": "FT1",
+    "department": "Software Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Hebron",
+    "duration": "2 months",
+    "seats": 12,
+    "status": "active",
+    "description": "Hebron Municipality is looking for a motivated Website Development Intern to join our growing team.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "WordPress"
+    ],
+    "responsibilities": [
+      "Update city portal content",
+      "Develop new web pages"
+    ],
+    "requirements": [
+      "CS/IT student"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e36928330e500521b41b7112"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "f9450c7111fa9e2d95a24975"
+      }
+    },
+    "title": "Vue.js Frontend Intern",
+    "type": "FT1",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Nablus",
+    "duration": "3 months",
+    "seats": 10,
+    "status": "active",
+    "description": "sada solution is looking for a motivated Vue.js Frontend Intern to join our growing team.",
+    "skills": [
+      "Vue.js",
+      "JavaScript",
+      "Vuex",
+      "REST APIs"
+    ],
+    "responsibilities": [
+      "Contribute to ERP web UI",
+      "Fix UI bugs"
+    ],
+    "requirements": [
+      "3rd/4th year CS/CE"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f8c95ea3a475147ef6653f5e"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "f9450c7111fa9e2d95a24975"
+      }
+    },
+    "title": "ERP Backend Developer Intern",
+    "type": "FT2",
+    "department": "Computer Engineering",
+    "field": "Backend Development",
+    "workMode": "on-site",
+    "location": "Nablus",
+    "duration": "3 months",
+    "seats": 3,
+    "status": "active",
+    "description": "sada solution is looking for a motivated ERP Backend Developer Intern to join our growing team.",
+    "skills": [
+      "C#",
+      ".NET",
+      "SQL Server",
+      "API Development"
+    ],
+    "responsibilities": [
+      "Develop ERP business logic",
+      "Write stored procedures"
+    ],
+    "requirements": [
+      "CS/CE student with .NET interest"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ad9d5aef8652de8ff635065a"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "5d632891bcf80fb09ebec293"
+      }
+    },
+    "title": "Frontend Engineer (React) Intern",
+    "type": "FT1",
+    "department": "Information Technology",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 6,
+    "status": "active",
+    "description": "Olivery is looking for a motivated Frontend Engineer (React) Intern to join our growing team.",
+    "skills": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "REST APIs"
+    ],
+    "responsibilities": [
+      "Build merchant dashboard features",
+      "Improve performance of existing UI"
+    ],
+    "requirements": [
+      "CS/CE with strong React knowledge"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "230a79a63e22ea53b734060a"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "5d632891bcf80fb09ebec293"
+      }
+    },
+    "title": "Data Analyst Intern",
+    "type": "FT2",
+    "department": "Software Engineering",
+    "field": "Data Analysis",
+    "workMode": "remote",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 5,
+    "status": "active",
+    "description": "Olivery is looking for a motivated Data Analyst Intern to join our growing team.",
+    "skills": [
+      "Python",
+      "Pandas",
+      "SQL",
+      "Tableau"
+    ],
+    "responsibilities": [
+      "Analyze delivery and merchant data",
+      "Build business dashboards"
+    ],
+    "requirements": [
+      "CS/Data student",
+      "Python and SQL skills"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ffaf3db84dee5db280b5d4b7"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "ef74fc02017a3b4d70c1798b"
+      }
+    },
+    "title": "Web Developer Intern",
+    "type": "FT1",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "on-site",
+    "location": "Hebron",
+    "duration": "4 months",
+    "seats": 3,
+    "status": "active",
+    "description": "Trusted System is looking for a motivated Web Developer Intern to join our growing team.",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap"
+    ],
+    "responsibilities": [
+      "Develop client-facing web pages",
+      "Update company service portal"
+    ],
+    "requirements": [
+      "CS/IT student, any year"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "49dbbe0d1f2ad36a3ad16f1b"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "ef74fc02017a3b4d70c1798b"
+      }
+    },
+    "title": "Cybersecurity Intern",
+    "type": "FT2",
+    "department": "Software Engineering",
+    "field": "Cybersecurity",
+    "workMode": "on-site",
+    "location": "Hebron",
+    "duration": "4 months",
+    "seats": 5,
+    "status": "active",
+    "description": "Trusted System is looking for a motivated Cybersecurity Intern to join our growing team.",
+    "skills": [
+      "Kali Linux",
+      "Networking",
+      "Nmap",
+      "Wireshark"
+    ],
+    "responsibilities": [
+      "Assist with penetration testing",
+      "Learn vulnerability assessment"
+    ],
+    "requirements": [
+      "CS/CE student with security interest"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "93d040b9b1feba7edf841f0b"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d4979b9232e6b3eac3bec6ca"
+      }
+    },
+    "title": "Frontend Intern (React/Next.js)",
+    "type": "FT1",
+    "department": "Computer Systems Engineering",
+    "field": "Frontend Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "4 months",
+    "seats": 10,
+    "status": "active",
+    "description": "uWave is looking for a motivated Frontend Intern (React/Next.js) to join our growing team.",
+    "skills": [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "responsibilities": [
+      "Build new UI features",
+      "Ensure cross-browser compatibility",
+      "Participate in code reviews"
+    ],
+    "requirements": [
+      "CS/CE 3rd or 4th year",
+      "Strong JavaScript foundation"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "adf6e814af1cc9224fbf2a9e"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "createdBy": {
+      "role": "company",
+      "id": {
+        "$oid": "d4979b9232e6b3eac3bec6ca"
+      }
+    },
+    "title": "Backend Intern (Node.js/Express)",
+    "type": "FT2",
+    "department": "Information Technology",
+    "field": "Backend Development",
+    "workMode": "hybrid",
+    "location": "Ramallah",
+    "duration": "2 months",
+    "seats": 8,
+    "status": "active",
+    "description": "uWave is looking for a motivated Backend Intern (Node.js/Express) to join our growing team.",
+    "skills": [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JWT"
+    ],
+    "responsibilities": [
+      "Build RESTful APIs",
+      "Implement authentication logic",
+      "Write unit tests"
+    ],
+    "requirements": [
+      "CS/CE student, Node.js knowledge preferred"
+    ],
+    "createdAt": {
+      "$date": "2026-03-01T00:00:00.000Z"
+    }
+  }
+]

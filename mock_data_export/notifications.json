@@ -1,0 +1,857 @@
+[
+  {
+    "_id": {
+      "$oid": "c2bc2046e907ce9250edf5d7"
+    },
+    "userId": {
+      "$oid": "5d9faf4f2ab6007c6482450d"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "951e64d2e0d3faa18d5572bb"
+    },
+    "userId": {
+      "$oid": "c49c8f5074473adfb60f185d"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "38930f7dd4e47e61dcf0fe99"
+    },
+    "userId": {
+      "$oid": "66750674f71e3d07009ea4a1"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "69f18c14f4511068e1f10893"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6a8d6e3a94035f3c30e1f94f"
+    },
+    "userId": {
+      "$oid": "5625e5f369bb9ea99f04f749"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "0f738629e922f607f1c046c4"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bd6202cc8d28af9ded0a4fc7"
+    },
+    "userId": {
+      "$oid": "08a2a0ace31cf8aedfeaf464"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "54ef3f8a8a51984ba6bed18c"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c27d529890fe97dcb351c245"
+    },
+    "userId": {
+      "$oid": "683d4b193f625c33a39100cc"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1a45f2b11abe18d602fee4d6"
+    },
+    "userId": {
+      "$oid": "dfb55255a35f94c2e91cb8cb"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "24232411dbd1815ab45976a8"
+    },
+    "userId": {
+      "$oid": "9e9d35b67eee3918a29cdc7e"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "3c66310edb39bd79f488cd85"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e27e1ef2a17c5d90c83d3a6c"
+    },
+    "userId": {
+      "$oid": "b11a754c5306d92dd72ba6aa"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "c5d65e4e3c76288d42b69d2f"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "183d22d6223f8b634af97ff4"
+    },
+    "userId": {
+      "$oid": "28c2772daf775c19fce2bc22"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "8a167825408348eb07b99d58"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a1386ab2b105481bfce4438c"
+    },
+    "userId": {
+      "$oid": "d053a03665472c4e2490b832"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6c28c9ecc2cbeac3aa2cc9c3"
+    },
+    "userId": {
+      "$oid": "4b59abd6b4aa2457fd5420df"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7c17bf8c89aac0f651638a1f"
+    },
+    "userId": {
+      "$oid": "0659cb12fb301f2a786bf3e6"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "f0061705746ee1e8ae71689d"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "15da9ac3dfe9d6cbd5a6804a"
+    },
+    "userId": {
+      "$oid": "3f4f163006802134b6c823a6"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "9d32f81552c24763051cd1dc"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a3f66479317f9cda0efeda43"
+    },
+    "userId": {
+      "$oid": "456f2f55e6cab9a5fa73077b"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "2d50d838c6d7bb8af890d4b8"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a5842e37bed964412b222987"
+    },
+    "userId": {
+      "$oid": "c3c0749885d3d0025e3c19bc"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f63d18398d4a1d17b851e8a2"
+    },
+    "userId": {
+      "$oid": "079d972d029922562e2c58b7"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65865fe3b9ee7b2fb908c336"
+    },
+    "userId": {
+      "$oid": "90468c08bad32cb9863feb37"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "7bb7381ffe9b3604327589b9"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a2a5978cfaaf08041262bf82"
+    },
+    "userId": {
+      "$oid": "f3f787b39b8448e26a73fa82"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "6fa30a425a8d0f13d94dc7e5"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "00bbb3758e5beeebe82c2bf3"
+    },
+    "userId": {
+      "$oid": "e27a48f1fccc42176ef92d2f"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "897205661d0994dac9cea599"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a9c4fdf0dc753682a020a6e"
+    },
+    "userId": {
+      "$oid": "a9da0d93c52271a3b5332863"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ea9bbdc80b01f6fc264695ed"
+    },
+    "userId": {
+      "$oid": "455c4012b599445e8019630c"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fd75fc015bcec233961bfe68"
+    },
+    "userId": {
+      "$oid": "591de472c1906e089e02907a"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "c6e19b476010bfb97d3dfe2b"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9a9adc8529d9ae197d35062f"
+    },
+    "userId": {
+      "$oid": "715910181a6e9ad2988a7c2f"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "041df452e051df7fe8a4b39a"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1c3d195a4db6306c1d01b786"
+    },
+    "userId": {
+      "$oid": "7f3b9ad8b0260deee9abbd4c"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "901f21abbf684f7999842646"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f040ea0594ff621f6226e63"
+    },
+    "userId": {
+      "$oid": "de613568abc9edb932db8535"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0b0d94a3781d2fccf3c46d3d"
+    },
+    "userId": {
+      "$oid": "a98fa4c9145a582f94521691"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9d5bb8fb19e525452f3ebd3d"
+    },
+    "userId": {
+      "$oid": "c4d62765f98cfa113eb33ac4"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "8a1d76cf81a0655c087144ad"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66868dd1b5678a02a26b6743"
+    },
+    "userId": {
+      "$oid": "c92482191d71a3975414b6e8"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "4b29829dfe69d1952b37f148"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6121bd4312e72fa9efb938c4"
+    },
+    "userId": {
+      "$oid": "1bd2bf6d7c29fe80aeb96d15"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "2aa062a011458e51499c4005"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "42b5ddc6913ac365d9ce908c"
+    },
+    "userId": {
+      "$oid": "ea0bcee52e71c6fa17d75e6e"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "24a7a4a84ca22da7e8bcb2bd"
+    },
+    "userId": {
+      "$oid": "49a82a5d84dd1e0266fd6df0"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8670c7edd81da41c5ffe3340"
+    },
+    "userId": {
+      "$oid": "6f138423fd2cc43e5a528548"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "36ccb7ae545c3f61ff96989c"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "617631e98ec0bf7f4cd4b256"
+    },
+    "userId": {
+      "$oid": "48d4ebfb9daa2042d0cda846"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "1d746be18efb8dac2675b862"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e403debbf3615ce1b07a652f"
+    },
+    "userId": {
+      "$oid": "6883d846bd858c9bc0621581"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "0fc814fa791fe46d90bbef4e"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a6df1c7482436908e997bf3"
+    },
+    "userId": {
+      "$oid": "c4c447679c4fbd445eba9c81"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f65e5f174140396e6d37f49a"
+    },
+    "userId": {
+      "$oid": "1beae59f391436d92b12441f"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "37b295ad12872fc4f7f7323c"
+    },
+    "userId": {
+      "$oid": "92c87a9f73c066faeccb3aac"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "4a9581162d026984b2f01635"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "bf556a30fc60fb1ee53978af"
+    },
+    "userId": {
+      "$oid": "7022225c2687323c05137efd"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": false,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "e0d38a96ebd0c45292a9120d"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b61357ca72761ce2c51b3225"
+    },
+    "userId": {
+      "$oid": "cf703664076158f2ab7dd384"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "fc125387c82d2fd3a526fa67"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "30ba62d595118a8f79f309e7"
+    },
+    "userId": {
+      "$oid": "c8509b6e872cb2124e697c00"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a791458faffc6f4b6b89d3b"
+    },
+    "userId": {
+      "$oid": "257a146965768f54f70f1fec"
+    },
+    "type": "welcome",
+    "title": "Welcome to Internship Hub",
+    "message": "Your account has been created. Start by browsing available opportunities.",
+    "read": false,
+    "relatedEntity": null,
+    "createdAt": {
+      "$date": "2026-02-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "77f121f38815d85276dd500a"
+    },
+    "userId": {
+      "$oid": "e5330e81474afe49882ca8bb"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "8c05047304afd859c187d543"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b2e74013024d0d901324d2d7"
+    },
+    "userId": {
+      "$oid": "894187cd0a800f3a6a045908"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "368b64dafc473118fe35c747"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "40a086195dbec0ec84cc2934"
+    },
+    "userId": {
+      "$oid": "f6ee0f62b5c98e84b7a3ecf6"
+    },
+    "type": "request_approved",
+    "title": "FT1 Request Approved",
+    "message": "Your FT1 internship request has been approved. You can now start logging hours.",
+    "read": true,
+    "relatedEntity": {
+      "type": "internshipRequest",
+      "id": {
+        "$oid": "78889304056b77a61c20e183"
+      }
+    },
+    "createdAt": {
+      "$date": "2026-08-15T00:00:00.000Z"
+    }
+  }
+]

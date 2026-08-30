@@ -20,15 +20,15 @@ import {
   MenuItem,
   Box,
   TextField,
+  TablePagination,
+  IconButton,
+  InputAdornment,
 } from "@mui/material";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import {
-  MOCK_STUDENT_PROFILES,
-  MOCK_TRAINING_STATES,
-} from "../../../mock/studentTrainingState";
-import { MOCK_USERS } from "../../../mock/users";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { adminApi } from "../../../lib/api/admin";
+import { useAuth } from "../../../context/authContext";
 
 function getStatusChip(status: string) {
   const map: Record<string, { label: string; color: string; bg: string }> = {
@@ -57,84 +57,182 @@ function getStatusChip(status: string) {
   );
 }
 
+const UNIVERSITY_DOMAINS: Record<string, string> = {
+  "Palestine Polytechnic University": "@ppu.edu.ps",
+  "Birzeit University": "@birzeit.edu.ps",
+  "An-Najah National University": "@najah.edu.ps",
+  "Al-Quds University": "@alquds.edu.ps",
+  "Arab American University": "@aaup.edu.ps",
+  "Hebron University": "@hebron.edu.ps",
+  "Al-Quds Open University": "@qou.edu.ps",
+  "Al-Zaytoonah University": "@zaytoonah.edu.ps",
+  "Palestine Technical University - Kadoorie": "@ptuk.edu.ps",
+};
+
 export default function AdminStudentsPage() {
-  const [students, setStudents] = useState([...MOCK_STUDENT_PROFILES]);
+  const { user } = useAuth();
+  const expectedDomain = user?.university
+    ? UNIVERSITY_DOMAINS[user.university] || ""
+    : "";
+
+  const [students, setStudents] = useState<any[]>([]);
+  const [supervisors, setSupervisors] = useState<any[]>([]);
+
+  // Pagination
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
   const [assignDialogOpen, setAssignDialogOpen] = useState(false);
-  const [selectedStudentId, setSelectedStudentId] = useState<number | null>(
-    null,
-  );
+  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
   const [selectedSupervisorId, setSelectedSupervisorId] = useState("");
 
-  // Add Student state
+  // Add/Edit Student state
+  const [editingStudent, setEditingStudent] = useState<any | null>(null);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [newStudentName, setNewStudentName] = useState("");
   const [newStudentId, setNewStudentId] = useState("");
   const [newStudentEmail, setNewStudentEmail] = useState("");
   const [newStudentMajor, setNewStudentMajor] = useState("");
-  const [newStudentPassword, setNewStudentPassword] = useState("");
+
+  // Password Reveal Modal state
+  const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+  const [generatedPassword, setGeneratedPassword] = useState("");
+  const [generatedUser, setGeneratedUser] = useState("");
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const fetchStudents = async () => {
+    try {
+      const res = await adminApi.getStudents();
+      setStudents(Array.isArray(res.data) ? res.data : []);
+    } catch (error) {
+      console.error("Failed to fetch students", error);
+    }
+  };
+
+  const fetchSupervisors = async () => {
+    try {
+      const res = await adminApi.getSupervisors();
+      setSupervisors(Array.isArray(res.data) ? res.data : []);
+    } catch (error) {
+      console.error("Failed to fetch supervisors", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchStudents();
+    fetchSupervisors();
+  }, []);
+
+  const handleChangePage = (_event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   const handleOpenAddDialog = () => {
+    setEditingStudent(null);
     setNewStudentName("");
     setNewStudentId("");
     setNewStudentEmail("");
     setNewStudentMajor("");
-    setNewStudentPassword(Math.random().toString(36).slice(-8) + "A1!");
     setAddDialogOpen(true);
   };
 
-  const handleAddStudent = () => {
-    if (!newStudentName || !newStudentEmail || !newStudentMajor || !newStudentPassword) {
+  const handleOpenEditDialog = (student: any) => {
+    setEditingStudent(student);
+    setNewStudentName(student.name);
+    setNewStudentId(student.universityId || "");
+    const email = student.userId?.email || student.email || "";
+    setNewStudentEmail(email.replace(expectedDomain, ""));
+    setNewStudentMajor(student.major || "");
+    setAddDialogOpen(true);
+  };
+
+  const handleAddStudent = async () => {
+    if (!newStudentName || !newStudentMajor || (!editingStudent && (!newStudentEmail || !newStudentId))) {
       alert("Please fill all required fields.");
       return;
     }
 
-    const newId = students.length > 0 ? Math.max(...students.map(s => s.id)) + 1 : 1;
-    const newUserId = MOCK_USERS.length > 0 ? Math.max(...MOCK_USERS.map(u => u.id)) + 1 : 1;
-    
-    const newProfile = {
-      id: newId,
-      userId: newUserId,
-      name: newStudentName,
-      major: newStudentMajor,
-      gpa: 0,
-      year: 3,
-      email: newStudentEmail,
-    };
+    try {
+      if (editingStudent) {
+        await adminApi.updateStudent(editingStudent._id, {
+          name: newStudentName,
+          major: newStudentMajor,
+        });
+        setAddDialogOpen(false);
+        fetchStudents();
+      } else {
+        const fullEmail = expectedDomain
+          ? `${newStudentEmail}${expectedDomain}`
+          : newStudentEmail;
 
-    MOCK_STUDENT_PROFILES.push(newProfile);
-    MOCK_USERS.push({
-      id: newUserId,
-      name: newStudentName,
-      email: newStudentEmail,
-      password: newStudentPassword,
-      role: "student",
-      studentId: newId,
-      mustChangePassword: true,
-    });
+        const res = await adminApi.createStudent({
+          name: newStudentName,
+          email: fullEmail,
+          universityId: newStudentId,
+          major: newStudentMajor,
+        });
 
-    setStudents([...MOCK_STUDENT_PROFILES]);
-
-    alert(
-      `Student ${newStudentName} created successfully!\nThey can log in with password: ${newStudentPassword}`,
-    );
-    setAddDialogOpen(false);
+        setGeneratedUser(newStudentName);
+        setGeneratedPassword(res.data.tempPassword);
+        setAddDialogOpen(false);
+        setPasswordModalOpen(true);
+        fetchStudents();
+      }
+    } catch (error: any) {
+      alert(error.response?.data?.message || `Failed to ${editingStudent ? 'update' : 'create'} student.`);
+    }
   };
 
-  const handleOpenAssign = (studentId: number) => {
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(generatedPassword);
+    alert("Password copied to clipboard!");
+  };
+
+  const handleOpenAssign = (studentId: string) => {
     setSelectedStudentId(studentId);
     setSelectedSupervisorId("");
     setAssignDialogOpen(true);
   };
 
-  const handleAssignSupervisor = () => {
+  const handleAssignSupervisor = async () => {
     if (selectedStudentId && selectedSupervisorId) {
-      console.log(
-        `Assigning supervisor ${selectedSupervisorId} to student ${selectedStudentId}`,
-      );
-      alert(`Supervisor successfully assigned!`);
+      try {
+        await adminApi.assignSupervisor(
+          selectedStudentId,
+          selectedSupervisorId,
+        );
+        alert(`Supervisor successfully assigned!`);
+        setAssignDialogOpen(false);
+        fetchStudents();
+      } catch (error: any) {
+        alert(error.response?.data?.message || "Failed to assign supervisor.");
+      }
     }
-    setAssignDialogOpen(false);
   };
+
+  // Filter students based on search query
+  const filteredStudents = students.filter((student) => {
+    const query = searchQuery.toLowerCase();
+    const name = student.name?.toLowerCase() || "";
+    const email = (student.userId?.email || student.email)?.toLowerCase() || "";
+    return name.includes(query) || email.includes(query);
+  });
+
+  // Calculate paginated students
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - filteredStudents.length) : 0;
+  const paginatedStudents = filteredStudents.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage,
+  );
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -149,17 +247,26 @@ export default function AdminStudentsPage() {
         <Typography variant="h4" sx={{ fontWeight: 700 }}>
           All Students
         </Typography>
-        <Button
-          variant="contained"
-          startIcon={<AddIcon />}
-          onClick={handleOpenAddDialog}
-          sx={{ textTransform: "none" }}
-        >
-          Add Student
-        </Button>
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <TextField
+            size="small"
+            placeholder="Search students..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            sx={{ width: 250, bgcolor: "background.paper", borderRadius: 1 }}
+          />
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            onClick={handleOpenAddDialog}
+            sx={{ textTransform: "none" }}
+          >
+            Add Student
+          </Button>
+        </Box>
       </Box>
 
-      <TableContainer component={Paper} sx={{ borderRadius: 3 }}>
+      <TableContainer component={Paper} sx={{ borderRadius: 0, boxShadow: 1 }}>
         <Table>
           <TableHead>
             <TableRow sx={{ bgcolor: "background.paper" }}>
@@ -172,60 +279,64 @@ export default function AdminStudentsPage() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {students.map((student) => {
-              const state = MOCK_TRAINING_STATES.find(
-                (s) => s.studentId === student.id,
-              );
+            {paginatedStudents.map((student) => {
               return (
-                <TableRow key={student.id}>
+                <TableRow key={student._id}>
                   <TableCell>
                     <Typography sx={{ fontWeight: 600 }}>
                       {student.name}
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
-                      {student.email}
+                      {student.userId?.email || student.email}
                     </Typography>
                   </TableCell>
                   <TableCell>{student.major}</TableCell>
+                  <TableCell>{getStatusChip("not_started")}</TableCell>
+                  <TableCell>{getStatusChip("not_started")}</TableCell>
                   <TableCell>
-                    {getStatusChip(state?.ft1.status ?? "not_started")}
+                    {student.supervisorId?.email ||
+                      student.supervisorId?.name ||
+                      (student.supervisorId ? "Assigned" : "—")}
                   </TableCell>
                   <TableCell>
-                    {getStatusChip(state?.ft2.status ?? "not_started")}
-                  </TableCell>
-                  <TableCell>
-                    {student.supervisorId ? `ID: ${student.supervisorId}` : "—"}
-                  </TableCell>
-                  <TableCell>
-                    <Button
-                      component={Link}
-                      to={`/training/hours/${student.id}`}
-                      size="small"
-                      variant="outlined"
-                      sx={{
-                        textTransform: "none",
-                        borderColor: "divider",
-                        color: "#20324a",
-                        mr: 1,
-                      }}
-                    >
-                      View Hours
-                    </Button>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      color="primary"
-                      onClick={() => handleOpenAssign(student.id)}
-                      sx={{ textTransform: "none" }}
-                    >
-                      Assign Supervisor
-                    </Button>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => handleOpenAssign(student._id)}
+                        sx={{ textTransform: "none", mr: 1 }}
+                      >
+                        Assign Supervisor
+                      </Button>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        color="secondary"
+                        onClick={() => handleOpenEditDialog(student)}
+                        sx={{ textTransform: "none" }}
+                      >
+                        Edit
+                      </Button>
                   </TableCell>
                 </TableRow>
               );
             })}
+            {emptyRows > 0 && (
+              <TableRow style={{ height: 69 * emptyRows }}>
+                <TableCell colSpan={6} />
+              </TableRow>
+            )}
           </TableBody>
         </Table>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 50]}
+          component="div"
+          count={filteredStudents.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
       </TableContainer>
 
       {/* Assign Supervisor Dialog */}
@@ -244,9 +355,14 @@ export default function AdminStudentsPage() {
               label="Select Supervisor"
               onChange={(e) => setSelectedSupervisorId(e.target.value)}
             >
-              <MenuItem value="101">Dr. Ahmad</MenuItem>
-              <MenuItem value="102">Dr. Sarah</MenuItem>
-              <MenuItem value="103">Dr. Khalid</MenuItem>
+              {supervisors.map((supervisor) => (
+                <MenuItem
+                  key={supervisor.userId._id}
+                  value={supervisor.userId._id}
+                >
+                  {supervisor.name}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </DialogContent>
@@ -275,7 +391,7 @@ export default function AdminStudentsPage() {
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle>Add New Student</DialogTitle>
+        <DialogTitle>{editingStudent ? "Edit Student" : "Add New Student"}</DialogTitle>
         <DialogContent>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
             <TextField
@@ -289,27 +405,35 @@ export default function AdminStudentsPage() {
               value={newStudentId}
               onChange={(e) => setNewStudentId(e.target.value)}
               fullWidth
+              disabled={!!editingStudent}
             />
             <TextField
-              label="University Email *"
-              type="email"
+              label="University Email Prefix *"
+              type="text"
               value={newStudentEmail}
               onChange={(e) => setNewStudentEmail(e.target.value)}
               fullWidth
-              helperText="Must use the university domain (e.g., @ppu.edu.ps)"
+              disabled={!!editingStudent}
+              slotProps={{
+                input: {
+                  endAdornment: expectedDomain ? (
+                    <InputAdornment position="end">
+                      {expectedDomain}
+                    </InputAdornment>
+                  ) : null,
+                },
+              }}
+              helperText={
+                expectedDomain
+                  ? `Email domain is restricted to your university (${expectedDomain})`
+                  : "Enter full university email"
+              }
             />
             <TextField
               label="Major *"
               value={newStudentMajor}
               onChange={(e) => setNewStudentMajor(e.target.value)}
               fullWidth
-            />
-            <TextField
-              label="Temporary Password *"
-              value={newStudentPassword}
-              onChange={(e) => setNewStudentPassword(e.target.value)}
-              fullWidth
-              helperText="Provide this temporary password to the student. They will be forced to change it on their first login."
             />
           </Box>
         </DialogContent>
@@ -325,7 +449,74 @@ export default function AdminStudentsPage() {
             onClick={handleAddStudent}
             sx={{ textTransform: "none" }}
           >
-            Create Student
+            {editingStudent ? "Save Changes" : "Create Student"}
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Password Reveal Modal */}
+      <Dialog
+        open={passwordModalOpen}
+        onClose={() => setPasswordModalOpen(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle sx={{ color: "success.main", fontWeight: "bold" }}>
+          User Created Successfully!
+        </DialogTitle>
+        <DialogContent>
+          <Typography sx={{ mb: 2 }}>
+            The account for <strong>{generatedUser}</strong> has been created.
+          </Typography>
+          <Box
+            sx={{
+              p: 2,
+              bgcolor: "background.default",
+              borderRadius: 2,
+              border: "1px solid",
+              borderColor: "divider",
+            }}
+          >
+            <Typography variant="body2" color="text.secondary" gutterBottom>
+              Temporary Password:
+            </Typography>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
+                {generatedPassword}
+              </Typography>
+              <IconButton
+                onClick={copyToClipboard}
+                color="primary"
+                size="small"
+              >
+                <ContentCopyIcon />
+              </IconButton>
+            </Box>
+          </Box>
+          <Typography
+            variant="caption"
+            color="error"
+            sx={{ mt: 2, display: "block" }}
+          >
+            Please copy this temporary password and send it securely to the
+            user. You will not be able to view it again once this window is
+            closed.
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="contained"
+            onClick={() => setPasswordModalOpen(false)}
+            sx={{ textTransform: "none" }}
+          >
+            I have copied the password
           </Button>
         </DialogActions>
       </Dialog>

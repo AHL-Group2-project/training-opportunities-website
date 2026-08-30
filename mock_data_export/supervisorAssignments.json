@@ -1,0 +1,1442 @@
+[
+  {
+    "_id": {
+      "$oid": "c78e2ee1c7e207a289c663cf"
+    },
+    "studentId": {
+      "$oid": "07f46449dfb0b033e12f27c0"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "5941b9ef9ac98d6d4e0d7a58"
+    },
+    "studentId": {
+      "$oid": "1471e0ee698ef772237a1c4c"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "65d4dc1c03d2ec71d1c530e0"
+    },
+    "studentId": {
+      "$oid": "8920fb7d3daa5b3d85ace3b2"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "64f3be5bc2d1d88bcd4c60ee"
+    },
+    "studentId": {
+      "$oid": "2b94065e965e821fc74ea72c"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "91e3a6e413e7b7d541ab355e"
+    },
+    "studentId": {
+      "$oid": "08e07698fe263f78ddcb03d2"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "1d40c0fe69fbab765bdf71cb"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "f716c8548ee5e14f2f599598"
+    },
+    "studentId": {
+      "$oid": "5846a0c96733d19381eed848"
+    },
+    "supervisorId": {
+      "$oid": "65e570d587b04680a0adb626"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "67dbd725a3fe54c4b2591c75"
+    },
+    "studentId": {
+      "$oid": "19fdfbe38a11b4d3dfac7c84"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d34149763c7429ec2f69344e"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "supervisorId": {
+      "$oid": "62e2846698c5eb35531d8f6c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "7b72d798483c682cbeab3667"
+    },
+    "studentId": {
+      "$oid": "e537270d2e38989f84755d0d"
+    },
+    "supervisorId": {
+      "$oid": "4ec31002acb415e3db7b5b47"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e73cee293852598f9488db3f"
+    },
+    "studentId": {
+      "$oid": "a125a856e11ee4eec47c3dfd"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "4eb0308aef15a4971b90cd92"
+    },
+    "studentId": {
+      "$oid": "a572be263137ea6c5abb3976"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "7de5b2a5337136182b8f5dde"
+    },
+    "studentId": {
+      "$oid": "38bdcd738e7943adec6fc345"
+    },
+    "supervisorId": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "0023c70155ddf7d3d400642b"
+    },
+    "studentId": {
+      "$oid": "485979ad6294ff0b71cb0a76"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "b47bf582e75b88e5d0038f49"
+    },
+    "studentId": {
+      "$oid": "84d1379edf2f957bb697271e"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e883a0727564fbb877ef9082"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "supervisorId": {
+      "$oid": "78996f5d193acf7f3262d0e6"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "4a51bdb2149103c0ed847e88"
+    },
+    "studentId": {
+      "$oid": "aff7490ce360c37e5663f63d"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "efbd0dc08bf6cc99ba7e08bd"
+    },
+    "studentId": {
+      "$oid": "fe4fb40d00624ba442b824dd"
+    },
+    "supervisorId": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "b3ca1fc5932c67a123caee27"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "supervisorId": {
+      "$oid": "d1572c15935787f7feff8b69"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "69481a7be48bce0057012aa4"
+    },
+    "studentId": {
+      "$oid": "f8ca485256a77904b386c411"
+    },
+    "supervisorId": {
+      "$oid": "1d9d1b757b155d4373ad4aa7"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "f5d2c013f3bd5be488a8c32b"
+    },
+    "studentId": {
+      "$oid": "6eef1955a211037ca9fd865e"
+    },
+    "supervisorId": {
+      "$oid": "57d2342fe225011f4e4a597a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "61252c1356ee226447abb9ca"
+    },
+    "studentId": {
+      "$oid": "19941d7410881b75ff1739cc"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "530dbc3cbb49f108790caabb"
+    },
+    "studentId": {
+      "$oid": "699664e463401b65d4a40295"
+    },
+    "supervisorId": {
+      "$oid": "57d2342fe225011f4e4a597a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "ab2584f79dd44464d5d2f096"
+    },
+    "studentId": {
+      "$oid": "b067af3f4867f3d2107075a1"
+    },
+    "supervisorId": {
+      "$oid": "ce3d078973696a925ea58b5e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "3a5a800994074f419e79ee6e"
+    },
+    "studentId": {
+      "$oid": "72b50a994910e85d99f8b2f8"
+    },
+    "supervisorId": {
+      "$oid": "57d2342fe225011f4e4a597a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "760091257d5d20cbde34ab83"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "cdb6fc7b86ad5e8d26845706"
+    },
+    "studentId": {
+      "$oid": "8c38e988904b876f5d72da4a"
+    },
+    "supervisorId": {
+      "$oid": "ce3d078973696a925ea58b5e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "f15c797a7e78fe75dd75e2a1"
+    },
+    "studentId": {
+      "$oid": "0e76094c1ae3d07e3d1b3ce9"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d7e07419cd5d9aa0b1a69bd8"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "bfdcf7ec4eaeed2a0c7f0845"
+    },
+    "studentId": {
+      "$oid": "d421f180c078957e63c12fa2"
+    },
+    "supervisorId": {
+      "$oid": "84efff336c82d19f9ace5f13"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "83afc3320417d01322e73b0e"
+    },
+    "studentId": {
+      "$oid": "4e08b3817043352ced9e4726"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "fde935a3aa76a026255b99cb"
+    },
+    "studentId": {
+      "$oid": "8d6f0a33986a368177fb7a84"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "b42e6926b3f77af3caf925a1"
+    },
+    "studentId": {
+      "$oid": "dc2b4ded372cded15273f4b5"
+    },
+    "supervisorId": {
+      "$oid": "b608924a12e02315a81b75df"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e48febd446ed49b91fb7bf6b"
+    },
+    "studentId": {
+      "$oid": "a3f0a5ce2dcc6afddffdba56"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "937f7874ecfaf61266f7ca33"
+    },
+    "studentId": {
+      "$oid": "d03cbcbc65cbeaf5b97f1a88"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c993263645df8c0b07c684b9"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "eaecfbc6d75b60b929c12155"
+    },
+    "studentId": {
+      "$oid": "c0c174af276551c03bc48168"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "3ca81390759c05075ade60cc"
+    },
+    "studentId": {
+      "$oid": "f7cf6acd05a40df2e4dd79f4"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "62ff0ba4bccbc038ac797036"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "supervisorId": {
+      "$oid": "ba3165a3557d4953c20b827a"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "9a5b2302d2380a98b5e3ea40"
+    },
+    "studentId": {
+      "$oid": "6ffd696d46adf14f1177d8c0"
+    },
+    "supervisorId": {
+      "$oid": "79618c96cb7612833dd8ce47"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "705d8e592dda60d44b35ca23"
+    },
+    "studentId": {
+      "$oid": "c148322ac6bc700004f574b1"
+    },
+    "supervisorId": {
+      "$oid": "cfad9150c8b5f314aeb1047c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "bad3594a6cbb7841d8a8a53c"
+    },
+    "studentId": {
+      "$oid": "124dd9cbeb2fbc81c067fe27"
+    },
+    "supervisorId": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "935a20612e38a74f6d452291"
+    },
+    "studentId": {
+      "$oid": "b11f6316c7a3ef467f877edd"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "77e4b3a71f97a7d33b68671e"
+    },
+    "studentId": {
+      "$oid": "4cf3af30f59b53764e69e829"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "231d25251e799a99413d4dba"
+    },
+    "studentId": {
+      "$oid": "cd53a5487c9dafaf1e67dcc0"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "271e1ea74caeebaa4e9588ac"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "supervisorId": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "ee7c0e827d4773660626d3ae"
+    },
+    "studentId": {
+      "$oid": "650c651ef50b9c7ec8ee025c"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "0b3d1198bd99d3d21fcd83ea"
+    },
+    "studentId": {
+      "$oid": "cdebaf6e06b94c8d369cae81"
+    },
+    "supervisorId": {
+      "$oid": "cfad9150c8b5f314aeb1047c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "64f1144061b1dc4150cb7172"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "supervisorId": {
+      "$oid": "c6b109e48e321decd083f34e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "98b1ac624f91e8e5c68f9164"
+    },
+    "studentId": {
+      "$oid": "6e8cc2412972cdc8b17ad02e"
+    },
+    "supervisorId": {
+      "$oid": "f9f2a7954941148e357711da"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e67d26ac123cc12ee70b7950"
+    },
+    "studentId": {
+      "$oid": "ec0edced4a3f8897ca4249f2"
+    },
+    "supervisorId": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e99c9f58fae086b3514883de"
+    },
+    "studentId": {
+      "$oid": "986b90f1115581ae3e92d8c0"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "ab24b3f554b36076cefcd049"
+    },
+    "studentId": {
+      "$oid": "f83a05589c7dfb04db72d02b"
+    },
+    "supervisorId": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "2d842ee263145e264d2cd1a4"
+    },
+    "studentId": {
+      "$oid": "f6b6fe12acf633a8bd643a78"
+    },
+    "supervisorId": {
+      "$oid": "cfe55b5051da1a759bb8d1be"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "98d9cdce66a835e56ae2c4ee"
+    },
+    "studentId": {
+      "$oid": "aa15d6686d1cab4e95e85604"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "0590e38f8402cd99d1177f4d"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d2747b827986e9d723f71999"
+    },
+    "studentId": {
+      "$oid": "a34021330760c17c3fdb4ca5"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d037c060cea325734e014528"
+    },
+    "studentId": {
+      "$oid": "550366286518c82e2f2eb00b"
+    },
+    "supervisorId": {
+      "$oid": "66180780cfcfa3f4a57fd38e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "b665c1a894fe5dfbff6a5e72"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "supervisorId": {
+      "$oid": "cfe55b5051da1a759bb8d1be"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "14a1551b9241b6477fff605f"
+    },
+    "studentId": {
+      "$oid": "f9aa067da67d877883bd645b"
+    },
+    "supervisorId": {
+      "$oid": "1039afc9664216dfa5b3cd49"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "fd1760e3c954b6042aa57111"
+    },
+    "studentId": {
+      "$oid": "b1f186585804cd52e1298972"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c1b26c084e056a957b5b0d20"
+    },
+    "studentId": {
+      "$oid": "49b4553dbdbbf6bdeb1ec62e"
+    },
+    "supervisorId": {
+      "$oid": "65d01941db874c152c550a1e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "3e09e816f03a1167a9e62d6a"
+    },
+    "studentId": {
+      "$oid": "c96471b12a643549af7d897a"
+    },
+    "supervisorId": {
+      "$oid": "65d01941db874c152c550a1e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "df94e7ee534d7be0c69815ea"
+    },
+    "studentId": {
+      "$oid": "d9d37eba55afbed59ed90946"
+    },
+    "supervisorId": {
+      "$oid": "1578825eb8aa0ddb84cda78b"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "a32080d397873de7034c2349"
+    },
+    "studentId": {
+      "$oid": "f3cb8ca9feb7155974356042"
+    },
+    "supervisorId": {
+      "$oid": "65d01941db874c152c550a1e"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "bb7b4be20d88eec4c34bfeb9"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "supervisorId": {
+      "$oid": "1578825eb8aa0ddb84cda78b"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "95e39d518d8bb69316d8b622"
+    },
+    "studentId": {
+      "$oid": "28d557bac62de5c0a9c77263"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "5f915d0fd705f3ce81885e65"
+    },
+    "studentId": {
+      "$oid": "9ecd745618b63775a3e2f28d"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c3b9a0c3243ce73447a3623e"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "cac1685f2e2c56677d0f5388"
+    },
+    "studentId": {
+      "$oid": "a0660c8755af1ba78685b272"
+    },
+    "supervisorId": {
+      "$oid": "4d4a90b30801cef45406ad5c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "6f3fc7362c9b387f77d80f31"
+    },
+    "studentId": {
+      "$oid": "8605503f69906f28d6daf11f"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c5a07be1f321024e663a1079"
+    },
+    "studentId": {
+      "$oid": "3e3f13a610af603ab83a0cc4"
+    },
+    "supervisorId": {
+      "$oid": "332865c4caa0ad71f0a13f9b"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "f1b734a8de3e4846df79b39e"
+    },
+    "studentId": {
+      "$oid": "6e0a56b68629ed155240b966"
+    },
+    "supervisorId": {
+      "$oid": "9fab5617508e4996bdaea528"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d24f27ce472e3e978b845377"
+    },
+    "studentId": {
+      "$oid": "5adc9523e81880bdb01f365a"
+    },
+    "supervisorId": {
+      "$oid": "332865c4caa0ad71f0a13f9b"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "12daca8798055adb29884f3a"
+    },
+    "studentId": {
+      "$oid": "eea126f93d37f8ac06cb81e1"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "547e8b72d4fc8b96ba03a2a4"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "supervisorId": {
+      "$oid": "332865c4caa0ad71f0a13f9b"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "236459c2f1069e0495155a86"
+    },
+    "studentId": {
+      "$oid": "de6e75b6b6a2330d0e558fd3"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e9d10714aea9f31832ce39a0"
+    },
+    "studentId": {
+      "$oid": "d38240b74ae5b6d54f7965f0"
+    },
+    "supervisorId": {
+      "$oid": "9fab5617508e4996bdaea528"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c9a71ea0cafad1b2af051be2"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "f7981355e04b08ffb84f170c"
+    },
+    "studentId": {
+      "$oid": "dc681686936d1cfec5a32eb3"
+    },
+    "supervisorId": {
+      "$oid": "136b01cf15c2ad49c6322888"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "9d6c7e26a27fb05ec328b1dc"
+    },
+    "studentId": {
+      "$oid": "aa77007fc885590eba12364e"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e79762132a81ab8e5930382c"
+    },
+    "studentId": {
+      "$oid": "f65be9b67ed9922e8a602ff7"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "fc45813b71743fa72a24f477"
+    },
+    "studentId": {
+      "$oid": "7ca9c23ef4f05b32f33213c3"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "b501fca7d450ebd3c106575d"
+    },
+    "studentId": {
+      "$oid": "900f3c8d237a05c043f0ca7a"
+    },
+    "supervisorId": {
+      "$oid": "9be3571193296c74ebfe9dc7"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "35dba4d01c6ce0ee8a2f3bcb"
+    },
+    "studentId": {
+      "$oid": "3d63e2d6917c55339104476f"
+    },
+    "supervisorId": {
+      "$oid": "1c461ce8491cebed323fb24d"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "2416316cca88029397e3d192"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "supervisorId": {
+      "$oid": "9be3571193296c74ebfe9dc7"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "905f79d9c22a1a0f61c54426"
+    },
+    "studentId": {
+      "$oid": "60e667b2171a15b49e6c8799"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "d182cdef96aac5eff11ef0e3"
+    },
+    "studentId": {
+      "$oid": "c452cc07858b3f830d8ae662"
+    },
+    "supervisorId": {
+      "$oid": "07a7f6599ddcbe8ceef4570c"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "0952a6cbed9592032669d3dd"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "supervisorId": {
+      "$oid": "1c461ce8491cebed323fb24d"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "1af4019d6f86ec0db6f13061"
+    },
+    "studentId": {
+      "$oid": "1ba95e32a2f4302b5cd0eecc"
+    },
+    "supervisorId": {
+      "$oid": "9be3571193296c74ebfe9dc7"
+    },
+    "semester": "Fall 2026",
+    "assignedAt": {
+      "$date": "2026-08-01T00:00:00.000Z"
+    },
+    "endedAt": null
+  }
+]

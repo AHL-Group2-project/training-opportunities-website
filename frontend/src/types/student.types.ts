@@ -79,6 +79,8 @@ export interface Student {
   email?: string;
   contactEmail?: string;
   phone?: string;
+  avatarUrl?: string;
+  cvUrl?: string;
 
   bio: string;
 

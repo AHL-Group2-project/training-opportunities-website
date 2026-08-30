@@ -1,0 +1,2045 @@
+[
+  {
+    "_id": {
+      "$oid": "d4ea8803a1a49cd412496411"
+    },
+    "email": "hr@jawwal.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7e58d2f56bce698738c421d2"
+    },
+    "email": "hr@ahllogics.com",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0fec3182464fceef4a75a20b"
+    },
+    "email": "hr@asaltech.com",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "924b79dbed73b07e0858e56b"
+    },
+    "email": "hr@hpco.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fd04c0c476d27202688d58ac"
+    },
+    "email": "hr@iztechvalley.com",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b08ae2371a0fe526c31d2e4a"
+    },
+    "email": "hr@ooredoo.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "af50738010e6bd1768b6d2b5"
+    },
+    "email": "hr@foothillsolutions.com",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dd0492f9df15b90b0f78afc2"
+    },
+    "email": "hr@halhul-city.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2bd316f8bd72751099887808"
+    },
+    "email": "hr@aeliasoft.com",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2646258249c476a73abf8de2"
+    },
+    "email": "hr@cotede.co",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d67aa0a7b4d51c9b0221c829"
+    },
+    "email": "hr@hebron-city.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f9450c7111fa9e2d95a24975"
+    },
+    "email": "hr@sadasol.com",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5d632891bcf80fb09ebec293"
+    },
+    "email": "hr@olivery.app",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ef74fc02017a3b4d70c1798b"
+    },
+    "email": "hr@ts.com.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d4979b9232e6b3eac3bec6ca"
+    },
+    "email": "hr@uwave.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "company",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-15T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "email": "admin@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cb79fbab44ecbce41509a513"
+    },
+    "email": "sami.khoury@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "05717b5992206b026e2dbfa6"
+    },
+    "email": "reem.nassar@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6804c4e72ca4d359ec3561d0"
+    },
+    "email": "jana.jaradat@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "email": "admin@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2ecda708d49b6276ce38f2db"
+    },
+    "email": "rana.erekat@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d3205c1ead0f592f6699bd31"
+    },
+    "email": "anas.khoury@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f42afff820e8f11b4f5c3dc9"
+    },
+    "email": "nader.taweel@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "email": "admin@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8e4d35d58c2fbf644c86036d"
+    },
+    "email": "lina.qasim@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1f807655c4158d8b81473ecf"
+    },
+    "email": "mazen.joba@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a1406551d1e215429552a195"
+    },
+    "email": "murad.jaber@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "email": "admin@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "40254d33f0afc3f7b77c1770"
+    },
+    "email": "ruba.joba@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7fff53af36076e0d2e3e3109"
+    },
+    "email": "huda.zubeidat@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5d0f0045b8950ce55671576a"
+    },
+    "email": "firas.ali@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "email": "admin@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "45ce6aa26cd6fd58d5783e05"
+    },
+    "email": "omar.salameh@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c3c498f1deab1e61f7b953f8"
+    },
+    "email": "layan.qasim@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "26a0659a3acdba5086def0d9"
+    },
+    "email": "hassan.sharabati@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "email": "admin@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "26fedbdf3a993582b74f53bb"
+    },
+    "email": "dina.khalil@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b39d992e024b8062dfaa334f"
+    },
+    "email": "ibrahim.odeh@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cabede2f20ecd88318dd74b3"
+    },
+    "email": "dina.taweel@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "email": "admin@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c3353ed979f9364dee2fd3e3"
+    },
+    "email": "huda.joba@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a55462e22bf135391aa36c1d"
+    },
+    "email": "khaled.sharabati@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "92a74fcbab861ce14c268b36"
+    },
+    "email": "hassan.khalil@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "email": "admin@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c57be4da5f5b3678e8b7493a"
+    },
+    "email": "reem.erekat@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d2cc098d83542cd70c2da51e"
+    },
+    "email": "nader.ali@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "702f5556ed2ed18a93272d3e"
+    },
+    "email": "jana.haddad@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "email": "admin@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "admin",
+    "mustChangePassword": false,
+    "createdAt": {
+      "$date": "2026-01-10T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a2b727ad20de112eac4dc514"
+    },
+    "email": "kareem.qasim@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e0ddfb556c57dccdb8ecc82c"
+    },
+    "email": "dina.barakat@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b88b95c21effb6174f3afdba"
+    },
+    "email": "hana.jaber@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "supervisor",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-01-12T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5d9faf4f2ab6007c6482450d"
+    },
+    "email": "39174@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c49c8f5074473adfb60f185d"
+    },
+    "email": "90386@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66750674f71e3d07009ea4a1"
+    },
+    "email": "29507@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5625e5f369bb9ea99f04f749"
+    },
+    "email": "88805@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "08a2a0ace31cf8aedfeaf464"
+    },
+    "email": "20106@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "05140841f725afc550c1ff2a"
+    },
+    "email": "91753@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "733935bf9642cde12b0d9564"
+    },
+    "email": "18582@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d93712dd6e517a45451762da"
+    },
+    "email": "27093@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fcebef86850c3832acb803df"
+    },
+    "email": "50744@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4894908db4f3f9b96b06e77d"
+    },
+    "email": "99166@aaup.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "683d4b193f625c33a39100cc"
+    },
+    "email": "50966@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "dfb55255a35f94c2e91cb8cb"
+    },
+    "email": "84169@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9e9d35b67eee3918a29cdc7e"
+    },
+    "email": "38671@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b11a754c5306d92dd72ba6aa"
+    },
+    "email": "53833@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "28c2772daf775c19fce2bc22"
+    },
+    "email": "54083@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "61b4aee40870c13d9c506374"
+    },
+    "email": "29143@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "065013c5e67a3219c66996b4"
+    },
+    "email": "30510@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4655290010545d3c689a9567"
+    },
+    "email": "87428@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "da594dd6b972d26bfa987be8"
+    },
+    "email": "44072@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "20e92525d9f05f7318b17693"
+    },
+    "email": "51247@bethlehem.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d053a03665472c4e2490b832"
+    },
+    "email": "44276@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4b59abd6b4aa2457fd5420df"
+    },
+    "email": "13888@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0659cb12fb301f2a786bf3e6"
+    },
+    "email": "28967@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3f4f163006802134b6c823a6"
+    },
+    "email": "12289@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "456f2f55e6cab9a5fa73077b"
+    },
+    "email": "53944@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c3e10fb89f4847a596416c61"
+    },
+    "email": "82465@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9fd1b34221c02ec0615fc0f8"
+    },
+    "email": "61993@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d521a9b8ecbbb4329d04a131"
+    },
+    "email": "74607@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7f96754d6ae64cb966c558e5"
+    },
+    "email": "37556@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a8271e3715eadea2708837a"
+    },
+    "email": "75025@birzeit.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c3c0749885d3d0025e3c19bc"
+    },
+    "email": "49885@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "079d972d029922562e2c58b7"
+    },
+    "email": "24086@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "90468c08bad32cb9863feb37"
+    },
+    "email": "77027@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f3f787b39b8448e26a73fa82"
+    },
+    "email": "68277@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e27a48f1fccc42176ef92d2f"
+    },
+    "email": "52254@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c348e723831b52779c6663c6"
+    },
+    "email": "89540@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f96ae6f37996927043fea06a"
+    },
+    "email": "62754@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6153f3e1d9bc5cddb50a5bd9"
+    },
+    "email": "10039@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5fa9fb504c88cbcf4e452dfb"
+    },
+    "email": "54591@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f6cf059b2d9be8dc31371c5d"
+    },
+    "email": "65397@ppu.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a9da0d93c52271a3b5332863"
+    },
+    "email": "84659@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "455c4012b599445e8019630c"
+    },
+    "email": "80983@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "591de472c1906e089e02907a"
+    },
+    "email": "20684@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "715910181a6e9ad2988a7c2f"
+    },
+    "email": "62366@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7f3b9ad8b0260deee9abbd4c"
+    },
+    "email": "27465@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "481ccb5e90d2ed8f9842cc99"
+    },
+    "email": "61055@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3e4558a16d504ba0862b20b4"
+    },
+    "email": "41284@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a81560c3e0feb1be3b3f9da2"
+    },
+    "email": "10680@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "13e2b647c2719d04e6d43bf8"
+    },
+    "email": "53994@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0b5aa56ab8df8bfd7678e636"
+    },
+    "email": "54410@najah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "de613568abc9edb932db8535"
+    },
+    "email": "51707@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a98fa4c9145a582f94521691"
+    },
+    "email": "36204@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c4d62765f98cfa113eb33ac4"
+    },
+    "email": "63311@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c92482191d71a3975414b6e8"
+    },
+    "email": "41800@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1bd2bf6d7c29fe80aeb96d15"
+    },
+    "email": "20822@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "00f956a3b91e469e4b725aef"
+    },
+    "email": "92253@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0f4b8c8ecd206a2b5da77d67"
+    },
+    "email": "29941@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d76f3e2cd5c56a91e71579dc"
+    },
+    "email": "23534@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "21c19426ae2cb1b71ad6cc81"
+    },
+    "email": "51810@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b986ba4ec5f2b47db910a1e6"
+    },
+    "email": "18929@hebron.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ea0bcee52e71c6fa17d75e6e"
+    },
+    "email": "93544@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "49a82a5d84dd1e0266fd6df0"
+    },
+    "email": "84413@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6f138423fd2cc43e5a528548"
+    },
+    "email": "51182@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "48d4ebfb9daa2042d0cda846"
+    },
+    "email": "50996@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6883d846bd858c9bc0621581"
+    },
+    "email": "76982@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "facf57e18b94fb25669c695e"
+    },
+    "email": "86887@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "236ca1a96e26fe3331882384"
+    },
+    "email": "68295@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0eeb11171a95b9fa975ab870"
+    },
+    "email": "36597@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "375a495f7e0a70c77fa2540a"
+    },
+    "email": "59371@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8e87b5565937d940fb8cd858"
+    },
+    "email": "49671@qou.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c4c447679c4fbd445eba9c81"
+    },
+    "email": "70311@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1beae59f391436d92b12441f"
+    },
+    "email": "23300@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "92c87a9f73c066faeccb3aac"
+    },
+    "email": "42324@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "7022225c2687323c05137efd"
+    },
+    "email": "22203@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cf703664076158f2ab7dd384"
+    },
+    "email": "84344@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ecfe4a2e4c34703841d12b5b"
+    },
+    "email": "99689@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6708233a09632fd542aaaf7e"
+    },
+    "email": "72843@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "16228d40ac1c9f9717e42a27"
+    },
+    "email": "96905@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "10355520bb22c9fde4b01877"
+    },
+    "email": "52622@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "65153c4272a325ccf3174493"
+    },
+    "email": "30258@zaytoonah.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c8509b6e872cb2124e697c00"
+    },
+    "email": "95646@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "257a146965768f54f70f1fec"
+    },
+    "email": "22576@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e5330e81474afe49882ca8bb"
+    },
+    "email": "55600@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "894187cd0a800f3a6a045908"
+    },
+    "email": "48859@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f6ee0f62b5c98e84b7a3ecf6"
+    },
+    "email": "70620@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ecf9bcf2fe744bc9487d2665"
+    },
+    "email": "83785@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9057ea57a8edeec2eb82877b"
+    },
+    "email": "88492@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9f12124bc22cb26dbb7bab90"
+    },
+    "email": "83156@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c24ba8104b819c365971f131"
+    },
+    "email": "34140@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d656cd8b7ff7ddf634d255b0"
+    },
+    "email": "11589@ptuk.edu.ps",
+    "passwordHash": "$2b$10$udahcGMq15gPsJE5fjDwZe8cec/IHLbFNadNKluZs96ctwrbXeMO2",
+    "role": "student",
+    "mustChangePassword": true,
+    "createdBy": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "createdAt": {
+      "$date": "2026-02-01T00:00:00.000Z"
+    }
+  }
+]

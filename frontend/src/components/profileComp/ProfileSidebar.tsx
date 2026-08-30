@@ -32,6 +32,7 @@ export default function ProfileSidebar({ student }: Props) {
         }}
       >
         <Avatar
+          src={student.avatarUrl}
           sx={{
             width: 90,
             height: 90,
@@ -40,7 +41,7 @@ export default function ProfileSidebar({ student }: Props) {
             fontWeight: 700,
           }}
         >
-          {student.initials}
+          {!student.avatarUrl && student.initials}
         </Avatar>
 
         <Box
@@ -59,7 +60,14 @@ export default function ProfileSidebar({ student }: Props) {
           </Typography>
         </Box>
 
-        <Button fullWidth variant="contained">
+        <Button 
+          fullWidth 
+          variant="contained" 
+          disabled={!student.cvUrl}
+          href={student.cvUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Download Resume
         </Button>
 

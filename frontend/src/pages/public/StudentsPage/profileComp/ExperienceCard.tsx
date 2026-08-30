@@ -1,39 +1,61 @@
-import { Box, Card, CardContent, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-import type { Student } from "../../types/student.types";
+import type { StudentProfile } from "../StudentsPage";
 type Props = {
-  student: Student;
+  student: StudentProfile;
 };
 
 export default function ExperienceCard({ student }: Props) {
-  return (
-    <Card sx={{ borderRadius: 3, mb: 3 }}>
-      <CardContent>
-        <Typography variant="h6" sx={{ mb: 3 }}>
-          Experience
-        </Typography>
+  const experience = student.experience || [];
 
-        <Stack spacing={3}>
-          {student.experience.map((exp) => (
-            <Box key={`${exp.year}-${exp.title}`}>
+  if (experience.length === 0) return null;
+
+  return (
+    <Box component="section" sx={{ mb: 4 }}>
+      <Typography variant="h5" sx={{ fontWeight: 600, mb: 4 }}>
+        Experience
+      </Typography>
+
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        {experience.map((exp, index) => (
+          <Box 
+            key={index} 
+            sx={{ 
+              display: "flex", 
+              flexDirection: { xs: "column", sm: "row" }, 
+              gap: { xs: 1, sm: 4 },
+              position: "relative"
+            }}
+          >
+            {/* Year Column */}
+            <Box sx={{ minWidth: { sm: 120 }, flexShrink: 0 }}>
               <Typography
                 sx={{
-                  color: "primary.main",
-                  fontWeight: 700,
+                  color: "text.secondary",
+                  fontWeight: 600,
+                  fontSize: "0.95rem",
+                  textTransform: "uppercase",
+                  letterSpacing: 0.5,
+                  mt: 0.5
                 }}
               >
                 {exp.year}
               </Typography>
+            </Box>
 
-              <Typography variant="h6">{exp.title}</Typography>
+            {/* Content Column */}
+            <Box>
+              <Typography variant="h6" sx={{ fontWeight: 600, lineHeight: 1.3, mb: 1 }}>
+                {exp.title}
+              </Typography>
 
-              <Typography sx={{ color: "text.secondary" }}>
+              <Typography sx={{ color: "text.secondary", lineHeight: 1.6 }}>
                 {exp.description}
               </Typography>
             </Box>
-          ))}
-        </Stack>
-      </CardContent>
-    </Card>
+          </Box>
+        ))}
+      </Box>
+    </Box>
   );
 }

@@ -1,6 +1,8 @@
 import { Card, Stack, TextField, Box } from "@mui/material";
 import AvatarUpload from "../../components/AvatarUpload";
 import type { EditableProfileData } from "./StudentProfilePage";
+import api from "../../lib/axios";
+import { useAuth } from "../../context/authContext";
 
 interface Props {
   data: EditableProfileData;
@@ -11,16 +13,33 @@ interface Props {
 }
 
 export default function ProfileEditHero({ data, onChange }: Props) {
+  const { user, updateUser } = useAuth();
+
   return (
     <Card sx={{ p: 3, borderRadius: 2 }}>
       <Stack spacing={2} sx={{ alignItems: "center" }}>
         <AvatarUpload
           src={data.avatar}
           size={90}
-          onFileSelect={(file) => {
-            // Convert file to URL for preview and pass to onChange
-            const url = URL.createObjectURL(file);
-            onChange("avatar", url);
+          onFileSelect={async (file) => {
+            try {
+              const formData = new FormData();
+              formData.append("avatar", file);
+              
+              // We need to import api here, or use axios
+              const res = await api.post("/student/me/avatar", formData, {
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                }
+              });
+              onChange("avatar", res.data.avatarUrl);
+              if (user) {
+                updateUser({ ...user, avatarUrl: res.data.avatarUrl });
+              }
+            } catch (err) {
+              console.error("Failed to upload avatar", err);
+              alert("Failed to upload avatar.");
+            }
           }}
         />
 

@@ -14,6 +14,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import SaveIcon from "@mui/icons-material/Save";
 
 import api from "../../lib/axios";
+import { useAuth } from "../../context/authContext";
 import type { Student } from "../../types/student.types";
 import ProfileSidebar from "../../components/profileComp/ProfileSidebar";
 import SkillsCard from "../../components/profileComp/SkillsCard";
@@ -170,6 +171,8 @@ export default function StudentProfilePage() {
   const [saveError, setSaveError] = useState<string | null>(null);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
+  const { user, updateUser } = useAuth();
+  
   useEffect(() => {
     let isMounted = true;
 
@@ -183,6 +186,11 @@ export default function StudentProfilePage() {
         if (isMounted) {
           setProfileData(mapApiResponseToProfileData(response.data));
           setApiYear(response.data.year ?? "");
+          
+          // Auto-sync avatar to navbar if the database has it but local context doesn't
+          if (user && response.data.avatarUrl && user.avatarUrl !== response.data.avatarUrl) {
+            updateUser({ ...user, avatarUrl: response.data.avatarUrl });
+          }
         }
       } catch (err) {
         console.error("Failed to load student profile:", err);
@@ -274,18 +282,16 @@ export default function StudentProfilePage() {
     contactEmail: profileData.contactEmail,
     phone: profileData.phone,
     bio: profileData.bio,
-    location: "",
-    availableFor: "",
+    location: "Ramallah, Palestine",
+    availableFor: "Full-Time Internship (FT1)",
     skills: profileData.skills,
-    ft1: false,
+    ft1: true,
     ft2: false,
     experience: profileData.experience,
-    projects: profileData.projects.map((p) => ({
-      title: p.title,
-      description: p.description,
-      technologies: p.technologies,
-    })),
+    projects: profileData.projects,
     certificates: profileData.certificates.map((c) => c.name),
+    avatarUrl: profileData.avatar,
+    cvUrl: profileData.cvFileName || undefined,
     training: {
       ft1: {
         registered: false,

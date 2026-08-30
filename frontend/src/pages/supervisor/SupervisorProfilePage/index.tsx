@@ -31,6 +31,8 @@ interface SupervisorProfileData {
   avatarUrl: string | null;
 }
 
+import { useAuth } from "../../../context/authContext";
+
 const EMPTY_PROFILE: SupervisorProfileData = {
   name: "",
   university: "",
@@ -60,6 +62,7 @@ const FIELD_LABELS: Record<RequestableField, string> = {
 };
 
 export default function SupervisorProfilePage() {
+  const { user, updateUser } = useAuth();
   const [isEditMode, setIsEditMode] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -251,7 +254,7 @@ export default function SupervisorProfilePage() {
 
         <Card sx={{ p: { xs: 3, md: 5 }, borderRadius: 2, boxShadow: 3 }}>
           <Stack
-            direction={{ xs: "column", md: "row" } as const}
+            direction={{ xs: "column", md: "row" }}
             spacing={3}
             sx={{
               justifyContent: "space-between",
@@ -260,7 +263,7 @@ export default function SupervisorProfilePage() {
             }}
           >
             <Stack
-              direction={{ xs: "column", md: "row" } as const}
+              direction={{ xs: "column", md: "row" }}
               spacing={3}
               sx={{ alignItems: "center" }}
             >
@@ -268,9 +271,27 @@ export default function SupervisorProfilePage() {
                 <AvatarUpload
                   src={profileData.avatarUrl ?? ""}
                   size={120}
-                  onFileSelect={(file) =>
-                    handleChange("avatarUrl", URL.createObjectURL(file))
-                  }
+                  onFileSelect={async (file) => {
+                    try {
+                      setIsSaving(true);
+                      const formData = new FormData();
+                      formData.append("avatar", file);
+                      const res = await api.post("/supervisors/me/avatar", formData, {
+                        headers: {
+                          "Content-Type": undefined
+                        }
+                      });
+                      handleChange("avatarUrl", res.data.avatarUrl);
+                      if (user) {
+                        updateUser({ ...user, avatarUrl: res.data.avatarUrl });
+                      }
+                    } catch (err) {
+                      console.error("Failed to upload avatar:", err);
+                      setError("Failed to upload avatar. Please try again.");
+                    } finally {
+                      setIsSaving(false);
+                    }
+                  }}
                 />
               ) : (
                 <Box

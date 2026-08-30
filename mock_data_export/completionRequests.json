@@ -1,0 +1,1109 @@
+[
+  {
+    "_id": {
+      "$oid": "fe523d0394ed1d45713c6c16"
+    },
+    "studentId": {
+      "$oid": "a846e8c88955f78d6bc7c804"
+    },
+    "internshipRequestId": {
+      "$oid": "099841e5b7214729c4133646"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "0e641df8d5841e708a77b77f"
+    },
+    "studentId": {
+      "$oid": "5846a0c96733d19381eed848"
+    },
+    "internshipRequestId": {
+      "$oid": "d01d105709a4f2e50a819b9f"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "210030ac863b02226d88eadf"
+    },
+    "studentId": {
+      "$oid": "19fdfbe38a11b4d3dfac7c84"
+    },
+    "internshipRequestId": {
+      "$oid": "c77799253fd5ed36c829be12"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4d0800ebe9e9758774d86acb"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "internshipRequestId": {
+      "$oid": "462964e61f787cde734195f3"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a4dee27fbf6238ae24011bc"
+    },
+    "studentId": {
+      "$oid": "b072811d085c2f3f3f3b0b5a"
+    },
+    "internshipRequestId": {
+      "$oid": "a3378ba0a783a40eadfa0b75"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8e89a66959c7fcaff82b9557"
+    },
+    "studentId": {
+      "$oid": "57fac1f3cc3ff1a0e3fd0862"
+    },
+    "internshipRequestId": {
+      "$oid": "6d3c07bdad2b81c402f3f8fc"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "pending",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e1ba19e981b0fc8a5d1619d9"
+    },
+    "studentId": {
+      "$oid": "aff7490ce360c37e5663f63d"
+    },
+    "internshipRequestId": {
+      "$oid": "9559b39c92192d8f19a9e5a7"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2efef947f2df2a2a59a06b23"
+    },
+    "studentId": {
+      "$oid": "fe4fb40d00624ba442b824dd"
+    },
+    "internshipRequestId": {
+      "$oid": "bc169c11dd27e456b0e9ecef"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "da7f0891895ede03ecb811a6"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "internshipRequestId": {
+      "$oid": "80f9636e258964b3387a0959"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b736346ce43713dc5d33459e"
+    },
+    "studentId": {
+      "$oid": "7a14f21e64b253b3a430e51c"
+    },
+    "internshipRequestId": {
+      "$oid": "44d04f1fb6786c2bbe3c1fdf"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b56f6916b35b0e391dc0362c"
+    },
+    "studentId": {
+      "$oid": "465e99b1b198895d91add6f6"
+    },
+    "internshipRequestId": {
+      "$oid": "ac1685ccf3c7746dd7fb1beb"
+    },
+    "companyId": {
+      "$oid": "865caceb9ca3fe3ca296b715"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "c9866de7ba8a8b20c5c6beaf"
+    },
+    "studentId": {
+      "$oid": "8c38e988904b876f5d72da4a"
+    },
+    "internshipRequestId": {
+      "$oid": "699fb92a41321b73524ed674"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3fbb271e4eecc6f36257152c"
+    },
+    "studentId": {
+      "$oid": "0e76094c1ae3d07e3d1b3ce9"
+    },
+    "internshipRequestId": {
+      "$oid": "f7cc552da0cb6eb640bd0b64"
+    },
+    "companyId": {
+      "$oid": "70b338efec87538631260ad7"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b05fb62a22bf014930a68647"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "internshipRequestId": {
+      "$oid": "2b3c0cdaf7c8f26d875d84e9"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "727a88ea159edc4a6232aced"
+    },
+    "studentId": {
+      "$oid": "45fbf5d961289dd7ef44713c"
+    },
+    "internshipRequestId": {
+      "$oid": "71125fb0e7ec7ce5977de124"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "355dd15e2c219b7dc511e342"
+    },
+    "studentId": {
+      "$oid": "8c67a2828fc8eb7c8a92ab91"
+    },
+    "internshipRequestId": {
+      "$oid": "d406a597551419e8cc86e05a"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "e2a445dd564c843620e9525d"
+    },
+    "studentId": {
+      "$oid": "c0c174af276551c03bc48168"
+    },
+    "internshipRequestId": {
+      "$oid": "7f94afb42ee81262d3c609fc"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e5af71c6d132e8d2f075b028"
+    },
+    "studentId": {
+      "$oid": "f7cf6acd05a40df2e4dd79f4"
+    },
+    "internshipRequestId": {
+      "$oid": "963fe1f7a097a3a001ae92fd"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e3632e3abbfa5f70040c1b41"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "internshipRequestId": {
+      "$oid": "685f7a6dae6fe787438ea8f5"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5d4ff59fb54497577335ee04"
+    },
+    "studentId": {
+      "$oid": "2dbde9786e7a06e995891428"
+    },
+    "internshipRequestId": {
+      "$oid": "728437ee23d20d445c075722"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cb6e7474e180e927a477f312"
+    },
+    "studentId": {
+      "$oid": "28bf2e027c7daaaf9df8422c"
+    },
+    "internshipRequestId": {
+      "$oid": "44a07d59dda95e97a8f1dc14"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "7d67c8805e0310f8c9d04480"
+    },
+    "studentId": {
+      "$oid": "650c651ef50b9c7ec8ee025c"
+    },
+    "internshipRequestId": {
+      "$oid": "9000397c012ed314d7c9c436"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "690a3b65bfbebd9c9fbe4416"
+    },
+    "studentId": {
+      "$oid": "cdebaf6e06b94c8d369cae81"
+    },
+    "internshipRequestId": {
+      "$oid": "dcee1e3f894f0b7e04f4a07d"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "441938d840df19b2f723c2d9"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "internshipRequestId": {
+      "$oid": "70fc501b5d0aed7de0a15c1d"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c7ef6f2446081e1a8d46b68c"
+    },
+    "studentId": {
+      "$oid": "efa1c21d71b6ec2694a97372"
+    },
+    "internshipRequestId": {
+      "$oid": "cce9e0bd7408d90294436741"
+    },
+    "companyId": {
+      "$oid": "afecb654c6e5d2496b8255a1"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a96f101b57d07da86fa1535a"
+    },
+    "studentId": {
+      "$oid": "d8b37d6bd17296081d83e2e5"
+    },
+    "internshipRequestId": {
+      "$oid": "56fe62f7a440e0177d4040a9"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "56a9d40a541f7a6d26240b02"
+    },
+    "studentId": {
+      "$oid": "a34021330760c17c3fdb4ca5"
+    },
+    "internshipRequestId": {
+      "$oid": "fdb0b1c12ea59ea8ad06fe28"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "57ad502e12fe944390c5f21f"
+    },
+    "studentId": {
+      "$oid": "550366286518c82e2f2eb00b"
+    },
+    "internshipRequestId": {
+      "$oid": "2c0b51e96d419f33a15f4dfb"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3e4a7df56e2ff56ac2d58b3b"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "internshipRequestId": {
+      "$oid": "1cf31608dfccc48a841bb114"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "72d73b7069a1d689ef5afa90"
+    },
+    "studentId": {
+      "$oid": "de7ff1d72672c4a21e122f65"
+    },
+    "internshipRequestId": {
+      "$oid": "64b0730df3eeafe9b66f896b"
+    },
+    "companyId": {
+      "$oid": "ad86008401c44293adeaef0c"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cc15b107fd8c0dc0e1698c84"
+    },
+    "studentId": {
+      "$oid": "d1f5abc4036f92d765f1a646"
+    },
+    "internshipRequestId": {
+      "$oid": "cf9a6a841914dff3c9c5268e"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "bd6222c2c5f314b839fc72c7"
+    },
+    "studentId": {
+      "$oid": "28d557bac62de5c0a9c77263"
+    },
+    "internshipRequestId": {
+      "$oid": "ebb4542f3b7aba4a40b695e1"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a624a79f728974a9eae8a12a"
+    },
+    "studentId": {
+      "$oid": "9ecd745618b63775a3e2f28d"
+    },
+    "internshipRequestId": {
+      "$oid": "82b883738ac59b8fbce5db61"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f01e0b65cfd7d06847450c85"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "internshipRequestId": {
+      "$oid": "18dd4b6d3f14623dd4c3ed5d"
+    },
+    "companyId": {
+      "$oid": "ddd02c48201cb8437e37ed28"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b92b857e06630e49e0e60d82"
+    },
+    "studentId": {
+      "$oid": "34fcd2b2220fc3746028708d"
+    },
+    "internshipRequestId": {
+      "$oid": "ff5878255abf63a75d7a295c"
+    },
+    "companyId": {
+      "$oid": "0cf08ee15c4af2849d76ed4f"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f7e94a00113460e9a99e15a8"
+    },
+    "studentId": {
+      "$oid": "5d05935fad2b67e898a02090"
+    },
+    "internshipRequestId": {
+      "$oid": "42a63156d5967f0ace467803"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "approved",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "6a5b7c595b41928711107560"
+    },
+    "studentId": {
+      "$oid": "de6e75b6b6a2330d0e558fd3"
+    },
+    "internshipRequestId": {
+      "$oid": "c355f2587c719bcbd4eb2d19"
+    },
+    "companyId": {
+      "$oid": "e2d71e70649bce4e4ccc1156"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "b703c475447dccab08305510"
+    },
+    "studentId": {
+      "$oid": "d38240b74ae5b6d54f7965f0"
+    },
+    "internshipRequestId": {
+      "$oid": "3bf91b5416e917dcd558851e"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5908c6b7bd40b40d6e21b2d1"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "internshipRequestId": {
+      "$oid": "8bc1727786fb7dbe87b47da2"
+    },
+    "companyId": {
+      "$oid": "8adfa58bbf8e53cb86b879e3"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "274c83f4fdf96f779666cc6a"
+    },
+    "studentId": {
+      "$oid": "554868923949e8fabfb3f601"
+    },
+    "internshipRequestId": {
+      "$oid": "898196c154a304ad160e7d68"
+    },
+    "companyId": {
+      "$oid": "0f4c3f73d76fe00e3a7d6be7"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "577864b40a2a497c32f6cca8"
+    },
+    "studentId": {
+      "$oid": "e93531cedb6ab1e4f4e7978b"
+    },
+    "internshipRequestId": {
+      "$oid": "054a9b578795b31eddfc5343"
+    },
+    "companyId": {
+      "$oid": "9aba2ab33aba24863824113c"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 3,
+    "status": "pending",
+    "companyComment": null,
+    "submittedAt": {
+      "$date": "2026-07-31T00:00:00.000Z"
+    },
+    "reviewedAt": null
+  },
+  {
+    "_id": {
+      "$oid": "88e64d329673118150f8e0e6"
+    },
+    "studentId": {
+      "$oid": "60e667b2171a15b49e6c8799"
+    },
+    "internshipRequestId": {
+      "$oid": "d9f8258cb310ffa06b78d3d8"
+    },
+    "companyId": {
+      "$oid": "d88ea6e3f3b215d592fe0423"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "1624bbfdbc553147279819c8"
+    },
+    "studentId": {
+      "$oid": "c452cc07858b3f830d8ae662"
+    },
+    "internshipRequestId": {
+      "$oid": "75b29b6ec702c3e84e9adef9"
+    },
+    "companyId": {
+      "$oid": "04f1f92dbd87db377f933d9e"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "Great intern.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-03-02T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4fa7cc275d1cdcd8e0ca2ee6"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "internshipRequestId": {
+      "$oid": "bae8d4667db0e612faf7f31d"
+    },
+    "companyId": {
+      "$oid": "7c4aa443de1158a245bc66e4"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT1 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2025-11-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "681ebcd9d872221d4479b6a8"
+    },
+    "studentId": {
+      "$oid": "b8fbe6d902eb99b3aa26a4a6"
+    },
+    "internshipRequestId": {
+      "$oid": "373be63338c8fe3ab25b94ca"
+    },
+    "companyId": {
+      "$oid": "fb4bac25c202dd97a4c2072a"
+    },
+    "totalHours": 150,
+    "requiredHours": 150,
+    "reportsSubmitted": 2,
+    "status": "approved",
+    "companyComment": "FT2 completed. Strong performance throughout.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    },
+    "reviewedAt": {
+      "$date": "2026-04-30T00:00:00.000Z"
+    }
+  }
+]

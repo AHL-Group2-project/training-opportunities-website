@@ -1,0 +1,110 @@
+[
+  {
+    "_id": {
+      "$oid": "56ff0450e052cb633e661fe0"
+    },
+    "userId": {
+      "$oid": "3986e391df8e30df91ac5ef9"
+    },
+    "name": "Dina Erekat",
+    "university": "Arab American University (AAUP)",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "e86fa3504b49c6652d47b138"
+    },
+    "userId": {
+      "$oid": "7bf426b7d012397599f22c21"
+    },
+    "name": "Rana Salem",
+    "university": "Bethlehem University",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "095bdb7b074af7b63c322c67"
+    },
+    "userId": {
+      "$oid": "b09dd3f037c20f1617b94656"
+    },
+    "name": "Wafa Odeh",
+    "university": "Birzeit University",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "ca537b4c19da0d033332fb95"
+    },
+    "userId": {
+      "$oid": "a75f40d7f34bdb1a54edd22a"
+    },
+    "name": "Farah Sharabati",
+    "university": "Palestine Polytechnic University (PPU)",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "71770d27f2d2b36c3dc72eeb"
+    },
+    "userId": {
+      "$oid": "5df9b598950298d307b4a8c9"
+    },
+    "name": "Reem Sharabati",
+    "university": "An-Najah National University",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "9791a28b712294159ed32a08"
+    },
+    "userId": {
+      "$oid": "b970415e61148951db7001ff"
+    },
+    "name": "Jad Odeh",
+    "university": "Hebron University",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "44dbb65ae3907d6fffa3499d"
+    },
+    "userId": {
+      "$oid": "7854587d026d293d1a664aef"
+    },
+    "name": "Raya Qasim",
+    "university": "Al-Quds Open University (QOU)",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "c81b89bf77914b954542cad8"
+    },
+    "userId": {
+      "$oid": "dd6975ca6f1d7a0986e27f53"
+    },
+    "name": "Sara Abusneineh",
+    "university": "Al-Zaytoonah University",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  },
+  {
+    "_id": {
+      "$oid": "3517e330fcd043fa23b4e348"
+    },
+    "userId": {
+      "$oid": "0f97432be47f8245841669d3"
+    },
+    "name": "Nadeen Khoury",
+    "university": "Palestine Technical University – Kadoorie (PTUK)",
+    "systemRole": "University Administrator",
+    "avatarUrl": null
+  }
+]

@@ -26,18 +26,21 @@ export const loginUser = async (req, res, next) => {
       let profileId = user._id;
       let companyId = undefined;
       let name = user.email; // Fallback
+      let avatarUrl = undefined;
 
       if (user.role === "student") {
         const profile = await StudentProfile.findOne({ userId: user._id });
         if (profile) {
           profileId = profile._id;
           name = profile.name;
+          avatarUrl = profile.avatarUrl || profile.avatar;
         }
       } else if (user.role === "supervisor") {
         const profile = await SupervisorProfile.findOne({ userId: user._id });
         if (profile) {
           profileId = profile._id;
           name = profile.name;
+          avatarUrl = profile.avatarUrl || profile.avatar;
         }
       } else if (user.role === "company") {
         const profile = await CompanyProfile.findOne({ userId: user._id });
@@ -45,13 +48,21 @@ export const loginUser = async (req, res, next) => {
           profileId = profile._id;
           companyId = profile._id;
           name = profile.name;
+          avatarUrl = profile.logoUrl;
         }
       } else if (user.role === "admin") {
         const profile = await AdminProfile.findOne({ userId: user._id });
         if (profile) {
           profileId = profile._id;
           name = profile.name;
+          avatarUrl = profile.avatarUrl || profile.avatar;
         }
+      }
+
+      let adminUniversity = null;
+      if (user.role === "admin") {
+        const profile = await AdminProfile.findOne({ userId: user._id });
+        if (profile) adminUniversity = profile.university;
       }
 
       res.json({
@@ -63,6 +74,8 @@ export const loginUser = async (req, res, next) => {
         role: user.role,
         mustChangePassword: user.mustChangePassword,
         token: generateToken(user._id),
+        university: adminUniversity,
+        avatarUrl,
       });
     } else {
       res.status(401).json({ message: "Invalid email or password" });
