@@ -3,6 +3,7 @@ import User from "../models/User.js";
 import StudentProfile from "../models/StudentProfile.js";
 import SupervisorProfile from "../models/SupervisorProfile.js";
 import CompanyProfile from "../models/CompanyProfile.js";
+import AdminProfile from "../models/AdminProfile.js";
 import { JWT_SECRET } from "../middleware/authMiddleware.js";
 
 const generateToken = (id) => {
@@ -43,6 +44,12 @@ export const loginUser = async (req, res, next) => {
         if (profile) {
           profileId = profile._id;
           companyId = profile._id;
+          name = profile.name;
+        }
+      } else if (user.role === "admin") {
+        const profile = await AdminProfile.findOne({ userId: user._id });
+        if (profile) {
+          profileId = profile._id;
           name = profile.name;
         }
       }
