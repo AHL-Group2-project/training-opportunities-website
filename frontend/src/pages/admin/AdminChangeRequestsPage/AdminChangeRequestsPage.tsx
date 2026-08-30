@@ -55,7 +55,7 @@ export default function AdminChangeRequestsPage() {
 
   const [reviewTarget, setReviewTarget] =
     useState<ChangeRequestApiResponse | null>(null);
-  const [reviewDecision, setReviewDecision] = useState
+  const [reviewDecision, setReviewDecision] = useState<
     "approved" | "rejected" | null
   >(null);
   const [reviewNote, setReviewNote] = useState("");
