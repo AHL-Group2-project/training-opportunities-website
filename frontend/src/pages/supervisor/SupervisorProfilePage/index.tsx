@@ -10,9 +10,15 @@ import {
   Divider,
   CircularProgress,
   Alert,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Chip,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
+import SendIcon from "@mui/icons-material/Send";
 import AvatarUpload from "../../../components/AvatarUpload";
 import api from "../../../lib/axios";
 
@@ -36,6 +42,25 @@ const EMPTY_PROFILE: SupervisorProfileData = {
   avatarUrl: null,
 };
 
+// These two fields are not self-editable — changes must go through
+// the admin-reviewed change-request workflow instead.
+type RequestableField = "university" | "department";
+
+interface ChangeRequestItem {
+  _id: string;
+  field: RequestableField;
+  currentValue: string;
+  requestedValue: string;
+  status: "pending" | "approved" | "rejected";
+  reviewNote?: string;
+  createdAt: string;
+}
+
+const FIELD_LABELS: Record<RequestableField, string> = {
+  university: "University",
+  department: "Department",
+};
+
 export default function SupervisorProfilePage() {
   const { user, updateUser } = useAuth();
   const [isEditMode, setIsEditMode] = useState(false);
@@ -45,36 +70,52 @@ export default function SupervisorProfilePage() {
   const [profileData, setProfileData] =
     useState<SupervisorProfileData>(EMPTY_PROFILE);
 
+  // Change-request state
+  const [changeRequests, setChangeRequests] = useState<ChangeRequestItem[]>(
+    [],
+  );
+  const [isLoadingRequests, setIsLoadingRequests] = useState(true);
+  const [requestDialogField, setRequestDialogField] =
+    useState<RequestableField | null>(null);
+  const [requestValue, setRequestValue] = useState("");
+  const [isSubmittingRequest, setIsSubmittingRequest] = useState(false);
+  const [requestError, setRequestError] = useState<string | null>(null);
+  const [requestSuccess, setRequestSuccess] = useState(false);
+
+  const fetchProfile = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      const response = await api.get<SupervisorProfileData>(
+        "/supervisors/me/profile",
+      );
+      setProfileData(response.data);
+    } catch (err) {
+      console.error("Failed to load supervisor profile:", err);
+      setError("Failed to load profile data. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const fetchChangeRequests = async () => {
+    try {
+      setIsLoadingRequests(true);
+      const response = await api.get<ChangeRequestItem[]>(
+        "/change-requests/mine",
+      );
+      setChangeRequests(response.data);
+    } catch (err) {
+      console.error("Failed to load change requests:", err);
+      // Non-fatal: the profile itself can still be shown without this.
+    } finally {
+      setIsLoadingRequests(false);
+    }
+  };
+
   useEffect(() => {
-    let isMounted = true;
-
-    const fetchProfile = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-        const response = await api.get<SupervisorProfileData>(
-          "/supervisors/me/profile",
-        );
-        if (isMounted) {
-          setProfileData(response.data);
-        }
-      } catch (err) {
-        console.error("Failed to load supervisor profile:", err);
-        if (isMounted) {
-          setError("Failed to load profile data. Please try again.");
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    };
-
     fetchProfile();
-
-    return () => {
-      isMounted = false;
-    };
+    fetchChangeRequests();
   }, []);
 
   const handleChange = (field: keyof SupervisorProfileData, value: string) => {
@@ -85,11 +126,12 @@ export default function SupervisorProfilePage() {
     try {
       setIsSaving(true);
       setError(null);
-      // university is admin-managed and always sent read-only from this form
-      const { name, department, phone, officeHours } = profileData;
+      // university and department are not self-editable — they go through
+      // the change-request workflow instead, so they're never sent here.
+      const { name, phone, officeHours, avatarUrl } = profileData;
       const response = await api.patch<SupervisorProfileData>(
         "/supervisors/me/profile",
-        { name, department, phone, officeHours },
+        { name, phone, officeHours, avatarUrl },
       );
       setProfileData(response.data);
       setIsEditMode(false);
@@ -99,6 +141,86 @@ export default function SupervisorProfilePage() {
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const pendingRequestFor = (field: RequestableField) =>
+    changeRequests.find((r) => r.field === field && r.status === "pending");
+
+  const openRequestDialog = (field: RequestableField) => {
+    setRequestDialogField(field);
+    setRequestValue("");
+    setRequestError(null);
+  };
+
+  const closeRequestDialog = () => {
+    setRequestDialogField(null);
+    setRequestValue("");
+    setRequestError(null);
+  };
+
+  const submitChangeRequest = async () => {
+    if (!requestDialogField || !requestValue.trim()) return;
+
+    try {
+      setIsSubmittingRequest(true);
+      setRequestError(null);
+      await api.post("/change-requests", {
+        field: requestDialogField,
+        requestedValue: requestValue.trim(),
+      });
+      setRequestSuccess(true);
+      closeRequestDialog();
+      await fetchChangeRequests();
+    } catch (err) {
+      console.error("Failed to submit change request:", err);
+      setRequestError("Failed to submit your request. Please try again.");
+    } finally {
+      setIsSubmittingRequest(false);
+    }
+  };
+
+  const renderRequestableField = (
+    field: RequestableField,
+    value: string,
+  ) => {
+    const pending = pendingRequestFor(field);
+
+    return (
+      <Stack spacing={1} sx={{ width: "100%" }}>
+        <Stack direction="row" spacing={1} sx={{ alignItems: "flex-start" }}>
+          <TextField
+            label={FIELD_LABELS[field]}
+            value={value}
+            disabled
+            fullWidth
+            variant="outlined"
+            helperText={
+              pending
+                ? undefined
+                : `Your ${FIELD_LABELS[field].toLowerCase()} is managed by your admin.`
+            }
+          />
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={() => openRequestDialog(field)}
+            disabled={Boolean(pending)}
+            sx={{ mt: 1, whiteSpace: "nowrap" }}
+          >
+            Request Change
+          </Button>
+        </Stack>
+        {pending && (
+          <Chip
+            size="small"
+            color="warning"
+            variant="outlined"
+            label={`Pending review: "${pending.requestedValue}"`}
+            sx={{ alignSelf: "flex-start" }}
+          />
+        )}
+      </Stack>
+    );
   };
 
   if (isLoading) {
@@ -118,6 +240,15 @@ export default function SupervisorProfilePage() {
         {error && (
           <Alert severity="error" sx={{ mb: 3 }}>
             {error}
+          </Alert>
+        )}
+        {requestSuccess && (
+          <Alert
+            severity="success"
+            sx={{ mb: 3 }}
+            onClose={() => setRequestSuccess(false)}
+          >
+            Your change request was submitted and is now pending admin review.
           </Alert>
         )}
 
@@ -180,14 +311,19 @@ export default function SupervisorProfilePage() {
                 />
               )}
               <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
-                <Typography variant="h4" sx={{ fontWeight: "800" }}>
+                <Typography variant="h4" sx={{ fontWeight: 800 }}>
                   {profileData.name}
                 </Typography>
                 <Typography
-                  variant="subtitle1" sx={{ color: "primary.main", fontWeight: "600" }}>
+                  variant="subtitle1"
+                  sx={{ color: "primary.main", fontWeight: 600 }}
+                >
                   {profileData.department}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "text.secondary", mt: 1 }}
+                >
                   Guiding students towards their full potential.
                 </Typography>
               </Box>
@@ -231,27 +367,6 @@ export default function SupervisorProfilePage() {
                 variant="outlined"
               />
               <TextField
-                label="Department"
-                value={profileData.department}
-                onChange={(e) => handleChange("department", e.target.value)}
-                disabled={!isEditMode}
-                fullWidth
-                variant="outlined"
-              />
-            </Stack>
-
-            {/* University is always read-only — assigned by the admin */}
-            <TextField
-              label="University"
-              value={profileData.university}
-              disabled
-              fullWidth
-              variant="outlined"
-              helperText="Your university affiliation is managed by your admin."
-            />
-
-            <Stack direction={{ xs: "column", md: "row" } as const} spacing={3}>
-              <TextField
                 label="Phone Number"
                 value={profileData.phone}
                 onChange={(e) => handleChange("phone", e.target.value)}
@@ -259,19 +374,118 @@ export default function SupervisorProfilePage() {
                 fullWidth
                 variant="outlined"
               />
-              <TextField
-                label="Office Hours"
-                value={profileData.officeHours}
-                onChange={(e) => handleChange("officeHours", e.target.value)}
-                disabled={!isEditMode}
-                fullWidth
-                variant="outlined"
-                placeholder="e.g. Sun/Mon 14:00-16:00"
-              />
             </Stack>
+
+            {/* University and Department require admin approval to change */}
+            {renderRequestableField("university", profileData.university)}
+            {renderRequestableField("department", profileData.department)}
+
+            <TextField
+              label="Office Hours"
+              value={profileData.officeHours}
+              onChange={(e) => handleChange("officeHours", e.target.value)}
+              disabled={!isEditMode}
+              fullWidth
+              variant="outlined"
+              placeholder="e.g. Sun/Mon 14:00-16:00"
+            />
           </Stack>
+
+          {!isLoadingRequests && changeRequests.length > 0 && (
+            <>
+              <Divider sx={{ my: 4 }} />
+              <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+                Change Request History
+              </Typography>
+              <Stack spacing={1.5}>
+                {changeRequests.map((request) => (
+                  <Stack
+                    key={request._id}
+                    direction="row"
+                    spacing={2}
+                    sx={{
+                      alignItems: "center",
+                      p: 1.5,
+                      borderRadius: 1,
+                      backgroundColor: "action.hover",
+                    }}
+                  >
+                    <Chip
+                      size="small"
+                      label={request.status}
+                      color={
+                        request.status === "approved"
+                          ? "success"
+                          : request.status === "rejected"
+                            ? "error"
+                            : "warning"
+                      }
+                    />
+                    <Typography variant="body2" sx={{ flex: 1 }}>
+                      {FIELD_LABELS[request.field]}: "{request.currentValue}"
+                      → "{request.requestedValue}"
+                    </Typography>
+                  </Stack>
+                ))}
+              </Stack>
+            </>
+          )}
         </Card>
       </Container>
+
+      <Dialog
+        open={Boolean(requestDialogField)}
+        onClose={closeRequestDialog}
+        maxWidth="xs"
+        fullWidth
+      >
+        <DialogTitle>
+          Request {requestDialogField && FIELD_LABELS[requestDialogField]} Change
+        </DialogTitle>
+        <DialogContent>
+          {requestError && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {requestError}
+            </Alert>
+          )}
+          <Stack spacing={2} sx={{ mt: 1 }}>
+            <TextField
+              label={`Current ${requestDialogField ? FIELD_LABELS[requestDialogField] : ""}`}
+              value={
+                requestDialogField ? profileData[requestDialogField] : ""
+              }
+              disabled
+              fullWidth
+            />
+            <TextField
+              label={`Requested ${requestDialogField ? FIELD_LABELS[requestDialogField] : ""}`}
+              value={requestValue}
+              onChange={(e) => setRequestValue(e.target.value)}
+              fullWidth
+              autoFocus
+            />
+          </Stack>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeRequestDialog} disabled={isSubmittingRequest}>
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            startIcon={
+              isSubmittingRequest ? (
+                <CircularProgress size={16} color="inherit" />
+              ) : (
+                <SendIcon />
+              )
+            }
+            onClick={submitChangeRequest}
+            disabled={isSubmittingRequest || !requestValue.trim()}
+          >
+            {isSubmittingRequest ? "Submitting..." : "Submit Request"}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

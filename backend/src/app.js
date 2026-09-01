@@ -7,6 +7,7 @@ import studentRoutes from "./routes/studentRoutes.js";
 import supervisorRoutes from "./routes/supervisorRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 import companyRoutes from "./routes/companyRoutes.js";
+import changeRequestRoutes from "./routes/changeRequestRoutes.js";
 
 const app = express();
 app.use(cors());
@@ -19,5 +20,7 @@ app.use("/api/supervisor", supervisorRoutes);
 app.use("/api/students", studentRoutes);
 app.use("/api/supervisors", supervisorRoutes);
 app.use("/api/companies", companyRoutes);
+app.use("/api/change-requests", changeRequestRoutes);
 app.use(errorHandler);
+
 export default app;
