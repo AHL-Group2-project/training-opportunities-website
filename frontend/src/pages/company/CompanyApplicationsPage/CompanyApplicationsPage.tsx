@@ -45,6 +45,8 @@ interface CompanyApplication {
   appliedAt: string;
   coverLetter: string;
   phoneNumber: string;
+  cvUrl: string;
+  cvOriginalName: string;
 }
 
 const statusConfig: Record<
@@ -319,9 +321,32 @@ export default function CompanyApplicationsPage() {
                 </Typography>
               </Box>
 
-              <Alert severity="info">
-                CV upload is temporarily unavailable.
-              </Alert>
+              {selectedApp.cvUrl ? (
+                <Box>
+                  <Typography
+                    variant="subtitle2"
+                    color="text.secondary"
+                    sx={{ mb: 1 }}
+                  >
+                    CV / Resume
+                  </Typography>
+
+                  <Button
+                    component="a"
+                    href={selectedApp.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outlined"
+                    sx={{ textTransform: "none" }}
+                  >
+                    Download Resume / CV
+                  </Button>
+                </Box>
+              ) : (
+                <Alert severity="info">
+                  No CV was attached to this application.
+                </Alert>
+              )}
             </Box>
           )}
         </DialogContent>

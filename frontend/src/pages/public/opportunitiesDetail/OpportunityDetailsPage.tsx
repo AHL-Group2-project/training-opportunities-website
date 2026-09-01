@@ -153,23 +153,34 @@ function OpportunityDetailsPage() {
   const isDeadlinePassed =
     opportunity.daysLeft != null && opportunity.daysLeft <= 0;
 
-  const isSeatsFilled = opportunity.applicants >= opportunity.seats;
-
   const handleApply = () => {
     if (!isAuthenticated) {
       navigate("/login", {
-        state: { from: `/opportunities/${opportunity.id}/apply` },
+        state: { from: `/opportunities/${opportunity.id}` },
       });
       return;
     }
 
-    if (!isStudent || hasApplied || isDeadlinePassed || isSeatsFilled) {
+    if (!isStudent || hasApplied || isDeadlinePassed) {
+      return;
+    }
+
+    if (opportunity.applicationType === "external") {
+      if (!opportunity.externalApplicationUrl) {
+        setError("The external application link is unavailable.");
+        return;
+      }
+
+      window.open(
+        opportunity.externalApplicationUrl,
+        "_blank",
+        "noopener,noreferrer",
+      );
       return;
     }
 
     navigate(`/opportunities/${opportunity.id}/apply`);
   };
-
   return (
     <Box
       sx={{
@@ -197,7 +208,6 @@ function OpportunityDetailsPage() {
             opportunity={opportunity}
             hasApplied={hasApplied}
             isDeadlinePassed={isDeadlinePassed}
-            isSeatsFilled={isSeatsFilled}
             isAuthenticated={isAuthenticated}
             isStudent={isStudent}
             onApply={handleApply}

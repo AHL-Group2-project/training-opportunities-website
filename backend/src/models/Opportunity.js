@@ -22,6 +22,34 @@ const opportunitySchema = new mongoose.Schema(
       enum: ["company", "supervisor"],
       required: true,
     },
+    applicationType: {
+      type: String,
+      enum: ["internal", "external"],
+      default: "internal",
+      required: true,
+    },
+    externalApplicationUrl: {
+      type: String,
+      trim: true,
+      required() {
+        return this.applicationType === "external";
+      },
+      validate: {
+        validator(value) {
+          if (!value) return true;
+
+          try {
+            const url = new URL(value);
+
+            return url.protocol === "https:" || url.protocol === "http:";
+          } catch {
+            return false;
+          }
+        },
+        message:
+          "External application URL must be a valid HTTP or HTTPS URL.",
+      },
+    },
     type: {
       type: String,
       enum: ["FT1", "FT2"],
@@ -88,8 +116,9 @@ const opportunitySchema = new mongoose.Schema(
       default: "draft",
     },
   },
-  { timestamps: true, collection: "opportunities" }
+  { timestamps: true, collection: "opportunities" },
 );
 
 const Opportunity = mongoose.model("Opportunity", opportunitySchema);
+
 export default Opportunity;

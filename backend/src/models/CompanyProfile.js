@@ -2,11 +2,17 @@ import mongoose from "mongoose";
 
 const companyProfileSchema = new mongoose.Schema(
   {
+    isExternal: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
-      unique: true,
+      required() {
+        return !this.isExternal;
+      },
     },
     name: {
       type: String,
@@ -42,8 +48,28 @@ const companyProfileSchema = new mongoose.Schema(
       default: "active",
     },
   },
-  { timestamps: true, collection: "companies" }
+  { timestamps: true, collection: "companies" },
 );
 
+companyProfileSchema.index(
+  { userId: 1 },
+  {
+    name: "userId_unique_when_present",
+    unique: true,
+    partialFilterExpression: {
+      userId: { $type: "objectId" },
+    },
+  },
+);
+
+companyProfileSchema.pre("validate", function () {
+  if (this.isExternal && this.userId) {
+    this.invalidate(
+      "userId",
+      "An external company cannot be linked to a user account.",
+    );
+  }
+});
 const CompanyProfile = mongoose.model("CompanyProfile", companyProfileSchema);
+
 export default CompanyProfile;

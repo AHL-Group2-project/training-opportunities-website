@@ -1,6 +1,7 @@
 import Opportunity from "../models/Opportunity.js";
 import CompanyProfile from "../models/CompanyProfile.js";
 import Application from "../models/Application.js";
+import mongoose from "mongoose";
 
 const getApplicantCount = (opportunityId) =>
   Application.countDocuments({ opportunityId });
@@ -77,6 +78,7 @@ export const createOpportunity = async (req, res, next) => {
     const {
       title,
       companyId,
+      externalApplicationUrl,
       type,
       workMode,
       department,
@@ -93,25 +95,62 @@ export const createOpportunity = async (req, res, next) => {
     } = req.body;
 
     let selectedCompany;
+    let applicationType;
+    let normalizedExternalApplicationUrl;
 
     if (req.user.role === "company") {
       selectedCompany = await CompanyProfile.findOne({
         userId: req.user._id,
+        isExternal: false,
       });
-    } else {
+
+      applicationType = "internal";
+    } else if (req.user.role === "supervisor") {
       if (!companyId) {
         return res.status(400).json({
-          message:
-            "Company is required when a supervisor creates an opportunity.",
+          message: "An external company is required.",
         });
       }
 
-      selectedCompany = await CompanyProfile.findById(companyId);
+      selectedCompany = await CompanyProfile.findOne({
+        _id: companyId,
+        isExternal: true,
+      });
+
+      applicationType = "external";
+
+      if (
+        typeof externalApplicationUrl !== "string" ||
+        !externalApplicationUrl.trim()
+      ) {
+        return res.status(400).json({
+          message:
+            "External application URL is required for supervisor opportunities.",
+        });
+      }
+
+      normalizedExternalApplicationUrl = externalApplicationUrl.trim();
+
+      try {
+        const parsedUrl = new URL(normalizedExternalApplicationUrl);
+
+        if (!["http:", "https:"].includes(parsedUrl.protocol)) {
+          throw new Error("Invalid URL protocol.");
+        }
+      } catch {
+        return res.status(400).json({
+          message:
+            "External application URL must be a valid HTTP or HTTPS URL.",
+        });
+      }
     }
 
     if (!selectedCompany) {
       return res.status(404).json({
-        message: "Company profile not found.",
+        message:
+          req.user.role === "supervisor"
+            ? "External company profile not found."
+            : "Company profile not found.",
       });
     }
 
@@ -140,6 +179,8 @@ export const createOpportunity = async (req, res, next) => {
       companyId: selectedCompany._id,
       createdBy: req.user._id,
       createdByRole: req.user.role,
+      applicationType,
+      externalApplicationUrl: normalizedExternalApplicationUrl,
       type: type?.toUpperCase(),
       workMode: workMode?.toLowerCase(),
       department,
@@ -155,7 +196,10 @@ export const createOpportunity = async (req, res, next) => {
       status: status === "active" ? "active" : "draft",
     });
 
-    await opportunity.populate("companyId", "name logo industry location");
+    await opportunity.populate(
+      "companyId",
+      "name logo industry location isExternal"
+    );
 
     const opportunityObject = opportunity.toObject();
 
@@ -164,7 +208,7 @@ export const createOpportunity = async (req, res, next) => {
       Math.ceil((parsedDeadline.getTime() - Date.now()) / (1000 * 60 * 60 * 24))
     );
 
-    res.status(201).json({
+    return res.status(201).json({
       ...opportunityObject,
       id: opportunity._id,
       company: opportunity.companyId?.name,
@@ -180,7 +224,6 @@ export const createOpportunity = async (req, res, next) => {
     next(error);
   }
 };
-
 export const getCompanyOpportunities = async (req, res, next) => {
   try {
     const company = await CompanyProfile.findOne({
@@ -359,6 +402,43 @@ export const updateOpportunity = async (req, res, next) => {
         message: "You are not authorized to update this opportunity.",
       });
     }
+    if (req.body.companyId !== undefined) {
+      if (req.user.role !== "supervisor") {
+        return res.status(403).json({
+          message: "Only a supervisor can change the external company.",
+        });
+      }
+
+      if (opportunity.applicationType !== "external") {
+        return res.status(400).json({
+          message:
+            "The company can only be changed for external opportunities.",
+        });
+      }
+
+      if (
+        typeof req.body.companyId !== "string" ||
+        !mongoose.isObjectIdOrHexString(req.body.companyId)
+      ) {
+        return res.status(400).json({
+          message: "Invalid company ID.",
+        });
+      }
+
+      const selectedCompany = await CompanyProfile.findOne({
+        _id: req.body.companyId,
+        isExternal: true,
+        activationStatus: "active",
+      });
+
+      if (!selectedCompany) {
+        return res.status(404).json({
+          message: "External company profile not found.",
+        });
+      }
+
+      opportunity.companyId = selectedCompany._id;
+    }
 
     const allowedFields = [
       "title",
@@ -405,7 +485,6 @@ export const updateOpportunity = async (req, res, next) => {
 
       opportunity.deadline = parsedDeadline;
     }
-
     if (
       req.body.status &&
       !["draft", "active", "closed"].includes(req.body.status)
@@ -415,8 +494,49 @@ export const updateOpportunity = async (req, res, next) => {
       });
     }
 
-    await opportunity.save();
+    if (opportunity.applicationType === "external") {
+      if (req.body.externalApplicationUrl !== undefined) {
+        if (
+          typeof req.body.externalApplicationUrl !== "string" ||
+          !req.body.externalApplicationUrl.trim()
+        ) {
+          return res.status(400).json({
+            message: "External application URL is required.",
+          });
+        }
 
+        const normalizedExternalApplicationUrl =
+          req.body.externalApplicationUrl.trim();
+
+        try {
+          const parsedUrl = new URL(normalizedExternalApplicationUrl);
+
+          if (!["http:", "https:"].includes(parsedUrl.protocol)) {
+            throw new Error("Invalid URL protocol.");
+          }
+        } catch {
+          return res.status(400).json({
+            message:
+              "External application URL must be a valid HTTP or HTTPS URL.",
+          });
+        }
+
+        opportunity.externalApplicationUrl = normalizedExternalApplicationUrl;
+      }
+
+      if (!opportunity.externalApplicationUrl) {
+        return res.status(400).json({
+          message: "External application URL is required.",
+        });
+      }
+    } else if (req.body.externalApplicationUrl !== undefined) {
+      return res.status(400).json({
+        message:
+          "Internal opportunities cannot have an external application URL.",
+      });
+    }
+
+    await opportunity.save();
     await opportunity.populate("companyId", "name logo industry location");
 
     const opportunityObject = opportunity.toObject();
@@ -535,6 +655,101 @@ export const restoreOpportunity = async (req, res, next) => {
       message: "Opportunity restored as draft successfully.",
       id: opportunity._id,
       status: opportunity.status,
+    });
+  } catch (error) {
+    if (error.name === "CastError") {
+      return res.status(400).json({
+        message: "Invalid opportunity ID.",
+      });
+    }
+
+    next(error);
+  }
+};
+export const getSupervisorOpportunities = async (req, res, next) => {
+  try {
+    const opportunities = await Opportunity.find({
+      createdBy: req.user._id,
+      createdByRole: "supervisor",
+    })
+      .populate("companyId", "name logo industry location isExternal")
+      .sort({ createdAt: -1 });
+
+    const result = await Promise.all(
+      opportunities.map(async (opportunity) => {
+        const opportunityObject = opportunity.toObject();
+
+        const deadlineTime = opportunity.deadline
+          ? new Date(opportunity.deadline).getTime()
+          : Number.NaN;
+
+        const daysLeft = Number.isNaN(deadlineTime)
+          ? null
+          : Math.max(
+              0,
+              Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
+            );
+
+        return {
+          ...opportunityObject,
+          id: opportunity._id,
+          company: opportunity.companyId?.name,
+          logo: opportunity.companyId?.logo,
+          daysLeft,
+          applicants:
+            opportunity.applicationType === "internal"
+              ? await getApplicantCount(opportunity._id)
+              : 0,
+        };
+      })
+    );
+
+    return res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getSupervisorOpportunityById = async (req, res, next) => {
+  try {
+    const opportunity = await Opportunity.findOne({
+      _id: req.params.id,
+      createdBy: req.user._id,
+      createdByRole: "supervisor",
+    }).populate(
+      "companyId",
+      "name logo industry location description website isExternal"
+    );
+
+    if (!opportunity) {
+      return res.status(404).json({
+        message: "Opportunity not found.",
+      });
+    }
+
+    const opportunityObject = opportunity.toObject();
+
+    const deadlineTime = opportunity.deadline
+      ? new Date(opportunity.deadline).getTime()
+      : Number.NaN;
+
+    const daysLeft = Number.isNaN(deadlineTime)
+      ? null
+      : Math.max(
+          0,
+          Math.ceil((deadlineTime - Date.now()) / (1000 * 60 * 60 * 24))
+        );
+
+    return res.json({
+      ...opportunityObject,
+      id: opportunity._id,
+      company: opportunity.companyId?.name,
+      logo: opportunity.companyId?.logo,
+      daysLeft,
+      applicants:
+        opportunity.applicationType === "internal"
+          ? await getApplicantCount(opportunity._id)
+          : 0,
     });
   } catch (error) {
     if (error.name === "CastError") {

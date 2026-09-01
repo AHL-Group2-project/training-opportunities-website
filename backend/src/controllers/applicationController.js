@@ -3,18 +3,46 @@ import Application from "../models/Application.js";
 import StudentProfile from "../models/StudentProfile.js";
 import Opportunity from "../models/Opportunity.js";
 import CompanyProfile from "../models/CompanyProfile.js";
+import cloudinary from "../config/cloudinary.js";
+
+const removeUploadedCv = async (file) => {
+  if (!file?.filename) return;
+
+  try {
+    await cloudinary.uploader.destroy(file.filename, {
+      resource_type: "raw",
+      invalidate: true,
+    });
+  } catch (cleanupError) {
+    console.error("Unable to remove uploaded CV:", cleanupError.message);
+  }
+};
+
+const rejectApplication = async (req, res, status, message) => {
+  await removeUploadedCv(req.file);
+
+  return res.status(status).json({
+    message,
+  });
+};
 
 export const createApplication = async (req, res, next) => {
+  let applicationCreated = false;
+
   try {
+    if (!req.file?.path || !req.file?.filename) {
+      return res.status(400).json({
+        message: "CV file is required.",
+      });
+    }
+
     const { opportunityId, coverLetter = "", phoneNumber = "" } = req.body;
 
     if (
       typeof opportunityId !== "string" ||
       !mongoose.isObjectIdOrHexString(opportunityId)
     ) {
-      return res.status(400).json({
-        message: "Invalid opportunity ID.",
-      });
+      return rejectApplication(req, res, 400, "Invalid opportunity ID.");
     }
 
     if (
@@ -23,55 +51,77 @@ export const createApplication = async (req, res, next) => {
       typeof phoneNumber !== "string" ||
       phoneNumber.length > 30
     ) {
-      return res.status(400).json({
-        message: "Invalid cover letter or phone number.",
-      });
+      return rejectApplication(
+        req,
+        res,
+        400,
+        "Invalid cover letter or phone number."
+      );
     }
 
-    // Identify the student from the authenticated account.
     const student = await StudentProfile.findOne({
       userId: req.user._id,
     });
 
     if (!student) {
-      return res.status(404).json({
-        message: "Student profile not found.",
-      });
+      return rejectApplication(req, res, 404, "Student profile not found.");
     }
 
     const opportunity = await Opportunity.findById(opportunityId);
 
     if (!opportunity || opportunity.status !== "active") {
-      return res.status(404).json({
-        message: "Opportunity is not available for applications.",
-      });
+      return rejectApplication(
+        req,
+        res,
+        404,
+        "Opportunity is not available for applications."
+      );
+    }
+
+    if (opportunity.applicationType === "external") {
+      return rejectApplication(
+        req,
+        res,
+        400,
+        "This opportunity accepts applications through an external website."
+      );
     }
 
     if (
       opportunity.deadline &&
       new Date(opportunity.deadline).getTime() <= Date.now()
     ) {
-      return res.status(400).json({
-        message: "The application deadline has passed.",
-      });
+      return rejectApplication(
+        req,
+        res,
+        400,
+        "The application deadline has passed."
+      );
     }
 
     const company = await CompanyProfile.findById(opportunity.companyId);
 
     if (!company || company.activationStatus !== "active") {
-      return res.status(400).json({
-        message: "This company is not accepting applications.",
-      });
+      return rejectApplication(
+        req,
+        res,
+        400,
+        "This company is not accepting applications."
+      );
     }
 
-    // Company and student IDs come from the server, not the form.
     const application = await Application.create({
       studentId: student._id,
       opportunityId: opportunity._id,
       companyId: company._id,
       coverLetter: coverLetter.trim(),
       phoneNumber: phoneNumber.trim(),
+      cvUrl: req.file.path,
+      cvCloudinaryId: req.file.filename,
+      cvOriginalName: req.file.originalname,
     });
+
+    applicationCreated = true;
 
     return res.status(201).json({
       message: "Application submitted successfully.",
@@ -79,8 +129,14 @@ export const createApplication = async (req, res, next) => {
       opportunityId: application.opportunityId,
       status: application.status,
       appliedAt: application.createdAt,
+      cvUrl: application.cvUrl,
+      cvOriginalName: application.cvOriginalName,
     });
   } catch (error) {
+    if (!applicationCreated) {
+      await removeUploadedCv(req.file);
+    }
+
     if (error.code === 11000) {
       return res.status(409).json({
         message: "You have already applied to this opportunity.",
@@ -90,6 +146,7 @@ export const createApplication = async (req, res, next) => {
     next(error);
   }
 };
+
 export const getMyApplications = async (req, res, next) => {
   try {
     const student = await StudentProfile.findOne({
@@ -118,12 +175,15 @@ export const getMyApplications = async (req, res, next) => {
         status: application.status,
         appliedAt: application.createdAt,
         coverLetter: application.coverLetter,
+        cvUrl: application.cvUrl || "",
+        cvOriginalName: application.cvOriginalName || "",
       }))
     );
   } catch (error) {
     next(error);
   }
 };
+
 export const getCompanyApplications = async (req, res, next) => {
   try {
     const company = await CompanyProfile.findOne({
@@ -191,6 +251,8 @@ export const getCompanyApplications = async (req, res, next) => {
         appliedAt: application.createdAt,
         coverLetter: application.coverLetter,
         phoneNumber: application.phoneNumber,
+        cvUrl: application.cvUrl || "",
+        cvOriginalName: application.cvOriginalName || "",
       }))
     );
   } catch (error) {

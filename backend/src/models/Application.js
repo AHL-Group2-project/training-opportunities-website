@@ -29,6 +29,22 @@ const applicationSchema = new mongoose.Schema(
       default: "",
       maxlength: 30,
     },
+    cvUrl: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    cvCloudinaryId: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    cvOriginalName: {
+      type: String,
+      required: true,
+      trim: true,
+      maxlength: 255,
+    },
     status: {
       type: String,
       enum: ["pending", "accepted", "rejected"],
@@ -38,11 +54,14 @@ const applicationSchema = new mongoose.Schema(
   {
     timestamps: true,
     collection: "applications",
-  }
+  },
 );
 
 // Prevent duplicate applications to the same opportunity.
-applicationSchema.index({ studentId: 1, opportunityId: 1 }, { unique: true });
+applicationSchema.index(
+  { studentId: 1, opportunityId: 1 },
+  { unique: true },
+);
 
 const Application = mongoose.model("Application", applicationSchema);
 

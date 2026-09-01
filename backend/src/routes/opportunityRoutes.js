@@ -8,11 +8,27 @@ import {
   deleteOpportunity,
   restoreOpportunity,
   getCompanyOpportunityById,
+  getSupervisorOpportunities,
+  getSupervisorOpportunityById,
 
 } from "../controllers/opportunityController.js";
 import { protect, authorize } from "../middleware/authMiddleware.js";
 
+
 const router = express.Router();
+router.get(
+  "/supervisor/me",
+  protect,
+  authorize("supervisor"),
+  getSupervisorOpportunities,
+);
+
+router.get(
+  "/supervisor/me/:id",
+  protect,
+  authorize("supervisor"),
+  getSupervisorOpportunityById,
+);
 
 router.get("/", getOpportunities);
 

@@ -61,6 +61,15 @@ function OpportunityApplicationForm() {
 
         const response = await api.get<Opportunity>(`/opportunities/${id}`);
 
+        if (response.data.applicationType === "external") {
+          if (isMounted) {
+            setLoadError(
+              "This opportunity accepts applications through an external website.",
+            );
+          }
+          return;
+        }
+
         checkingApplications = true;
         const applicationsResponse =
           await api.get<{ opportunityId: string | null }[]>("/applications/me");
@@ -106,6 +115,7 @@ function OpportunityApplicationForm() {
   const email = user?.email ?? "";
   const [phoneNumber, setPhoneNumber] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
+  const [cvFile, setCvFile] = useState<File | null>(null);
 
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -201,17 +211,43 @@ function OpportunityApplicationForm() {
       return;
     }
 
+    if (!cvFile) {
+      setSubmitError("Please upload your CV.");
+      return;
+    }
+
+    const isPdf =
+      cvFile.type === "application/pdf" ||
+      cvFile.name.toLowerCase().endsWith(".pdf");
+
+    if (!isPdf) {
+      setSubmitError("Please upload your CV as a PDF file.");
+      return;
+    }
+
+    const maxCvSize = 5 * 1024 * 1024;
+
+    if (cvFile.size > maxCvSize) {
+      setSubmitError("The CV file must not exceed 5 MB.");
+      return;
+    }
+
     submitInProgress.current = true;
     setSubmitting(true);
     setSubmitError("");
 
     try {
-      await api.post("/applications", {
-        opportunityId: String(opportunity.id),
-        coverLetter: coverLetter.trim(),
-        phoneNumber: phoneNumber.trim(),
-      });
+      const formData = new FormData();
+      formData.append("opportunityId", String(opportunity.id));
+      formData.append("coverLetter", coverLetter.trim());
+      formData.append("phoneNumber", phoneNumber.trim());
+      formData.append("cv", cvFile);
 
+      await api.post("/applications", formData, {
+        headers: {
+          "Content-Type": undefined,
+        },
+      });
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
@@ -292,7 +328,7 @@ function OpportunityApplicationForm() {
           <Typography color="text.secondary">
             {hasApplied || submitted
               ? "You can view your application or return to the opportunity details."
-              : "Complete the application form. CV upload is temporarily unavailable."}
+              : "Complete the application form and upload your CV as a PDF file."}
           </Typography>
         </Box>
 
@@ -503,11 +539,48 @@ function OpportunityApplicationForm() {
 
             <Divider sx={{ my: 4 }} />
 
-            {/* CV upload is deferred; no file is collected or sent. */}
-            <Alert severity="info">
-              CV upload is temporarily unavailable. You can submit your
-              application without a CV. No file will be attached.
-            </Alert>
+            {/* CV upload */}
+            <Box>
+              <Typography
+                variant="subtitle1"
+                sx={{ mb: 0.5, color: "text.primary", fontWeight: 700 }}
+              >
+                CV / Resume *
+              </Typography>
+
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Upload your CV as a PDF file. Maximum size: 5 MB.
+              </Typography>
+
+              <Button
+                component="label"
+                variant="outlined"
+                disabled={submitting || submitted}
+                sx={{ textTransform: "none", borderRadius: 2 }}
+              >
+                {cvFile ? "Change CV" : "Choose CV"}
+                <input
+                  hidden
+                  type="file"
+                  accept="application/pdf,.pdf"
+                  onChange={(event) => {
+                    const selectedFile = event.target.files?.[0] ?? null;
+                    setCvFile(selectedFile);
+                    setSubmitError("");
+                  }}
+                />
+              </Button>
+
+              {cvFile && (
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 1.5 }}
+                >
+                  Selected file: {cvFile.name}
+                </Typography>
+              )}
+            </Box>
 
             {/* Actions */}
             <Box
