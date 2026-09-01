@@ -12,6 +12,18 @@ export const createChangeRequest = async (req, res, next) => {
     if (!supervisorProfile) {
       return res.status(404).json({ message: "Supervisor profile not found." });
     }
+
+    const existingPending = await ChangeRequest.findOne({
+      supervisorId: supervisorProfile._id,
+      field,
+      status: "pending",
+    });
+    if (existingPending) {
+      return res.status(409).json({
+        message: "You already have a pending request for this field.",
+      });
+    }
+
     const currentValue = supervisorProfile[field];
     const request = await ChangeRequest.create({
       supervisorId: supervisorProfile._id,
