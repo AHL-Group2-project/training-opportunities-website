@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Container,
@@ -14,12 +14,26 @@ import {
   TextField,
   Rating,
   Alert,
+  CircularProgress,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import DownloadIcon from "@mui/icons-material/Download";
-import { students } from "../../mock/students";
-import { studentProgress } from "../../mock/studentProgress";
+import EditIcon from "@mui/icons-material/Edit";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControlLabel,
+  Checkbox
+} from "@mui/material";
+import { getStudentDetails, assignCompany } from "../../services/supervisorService";
+import { getPublicCompanies, type PublicCompany } from "../../services/companyService";
 import type { EvaluationCriteria } from "../../mock/studentProgress";
 
 const reportStatusColors: Record<string, "success" | "warning" | "default"> = {
@@ -32,9 +46,9 @@ export default function StudentDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const studentId = Number(id);
-  const student = students.find((s) => s.id === studentId);
-  const progress = studentProgress.find((p) => p.studentId === studentId);
+  const [studentData, setStudentData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [evaluationScores, setEvaluationScores] = useState<EvaluationCriteria>({
     attendance: 0,
@@ -45,12 +59,80 @@ export default function StudentDetailPage() {
   });
   const [overallComment, setOverallComment] = useState("");
 
-  if (!student || !progress) {
+  const [assignDialogOpen, setAssignDialogOpen] = useState(false);
+  const [companies, setCompanies] = useState<PublicCompany[]>([]);
+  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
+  const [noAccount, setNoAccount] = useState(false);
+  const [newCompanyName, setNewCompanyName] = useState("");
+  const [assignLoading, setAssignLoading] = useState(false);
+
+  const fetchCompanies = async () => {
+    try {
+      const data = await getPublicCompanies();
+      setCompanies(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleAssignSubmit = async () => {
+    if (!id) return;
+    if (!noAccount && !selectedCompanyId) {
+      setError("Please select a company.");
+      return;
+    }
+    if (noAccount && !newCompanyName.trim()) {
+      setError("Please enter a company name.");
+      return;
+    }
+    try {
+      setAssignLoading(true);
+      await assignCompany(
+        id,
+        noAccount ? null : selectedCompanyId,
+        noAccount ? newCompanyName : undefined
+      );
+      setAssignDialogOpen(false);
+      // Refresh details
+      const data = await getStudentDetails(id);
+      setStudentData(data);
+    } catch (err: any) {
+      console.error(err);
+      setError(err.response?.data?.message || "Failed to assign company");
+    } finally {
+      setAssignLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const fetchDetails = async () => {
+      if (!id) return;
+      try {
+        setLoading(true);
+        const data = await getStudentDetails(id);
+        setStudentData(data);
+      } catch (err: any) {
+        console.error(err);
+        setError(err.response?.data?.message || "Failed to load student details");
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDetails();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Container maxWidth="lg" sx={{ py: 6, textAlign: "center" }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
+
+  if (error || !studentData) {
     return (
       <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Typography variant="h5" sx={{ mb: 2 }}>
-          Student not found.
-        </Typography>
+        <Alert severity="error" sx={{ mb: 3 }}>{error || "Student not found."}</Alert>
         <Button
           startIcon={<ArrowBackIcon />}
           onClick={() => navigate("/supervisor/students")}
@@ -60,6 +142,8 @@ export default function StudentDetailPage() {
       </Container>
     );
   }
+
+  const { student, progress } = studentData;
 
   const isCompleted =
     progress.currentInternship.hoursCompleted >=
@@ -130,6 +214,19 @@ export default function StudentDetailPage() {
               <Typography variant="body2" color="text.secondary">
                 {student.location}
               </Typography>
+            </Box>
+            
+            <Box sx={{ ml: "auto !important", display: "flex", gap: 2 }}>
+              <Button
+                variant="outlined"
+                startIcon={<EditIcon />}
+                onClick={() => {
+                  fetchCompanies();
+                  setAssignDialogOpen(true);
+                }}
+              >
+                Assign / Edit Company
+              </Button>
             </Box>
           </Stack>
         </Container>
@@ -358,6 +455,75 @@ export default function StudentDetailPage() {
           )}
         </Paper>
       </Container>
+
+      {/* Assign Company Dialog */}
+      <Dialog
+        open={assignDialogOpen}
+        onClose={() => setAssignDialogOpen(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>Assign Company</DialogTitle>
+        <DialogContent dividers>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Assigning a company will automatically approve any pending request and update the student's active internship record.
+          </Typography>
+
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={noAccount}
+                onChange={(e) => {
+                  setNoAccount(e.target.checked);
+                  setSelectedCompanyId(null);
+                  setNewCompanyName("");
+                }}
+              />
+            }
+            label="The company does not have an account on this platform"
+            sx={{ mb: 2 }}
+          />
+
+          {!noAccount ? (
+            <FormControl fullWidth size="small">
+              <InputLabel>Select Company</InputLabel>
+              <Select
+                value={selectedCompanyId || ""}
+                label="Select Company"
+                onChange={(e) => setSelectedCompanyId(e.target.value)}
+              >
+                <MenuItem value="" disabled>
+                  <em>Choose a company</em>
+                </MenuItem>
+                {companies.map((c) => (
+                  <MenuItem key={c._id} value={c._id}>
+                    {c.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          ) : (
+            <TextField
+              fullWidth
+              size="small"
+              label="Company Name"
+              value={newCompanyName}
+              onChange={(e) => setNewCompanyName(e.target.value)}
+              placeholder="e.g. Acme Corp"
+            />
+          )}
+        </DialogContent>
+        <DialogActions sx={{ p: 2, pt: 0 }}>
+          <Button onClick={() => setAssignDialogOpen(false)}>Cancel</Button>
+          <Button
+            variant="contained"
+            onClick={handleAssignSubmit}
+            disabled={assignLoading}
+          >
+            {assignLoading ? "Assigning..." : "Assign Company"}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

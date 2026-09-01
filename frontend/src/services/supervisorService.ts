@@ -12,7 +12,7 @@ export const getMyStudents = async (
   params: GetMyStudentsParams,
 ): Promise<StudentsListResponse> => {
   const { data } = await api.get<StudentsListResponse>(
-    "/supervisor/students",
+    "/supervisors/students",
     { params },
   );
   return data;
@@ -21,7 +21,7 @@ export const getMyStudents = async (
 export const exportMyStudents = async (
   params: Omit<GetMyStudentsParams, "page" | "limit">,
 ): Promise<void> => {
-  const response = await api.get("/supervisor/students/export", {
+  const response = await api.get("/supervisors/students/export", {
     params,
     responseType: "blob",
   });
@@ -34,4 +34,17 @@ export const exportMyStudents = async (
   link.click();
   link.remove();
   window.URL.revokeObjectURL(url);
+};
+
+export const getStudentDetails = async (studentId: string): Promise<any> => {
+  const { data } = await api.get<any>(`/supervisors/students/${studentId}`);
+  return data;
+};
+
+export const assignCompany = async (studentId: string, companyId?: string | null, newCompanyName?: string): Promise<any> => {
+  const { data } = await api.post(`/supervisors/students/${studentId}/assign-company`, {
+    companyId,
+    newCompanyName
+  });
+  return data;
 };

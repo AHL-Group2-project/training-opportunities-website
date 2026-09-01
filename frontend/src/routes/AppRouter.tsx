@@ -37,6 +37,7 @@ import StudentProfilePage from "../pages/student/StudentProfilePage";
 
 import ApplicationsPage from "../pages/student/ApplicationsPage/ApplicationsPage";
 import InternshipRequestPage from "../pages/student/InternshipRequestPage/InternshipRequestPage";
+import TrainingRequestsPage from "../pages/student/TrainingRequestsPage/TrainingRequestsPage";
 import NotificationsPage from "../pages/shared/NotificationsPage/NotificationsPage";
 
 import ManageOpportunitiesPage from "../pages/supervisor/ManageOpportunitiesPage/ManageOpportunitiesPage";
@@ -95,6 +96,7 @@ function AppRouter() {
               path="/training/request"
               element={<InternshipRequestPage />}
             />
+            <Route path="/training/requests" element={<TrainingRequestsPage />} />
             <Route path="/training/hours" element={<HoursPage />} />
             <Route path="/training/reports" element={<ReportsPage />} />
             <Route path="/notifications" element={<NotificationsPage />} />
@@ -132,7 +134,7 @@ function AppRouter() {
               path="/supervisor/opportunities/:id/edit"
               element={<CreateOpportunityPage />}
             />
-            <Route path="/training/hours/:studentId" element={<HoursPage />} />
+
           </Route>
 
           {/* Admin routes */}
@@ -161,7 +163,7 @@ function AppRouter() {
               path="/admin/opportunities/:id/edit"
               element={<CreateOpportunityPage />}
             />
-            <Route path="/training/hours/:studentId" element={<HoursPage />} />
+
           </Route>
 
           {/* Company routes */}
@@ -189,6 +191,11 @@ function AppRouter() {
             />
             <Route path="/company/requests" element={<CompanyRequestsPage />} />
             <Route path="/company/profile" element={<CompanyProfilePage />} />
+
+          </Route>
+
+          {/* Shared Routes */}
+          <Route element={<RoleRoute allowedRoles={["supervisor", "admin", "company"]} />}>
             <Route path="/training/hours/:studentId" element={<HoursPage />} />
           </Route>
 

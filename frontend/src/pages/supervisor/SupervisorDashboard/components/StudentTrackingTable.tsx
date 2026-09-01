@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import { useNavigate } from "react-router-dom";
 
 type InternshipStatus = "Active" | "Completed" | "Pending";
 
@@ -27,44 +28,9 @@ interface Student {
   status: InternshipStatus;
 }
 
-const students: Student[] = [
-  {
-    id: 1,
-    name: "Lina Ahmad",
-    email: "lina.ahmad@example.com",
-    company: "Exalt Technologies",
-    trainingType: "FT2",
-    progress: 75,
-    status: "Active",
-  },
-  {
-    id: 2,
-    name: "Omar Khalil",
-    email: "omar.khalil@example.com",
-    company: "ASAL Technologies",
-    trainingType: "FT2",
-    progress: 100,
-    status: "Completed",
-  },
-  {
-    id: 3,
-    name: "Sara Ali",
-    email: "sara.ali@example.com",
-    company: "Hulul Group",
-    trainingType: "FT1",
-    progress: 40,
-    status: "Active",
-  },
-  {
-    id: 4,
-    name: "Yousef Nasser",
-    email: "yousef.nasser@example.com",
-    company: "Palestine Techno Park",
-    trainingType: "FT1",
-    progress: 0,
-    status: "Pending",
-  },
-];
+interface StudentTrackingTableProps {
+  students: Student[];
+}
 
 const statusStyles = {
   Active: {
@@ -81,7 +47,9 @@ const statusStyles = {
   },
 };
 
-function StudentTrackingTable() {
+function StudentTrackingTable({ students = [] }: StudentTrackingTableProps) {
+  const navigate = useNavigate();
+
   return (
     <Card
       sx={{
@@ -124,6 +92,7 @@ function StudentTrackingTable() {
         </Box>
 
         <Button
+          onClick={() => navigate("/supervisor/students")}
           sx={{
             textTransform: "none",
             borderRadius: 2,
@@ -216,7 +185,7 @@ function StudentTrackingTable() {
 
                   <TableCell>
                     <Chip
-                      label={student.trainingType}
+                      label={student.trainingType || "FT1"}
                       size="small"
                       sx={{
                         color: "#C084FC",
@@ -246,7 +215,7 @@ function StudentTrackingTable() {
                       >
                         <Box
                           sx={{
-                            width: `${student.progress}%`,
+                            width: `${Math.round(student.progress || 0)}%`,
                             height: "100%",
                             backgroundColor:
                               student.progress === 100 ? "#10B981" : "#A855F7",
@@ -263,19 +232,19 @@ function StudentTrackingTable() {
                           fontWeight: 600,
                         }}
                       >
-                        {student.progress}%
+                        {Math.round(student.progress || 0)}%
                       </Typography>
                     </Box>
                   </TableCell>
 
                   <TableCell>
                     <Chip
-                      label={student.status}
+                      label={student.status || "Active"}
                       size="small"
                       sx={{
-                        color: statusStyles[student.status].color,
+                        color: statusStyles[student.status as InternshipStatus]?.color || statusStyles.Active.color,
                         backgroundColor:
-                          statusStyles[student.status].backgroundColor,
+                          statusStyles[student.status as InternshipStatus]?.backgroundColor || statusStyles.Active.backgroundColor,
                         fontWeight: 600,
                       }}
                     />
@@ -283,6 +252,7 @@ function StudentTrackingTable() {
 
                   <TableCell align="right">
                     <Button
+                      onClick={() => alert("Student Details and Hours Table are currently under development and will be connected soon.")}
                       size="small"
                       startIcon={<VisibilityOutlinedIcon />}
                       sx={{

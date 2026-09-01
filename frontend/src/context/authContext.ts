@@ -3,21 +3,23 @@ import { createContext, useContext } from "react";
 export type UserRole = "student" | "supervisor" | "admin" | "company";
 
 export interface AuthUser {
-  id: string; // MongoDB ObjectId of the users document
-  profileId: string; // ObjectId of the role-specific profile (studentProfiles, supervisorProfiles, etc.)
+  id: string;
+  profileId: string;
   name: string;
   email: string;
   role: UserRole;
   token: string;
   mustChangePassword: boolean;
-  companyId?: string; // Only for role === "company"
-  university?: string; // Exposed for admin role
+  companyId?: string;
+  university?: string;
+  avatarUrl?: string;
 }
 
 export interface AuthContextType {
   user: AuthUser | null;
   login: (user: AuthUser) => void;
   logout: () => void;
+  updateUser: (user: AuthUser) => void;
   isAuthenticated: boolean;
 }
 

@@ -51,7 +51,7 @@ export default function HoursTableRow({
   onCompanyApproveRow,
   onCompanyRejectRow,
 }: HoursTableRowProps) {
-  const hours = calcHours(row.startTime, row.endTime);
+  const hours = (row.startTime && row.endTime) ? calcHours(row.startTime, row.endTime) : (row.hours || 0);
   const isPending = row.status === "pending";
   const compStyle = COMPANY_STATUS_STYLES[row.companyStatus ?? "pending"];
   const canEditThis =
@@ -94,12 +94,17 @@ export default function HoursTableRow({
             type="date"
             value={row.date}
             onChange={(e) => onUpdateRow(row.id, "date", e.target.value)}
+            onBlur={() => onValidateRow(row.id)}
             size="small"
             error={!!err && err.includes("Friday")}
             helperText={!!err && err.includes("Friday") ? err : undefined}
             slotProps={{
               formHelperText: { sx: { fontSize: 10 } },
               input: { sx: { fontSize: 12 } },
+              htmlInput: {
+                // A quick way to disable fridays on modern browsers using max/min/step or pattern if needed,
+                // but we rely on onBlur validation for strict error showing.
+              }
             }}
             sx={{ minWidth: 130, fontSize: 12 }}
           />

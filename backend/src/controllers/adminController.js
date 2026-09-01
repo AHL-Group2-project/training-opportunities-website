@@ -5,21 +5,17 @@ import CompanyProfile from "../models/CompanyProfile.js";
 import AdminProfile from "../models/AdminProfile.js";
 import crypto from "crypto";
 
-// Mapping of unive to their official email domains
+// Mapping of universities to their official email domains
 const UNIVERSITY_DOMAINS = {
   "Palestine Polytechnic University": "@ppu.edu.ps",
-  "Palestine Polytechnic University (PPU)": "@ppu.edu.ps",
-  "PPU": "@ppu.edu.ps",
-  "Birzeit University": "@birzeit.edu",
-  "BZU": "@birzeit.edu",
+  "Birzeit University": "@birzeit.edu.ps",
   "An-Najah National University": "@najah.edu.ps",
   "Al-Quds University": "@alquds.edu",
   "Arab American University": "@aaup.edu",
   "Hebron University": "@hebron.edu.ps",
   "Al-Quds Open University": "@qou.edu.ps",
-  "Al-Zaytoonah University of Science and Technology": "@zaytoonah.edu.ps",
+  "Al-Zaytoonah University": "@zaytoonah.edu.ps",
   "Palestine Technical University - Kadoorie": "@ptuk.edu.ps",
-  "PTUK": "@ptuk.edu.ps",
 };
 
 // Generate a random temporary password
@@ -151,9 +147,55 @@ export const createSupervisor = async (req, res, next) => {
   }
 };
 
+export const updateStudent = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, major } = req.body;
+
+    const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!adminProfile) {
+      return res.status(403).json({ message: "Admin profile not found." });
+    }
+
+    const student = await StudentProfile.findOne({ _id: id, university: adminProfile.university });
+    if (!student) return res.status(404).json({ message: "Student not found or belongs to another university." });
+    
+    if (name) student.name = name;
+    if (major) student.major = major;
+    await student.save();
+    
+    res.json({ message: "Student updated successfully.", profile: student });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateSupervisor = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, department } = req.body;
+
+    const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!adminProfile) {
+      return res.status(403).json({ message: "Admin profile not found." });
+    }
+
+    const supervisor = await SupervisorProfile.findOne({ _id: id, university: adminProfile.university });
+    if (!supervisor) return res.status(404).json({ message: "Supervisor not found or belongs to another university." });
+    
+    if (name) supervisor.name = name;
+    if (department) supervisor.department = department;
+    await supervisor.save();
+    
+    res.json({ message: "Supervisor updated successfully.", profile: supervisor });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const createCompany = async (req, res, next) => {
   try {
-    const { name, email, industry } = req.body;
+    const { name, email, industry, location, website, description, phone } = req.body;
 
     if (!name || !email) {
       return res.status(400).json({ message: "Please provide all required fields." });
@@ -177,7 +219,13 @@ export const createCompany = async (req, res, next) => {
     const companyProfile = await CompanyProfile.create({
       userId: user._id,
       name,
-      industry,
+      contactEmail: email,
+      industry: industry || "Technology",
+      location: location || "",
+      website: website || "",
+      description: description || "",
+      phone: phone || "",
+      verified: true, // Automatically verify companies added by admin
     });
 
     res.status(201).json({
@@ -194,6 +242,63 @@ export const createCompany = async (req, res, next) => {
   }
 };
 
+export const updateCompany = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { name, industry, location, website, description, phone } = req.body;
+
+    const companyProfile = await CompanyProfile.findById(id);
+    if (!companyProfile) {
+      return res.status(404).json({ message: "Company profile not found." });
+    }
+
+    if (name) companyProfile.name = name;
+    if (industry !== undefined) companyProfile.industry = industry;
+    if (location !== undefined) companyProfile.location = location;
+    if (website !== undefined) companyProfile.website = website;
+    if (description !== undefined) companyProfile.description = description;
+    if (phone !== undefined) companyProfile.phone = phone;
+
+    await companyProfile.save();
+
+    res.status(200).json({
+      message: "Company updated successfully.",
+      profile: companyProfile,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const toggleCompanyStatus = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    
+    const companyProfile = await CompanyProfile.findById(id);
+    if (!companyProfile) {
+      return res.status(404).json({ message: "Company profile not found." });
+    }
+    
+    const user = await User.findById(companyProfile.userId);
+    if (!user) {
+      return res.status(404).json({ message: "Company user account not found." });
+    }
+
+    user.isActive = !user.isActive;
+    await user.save();
+    
+    companyProfile.activationStatus = user.isActive ? "active" : "suspended";
+    await companyProfile.save();
+
+    res.status(200).json({
+      message: `Company account ${user.isActive ? 'activated' : 'deactivated'} successfully.`,
+      isActive: user.isActive,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const getStudents = async (req, res, next) => {
   try {
     const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
@@ -203,7 +308,7 @@ export const getStudents = async (req, res, next) => {
 
     const students = await StudentProfile.find({ university: adminProfile.university })
       .populate("userId", "email isActive")
-      .populate("supervisorId", "email");
+      .populate("supervisorId", "name");
 
     res.json(students);
   } catch (error) {
@@ -260,24 +365,88 @@ export const assignSupervisorToStudent = async (req, res, next) => {
     }
 
     // Verify supervisor exists and belongs to the same university
-    const supervisorExists = await User.findOne({ _id: supervisorId, role: "supervisor" });
-    if (!supervisorExists) {
-      return res.status(404).json({ message: "Supervisor not found." });
+    // supervisorId could be either User._id or SupervisorProfile._id
+    let supervisorProfile = await SupervisorProfile.findOne({ userId: supervisorId });
+    if (!supervisorProfile) {
+      // Fallback: Check if it's the SupervisorProfile._id itself
+      supervisorProfile = await SupervisorProfile.findById(supervisorId);
     }
 
-    const supervisorProfile = await SupervisorProfile.findOne({ userId: supervisorId });
     if (!supervisorProfile || supervisorProfile.university !== adminProfile.university) {
-      return res.status(403).json({ message: "Supervisor does not belong to your university." });
+      return res.status(403).json({ message: "Supervisor does not belong to your university or could not be found." });
+    }
+
+    const supervisorExists = await User.findOne({ _id: supervisorProfile.userId, role: "supervisor" });
+    if (!supervisorExists) {
+      return res.status(404).json({ message: "Supervisor user account not found." });
     }
 
     await StudentProfile.updateOne(
       { _id: id },
-      { $set: { supervisorId: supervisorId } }
+      { $set: { supervisorId: supervisorProfile._id } }
     );
 
-    studentProfile.supervisorId = supervisorId;
+    studentProfile.supervisorId = supervisorProfile._id;
     res.json({ message: "Supervisor assigned successfully.", studentProfile });
   } catch (error) {
     next(error);
   }
 };
+
+
+export const getMyAdminProfile = async (req, res, next) => {
+  try {
+    const profile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Admin profile not found" });
+    res.json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const updateMyAdminProfile = async (req, res, next) => {
+  try {
+    const { name } = req.body;
+    const profile = await AdminProfile.findOneAndUpdate(
+      { userId: req.user._id },
+      { name },
+      { new: true }
+    );
+    if (!profile) return res.status(404).json({ message: "Admin profile not found" });
+    res.json(profile);
+  } catch (error) {
+    next(error);
+  }
+};
+
+import cloudinary from "../config/cloudinary.js";
+
+export const uploadAdminAvatar = async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: "No image provided" });
+    }
+
+    const profile = await AdminProfile.findOne({ userId: req.user._id });
+    if (!profile) {
+      await cloudinary.uploader.destroy(req.file.filename);
+      return res.status(404).json({ message: "Admin profile not found" });
+    }
+
+    if (profile.avatarCloudinaryId) {
+      await cloudinary.uploader.destroy(profile.avatarCloudinaryId);
+    }
+
+    profile.avatarUrl = req.file.path;
+    profile.avatarCloudinaryId = req.file.filename;
+    await profile.save();
+
+    res.json({
+      message: "Avatar uploaded successfully",
+      avatarUrl: profile.avatarUrl,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+

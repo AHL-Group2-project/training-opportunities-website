@@ -65,7 +65,7 @@ const UNIVERSITY_DOMAINS: Record<string, string> = {
   "Arab American University": "@aaup.edu.ps",
   "Hebron University": "@hebron.edu.ps",
   "Al-Quds Open University": "@qou.edu.ps",
-  "Al-Zaytoonah University of Science and Technology": "@zaytoonah.edu.ps",
+  "Al-Zaytoonah University": "@zaytoonah.edu.ps",
   "Palestine Technical University - Kadoorie": "@ptuk.edu.ps",
 };
 
@@ -83,12 +83,11 @@ export default function AdminStudentsPage() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [assignDialogOpen, setAssignDialogOpen] = useState(false);
-  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(
-    null,
-  );
+  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
   const [selectedSupervisorId, setSelectedSupervisorId] = useState("");
 
-  // Add Student state
+  // Add/Edit Student state
+  const [editingStudent, setEditingStudent] = useState<any | null>(null);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [newStudentName, setNewStudentName] = useState("");
   const [newStudentId, setNewStudentId] = useState("");
@@ -125,7 +124,7 @@ export default function AdminStudentsPage() {
     fetchSupervisors();
   }, []);
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_event: unknown, newPage: number) => {
     setPage(newPage);
   };
 
@@ -137,6 +136,7 @@ export default function AdminStudentsPage() {
   };
 
   const handleOpenAddDialog = () => {
+    setEditingStudent(null);
     setNewStudentName("");
     setNewStudentId("");
     setNewStudentEmail("");
@@ -144,36 +144,50 @@ export default function AdminStudentsPage() {
     setAddDialogOpen(true);
   };
 
+  const handleOpenEditDialog = (student: any) => {
+    setEditingStudent(student);
+    setNewStudentName(student.name);
+    setNewStudentId(student.universityId || "");
+    const email = student.userId?.email || student.email || "";
+    setNewStudentEmail(email.replace(expectedDomain, ""));
+    setNewStudentMajor(student.major || "");
+    setAddDialogOpen(true);
+  };
+
   const handleAddStudent = async () => {
-    if (
-      !newStudentName ||
-      !newStudentEmail ||
-      !newStudentId ||
-      !newStudentMajor
-    ) {
+    if (!newStudentName || !newStudentMajor || (!editingStudent && (!newStudentEmail || !newStudentId))) {
       alert("Please fill all required fields.");
       return;
     }
 
-    const fullEmail = expectedDomain
-      ? `${newStudentEmail}${expectedDomain}`
-      : newStudentEmail;
-
     try {
-      const res = await adminApi.createStudent({
-        name: newStudentName,
-        email: fullEmail,
-        universityId: newStudentId,
-        major: newStudentMajor,
-      });
+      if (editingStudent) {
+        await adminApi.updateStudent(editingStudent._id, {
+          name: newStudentName,
+          major: newStudentMajor,
+        });
+        setAddDialogOpen(false);
+        fetchStudents();
+      } else {
+        const fullEmail = expectedDomain
+          ? `${newStudentEmail}${expectedDomain}`
+          : newStudentEmail;
 
-      setGeneratedUser(newStudentName);
-      setGeneratedPassword(res.data.tempPassword);
-      setAddDialogOpen(false);
-      setPasswordModalOpen(true);
-      fetchStudents();
+        const res = await adminApi.createStudent({
+          name: newStudentName,
+          email: fullEmail,
+          universityId: newStudentId,
+          major: newStudentMajor,
+        });
+
+        setGeneratedUser(newStudentName);
+        setGeneratedPassword(res.data.tempPassword);
+        setAddDialogOpen(false);
+        setPasswordModalOpen(true);
+        fetchStudents();
+      }
     } catch (error: any) {
-      alert(error.response?.data?.message || "Failed to create student.");
+      alert(error.response?.data?.message || `Failed to ${editingStudent ? 'update' : 'create'} student.`);
     }
   };
 
@@ -285,15 +299,24 @@ export default function AdminStudentsPage() {
                       (student.supervisorId ? "Assigned" : "—")}
                   </TableCell>
                   <TableCell>
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      color="primary"
-                      onClick={() => handleOpenAssign(student._id)}
-                      sx={{ textTransform: "none" }}
-                    >
-                      Assign Supervisor
-                    </Button>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => handleOpenAssign(student._id)}
+                        sx={{ textTransform: "none", mr: 1 }}
+                      >
+                        Assign Supervisor
+                      </Button>
+                      <Button
+                        size="small"
+                        variant="outlined"
+                        color="secondary"
+                        onClick={() => handleOpenEditDialog(student)}
+                        sx={{ textTransform: "none" }}
+                      >
+                        Edit
+                      </Button>
                   </TableCell>
                 </TableRow>
               );
@@ -368,7 +391,7 @@ export default function AdminStudentsPage() {
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle>Add New Student</DialogTitle>
+        <DialogTitle>{editingStudent ? "Edit Student" : "Add New Student"}</DialogTitle>
         <DialogContent>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
             <TextField
@@ -382,6 +405,7 @@ export default function AdminStudentsPage() {
               value={newStudentId}
               onChange={(e) => setNewStudentId(e.target.value)}
               fullWidth
+              disabled={!!editingStudent}
             />
             <TextField
               label="University Email Prefix *"
@@ -389,6 +413,7 @@ export default function AdminStudentsPage() {
               value={newStudentEmail}
               onChange={(e) => setNewStudentEmail(e.target.value)}
               fullWidth
+              disabled={!!editingStudent}
               slotProps={{
                 input: {
                   endAdornment: expectedDomain ? (
@@ -424,7 +449,7 @@ export default function AdminStudentsPage() {
             onClick={handleAddStudent}
             sx={{ textTransform: "none" }}
           >
-            Create Student
+            {editingStudent ? "Save Changes" : "Create Student"}
           </Button>
         </DialogActions>
       </Dialog>

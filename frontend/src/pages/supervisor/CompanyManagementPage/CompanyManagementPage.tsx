@@ -154,12 +154,21 @@ function CompanyManagementPage() {
 
   const handleSave = async () => {
     if (editingCompany) {
-      // TODO: PATCH /api/companies/:id
-      console.log(
-        "UPDATE not fully implemented in API yet",
-        editingCompany._id,
-      );
-      setDialogOpen(false);
+      try {
+        await adminApi.updateCompany(editingCompany._id, {
+          name,
+          email,
+          industry,
+          location,
+          website,
+          description,
+          phone,
+        });
+        setDialogOpen(false);
+        fetchCompanies();
+      } catch (error: any) {
+        alert(error.response?.data?.message || "Failed to update company.");
+      }
     } else {
       if (!name || !email) {
         alert("Please fill required fields (Name, Email).");
@@ -193,9 +202,13 @@ function CompanyManagementPage() {
     alert("Password copied to clipboard!");
   };
 
-  const handleToggleActive = (companyId: string) => {
-    // TODO: PATCH /api/companies/:id/status
-    alert("Activation toggle endpoint not yet implemented");
+  const handleToggleActive = async (companyId: string) => {
+    try {
+      await adminApi.toggleCompanyStatus(companyId);
+      fetchCompanies();
+    } catch (error: any) {
+      alert(error.response?.data?.message || "Failed to toggle company status.");
+    }
   };
 
   return (
@@ -327,16 +340,16 @@ function CompanyManagementPage() {
                         <TableCell>
                           <Chip
                             label={
-                              company.isActive !== false ? "Active" : "Inactive"
+                              (company.userId?.isActive ?? company.isActive) !== false ? "Active" : "Inactive"
                             }
                             size="small"
                             sx={{
                               bgcolor:
-                                company.isActive !== false
+                                (company.userId?.isActive ?? company.isActive) !== false
                                   ? "#ECFDF5"
                                   : "#F3F4F6",
                               color:
-                                company.isActive !== false
+                                (company.userId?.isActive ?? company.isActive) !== false
                                   ? "#059669"
                                   : "#6B7280",
                               fontWeight: 600,
@@ -389,7 +402,7 @@ function CompanyManagementPage() {
                               size="small"
                               onClick={() => handleToggleActive(company._id)}
                             >
-                              {company.isActive !== false ? (
+                              {(company.userId?.isActive ?? company.isActive) !== false ? (
                                 <ToggleOnIcon
                                   fontSize="small"
                                   color="success"

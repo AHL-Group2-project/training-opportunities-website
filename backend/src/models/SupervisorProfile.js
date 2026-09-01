@@ -17,12 +17,23 @@ const supervisorProfileSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    avatar: {
-      type: String,
-    },
     university: {
       type: String,
       required: true,
+    },
+    avatar: {
+      type: String,
+    },
+    phone: { 
+      type: String 
+    },
+    officeHours: { 
+      type: String, 
+      default: "" 
+    },
+    avatarUrl: { 
+      type: String, 
+      default: null 
     },
   },
   { timestamps: true, collection: "supervisorProfiles" }

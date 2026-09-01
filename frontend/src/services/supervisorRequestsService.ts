@@ -3,7 +3,7 @@ import type { SupervisorTrainingRequest } from "../types/supervisorRequests.type
 
 export const getMyRequests = async (): Promise<SupervisorTrainingRequest[]> => {
   const { data } = await api.get<SupervisorTrainingRequest[]>(
-    "/supervisor/requests",
+    "/supervisors/requests",
   );
 
   return data;
@@ -13,9 +13,11 @@ export const updateRequestStatus = async (
   id: string,
   status: "approved" | "rejected",
   rejectionComment?: string,
+  companyId?: string | null,
 ): Promise<void> => {
-  await api.put(`/supervisor/requests/${id}/status`, {
+  await api.put(`/supervisors/requests/${id}/status`, {
     status,
     rejectionComment,
+    companyId,
   });
 };

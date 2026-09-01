@@ -11,6 +11,7 @@ export interface SupervisorTrainingRequest {
   type: TrainingType;
   status: RequestStatus;
   companyName: string;
+  companyId?: string;
   position: string;
   department?: string;
   field?: string;

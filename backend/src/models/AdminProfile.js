@@ -18,6 +18,14 @@ const adminProfileSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    avatarUrl: {
+      type: String,
+      default: null,
+    },
+    avatarCloudinaryId: {
+      type: String,
+      default: null,
+    },
   },
   { timestamps: true, collection: "adminProfiles" }
 );

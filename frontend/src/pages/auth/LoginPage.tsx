@@ -118,6 +118,7 @@ function LoginPage() {
         token: user.token,
         mustChangePassword: user.mustChangePassword || false,
         companyId: user.companyId ? String(user.companyId) : undefined,
+        avatarUrl: user.avatarUrl,
       });
 
       if (user.mustChangePassword) {

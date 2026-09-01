@@ -8,7 +8,15 @@ import {
   getSupervisors,
   getCompanies,
   assignSupervisorToStudent,
+  updateCompany,
+  toggleCompanyStatus,
+  updateStudent,
+  updateSupervisor,
+  getMyAdminProfile,
+  updateMyAdminProfile,
+  uploadAdminAvatar,
 } from "../controllers/adminController.js";
+import { uploadProfileImage } from "../middleware/uploadMiddleware.js";
 
 const router = express.Router();
 
@@ -21,6 +29,14 @@ router.post("/users/student", createStudent);
 router.post("/users/supervisor", createSupervisor);
 router.post("/users/company", createCompany);
 
+// User update routes
+router.patch("/students/:id", updateStudent);
+router.patch("/supervisors/:id", updateSupervisor);
+
+// Company management routes
+router.patch("/companies/:id", updateCompany);
+router.patch("/companies/:id/status", toggleCompanyStatus);
+
 // User listing routes
 router.get("/students", getStudents);
 router.get("/supervisors", getSupervisors);
@@ -28,5 +44,10 @@ router.get("/companies", getCompanies);
 
 // Assignment routes
 router.put("/students/:id/assign-supervisor", assignSupervisorToStudent);
+
+// Profile routes
+router.get("/me/profile", getMyAdminProfile);
+router.patch("/me/profile", updateMyAdminProfile);
+router.post("/me/avatar", uploadProfileImage.single("avatar"), uploadAdminAvatar);
 
 export default router;
