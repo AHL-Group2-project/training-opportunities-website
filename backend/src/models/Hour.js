@@ -49,6 +49,15 @@ const hourSchema = new mongoose.Schema(
     companyComment: {
       type: String,
       default: "",
+    },
+    finalStatus: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "pending",
+    },
+    finalReviewedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User", // Can be supervisor or admin
     }
   },
   { timestamps: true, collection: "hours" }

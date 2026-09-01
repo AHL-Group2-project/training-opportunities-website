@@ -97,6 +97,7 @@ export const submitTrainingRequest = async (req, res, next) => {
       studentId: studentProfile._id,
       status: { $in: ["pending", "approved"] },
     });
+    
     if (existingActive) {
       return res.status(403).json({
         message:

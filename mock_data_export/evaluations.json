@@ -1,0 +1,1127 @@
+[
+  {
+    "_id": {
+      "$oid": "7f525a78ea734de634ebb0f7"
+    },
+    "studentId": {
+      "$oid": "15ce879b55f5f85fb1d33f53"
+    },
+    "internshipRequestId": {
+      "$oid": "195251a7059196045e5ebe28"
+    },
+    "submittedBy": {
+      "$oid": "27e1747cc477f542a49ec1dc"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4f0ee55033f62deb0fe5bcae"
+    },
+    "studentId": {
+      "$oid": "c7f1f51f14b75994a850c224"
+    },
+    "internshipRequestId": {
+      "$oid": "ff7abffa47dec173f2236d0a"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a04c56b0e398a8d264f3c346"
+    },
+    "studentId": {
+      "$oid": "023f21a190bd49534ac07f53"
+    },
+    "internshipRequestId": {
+      "$oid": "cd068a4359cbc3cfd1f94f8b"
+    },
+    "submittedBy": {
+      "$oid": "488526992cb421792056eacb"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "03cdee294b9ba41bb3be18fd"
+    },
+    "studentId": {
+      "$oid": "b12a9068f75157861261e283"
+    },
+    "internshipRequestId": {
+      "$oid": "50a7148b230d52ed63c5256c"
+    },
+    "submittedBy": {
+      "$oid": "488526992cb421792056eacb"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "461b49253142c3bcbda4b021"
+    },
+    "studentId": {
+      "$oid": "b12a9068f75157861261e283"
+    },
+    "internshipRequestId": {
+      "$oid": "384719a84bb91b67c3e75a7e"
+    },
+    "submittedBy": {
+      "$oid": "75c447f7a6a2e5a2ab92c24e"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59c7f47a52d09e7644116b7b"
+    },
+    "studentId": {
+      "$oid": "ccb1f5313648d1dd50e488d7"
+    },
+    "internshipRequestId": {
+      "$oid": "8682f0b97e6bda58bca90362"
+    },
+    "submittedBy": {
+      "$oid": "296f010617328b7356b007ed"
+    },
+    "criteria": {
+      "attendance": 4,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 4,
+      "communication": 4
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "942ac91f2426225797dd0f12"
+    },
+    "studentId": {
+      "$oid": "30685f717bbd7b1245a680e7"
+    },
+    "internshipRequestId": {
+      "$oid": "9a55f667dc7bb0b990fd2cad"
+    },
+    "submittedBy": {
+      "$oid": "488526992cb421792056eacb"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "8d492b8d1890e7883d8fdbd0"
+    },
+    "studentId": {
+      "$oid": "0766c11cb0aabab8e0d39dd2"
+    },
+    "internshipRequestId": {
+      "$oid": "a8cd5944ad29d58378d1b408"
+    },
+    "submittedBy": {
+      "$oid": "27e1747cc477f542a49ec1dc"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cffafeff34f9333a2682254f"
+    },
+    "studentId": {
+      "$oid": "6903a462828b7b84799ed848"
+    },
+    "internshipRequestId": {
+      "$oid": "149d894964703b282f1b6585"
+    },
+    "submittedBy": {
+      "$oid": "1b7535c0b2830e1d8b7bb582"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "f41ff4ce70451a27943e4a49"
+    },
+    "studentId": {
+      "$oid": "6903a462828b7b84799ed848"
+    },
+    "internshipRequestId": {
+      "$oid": "07ca0686678a15a3203b8645"
+    },
+    "submittedBy": {
+      "$oid": "dbc314da8576ef63b09521a0"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6e672a5622f90ead343f04fa"
+    },
+    "studentId": {
+      "$oid": "76212f3d2fa066a46dd80e52"
+    },
+    "internshipRequestId": {
+      "$oid": "f20070f7069d7920bedd2fda"
+    },
+    "submittedBy": {
+      "$oid": "1b7535c0b2830e1d8b7bb582"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "78d2ba16bf54bb6bd7b0afa2"
+    },
+    "studentId": {
+      "$oid": "e44555250feaf47b6aec9835"
+    },
+    "internshipRequestId": {
+      "$oid": "2a18ef61f875cf45f4d2c4f2"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9d77b869583f3eb1fd110a48"
+    },
+    "studentId": {
+      "$oid": "0b7dcb881a1182108f579a91"
+    },
+    "internshipRequestId": {
+      "$oid": "92c05af82cc7b32a5c32f7bc"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c839f164fb195159a3834b7a"
+    },
+    "studentId": {
+      "$oid": "5798b366efd8fe65bcc6d558"
+    },
+    "internshipRequestId": {
+      "$oid": "c3791776e9a38c5fedec6bb2"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "39c38c667d303e7c8c448449"
+    },
+    "studentId": {
+      "$oid": "5798b366efd8fe65bcc6d558"
+    },
+    "internshipRequestId": {
+      "$oid": "e8be09e6b7aed3541d64ec35"
+    },
+    "submittedBy": {
+      "$oid": "dbc314da8576ef63b09521a0"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "241ab280e348be6bac71ca1e"
+    },
+    "studentId": {
+      "$oid": "26f4a6008c642659e226269d"
+    },
+    "internshipRequestId": {
+      "$oid": "70d499c0b6c712da45417aa3"
+    },
+    "submittedBy": {
+      "$oid": "27e1747cc477f542a49ec1dc"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 3,
+      "initiative": 4,
+      "communication": 4
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "abc7d34ea985facb69b76db2"
+    },
+    "studentId": {
+      "$oid": "26417a1fe59367613cdf2ae2"
+    },
+    "internshipRequestId": {
+      "$oid": "a288964080bc0780b810a789"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "47268d5b74f6ed49238a6d2b"
+    },
+    "studentId": {
+      "$oid": "d4e31e1cb9526069b712351c"
+    },
+    "internshipRequestId": {
+      "$oid": "b59ba71bc0614d39077a0b88"
+    },
+    "submittedBy": {
+      "$oid": "c726847b979deba85b7651bf"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "57d3c38de0662cab03ec9d84"
+    },
+    "studentId": {
+      "$oid": "8cc689a713ffcfbaaa48d863"
+    },
+    "internshipRequestId": {
+      "$oid": "89046c12da72b28f5278a1a8"
+    },
+    "submittedBy": {
+      "$oid": "296f010617328b7356b007ed"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "af3c16a570fc1f46412ace16"
+    },
+    "studentId": {
+      "$oid": "8cc689a713ffcfbaaa48d863"
+    },
+    "internshipRequestId": {
+      "$oid": "5e5c1c640bf41fed91f1d218"
+    },
+    "submittedBy": {
+      "$oid": "89d36bc0282f7a1b15199b2d"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c446cc39e61c999d2b4202d8"
+    },
+    "studentId": {
+      "$oid": "ad483d5b42939c2baf75454f"
+    },
+    "internshipRequestId": {
+      "$oid": "c967c84c0db42f0a54bdb874"
+    },
+    "submittedBy": {
+      "$oid": "296f010617328b7356b007ed"
+    },
+    "criteria": {
+      "attendance": 4,
+      "performance": 4,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "2455b6cc7e93359a26e6de20"
+    },
+    "studentId": {
+      "$oid": "44b3277b58c8c660d0377e74"
+    },
+    "internshipRequestId": {
+      "$oid": "59cb7110c2be95a88dba299e"
+    },
+    "submittedBy": {
+      "$oid": "346a0a9b5a6136a1f2bb39a7"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "cb881d39b0e1fdba8d994704"
+    },
+    "studentId": {
+      "$oid": "a500f27f173471e3168c5857"
+    },
+    "internshipRequestId": {
+      "$oid": "dd1974c7e6d519a8836e233e"
+    },
+    "submittedBy": {
+      "$oid": "346a0a9b5a6136a1f2bb39a7"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "a75af0c28590abfadb7d3a9e"
+    },
+    "studentId": {
+      "$oid": "7d1e83e841298b9e1aadb546"
+    },
+    "internshipRequestId": {
+      "$oid": "3ff98e00d2c165b41781ba8d"
+    },
+    "submittedBy": {
+      "$oid": "75c447f7a6a2e5a2ab92c24e"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "da992efcc576ce468a298d0f"
+    },
+    "studentId": {
+      "$oid": "7d1e83e841298b9e1aadb546"
+    },
+    "internshipRequestId": {
+      "$oid": "bf03d44376e46182a56ddb55"
+    },
+    "submittedBy": {
+      "$oid": "75c447f7a6a2e5a2ab92c24e"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "18d37864cb741773a233a23f"
+    },
+    "studentId": {
+      "$oid": "2c704a5a6011d170509893f9"
+    },
+    "internshipRequestId": {
+      "$oid": "16b9abcf304f54c0082c8378"
+    },
+    "submittedBy": {
+      "$oid": "296f010617328b7356b007ed"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 5,
+      "initiative": 4,
+      "communication": 5
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "14b64986d65cde4dfd3a8658"
+    },
+    "studentId": {
+      "$oid": "23d5f8275cc647f446080d6c"
+    },
+    "internshipRequestId": {
+      "$oid": "7fe37a3f7b2c62656c1faa28"
+    },
+    "submittedBy": {
+      "$oid": "c726847b979deba85b7651bf"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0a0d2730bb05239094b54e31"
+    },
+    "studentId": {
+      "$oid": "546b6be32290a41cab378539"
+    },
+    "internshipRequestId": {
+      "$oid": "6cbb4a9b13212ff893cba801"
+    },
+    "submittedBy": {
+      "$oid": "346a0a9b5a6136a1f2bb39a7"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "c81dadce48b76130fd851375"
+    },
+    "studentId": {
+      "$oid": "1f04c3cfdb46b26f48b4a1ae"
+    },
+    "internshipRequestId": {
+      "$oid": "c0a33694ddc0b531e85d06fc"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "aeca5a280d5b55b351de6126"
+    },
+    "studentId": {
+      "$oid": "1f04c3cfdb46b26f48b4a1ae"
+    },
+    "internshipRequestId": {
+      "$oid": "e70458fd9008787a3e8e88f3"
+    },
+    "submittedBy": {
+      "$oid": "4ce98d1c4e78224377dfefdd"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "72a66dc01f2666402426b405"
+    },
+    "studentId": {
+      "$oid": "a256d69dccc6af825e56bc9e"
+    },
+    "internshipRequestId": {
+      "$oid": "87e427d6f6c3227f21edd210"
+    },
+    "submittedBy": {
+      "$oid": "6e05d83a55fcf035f9f4d414"
+    },
+    "criteria": {
+      "attendance": 4,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 4,
+      "communication": 5
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "fdd72c8acd43fbddc09ca216"
+    },
+    "studentId": {
+      "$oid": "046de6095dc6a2768a524edc"
+    },
+    "internshipRequestId": {
+      "$oid": "63c2a1019008707f6478fe95"
+    },
+    "submittedBy": {
+      "$oid": "6e05d83a55fcf035f9f4d414"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "22c3565295b3735626e88ab3"
+    },
+    "studentId": {
+      "$oid": "67874269402b956e9864c00b"
+    },
+    "internshipRequestId": {
+      "$oid": "c7b9ed24f6acfea0bfc68d23"
+    },
+    "submittedBy": {
+      "$oid": "346a0a9b5a6136a1f2bb39a7"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "e993c9e44cb5d8f1a64441e1"
+    },
+    "studentId": {
+      "$oid": "e1c8204ae2647c5e57581f26"
+    },
+    "internshipRequestId": {
+      "$oid": "95b3e5cf12a39caeff6735df"
+    },
+    "submittedBy": {
+      "$oid": "6e05d83a55fcf035f9f4d414"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ad0b6e261ed364f8bc383b02"
+    },
+    "studentId": {
+      "$oid": "e1c8204ae2647c5e57581f26"
+    },
+    "internshipRequestId": {
+      "$oid": "18e1fa997a9ae277fc930bb0"
+    },
+    "submittedBy": {
+      "$oid": "89d36bc0282f7a1b15199b2d"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "048e2f155e7edc6c3ed2f83c"
+    },
+    "studentId": {
+      "$oid": "20a5b73ec8543292866960e9"
+    },
+    "internshipRequestId": {
+      "$oid": "a2868ff231a162d1697edd5c"
+    },
+    "submittedBy": {
+      "$oid": "488526992cb421792056eacb"
+    },
+    "criteria": {
+      "attendance": 4,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "73d528cb83701e1ab6eb1a80"
+    },
+    "studentId": {
+      "$oid": "a6322693fa0ccfc3a3bd0e72"
+    },
+    "internshipRequestId": {
+      "$oid": "727d1b2bc48956219296a5a2"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "4cfc2c66a4ad9778e9af2e48"
+    },
+    "studentId": {
+      "$oid": "1b43f91cad8a6c1a032fe148"
+    },
+    "internshipRequestId": {
+      "$oid": "69c88783a6a491ba28c1e9aa"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "20b8664af98bec8545b8e5dc"
+    },
+    "studentId": {
+      "$oid": "96cf5352756ee36bb3a2622b"
+    },
+    "internshipRequestId": {
+      "$oid": "5a904cdbd2dd967798e209f7"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "37a6b3db54f266cb804cb973"
+    },
+    "studentId": {
+      "$oid": "96cf5352756ee36bb3a2622b"
+    },
+    "internshipRequestId": {
+      "$oid": "12d6963da0edfe323bd65375"
+    },
+    "submittedBy": {
+      "$oid": "27e1747cc477f542a49ec1dc"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "90804316c5ed00cf2e5e8014"
+    },
+    "studentId": {
+      "$oid": "c5497d3c836493f4388d6da6"
+    },
+    "internshipRequestId": {
+      "$oid": "0a77a6d6724dee4ee71e3bd5"
+    },
+    "submittedBy": {
+      "$oid": "488526992cb421792056eacb"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "The student demonstrated strong technical skills and a professional attitude throughout the internship.",
+    "submittedAt": {
+      "$date": "2026-07-30T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3197d5d5b495813fcc1f1aab"
+    },
+    "studentId": {
+      "$oid": "fe894f5d2694f303cbdfecb7"
+    },
+    "internshipRequestId": {
+      "$oid": "ec9ef893cef15f061d53cc29"
+    },
+    "submittedBy": {
+      "$oid": "455bd1b190b8518a58d8c31c"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "29824eccbfcf65570e298875"
+    },
+    "studentId": {
+      "$oid": "064724e67aef0dae601bb95e"
+    },
+    "internshipRequestId": {
+      "$oid": "401f3fa9d410b519f0e05441"
+    },
+    "submittedBy": {
+      "$oid": "27e1747cc477f542a49ec1dc"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 4,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 4
+    },
+    "overallComment": "Solid FT1 performance.",
+    "submittedAt": {
+      "$date": "2026-02-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "d0e6008a4f3e51123f870dae"
+    },
+    "studentId": {
+      "$oid": "587fdd7688f9a3416b527d58"
+    },
+    "internshipRequestId": {
+      "$oid": "f76a8a25f682e8ef08dea622"
+    },
+    "submittedBy": {
+      "$oid": "296f010617328b7356b007ed"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 5,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT1. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2025-11-28T00:00:00.000Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "3d9de3adc7a33380909699f9"
+    },
+    "studentId": {
+      "$oid": "587fdd7688f9a3416b527d58"
+    },
+    "internshipRequestId": {
+      "$oid": "f11594630f24a351c378a507"
+    },
+    "submittedBy": {
+      "$oid": "296f010617328b7356b007ed"
+    },
+    "criteria": {
+      "attendance": 5,
+      "performance": 5,
+      "reportQuality": 4,
+      "initiative": 5,
+      "communication": 5
+    },
+    "overallComment": "Exceptional performance during FT2. A true asset to the team.",
+    "submittedAt": {
+      "$date": "2026-04-28T00:00:00.000Z"
+    }
+  }
+]
