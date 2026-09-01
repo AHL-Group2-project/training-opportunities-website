@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -8,27 +8,122 @@ import {
   TextField,
   Button,
   Avatar,
+  Chip,
+  CircularProgress,
+  Alert,
 } from "@mui/material";
-import { useAuth } from "../../../context/authContext";
-import { MOCK_COMPANIES } from "../../../mock/Companies";
+import api from "../../../lib/axios";
 import SaveIcon from "@mui/icons-material/Save";
+import { useAuth } from "../../../context/authContext";
+
+interface CompanyProfile {
+  _id: string;
+  userId: string;
+  name: string;
+  industry: string;
+  location: string;
+  website: string;
+  linkedIn: string | null;
+  logoUrl: string | null;
+  description: string;
+  contactEmail: string;
+  phone: string;
+  verified: boolean;
+  isActive: boolean;
+}
 
 function CompanyProfilePage() {
-  const { user } = useAuth();
-  const companyId = user?.companyId;
 
-  const company = MOCK_COMPANIES.find((c) => String(c.id) === String(companyId));
 
-  const [name, setName] = useState(company?.name || "");
-  const [description, setDescription] = useState(company?.description || "");
-  const [website, setWebsite] = useState(company?.website || "");
-  const [email, setEmail] = useState(company?.email || "");
-  const [phone, setPhone] = useState(company?.phone || "");
 
-  const handleSave = () => {
-    // TODO: PATCH /api/companies/:id
-    console.log("UPDATE COMPANY", { name, description, website, email, phone });
+  const [company, setCompany] = useState<CompanyProfile | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const { user, updateUser } = useAuth();
+
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [website, setWebsite] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [linkedIn, setLinkedIn] = useState("");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        setLoading(true);
+        setError("");
+        const res = await api.get<CompanyProfile>("/companies/me/profile");
+        const data = res.data;
+
+        setCompany(data);
+        setName(data.name || "");
+        setDescription(data.description || "");
+        setWebsite(data.website || "");
+        setEmail(data.contactEmail || "");
+        setPhone(data.phone || "");
+        setLinkedIn(data.linkedIn || "");
+        
+        if (user && data.logoUrl && user.avatarUrl !== data.logoUrl) {
+          updateUser({ ...user, avatarUrl: data.logoUrl });
+        }
+      } catch (err) {
+        console.error("Failed to fetch company profile", err);
+        setError("Failed to load company profile. Please refresh the page.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  const handleCancel = () => {
+    if (!company) return;
+    setName(company.name || "");
+    setDescription(company.description || "");
+    setWebsite(company.website || "");
+    setEmail(company.contactEmail || "");
+    setPhone(company.phone || "");
+    setLinkedIn(company.linkedIn || "");
+    setSuccess(false);
+    setError("");
   };
+
+  const handleSave = async () => {
+    try {
+      setSaving(true);
+      setError("");
+      setSuccess(false);
+
+      const res = await api.patch<CompanyProfile>("/companies/me/profile", {
+        name,
+        description,
+        website,
+        contactEmail: email,
+        phone,
+        linkedIn,
+      });
+
+      setCompany(res.data);
+      setSuccess(true);
+    } catch (err) {
+      console.error("Failed to update company profile", err);
+      setError("Failed to save changes. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <Container maxWidth="md" sx={{ py: 6, display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
 
   return (
     <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}>
@@ -39,18 +134,78 @@ function CompanyProfilePage() {
         Company Profile
       </Typography>
 
+      {error && (
+        <Alert severity="error" sx={{ mb: 3 }}>
+          {error}
+        </Alert>
+      )}
+      {success && (
+        <Alert severity="success" sx={{ mb: 3 }}>
+          Changes saved successfully.
+        </Alert>
+      )}
+
       <Card sx={{ borderRadius: 3 }}>
         <CardContent sx={{ p: { xs: 3, md: 4 } }}>
           <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
-              <Avatar src={company?.logo} sx={{ width: 80, height: 80 }} />
-              <Box>
+              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 1 }}>
+                <Avatar
+                  src={company?.logoUrl || undefined}
+                  sx={{ width: 80, height: 80 }}
+                />
+                <Button variant="outlined" size="small" component="label">
+                  Upload Logo
+                  <input
+                    type="file"
+                    hidden
+                    accept="image/*"
+                    onChange={async (e) => {
+                      if (e.target.files && e.target.files[0]) {
+                        try {
+                          setSaving(true);
+                          const formData = new FormData();
+                          formData.append("logo", e.target.files[0]);
+                          const res = await api.post("/companies/me/logo", formData, {
+                            headers: {
+                              "Content-Type": "multipart/form-data"
+                            }
+                          });
+                          setCompany((prev) => prev ? { ...prev, logoUrl: res.data.logoUrl } : null);
+                          if (user) {
+                            updateUser({ ...user, avatarUrl: res.data.logoUrl });
+                          }
+                          setSuccess(true);
+                        } catch (err) {
+                          console.error("Failed to upload logo", err);
+                          setError("Failed to upload logo.");
+                        } finally {
+                          setSaving(false);
+                        }
+                      }
+                    }}
+                  />
+                </Button>
+              </Box>
+              <Box sx={{ flex: 1 }}>
                 <Typography variant="h6" sx={{ fontWeight: 700 }}>
                   {company?.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {company?.industry} • {company?.location}
                 </Typography>
+              </Box>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                <Chip
+                  label={company?.verified ? "Verified" : "Not Verified"}
+                  color={company?.verified ? "success" : "default"}
+                  size="small"
+                />
+                <Chip
+                  label={company?.isActive ? "Active" : "Inactive"}
+                  color={company?.isActive ? "primary" : "default"}
+                  size="small"
+                />
               </Box>
             </Box>
 
@@ -75,6 +230,12 @@ function CompanyProfilePage() {
               fullWidth
             />
             <TextField
+              label="LinkedIn"
+              value={linkedIn}
+              onChange={(e) => setLinkedIn(e.target.value)}
+              fullWidth
+            />
+            <TextField
               label="Contact Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -95,14 +256,21 @@ function CompanyProfilePage() {
                 mt: 2,
               }}
             >
-              <Button sx={{ textTransform: "none" }}>Cancel</Button>
+              <Button
+                sx={{ textTransform: "none" }}
+                onClick={handleCancel}
+                disabled={saving}
+              >
+                Cancel
+              </Button>
               <Button
                 variant="contained"
                 startIcon={<SaveIcon />}
                 onClick={handleSave}
+                disabled={saving}
                 sx={{ bgcolor: "text.primary", textTransform: "none" }}
               >
-                Save Changes
+                {saving ? "Saving..." : "Save Changes"}
               </Button>
             </Box>
           </Box>

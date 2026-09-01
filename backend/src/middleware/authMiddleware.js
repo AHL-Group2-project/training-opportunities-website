@@ -4,10 +4,12 @@ import User from "../models/User.js";
 const JWT_SECRET = process.env.JWT_SECRET;
 
 if (!JWT_SECRET) {
-  throw new Error("FATAL ERROR: JWT_SECRET is not defined in environment variables.");
+  throw new Error(
+    "FATAL ERROR: JWT_SECRET is not defined in environment variables."
+  );
 }
 
-// JWT 
+// JWT
 export const protect = async (req, res, next) => {
   let token;
 
@@ -19,11 +21,9 @@ export const protect = async (req, res, next) => {
   }
 
   if (!token) {
-    return res
-      .status(401)
-      .json({
-        message: "Not authorized to access this route. No token provided.",
-      });
+    return res.status(401).json({
+      message: "Not authorized to access this route. No token provided.",
+    });
   }
 
   try {

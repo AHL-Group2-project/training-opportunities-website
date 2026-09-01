@@ -1,128 +1,165 @@
 import {
   Avatar,
   Box,
-  Button,
   Card,
   CardContent,
   Chip,
   Stack,
   Typography,
+  IconButton,
+  CardActionArea,
 } from "@mui/material";
-import type { Student } from "../../../types/student.types";
-import { useNavigate } from "react-router-dom";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LanguageIcon from "@mui/icons-material/Language";
+import type { StudentProfile } from "./StudentsPage";
+import { Link } from "react-router-dom";
 
 type Props = {
-  student: Student;
+  student: StudentProfile;
 };
 
+function stringToColor(text: string): string {
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) {
+    hash = text.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = hash % 360;
+  return `hsl(${hue}, 70%, 45%)`;
+}
+
+function stringToBackgroundColor(text: string): string {
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) {
+    hash = text.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = hash % 360;
+  return `hsl(${hue}, 70%, 92%)`;
+}
+
 export default function StudentCard({ student }: Props) {
-  const navigate = useNavigate();
+  // Calculate initials from name
+  const initials = student.name
+    ? student.name.split(" ").map((n) => n[0]).join("").substring(0, 2).toUpperCase()
+    : "ST";
+
   return (
     <Card
       sx={{
-        width: "100%",
-        height: 330,
+        borderRadius: 3,
+        bgcolor: "background.paper",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+        border: "1px solid",
+        borderColor: "divider",
+        height: 320,
         display: "flex",
         flexDirection: "column",
-        borderRadius: 3,
-        p: 1.5,
-        bgcolor: "background.default",
+        transition: "all 0.2s ease-in-out",
+        "&:hover": {
+          transform: "translateY(-4px)",
+          boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
+          borderColor: "primary.main",
+        },
       }}
     >
-      <CardContent
+      <CardActionArea
+        component={Link}
+        to={`/students/${student.userId || student._id}`}
         sx={{
-          width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-          "&:last-child": {
-            pb: 1.5,
-          },
+          alignItems: "stretch",
         }}
       >
-        <Avatar
+        <CardContent
           sx={{
-            width: 56,
-            height: 56,
-            fontSize: 20,
-            mb: 1.5,
-            bgcolor: "primary.main",
-            fontWeight: 700,
-            mx: "auto",
-          }}
-        >
-          {student.initials}
-        </Avatar>
-
-        <Typography variant="h6" sx={{ fontWeight: 700 }}>
-          {student.name}
-        </Typography>
-
-        <Typography
-          variant="caption"
-          color="text.secondary"
-          sx={{
-            mb: 1.5,
-            fontSize: 13,
-          }}
-        >
-          {student.major}
-        </Typography>
-
-        <Stack
-          direction="row"
-          spacing={1}
-          sx={{
-            justifyContent: "center",
-            flexWrap: "wrap",
-            mb: 2,
-            height: 55,
-            overflow: "hidden",
-          }}
-        >
-          {student.skills.map((skill) => (
-            <Chip key={skill} label={skill} size="small" />
-          ))}
-        </Stack>
-
-        <Box
-          sx={{
+            width: "100%",
+            height: "100%",
             display: "flex",
-            justifyContent: "center",
-            gap: 1,
-            mb: 2,
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+            p: 3,
           }}
         >
-          <Chip
-            label={student.ft1 ? "FT1 ✓" : "FT1 ✕"}
-            color={student.ft1 ? "success" : "default"}
-            size="small"
+          <Avatar
+            src={student.avatarUrl || undefined}
             sx={{
-              fontSize: 11,
-              height: 24,
+              width: 80,
+              height: 80,
+              fontSize: 28,
+              mb: 2,
+              bgcolor: stringToBackgroundColor(student.name),
+              color: stringToColor(student.name),
+              fontWeight: 700,
+              mx: "auto",
+              border: "2px solid",
+              borderColor: "background.paper",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
             }}
-          />
+          >
+            {!student.avatarUrl && initials}
+          </Avatar>
 
-          <Chip
-            label={student.ft2 ? "FT2 ✓" : "FT2 ✕"}
-            color={student.ft2 ? "success" : "default"}
-            size="small"
-          />
-        </Box>
+          <Typography variant="h6" sx={{ fontWeight: 700, lineHeight: 1.2, mb: 0.5 }}>
+            {student.name}
+          </Typography>
 
-        <Button
-          variant="contained"
-          fullWidth
-          onClick={() => navigate(`/students/${student.id}`)}
-          sx={{
-            mt: "auto",
-          }}
-        >
-          View Profile
-        </Button>
-      </CardContent>
+          <Typography
+            variant="body2"
+            color="primary.main"
+            sx={{ fontWeight: 500, mb: 0.5 }}
+          >
+            {student.major}
+          </Typography>
+          
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ mb: 2, display: "block" }}
+          >
+            {student.university}
+          </Typography>
+
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{
+              justifyContent: "center",
+              flexWrap: "wrap",
+              mb: "auto",
+              gap: 1,
+            }}
+          >
+            {student.skills?.slice(0, 3).map((skill) => (
+              <Chip key={skill} label={skill} size="small" variant="outlined" sx={{ borderRadius: 1 }} />
+            ))}
+            {student.skills && student.skills.length > 3 && (
+              <Chip label={`+${student.skills.length - 3}`} size="small" variant="outlined" sx={{ borderRadius: 1 }} />
+            )}
+          </Stack>
+
+          {/* Social Links */}
+          <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 2 }} onClick={(e) => e.preventDefault()}>
+            {student.social?.linkedin && (
+              <IconButton size="small" component="a" href={student.social.linkedin} target="_blank" color="primary">
+                <LinkedInIcon />
+              </IconButton>
+            )}
+            {student.social?.github && (
+              <IconButton size="small" component="a" href={student.social.github} target="_blank" sx={{ color: "text.primary" }}>
+                <GitHubIcon />
+              </IconButton>
+            )}
+            {student.social?.portfolio && (
+              <IconButton size="small" component="a" href={student.social.portfolio} target="_blank" color="secondary">
+                <LanguageIcon />
+              </IconButton>
+            )}
+          </Box>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 }

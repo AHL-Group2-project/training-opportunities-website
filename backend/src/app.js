@@ -5,6 +5,10 @@ import authRoutes from "./routes/authRoutes.js";
 import opportunityRoutes from "./routes/opportunityRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import externalCompanyRoutes from "./routes/externalCompanyRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
+import studentRoutes from "./routes/studentRoutes.js";
+import supervisorRoutes from "./routes/supervisorRoutes.js";
+import companyRoutes from "./routes/companyRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 const app = express();
@@ -14,9 +18,17 @@ app.use(express.json());
 
 app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);
+
 app.use("/api/opportunities", opportunityRoutes);
 app.use("/api/applications", applicationRoutes);
 app.use("/api/external-companies", externalCompanyRoutes);
+
+app.use("/api/admin", adminRoutes);
+app.use("/api/student", studentRoutes);
+app.use("/api/supervisor", supervisorRoutes);
+app.use("/api/students", studentRoutes);
+app.use("/api/supervisors", supervisorRoutes);
+app.use("/api/companies", companyRoutes);
 
 app.use(errorHandler);
 

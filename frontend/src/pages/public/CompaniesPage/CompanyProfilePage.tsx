@@ -1,4 +1,6 @@
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import api from "../../../lib/axios";
 import {
   Box,
   Typography,
@@ -10,6 +12,7 @@ import {
   Stack,
   Container,
   Paper,
+  CircularProgress,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -17,7 +20,6 @@ import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
-import { mockCompanies } from "../../../mock/Companies";
 
 function stringToColor(text: string): string {
   let hash = 0;
@@ -39,8 +41,30 @@ function stringToBackgroundColor(text: string): string {
 
 function CompanyProfilePage() {
   const { id } = useParams();
+  const [company, setCompany] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-  const company = mockCompanies.find((c) => c.id === Number(id));
+  useEffect(() => {
+    const fetchCompany = async () => {
+      try {
+        const response = await api.get(`/companies/public/${id}`);
+        setCompany(response.data);
+      } catch (error) {
+        console.error("Failed to fetch company profile", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchCompany();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Container maxWidth="lg" sx={{ py: 8, textAlign: "center" }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
 
   if (!company) {
     return (
@@ -50,8 +74,8 @@ function CompanyProfilePage() {
     );
   }
 
-  const initials = company.name.slice(0, 2).toUpperCase();
-  const accentColor = stringToColor(company.name);
+  const initials = company.name?.slice(0, 2).toUpperCase() || "CO";
+  const accentColor = stringToColor(company.name || "Company");
 
   return (
     <Box>
@@ -65,6 +89,9 @@ function CompanyProfilePage() {
           marginLeft: "-50vw",
           marginRight: "-50vw",
           mt: "-24px",
+          background: `linear-gradient(135deg, ${accentColor}11 0%, ${accentColor}33 100%)`,
+          borderBottom: "1px solid",
+          borderColor: "divider",
         }}
       >
         <Container maxWidth="lg">
@@ -72,7 +99,7 @@ function CompanyProfilePage() {
             component={Link}
             to="/companies"
             startIcon={<ArrowBackIcon />}
-            sx={{ mb: 3 }}
+            sx={{ mb: 4, color: "text.secondary", "&:hover": { color: "primary.main" } }}
           >
             All companies
           </Button>
@@ -80,31 +107,46 @@ function CompanyProfilePage() {
           <Box
             sx={{
               display: "flex",
-              gap: 2,
+              gap: 3,
               alignItems: "center",
-              mb: 2,
+              mb: 3,
             }}
           >
             <Avatar
+              variant="rounded"
               sx={{
-                width: 80,
-                height: 80,
-                bgcolor: stringToBackgroundColor(company.name),
+                width: 100,
+                height: 100,
+                bgcolor: "background.paper",
                 color: accentColor,
                 fontWeight: "bold",
-                fontSize: 28,
+                fontSize: 32,
+                boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
+                border: "2px solid",
+                borderColor: "background.paper",
               }}
             >
-              {initials}
+              {company.logoUrl ? (
+                <Box
+                  component="img"
+                  src={company.logoUrl}
+                  alt={company.name}
+                  sx={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: 1 }}
+                />
+              ) : (
+                initials
+              )}
             </Avatar>
             <Box>
-              <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-                <Typography variant="h4">{company.name}</Typography>
+              <Stack direction="row" spacing={1} sx={{ alignItems: "center", mb: 0.5 }}>
+                <Typography variant="h3" sx={{ fontWeight: 700 }}>
+                  {company.name}
+                </Typography>
                 {company.verified && (
-                  <VerifiedOutlinedIcon color="primary" fontSize="medium" />
+                  <VerifiedOutlinedIcon color="primary" sx={{ fontSize: 32 }} />
                 )}
               </Stack>
-              <Typography variant="body1" color="text.secondary">
+              <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 500 }}>
                 {company.industry}
               </Typography>
             </Box>
@@ -112,233 +154,101 @@ function CompanyProfilePage() {
 
           <Stack
             direction="row"
-            spacing={2}
-            sx={{ alignItems: "center", flexWrap: "wrap", mb: 3 }}
+            spacing={3}
+            sx={{ alignItems: "center", flexWrap: "wrap", ml: { xs: 0, sm: 15.5 } }}
           >
-            <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
-              <LocationOnOutlinedIcon fontSize="small" color="action" />
-              <Typography variant="body2">{company.location}</Typography>
+            <Stack direction="row" spacing={0.75} sx={{ alignItems: "center", color: "text.secondary" }}>
+              <LocationOnOutlinedIcon fontSize="small" />
+              <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                {company.location || "Location not specified"}
+              </Typography>
             </Stack>
-            <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
-              <LanguageOutlinedIcon fontSize="small" color="action" />
-              <Typography variant="body2">{company.website}</Typography>
-            </Stack>
-          </Stack>
-
-          {/* Quick stats row */}
-          <Stack direction="row" spacing={2} sx={{ flexWrap: "wrap" }}>
-            <Paper
-              elevation={0}
-              sx={{
-                px: 2,
-                py: 1.5,
-                borderRadius: 2,
-                bgcolor: "background.paper",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-              }}
-            >
-              <WorkOutlineOutlinedIcon color="primary" fontSize="small" />
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-                  {company.activeOpportunities}
+            {company.website && (
+              <Stack direction="row" spacing={0.75} sx={{ alignItems: "center", color: "primary.main" }}>
+                <LanguageOutlinedIcon fontSize="small" />
+                <Typography 
+                  variant="body1" 
+                  component="a" 
+                  href={company.website.startsWith('http') ? company.website : `https://${company.website}`} 
+                  target="_blank" 
+                  sx={{ fontWeight: 500, color: "inherit", textDecoration: "none", "&:hover": { textDecoration: "underline" } }}
+                >
+                  {company.website}
                 </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  Active internships
-                </Typography>
-              </Box>
-            </Paper>
-
-            <Paper
-              elevation={0}
-              sx={{
-                px: 2,
-                py: 1.5,
-                borderRadius: 2,
-                bgcolor: "background.paper",
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-              }}
-            >
-              <GroupsOutlinedIcon color="primary" fontSize="small" />
-              <Box>
-                <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-                  {company.pastInterns.length}
-                </Typography>
-                <Typography variant="caption" color="text.secondary">
-                  Past interns
-                </Typography>
-              </Box>
-            </Paper>
+              </Stack>
+            )}
           </Stack>
         </Container>
       </Box>
 
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Grid container spacing={3}>
-          <Grid size={{ xs: 12, md: 8 }}>
+          <Grid item xs={12} md={8}>
             <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mb: 3 }}>
               <Typography variant="h6" sx={{ mb: 1 }}>
                 About
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {company.description}
+                {company.description || "No description provided."}
               </Typography>
             </Box>
 
-            <Box sx={{ mb: 1 }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  mb: 2,
-                }}
-              >
-                <Typography variant="h6">Current opportunities</Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {company.opportunities.length} open
+            {company.pastInterns && company.pastInterns.length > 0 && (
+              <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mt: 3 }}>
+                <Typography variant="h6" sx={{ mb: 2 }}>
+                  Past Interns
                 </Typography>
-              </Box>
+                <Grid container spacing={2}>
+                  {company.pastInterns.map((intern: any) => {
+                    const internInitials = intern.name
+                      ? intern.name.substring(0, 2).toUpperCase()
+                      : "ST";
 
-              <Stack spacing={2}>
-                {company.opportunities.map((opp) => (
-                  <Paper
-                    key={opp.id}
-                    elevation={1}
-                    sx={{
-                      p: 3,
-                      borderRadius: 3,
-                      transition: "all 0.2s ease-in-out",
-                      "&:hover": {
-                        boxShadow: 4,
-                        transform: "translateY(-2px)",
-                      },
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "flex-start",
-                        mb: 1,
-                      }}
-                    >
-                      <Box
-                        sx={{ display: "flex", gap: 1.5, alignItems: "center" }}
-                      >
-                        <Avatar
+                    return (
+                      <Grid item xs={12} sm={6} key={intern.userId}>
+                        <Box
+                          component={Link}
+                          to={`/students/${intern.userId}`}
                           sx={{
-                            width: 36,
-                            height: 36,
-                            bgcolor: stringToBackgroundColor(company.name),
-                            color: accentColor,
-                            fontSize: 14,
+                            display: "flex",
+                            gap: 1.5,
+                            alignItems: "center",
+                            p: 1.5,
+                            borderRadius: 2,
+                            boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+                            border: "1px solid",
+                            borderColor: "divider",
+                            textDecoration: "none",
+                            color: "inherit",
+                            transition: "transform 0.2s, box-shadow 0.2s",
+                            "&:hover": {
+                              transform: "translateY(-2px)",
+                              boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                            }
                           }}
                         >
-                          {initials}
-                        </Avatar>
-                        <Box>
-                          <Typography variant="body2">
-                            {company.name}
-                          </Typography>
-                          <Typography variant="caption" color="text.secondary">
-                            {company.industry}
-                          </Typography>
+                          <Avatar src={intern.avatarUrl || undefined} sx={{ bgcolor: "primary.main" }}>
+                            {!intern.avatarUrl && internInitials}
+                          </Avatar>
+                          <Box>
+                            <Typography variant="body2" sx={{ fontWeight: 600 }}>{intern.name}</Typography>
+                            <Typography variant="caption" color="text.secondary" sx={{ display: "block" }}>
+                              {intern.major}
+                            </Typography>
+                            <Typography variant="caption" color="text.disabled">
+                              {intern.university}
+                            </Typography>
+                          </Box>
                         </Box>
-                      </Box>
-                      <Chip label={opp.type} size="small" />
-                    </Box>
-
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                      {opp.title}
-                    </Typography>
-
-                    <Stack direction="row" spacing={1} sx={{ mb: 1.5 }}>
-                      {opp.skills.map((skill) => (
-                        <Chip key={skill} label={skill} size="small" />
-                      ))}
-                    </Stack>
-
-                    <Stack
-                      direction="row"
-                      spacing={2}
-                      sx={{ alignItems: "center", mb: 2 }}
-                    >
-                      <Typography variant="body2" color="text.secondary">
-                        📍 {opp.location}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        👥 {opp.seats} seats
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        📅 {opp.daysLeft}d left
-                      </Typography>
-                    </Stack>
-
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Typography variant="body2" color="text.secondary">
-                        {opp.applicants} applied
-                      </Typography>
-                      <Button variant="contained" size="medium">
-                        Apply
-                      </Button>
-                    </Box>
-                  </Paper>
-                ))}
-              </Stack>
-            </Box>
-
-            <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mt: 3 }}>
-              <Typography variant="h6" sx={{ mb: 2 }}>
-                Past interns
-              </Typography>
-              <Grid container spacing={2}>
-                {company.pastInterns.map((intern) => {
-                  const internInitials = intern.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .toUpperCase();
-
-                  return (
-                    <Grid size={{ xs: 12, sm: 6 }} key={intern.name}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          gap: 1.5,
-                          alignItems: "center",
-                          p: 1.5,
-                          borderRadius: 2,
-                          boxShadow: 1,
-                        }}
-                      >
-                        <Avatar sx={{ bgcolor: "primary.main" }}>
-                          {internInitials}
-                        </Avatar>
-                        <Box>
-                          <Typography variant="body2">{intern.name}</Typography>
-                          <Typography variant="caption" color="text.secondary">
-                            {intern.major}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Grid>
-                  );
-                })}
-              </Grid>
-            </Box>
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </Box>
+            )}
           </Grid>
 
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid item xs={12} md={4}>
             <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mb: 3 }}>
               <Typography variant="h6" sx={{ mb: 2 }}>
                 Company at a glance
@@ -361,14 +271,6 @@ function CompanyProfilePage() {
                     Website
                   </Typography>
                   <Typography variant="body2">{company.website}</Typography>
-                </Box>
-                <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-                  <Typography variant="body2" color="text.secondary">
-                    Active internships
-                  </Typography>
-                  <Typography variant="body2">
-                    {company.activeOpportunities}
-                  </Typography>
                 </Box>
               </Stack>
             </Box>

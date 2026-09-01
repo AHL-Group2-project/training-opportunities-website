@@ -48,7 +48,7 @@ const companyProfileSchema = new mongoose.Schema(
       default: "active",
     },
   },
-  { timestamps: true, collection: "companies" },
+  { timestamps: true, collection: "companies" }
 );
 
 companyProfileSchema.index(
@@ -59,14 +59,14 @@ companyProfileSchema.index(
     partialFilterExpression: {
       userId: { $type: "objectId" },
     },
-  },
+  }
 );
 
 companyProfileSchema.pre("validate", function () {
   if (this.isExternal && this.userId) {
     this.invalidate(
       "userId",
-      "An external company cannot be linked to a user account.",
+      "An external company cannot be linked to a user account."
     );
   }
 });

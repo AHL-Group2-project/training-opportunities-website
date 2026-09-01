@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -22,17 +22,17 @@ import {
   TableRow,
   TextField,
   Typography,
+  TablePagination,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { MOCK_COMPANIES } from "../../../mock/Companies";
-import type { Company } from "../../../mock/Companies";
-import { MOCK_USERS } from "../../../mock/users";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ToggleOnIcon from "@mui/icons-material/ToggleOn";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useAuth } from "../../../context/authContext";
+import { adminApi } from "../../../lib/api/admin";
 
 const INDUSTRIES = [
   "Technology",
@@ -61,11 +61,15 @@ const LOCATIONS = [
 
 function CompanyManagementPage() {
   const navigate = useNavigate();
-  const [companies, setCompanies] = useState<Company[]>(MOCK_COMPANIES);
+  const [companies, setCompanies] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [industryFilter, setIndustryFilter] = useState("all");
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [editingCompany, setEditingCompany] = useState<Company | null>(null);
+  const [editingCompany, setEditingCompany] = useState<any | null>(null);
+
+  // Pagination
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   // Form state
   const [name, setName] = useState("");
@@ -75,15 +79,38 @@ function CompanyManagementPage() {
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [tempPassword, setTempPassword] = useState("");
+
+  // Password Reveal Modal state
+  const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+  const [generatedPassword, setGeneratedPassword] = useState("");
+  const [generatedUser, setGeneratedUser] = useState("");
 
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
 
-  // TODO: Replace with API call
-  // useEffect(() => {
-  //   api.get("/companies").then(res => setCompanies(res.data));
-  // }, []);
+  const fetchCompanies = async () => {
+    try {
+      const res = await adminApi.getCompanies();
+      setCompanies(Array.isArray(res.data) ? res.data : []);
+    } catch (error) {
+      console.error("Failed to fetch companies", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCompanies();
+  }, []);
+
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   const filtered = companies.filter((c) => {
     const matchesSearch = c.name
@@ -94,7 +121,15 @@ function CompanyManagementPage() {
     return matchesSearch && matchesIndustry;
   });
 
-  const handleOpenDialog = (company?: Company) => {
+  // Calculate paginated companies
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - filtered.length) : 0;
+  const paginatedCompanies = filtered.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage,
+  );
+
+  const handleOpenDialog = (company?: any) => {
     if (company) {
       setEditingCompany(company);
       setName(company.name);
@@ -102,7 +137,7 @@ function CompanyManagementPage() {
       setLocation(company.location || "");
       setWebsite(company.website || "");
       setDescription(company.description || "");
-      setEmail(company.email || "");
+      setEmail(company.userId?.email || company.email || "");
       setPhone(company.phone || "");
     } else {
       setEditingCompany(null);
@@ -113,80 +148,67 @@ function CompanyManagementPage() {
       setDescription("");
       setEmail("");
       setPhone("");
-      setTempPassword("");
     }
     setDialogOpen(true);
   };
 
-  const handleSave = () => {
-    const payload = {
-      name,
-      industry,
-      location,
-      website,
-      description,
-      email,
-      phone,
-      tempPassword,
-    };
-
+  const handleSave = async () => {
     if (editingCompany) {
-      // TODO: PATCH /api/companies/:id
-      console.log("UPDATE", editingCompany.id, payload);
+      try {
+        await adminApi.updateCompany(editingCompany._id, {
+          name,
+          email,
+          industry,
+          location,
+          website,
+          description,
+          phone,
+        });
+        setDialogOpen(false);
+        fetchCompanies();
+      } catch (error: any) {
+        alert(error.response?.data?.message || "Failed to update company.");
+      }
     } else {
-      if (!name || !email || !tempPassword) {
-        alert("Please fill required fields (Name, Email, Temp Password).");
+      if (!name || !email) {
+        alert("Please fill required fields (Name, Email).");
         return;
       }
-      const newId = companies.length > 0 ? Math.max(...companies.map(c => c.id)) + 1 : 1;
-      const newUserId = MOCK_USERS.length > 0 ? Math.max(...MOCK_USERS.map(u => u.id)) + 1 : 1;
-      
-      const newCompany: Company = {
-        id: newId,
-        name,
-        industry,
-        location,
-        website,
-        description,
-        email,
-        phone,
-        logo: "https://via.placeholder.com/150", // default logo
-        isActive: true,
-        activationStatus: "active",
-        activeOpportunities: 0,
-        verified: false,
-        opportunities: [],
-        pastInterns: [],
-        gallery: []
-      };
 
-      MOCK_COMPANIES.push(newCompany);
-      MOCK_USERS.push({
-        id: newUserId,
-        name: name,
-        email: email,
-        password: tempPassword,
-        role: "company",
-        companyId: newId,
-        mustChangePassword: true,
-      });
+      try {
+        const res = await adminApi.createCompany({
+          name,
+          email,
+          industry,
+          location,
+          website,
+          description,
+          phone,
+        });
 
-      setCompanies([...MOCK_COMPANIES]);
-      alert(
-        `Company account for "${name}" created. They can log in using email: ${email} and password: ${tempPassword}.`,
-      );
+        setGeneratedUser(name);
+        setGeneratedPassword(res.data.tempPassword);
+        setDialogOpen(false);
+        setPasswordModalOpen(true);
+        fetchCompanies();
+      } catch (error: any) {
+        alert(error.response?.data?.message || "Failed to create company.");
+      }
     }
-
-    setDialogOpen(false);
   };
 
-  const handleToggleActive = (companyId: number) => {
-    // TODO: PATCH /api/companies/:id/status
-    setCompanies((prev) =>
-      prev.map((c) =>
-        c.id === companyId ? { ...c, isActive: !c.isActive } : c,
-      ),
-    );
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(generatedPassword);
+    alert("Password copied to clipboard!");
+  };
+
+  const handleToggleActive = async (companyId: string) => {
+    try {
+      await adminApi.toggleCompanyStatus(companyId);
+      fetchCompanies();
+    } catch (error: any) {
+      alert(error.response?.data?.message || "Failed to toggle company status.");
+    }
   };
 
   return (
@@ -254,7 +276,7 @@ function CompanyManagementPage() {
       </Box>
 
       {/* Table */}
-      <Card sx={{ borderRadius: 2, borderColor: "divider" }}>
+      <Card sx={{ borderRadius: 0, borderColor: "divider", boxShadow: 1 }}>
         <TableContainer>
           <Table>
             <TableHead>
@@ -272,7 +294,7 @@ function CompanyManagementPage() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filtered.length === 0 ? (
+              {paginatedCompanies.length === 0 ? (
                 <TableRow>
                   <TableCell
                     colSpan={isAdmin ? 6 : 3}
@@ -285,15 +307,17 @@ function CompanyManagementPage() {
                   </TableCell>
                 </TableRow>
               ) : (
-                filtered.map((company) => (
-                  <TableRow key={company.id} hover>
+                paginatedCompanies.map((company) => (
+                  <TableRow key={company._id} hover>
                     <TableCell>
                       <Box
                         sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
                       >
                         <Box
                           component="img"
-                          src={company.logo}
+                          src={
+                            company.logoUrl || "https://via.placeholder.com/150"
+                          }
                           alt={company.name}
                           sx={{
                             width: 40,
@@ -316,16 +340,16 @@ function CompanyManagementPage() {
                         <TableCell>
                           <Chip
                             label={
-                              company.isActive !== false ? "Active" : "Inactive"
+                              (company.userId?.isActive ?? company.isActive) !== false ? "Active" : "Inactive"
                             }
                             size="small"
                             sx={{
                               bgcolor:
-                                company.isActive !== false
+                                (company.userId?.isActive ?? company.isActive) !== false
                                   ? "#ECFDF5"
                                   : "#F3F4F6",
                               color:
-                                company.isActive !== false
+                                (company.userId?.isActive ?? company.isActive) !== false
                                   ? "#059669"
                                   : "#6B7280",
                               fontWeight: 600,
@@ -336,18 +360,21 @@ function CompanyManagementPage() {
                         <TableCell>
                           <Chip
                             label={
-                              company.activationStatus === "active"
+                              company.activationStatus === "active" ||
+                              company.isVerified
                                 ? "Active"
                                 : "Pending"
                             }
                             size="small"
                             sx={{
                               bgcolor:
-                                company.activationStatus === "active"
+                                company.activationStatus === "active" ||
+                                company.isVerified
                                   ? "#ECFDF5"
                                   : "#FEF3C7",
                               color:
-                                company.activationStatus === "active"
+                                company.activationStatus === "active" ||
+                                company.isVerified
                                   ? "#059669"
                                   : "#D97706",
                               fontWeight: 600,
@@ -360,7 +387,7 @@ function CompanyManagementPage() {
                             <IconButton
                               size="small"
                               onClick={() =>
-                                navigate(`/companies/${company.id}`)
+                                navigate(`/companies/${company._id}`)
                               }
                             >
                               <VisibilityIcon fontSize="small" />
@@ -373,9 +400,9 @@ function CompanyManagementPage() {
                             </IconButton>
                             <IconButton
                               size="small"
-                              onClick={() => handleToggleActive(company.id)}
+                              onClick={() => handleToggleActive(company._id)}
                             >
-                              {company.isActive !== false ? (
+                              {(company.userId?.isActive ?? company.isActive) !== false ? (
                                 <ToggleOnIcon
                                   fontSize="small"
                                   color="success"
@@ -391,8 +418,22 @@ function CompanyManagementPage() {
                   </TableRow>
                 ))
               )}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 69 * emptyRows }}>
+                  <TableCell colSpan={isAdmin ? 6 : 3} />
+                </TableRow>
+              )}
             </TableBody>
           </Table>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 50]}
+            component="div"
+            count={filtered.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </TableContainer>
       </Card>
 
@@ -464,11 +505,18 @@ function CompanyManagementPage() {
             />
 
             <TextField
-              label="Contact Email"
+              label="Contact Email *"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               fullWidth
+              required
+              disabled={!!editingCompany}
+              helperText={
+                editingCompany
+                  ? "Cannot change email after creation."
+                  : "This will be the company's login email."
+              }
             />
 
             <TextField
@@ -477,31 +525,6 @@ function CompanyManagementPage() {
               onChange={(e) => setPhone(e.target.value)}
               fullWidth
             />
-
-            {!editingCompany && (
-              <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
-                <TextField
-                  label="Temporary Password *"
-                  type="text"
-                  value={tempPassword}
-                  onChange={(e) => setTempPassword(e.target.value)}
-                  fullWidth
-                  required
-                  helperText="This password will be emailed to the company so they can log in."
-                />
-                <Button
-                  variant="outlined"
-                  sx={{ mt: 1, minWidth: 140, textTransform: "none" }}
-                  onClick={() =>
-                    setTempPassword(
-                      Math.random().toString(36).slice(-8) + "A1!",
-                    )
-                  }
-                >
-                  Generate
-                </Button>
-              </Box>
-            )}
           </Box>
         </DialogContent>
         <DialogActions>
@@ -518,9 +541,74 @@ function CompanyManagementPage() {
               textTransform: "none",
             }}
           >
-            {editingCompany
-              ? "Save Changes"
-              : "Create Account & Send Credentials"}
+            {editingCompany ? "Save Changes" : "Create Account"}
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Password Reveal Modal */}
+      <Dialog
+        open={passwordModalOpen}
+        onClose={() => setPasswordModalOpen(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle sx={{ color: "success.main", fontWeight: "bold" }}>
+          Company Created Successfully!
+        </DialogTitle>
+        <DialogContent>
+          <Typography sx={{ mb: 2 }}>
+            The account for <strong>{generatedUser}</strong> has been created.
+          </Typography>
+          <Box
+            sx={{
+              p: 2,
+              bgcolor: "background.default",
+              borderRadius: 2,
+              border: "1px solid",
+              borderColor: "divider",
+            }}
+          >
+            <Typography variant="body2" color="text.secondary" gutterBottom>
+              Temporary Password:
+            </Typography>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                }}
+              >
+                {generatedPassword}
+              </Typography>
+              <IconButton
+                onClick={copyToClipboard}
+                color="primary"
+                size="small"
+              >
+                <ContentCopyIcon />
+              </IconButton>
+            </Box>
+          </Box>
+          <Typography
+            variant="caption"
+            color="error"
+            sx={{ mt: 2, display: "block" }}
+          >
+            Please copy this temporary password and send it securely to the
+            company. You will not be able to view it again once this window is
+            closed.
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="contained"
+            onClick={() => setPasswordModalOpen(false)}
+            sx={{ textTransform: "none" }}
+          >
+            I have copied the password
           </Button>
         </DialogActions>
       </Dialog>

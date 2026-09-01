@@ -166,7 +166,11 @@ export default function ChangePasswordPage() {
                   {isForced ? "Set Your New Password" : "Change Password"}
                 </Typography>
                 <Typography
-                  sx={{ variant: "body2", color: "text.secondary", textAlign: "center" }}
+                  sx={{
+                    variant: "body2",
+                    color: "text.secondary",
+                    textAlign: "center",
+                  }}
                 >
                   {isForced
                     ? "This is your first login. Please set a secure password before continuing."

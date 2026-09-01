@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Box,
@@ -6,12 +6,16 @@ import {
   Stack,
   Typography,
   Divider,
+  CircularProgress,
+  Alert,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import SaveIcon from "@mui/icons-material/Save";
 
-import { students } from "../../mock/students";
+import api from "../../lib/axios";
+import { useAuth } from "../../context/authContext";
+import type { Student } from "../../types/student.types";
 import ProfileSidebar from "../../components/profileComp/ProfileSidebar";
 import SkillsCard from "../../components/profileComp/SkillsCard";
 import ExperienceCard from "../../components/profileComp/ExperienceCard";
@@ -24,8 +28,6 @@ import ProfileEditExperience from "../student/ProfileEditExperience";
 import ProfileEditProjects from "../student/ProfileEditProjects";
 import ProfileEditCV from "../student/ProfileEditCV";
 import ProfileEditSocialPrivacy from "../student/ProfileEditSocialPrivacy";
-
-const CURRENT_STUDENT_ID = 101;
 
 export interface ExperienceEntry {
   year: string;
@@ -71,51 +73,197 @@ export interface EditableProfileData {
   isPublic: boolean;
 }
 
+interface StudentProfileApiResponse {
+  name: string;
+  university: string;
+  major: string;
+  studentId: string;
+  year?: string; // e.g. "Fourth Year"
+  graduationYear?: string;
+  about?: string;
+  cvUrl?: string | null;
+  avatarUrl?: string | null;
+  contactEmail?: string;
+  phone?: string;
+  social?: SocialLinks;
+  isPublic?: boolean;
+  skills?: string[];
+  experience?: ExperienceEntry[];
+  projects?: ProjectEntry[];
+  certificates?: { title: string; issuer: string; date: string; url?: string }[];
+}
+
+function getInitials(name: string): string {
+  return name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("");
+}
+
+function mapApiResponseToProfileData(
+  data: StudentProfileApiResponse,
+): EditableProfileData {
+  return {
+    name: data.name ?? "",
+    university: data.university ?? "",
+    major: data.major ?? "",
+    graduationYear: data.graduationYear ?? "",
+    contactEmail: data.contactEmail ?? "",
+    phone: data.phone ?? "",
+    avatar: data.avatarUrl ?? undefined,
+    bio: data.about ?? "",
+    skills: data.skills ?? [],
+    experience: data.experience ?? [],
+    projects: data.projects ?? [],
+    certificates: (data.certificates ?? []).map((c) => ({
+      name: c.title,
+      issuer: c.issuer,
+      date: c.date,
+    })),
+    cvFileName: data.cvUrl ?? null,
+    social: data.social ?? { linkedin: "", github: "", portfolio: "" },
+    isPublic: data.isPublic ?? false,
+  };
+}
+
+// Reverse mapping: form field names -> backend/DB schema field names.
+// IMPORTANT: backend's updateMyProfile only strips userId/studentId and
+// writes everything else in req.body as-is, so field names sent here
+// must match the StudentProfile schema, not the form's internal names.
+function mapProfileDataToApiPayload(
+  data: EditableProfileData,
+): Partial<StudentProfileApiResponse> {
+  return {
+    name: data.name,
+    university: data.university,
+    major: data.major,
+    graduationYear: data.graduationYear,
+    contactEmail: data.contactEmail,
+    phone: data.phone,
+    avatarUrl: data.avatar ?? null,
+    about: data.bio,
+    skills: data.skills,
+    experience: data.experience,
+    projects: data.projects,
+    certificates: data.certificates.map((c) => ({
+      title: c.name,
+      issuer: c.issuer,
+      date: c.date,
+    })),
+    cvUrl: data.cvFileName,
+    social: data.social,
+    isPublic: data.isPublic,
+  };
+}
+
 export default function StudentProfilePage() {
-  const baseStudent = students.find((s) => s.id === CURRENT_STUDENT_ID);
-
   const [isEditMode, setIsEditMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [profileData, setProfileData] = useState<EditableProfileData | null>(
+    null,
+  );
+  const [apiYear, setApiYear] = useState<string>("");
 
-  const [profileData, setProfileData] = useState<EditableProfileData>({
-    name: baseStudent?.name ?? "",
-    university: "Palestine Polytechnic University",
-    major: baseStudent?.major ?? "",
-    graduationYear: "2027",
-    contactEmail: baseStudent?.email ?? "",
-    phone: "",
-    bio: baseStudent?.bio ?? "",
-    skills: baseStudent?.skills ?? [],
-    experience: baseStudent?.experience ?? [],
-    projects:
-      baseStudent?.projects.map((p) => ({
-        title: p.title,
-        description: p.description,
-        technologies: p.technologies,
-      })) ?? [],
-    certificates:
-      baseStudent?.certificates.map((c) => ({
-        name: c,
-        issuer: "",
-        date: "",
-      })) ?? [],
-    cvFileName: null,
-    social: { linkedin: "", github: "", portfolio: "" },
-    isPublic: true,
-  });
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [saveSuccess, setSaveSuccess] = useState(false);
+
+  const { user, updateUser } = useAuth();
+  
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchProfile = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const response = await api.get<StudentProfileApiResponse>(
+          "/students/me/profile",
+        );
+        if (isMounted) {
+          setProfileData(mapApiResponseToProfileData(response.data));
+          setApiYear(response.data.year ?? "");
+          
+          // Auto-sync avatar to navbar if the database has it but local context doesn't
+          if (user && response.data.avatarUrl && user.avatarUrl !== response.data.avatarUrl) {
+            updateUser({ ...user, avatarUrl: response.data.avatarUrl });
+          }
+        }
+      } catch (err) {
+        console.error("Failed to load student profile:", err);
+        if (isMounted) {
+          setError("Failed to load profile data. Please try again.");
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    fetchProfile();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const updateField = <K extends keyof EditableProfileData>(
     key: K,
     value: EditableProfileData[K],
   ) => {
-    setProfileData((prev) => ({ ...prev, [key]: value }));
+    setProfileData((prev) => (prev ? { ...prev, [key]: value } : prev));
   };
 
-  const handleSave = () => {
-    console.log("Saving profile data:", profileData);
-    setIsEditMode(false);
+  const handleSave = async () => {
+    if (!profileData) return;
+
+    try {
+      setIsSaving(true);
+      setSaveError(null);
+      setSaveSuccess(false);
+
+      const payload = mapProfileDataToApiPayload(profileData);
+      const response = await api.patch<StudentProfileApiResponse>(
+        "/students/me/profile",
+        payload,
+      );
+
+      // Re-sync local state with what the server actually persisted,
+      // the same way the initial fetch does, so we never show stale
+      // or optimistic data that doesn't match the DB.
+      setProfileData(mapApiResponseToProfileData(response.data));
+      setApiYear(response.data.year ?? "");
+      setSaveSuccess(true);
+      setIsEditMode(false);
+    } catch (err) {
+      console.error("Failed to update student profile:", err);
+      setSaveError("Failed to save profile changes. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
-  if (!baseStudent) {
+  if (isLoading) {
+    return (
+      <Container maxWidth="lg" sx={{ py: 6, display: "flex", justifyContent: "center" }}>
+        <CircularProgress />
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container maxWidth="lg" sx={{ py: 6 }}>
+        <Alert severity="error">{error}</Alert>
+      </Container>
+    );
+  }
+
+  if (!profileData) {
     return (
       <Container maxWidth="lg" sx={{ py: 6 }}>
         <Typography>Student not found.</Typography>
@@ -123,26 +271,66 @@ export default function StudentProfilePage() {
     );
   }
 
-  const displayStudent = {
-    ...baseStudent,
+  const displayStudent: Student = {
+    id: 0,
     name: profileData.name,
+    initials: getInitials(profileData.name),
     major: profileData.major,
+    year: apiYear,
     graduationYear: profileData.graduationYear,
-    skills: profileData.skills,
-    experience: profileData.experience,
-    projects: profileData.projects.map((p) => ({
-      title: p.title,
-      description: p.description,
-      technologies: p.technologies,
-    })),
-    certificates: profileData.certificates.map((c) => c.name),
+    email: profileData.contactEmail,
     contactEmail: profileData.contactEmail,
     phone: profileData.phone,
+    bio: profileData.bio,
+    location: "Ramallah, Palestine",
+    availableFor: "Full-Time Internship (FT1)",
+    skills: profileData.skills,
+    ft1: true,
+    ft2: false,
+    experience: profileData.experience,
+    projects: profileData.projects,
+    certificates: profileData.certificates.map((c) => c.name),
+    avatarUrl: profileData.avatar,
+    cvUrl: profileData.cvFileName || undefined,
+    training: {
+      ft1: {
+        registered: false,
+        completed: false,
+        requiredHours: 0,
+        loggedHours: 0,
+      },
+      ft2: {
+        registered: false,
+        completed: false,
+        requiredHours: 0,
+        loggedHours: 0,
+      },
+      hoursHistory: [],
+      reports: [],
+      applications: [],
+      deadlines: [],
+      supervisorStatus: "Not Started",
+      evaluation: {
+        score: null,
+        notes: "",
+      },
+    },
   };
 
   return (
     <Box>
       <Container maxWidth="lg" sx={{ mt: 4, pb: 6 }}>
+        {saveError && (
+          <Alert severity="error" sx={{ mb: 2 }} onClose={() => setSaveError(null)}>
+            {saveError}
+          </Alert>
+        )}
+        {saveSuccess && (
+          <Alert severity="success" sx={{ mb: 2 }} onClose={() => setSaveSuccess(false)}>
+            Profile updated successfully.
+          </Alert>
+        )}
+
         <Stack
           direction="row"
           sx={{ justifyContent: "flex-end", mb: 2 }}
@@ -151,10 +339,17 @@ export default function StudentProfilePage() {
           {isEditMode ? (
             <Button
               variant="contained"
-              startIcon={<SaveIcon />}
+              startIcon={
+                isSaving ? (
+                  <CircularProgress size={16} color="inherit" />
+                ) : (
+                  <SaveIcon />
+                )
+              }
               onClick={handleSave}
+              disabled={isSaving}
             >
-              Save Changes
+              {isSaving ? "Saving..." : "Save Changes"}
             </Button>
           ) : (
             <Button
@@ -171,6 +366,7 @@ export default function StudentProfilePage() {
               variant="text"
               startIcon={<VisibilityIcon />}
               onClick={() => setIsEditMode(false)}
+              disabled={isSaving}
             >
               Cancel
             </Button>

@@ -33,11 +33,11 @@ const createUploader = (folderName, allowedFormats, resourceType = "auto") => {
 export const uploadProfileImage = createUploader(
   "profiles",
   ["jpg", "jpeg", "png", "webp"],
-  "image",
+  "image"
 );
 export const uploadDocument = createUploader("documents", null, "raw");
 export const uploadOpportunityImage = createUploader(
   "opportunities",
   ["jpg", "jpeg", "png", "webp"],
-  "image",
+  "image"
 );
