@@ -101,7 +101,7 @@ export const createApplication = async (req, res, next) => {
 
     const company = await CompanyProfile.findById(opportunity.companyId);
 
-    if (!company || company.activationStatus !== "active") {
+    if (!company || !company.isActive) {
       return rejectApplication(
         req,
         res,
@@ -218,7 +218,7 @@ export const getCompanyApplications = async (req, res, next) => {
     const applications = await Application.find(filter)
       .populate({
         path: "studentId",
-        select: "name major universityId userId",
+        select: "name major studentId university userId",
         populate: {
           path: "userId",
           select: "email",
@@ -237,8 +237,8 @@ export const getCompanyApplications = async (req, res, next) => {
               id: application.studentId._id,
               name: application.studentId.name,
               major: application.studentId.major,
-              universityId: application.studentId.universityId,
-              email: application.studentId.userId?.email ?? "",
+              studentId: application.studentId.studentId,
+              university: application.studentId.university,
             }
           : null,
         opportunity: application.opportunityId

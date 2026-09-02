@@ -28,31 +28,47 @@ export const createStudent = async (req, res, next) => {
     const { name, email, universityId, major } = req.body;
 
     if (!name || !email || !universityId || !major) {
-      return res.status(400).json({ message: "Please provide all required fields." });
+      return res
+        .status(400)
+        .json({ message: "Please provide all required fields." });
     }
 
     const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
     if (!adminProfile) {
-      return res.status(403).json({ message: "Admin profile not found. Cannot determine university." });
+      return res.status(403).json({
+        message: "Admin profile not found. Cannot determine university.",
+      });
     }
 
-    const expectedDomain = UNIVERSITY_DOMAINS[adminProfile.university] || UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
+    const expectedDomain =
+      UNIVERSITY_DOMAINS[adminProfile.university] ||
+      UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
     if (!expectedDomain) {
-      return res.status(400).json({ message: `System Error: The domain for university "${adminProfile.university}" is not configured.` });
+      return res.status(400).json({
+        message: `System Error: The domain for university "${adminProfile.university}" is not configured.`,
+      });
     }
 
     if (!email.toLowerCase().endsWith(expectedDomain)) {
-      return res.status(400).json({ message: `Email must end with ${expectedDomain} for ${adminProfile.university}.` });
+      return res.status(400).json({
+        message: `Email must end with ${expectedDomain} for ${adminProfile.university}.`,
+      });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ message: "User with this email already exists." });
+      return res
+        .status(400)
+        .json({ message: "User with this email already exists." });
     }
 
-    const profileExists = await StudentProfile.findOne({ universityId });
+    const profileExists = await StudentProfile.findOne({
+      studentId: universityId,
+    });
     if (profileExists) {
-      return res.status(400).json({ message: "Student with this University ID already exists." });
+      return res
+        .status(400)
+        .json({ message: "Student with this University ID already exists." });
     }
 
     const tempPassword = generateTempPassword();
@@ -68,7 +84,7 @@ export const createStudent = async (req, res, next) => {
     const studentProfile = await StudentProfile.create({
       userId: user._id,
       name,
-      universityId,
+      studentId: universityId,
       major,
       university: adminProfile.university, // Inherit from admin
     });
@@ -93,26 +109,38 @@ export const createSupervisor = async (req, res, next) => {
     const { name, email, department } = req.body;
 
     if (!name || !email || !department) {
-      return res.status(400).json({ message: "Please provide all required fields." });
+      return res
+        .status(400)
+        .json({ message: "Please provide all required fields." });
     }
 
     const adminProfile = await AdminProfile.findOne({ userId: req.user._id });
     if (!adminProfile) {
-      return res.status(403).json({ message: "Admin profile not found. Cannot determine university." });
+      return res.status(403).json({
+        message: "Admin profile not found. Cannot determine university.",
+      });
     }
 
-    const expectedDomain = UNIVERSITY_DOMAINS[adminProfile.university] || UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
+    const expectedDomain =
+      UNIVERSITY_DOMAINS[adminProfile.university] ||
+      UNIVERSITY_DOMAINS[adminProfile.university.toUpperCase()];
     if (!expectedDomain) {
-      return res.status(400).json({ message: `System Error: The domain for university "${adminProfile.university}" is not configured.` });
+      return res.status(400).json({
+        message: `System Error: The domain for university "${adminProfile.university}" is not configured.`,
+      });
     }
 
     if (!email.toLowerCase().endsWith(expectedDomain)) {
-      return res.status(400).json({ message: `Email must end with ${expectedDomain} for ${adminProfile.university}.` });
+      return res.status(400).json({
+        message: `Email must end with ${expectedDomain} for ${adminProfile.university}.`,
+      });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ message: "User with this email already exists." });
+      return res
+        .status(400)
+        .json({ message: "User with this email already exists." });
     }
 
     const tempPassword = generateTempPassword();
@@ -157,13 +185,19 @@ export const updateStudent = async (req, res, next) => {
       return res.status(403).json({ message: "Admin profile not found." });
     }
 
-    const student = await StudentProfile.findOne({ _id: id, university: adminProfile.university });
-    if (!student) return res.status(404).json({ message: "Student not found or belongs to another university." });
-    
+    const student = await StudentProfile.findOne({
+      _id: id,
+      university: adminProfile.university,
+    });
+    if (!student)
+      return res.status(404).json({
+        message: "Student not found or belongs to another university.",
+      });
+
     if (name) student.name = name;
     if (major) student.major = major;
     await student.save();
-    
+
     res.json({ message: "Student updated successfully.", profile: student });
   } catch (error) {
     next(error);
@@ -180,14 +214,23 @@ export const updateSupervisor = async (req, res, next) => {
       return res.status(403).json({ message: "Admin profile not found." });
     }
 
-    const supervisor = await SupervisorProfile.findOne({ _id: id, university: adminProfile.university });
-    if (!supervisor) return res.status(404).json({ message: "Supervisor not found or belongs to another university." });
-    
+    const supervisor = await SupervisorProfile.findOne({
+      _id: id,
+      university: adminProfile.university,
+    });
+    if (!supervisor)
+      return res.status(404).json({
+        message: "Supervisor not found or belongs to another university.",
+      });
+
     if (name) supervisor.name = name;
     if (department) supervisor.department = department;
     await supervisor.save();
-    
-    res.json({ message: "Supervisor updated successfully.", profile: supervisor });
+
+    res.json({
+      message: "Supervisor updated successfully.",
+      profile: supervisor,
+    });
   } catch (error) {
     next(error);
   }
@@ -195,15 +238,20 @@ export const updateSupervisor = async (req, res, next) => {
 
 export const createCompany = async (req, res, next) => {
   try {
-    const { name, email, industry, location, website, description, phone } = req.body;
+    const { name, email, industry, location, website, description, phone } =
+      req.body;
 
     if (!name || !email) {
-      return res.status(400).json({ message: "Please provide all required fields." });
+      return res
+        .status(400)
+        .json({ message: "Please provide all required fields." });
     }
 
     const userExists = await User.findOne({ email });
     if (userExists) {
-      return res.status(400).json({ message: "User with this email already exists." });
+      return res
+        .status(400)
+        .json({ message: "User with this email already exists." });
     }
 
     const tempPassword = generateTempPassword();
@@ -273,25 +321,27 @@ export const updateCompany = async (req, res, next) => {
 export const toggleCompanyStatus = async (req, res, next) => {
   try {
     const { id } = req.params;
-    
+
     const companyProfile = await CompanyProfile.findById(id);
     if (!companyProfile) {
       return res.status(404).json({ message: "Company profile not found." });
     }
-    
+
     const user = await User.findById(companyProfile.userId);
     if (!user) {
-      return res.status(404).json({ message: "Company user account not found." });
+      return res
+        .status(404)
+        .json({ message: "Company user account not found." });
     }
 
     user.isActive = !user.isActive;
     await user.save();
-    
-    companyProfile.activationStatus = user.isActive ? "active" : "suspended";
+
+    companyProfile.isActive = user.isActive;
     await companyProfile.save();
 
     res.status(200).json({
-      message: `Company account ${user.isActive ? 'activated' : 'deactivated'} successfully.`,
+      message: `Company account ${user.isActive ? "activated" : "deactivated"} successfully.`,
       isActive: user.isActive,
     });
   } catch (error) {
@@ -306,7 +356,9 @@ export const getStudents = async (req, res, next) => {
       return res.status(403).json({ message: "Admin profile not found." });
     }
 
-    const students = await StudentProfile.find({ university: adminProfile.university })
+    const students = await StudentProfile.find({
+      university: adminProfile.university,
+    })
       .populate("userId", "email isActive")
       .populate("supervisorId", "email");
 
@@ -323,8 +375,9 @@ export const getSupervisors = async (req, res, next) => {
       return res.status(403).json({ message: "Admin profile not found." });
     }
 
-    const supervisors = await SupervisorProfile.find({ university: adminProfile.university })
-      .populate("userId", "email isActive");
+    const supervisors = await SupervisorProfile.find({
+      university: adminProfile.university,
+    }).populate("userId", "email isActive");
     res.json(supervisors);
   } catch (error) {
     next(error);
@@ -334,7 +387,10 @@ export const getSupervisors = async (req, res, next) => {
 export const getCompanies = async (req, res, next) => {
   try {
     // Companies are global, no university filter
-    const companies = await CompanyProfile.find().populate("userId", "email isActive");
+    const companies = await CompanyProfile.find().populate(
+      "userId",
+      "email isActive"
+    );
     res.json(companies);
   } catch (error) {
     next(error);
@@ -361,18 +417,30 @@ export const assignSupervisorToStudent = async (req, res, next) => {
     }
 
     if (studentProfile.university !== adminProfile.university) {
-      return res.status(403).json({ message: "You can only manage students in your university." });
+      return res
+        .status(403)
+        .json({ message: "You can only manage students in your university." });
     }
 
     // Verify supervisor exists and belongs to the same university
-    const supervisorExists = await User.findOne({ _id: supervisorId, role: "supervisor" });
+    const supervisorExists = await User.findOne({
+      _id: supervisorId,
+      role: "supervisor",
+    });
     if (!supervisorExists) {
       return res.status(404).json({ message: "Supervisor not found." });
     }
 
-    const supervisorProfile = await SupervisorProfile.findOne({ userId: supervisorId });
-    if (!supervisorProfile || supervisorProfile.university !== adminProfile.university) {
-      return res.status(403).json({ message: "Supervisor does not belong to your university." });
+    const supervisorProfile = await SupervisorProfile.findOne({
+      userId: supervisorId,
+    });
+    if (
+      !supervisorProfile ||
+      supervisorProfile.university !== adminProfile.university
+    ) {
+      return res
+        .status(403)
+        .json({ message: "Supervisor does not belong to your university." });
     }
 
     await StudentProfile.updateOne(
@@ -387,11 +455,11 @@ export const assignSupervisorToStudent = async (req, res, next) => {
   }
 };
 
-
 export const getMyAdminProfile = async (req, res, next) => {
   try {
     const profile = await AdminProfile.findOne({ userId: req.user._id });
-    if (!profile) return res.status(404).json({ message: "Admin profile not found" });
+    if (!profile)
+      return res.status(404).json({ message: "Admin profile not found" });
     res.json(profile);
   } catch (error) {
     next(error);
@@ -406,7 +474,8 @@ export const updateMyAdminProfile = async (req, res, next) => {
       { name },
       { new: true }
     );
-    if (!profile) return res.status(404).json({ message: "Admin profile not found" });
+    if (!profile)
+      return res.status(404).json({ message: "Admin profile not found" });
     res.json(profile);
   } catch (error) {
     next(error);
@@ -443,4 +512,3 @@ export const uploadAdminAvatar = async (req, res, next) => {
     next(error);
   }
 };
-

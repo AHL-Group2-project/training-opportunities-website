@@ -21,34 +21,50 @@ const companyProfileSchema = new mongoose.Schema(
     },
     industry: {
       type: String,
+      required: true,
     },
     location: {
       type: String,
     },
     website: {
       type: String,
+      default: "",
+    },
+    linkedIn: {
+      type: String,
+      default: "",
+    },
+    logoUrl: {
+      type: String,
+      default: null,
+    },
+    logoCloudinaryId: {
+      type: String,
+      default: null,
     },
     description: {
+      type: String,
+      default: "",
+    },
+    contactEmail: {
       type: String,
     },
     phone: {
       type: String,
     },
-    logo: {
-      type: String,
-      default: "https://via.placeholder.com/150",
-    },
     verified: {
       type: Boolean,
       default: false,
     },
-    activationStatus: {
-      type: String,
-      enum: ["pending", "active", "suspended"],
-      default: "active",
+    isActive: {
+      type: Boolean,
+      default: true,
     },
   },
-  { timestamps: true, collection: "companies" }
+  {
+    timestamps: true,
+    collection: "companies",
+  }
 );
 
 companyProfileSchema.index(
@@ -70,6 +86,7 @@ companyProfileSchema.pre("validate", function () {
     );
   }
 });
+
 const CompanyProfile = mongoose.model("CompanyProfile", companyProfileSchema);
 
 export default CompanyProfile;

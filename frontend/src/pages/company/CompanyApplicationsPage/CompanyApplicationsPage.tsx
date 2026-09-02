@@ -34,8 +34,8 @@ interface CompanyApplication {
     id: string;
     name: string;
     major: string;
-    universityId: string;
-    email: string;
+    studentId: string;
+    university: string; email: string;
   } | null;
   opportunity: {
     id: string;
@@ -279,7 +279,7 @@ export default function CompanyApplicationsPage() {
                   University ID
                 </Typography>
                 <Typography>
-                  {selectedApp.student?.universityId ?? "Unavailable"}
+                  {selectedApp.student?.studentId ?? "Unavailable"}
                 </Typography>
               </Box>
 

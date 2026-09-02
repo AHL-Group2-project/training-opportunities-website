@@ -42,7 +42,7 @@ export const getOpportunities = async (req, res, next) => {
     }
 
     const opportunities = await Opportunity.find(filter)
-      .populate("companyId", "name logo industry location")
+      .populate("companyId", "name logoUrl industry location")
       .sort({ createdAt: -1 });
 
     const result = await Promise.all(
@@ -61,7 +61,7 @@ export const getOpportunities = async (req, res, next) => {
           ...opportunityObject,
           id: opportunity._id,
           company: opportunity.companyId?.name,
-          logo: opportunity.companyId?.logo,
+          logo: opportunity.companyId?.logoUrl,
           daysLeft,
           applicants: await getApplicantCount(opportunity._id),
         };
@@ -154,7 +154,7 @@ export const createOpportunity = async (req, res, next) => {
       });
     }
 
-    if (selectedCompany.activationStatus !== "active") {
+    if (!selectedCompany.isActive) {
       return res.status(403).json({
         message: "Opportunities cannot be created for an inactive company.",
       });
@@ -198,7 +198,7 @@ export const createOpportunity = async (req, res, next) => {
 
     await opportunity.populate(
       "companyId",
-      "name logo industry location isExternal"
+      "name logoUrl industry location isExternal"
     );
 
     const opportunityObject = opportunity.toObject();
@@ -212,7 +212,7 @@ export const createOpportunity = async (req, res, next) => {
       ...opportunityObject,
       id: opportunity._id,
       company: opportunity.companyId?.name,
-      logo: opportunity.companyId?.logo,
+      logo: opportunity.companyId?.logoUrl,
       daysLeft,
       applicants: await getApplicantCount(opportunity._id),
     });
@@ -239,7 +239,7 @@ export const getCompanyOpportunities = async (req, res, next) => {
     const opportunities = await Opportunity.find({
       companyId: company._id,
     })
-      .populate("companyId", "name logo industry location")
+      .populate("companyId", "name logoUrl industry location")
       .sort({ createdAt: -1 });
 
     const result = await Promise.all(
@@ -261,7 +261,7 @@ export const getCompanyOpportunities = async (req, res, next) => {
           ...opportunityObject,
           id: opportunity._id,
           company: opportunity.companyId?.name,
-          logo: opportunity.companyId?.logo,
+          logo: opportunity.companyId?.logoUrl,
           daysLeft,
           applicants: await getApplicantCount(opportunity._id),
         };
@@ -278,7 +278,10 @@ export const getOpportunityById = async (req, res, next) => {
     const opportunity = await Opportunity.findOne({
       _id: req.params.id,
       status: "active",
-    }).populate("companyId", "name logo industry location description website");
+    }).populate(
+      "companyId",
+      "name logoUrl industry location description website"
+    );
 
     if (!opportunity) {
       return res.status(404).json({
@@ -303,7 +306,7 @@ export const getOpportunityById = async (req, res, next) => {
       ...opportunityObject,
       id: opportunity._id,
       company: opportunity.companyId?.name,
-      logo: opportunity.companyId?.logo,
+      logo: opportunity.companyId?.logoUrl,
       daysLeft,
       applicants: await getApplicantCount(opportunity._id),
     });
@@ -332,7 +335,10 @@ export const getCompanyOpportunityById = async (req, res, next) => {
     const opportunity = await Opportunity.findOne({
       _id: req.params.id,
       companyId: company._id,
-    }).populate("companyId", "name logo industry location description website");
+    }).populate(
+      "companyId",
+      "name logoUrl industry location description website"
+    );
 
     if (!opportunity) {
       return res.status(404).json({
@@ -357,7 +363,7 @@ export const getCompanyOpportunityById = async (req, res, next) => {
       ...opportunityObject,
       id: opportunity._id,
       company: opportunity.companyId?.name,
-      logo: opportunity.companyId?.logo,
+      logo: opportunity.companyId?.logoUrl,
       daysLeft,
       applicants: await getApplicantCount(opportunity._id),
     });
@@ -428,7 +434,7 @@ export const updateOpportunity = async (req, res, next) => {
       const selectedCompany = await CompanyProfile.findOne({
         _id: req.body.companyId,
         isExternal: true,
-        activationStatus: "active",
+        isActive: true,
       });
 
       if (!selectedCompany) {
@@ -537,7 +543,7 @@ export const updateOpportunity = async (req, res, next) => {
     }
 
     await opportunity.save();
-    await opportunity.populate("companyId", "name logo industry location");
+    await opportunity.populate("companyId", "name logoUrl industry location");
 
     const opportunityObject = opportunity.toObject();
 
@@ -556,7 +562,7 @@ export const updateOpportunity = async (req, res, next) => {
       ...opportunityObject,
       id: opportunity._id,
       company: opportunity.companyId?.name,
-      logo: opportunity.companyId?.logo,
+      logo: opportunity.companyId?.logoUrl,
       daysLeft,
       applicants: await getApplicantCount(opportunity._id),
     });
@@ -672,7 +678,7 @@ export const getSupervisorOpportunities = async (req, res, next) => {
       createdBy: req.user._id,
       createdByRole: "supervisor",
     })
-      .populate("companyId", "name logo industry location isExternal")
+      .populate("companyId", "name logoUrl industry location isExternal")
       .sort({ createdAt: -1 });
 
     const result = await Promise.all(
@@ -694,7 +700,7 @@ export const getSupervisorOpportunities = async (req, res, next) => {
           ...opportunityObject,
           id: opportunity._id,
           company: opportunity.companyId?.name,
-          logo: opportunity.companyId?.logo,
+          logo: opportunity.companyId?.logoUrl,
           daysLeft,
           applicants:
             opportunity.applicationType === "internal"
@@ -718,7 +724,7 @@ export const getSupervisorOpportunityById = async (req, res, next) => {
       createdByRole: "supervisor",
     }).populate(
       "companyId",
-      "name logo industry location description website isExternal"
+      "name logoUrl industry location description website isExternal"
     );
 
     if (!opportunity) {
@@ -744,7 +750,7 @@ export const getSupervisorOpportunityById = async (req, res, next) => {
       ...opportunityObject,
       id: opportunity._id,
       company: opportunity.companyId?.name,
-      logo: opportunity.companyId?.logo,
+      logo: opportunity.companyId?.logoUrl,
       daysLeft,
       applicants:
         opportunity.applicationType === "internal"

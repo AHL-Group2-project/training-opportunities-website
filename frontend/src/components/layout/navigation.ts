@@ -46,6 +46,7 @@ const adminNavEntries: NavEntry[] = [
   { type: "link", item: { label: "Dashboard", path: "/admin/dashboard" } },
   { type: "link", item: { label: "Students", path: "/admin/students" } },
   { type: "link", item: { label: "Supervisors", path: "/admin/supervisors" } },
+  { type: "link", item: { label: "Change Requests", path: "/admin/change-requests" } },
   {
     type: "group",
     label: "Management",

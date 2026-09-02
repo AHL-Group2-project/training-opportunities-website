@@ -26,7 +26,7 @@ const removeUploadedLogo = async (file) => {
   } catch (cleanupError) {
     console.error(
       "Unable to remove uploaded company logo:",
-      cleanupError.message,
+      cleanupError.message
     );
   }
 };
@@ -44,10 +44,10 @@ export const getExternalCompanies = async (req, res, next) => {
   try {
     const companies = await CompanyProfile.find({
       isExternal: true,
-      activationStatus: "active",
+      isActive: true,
     })
       .select(
-        "_id name industry location website description logo isExternal",
+        "_id name industry location website description logoUrl isExternal"
       )
       .sort({ name: 1 });
 
@@ -59,9 +59,9 @@ export const getExternalCompanies = async (req, res, next) => {
         location: company.location || "",
         website: company.website || "",
         description: company.description || "",
-        logo: company.logo || "",
+        logo: company.logoUrl || "",
         isExternal: true,
-      })),
+      }))
     );
   } catch (error) {
     next(error);
@@ -83,7 +83,7 @@ export const createExternalCompany = async (req, res, next) => {
         req,
         res,
         400,
-        "Company name must be between 2 and 120 characters.",
+        "Company name must be between 2 and 120 characters."
       );
     }
 
@@ -92,7 +92,7 @@ export const createExternalCompany = async (req, res, next) => {
         req,
         res,
         400,
-        "A valid company industry is required.",
+        "A valid company industry is required."
       );
     }
 
@@ -101,7 +101,7 @@ export const createExternalCompany = async (req, res, next) => {
         req,
         res,
         400,
-        "A valid company location is required.",
+        "A valid company location is required."
       );
     }
 
@@ -110,7 +110,7 @@ export const createExternalCompany = async (req, res, next) => {
         req,
         res,
         400,
-        "Company description must not exceed 2000 characters.",
+        "Company description must not exceed 2000 characters."
       );
     }
 
@@ -119,7 +119,7 @@ export const createExternalCompany = async (req, res, next) => {
         req,
         res,
         400,
-        "Company website must be a valid HTTP or HTTPS URL.",
+        "Company website must be a valid HTTP or HTTPS URL."
       );
     }
 
@@ -139,7 +139,7 @@ export const createExternalCompany = async (req, res, next) => {
         "An external company with this name already exists.",
         {
           id: existingCompany._id,
-        },
+        }
       );
     }
 
@@ -148,11 +148,12 @@ export const createExternalCompany = async (req, res, next) => {
       name,
       industry,
       location,
-      website: website || undefined,
+      website: website || "",
       description,
-      logo: req.file?.path || undefined,
+      logoUrl: req.file?.path || null,
+      logoCloudinaryId: req.file?.filename || null,
       verified: false,
-      activationStatus: "active",
+      isActive: true,
     });
 
     companyCreated = true;
@@ -166,7 +167,7 @@ export const createExternalCompany = async (req, res, next) => {
         location: company.location || "",
         website: company.website || "",
         description: company.description || "",
-        logo: company.logo || "",
+        logo: company.logoUrl || "",
         isExternal: true,
       },
     });
