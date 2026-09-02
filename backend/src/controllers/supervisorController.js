@@ -1,52 +1,22 @@
-import CompanyProfile from "../models/CompanyProfile.js";
+import SupervisorProfile from "../models/SupervisorProfile.js";
 import InternshipRequest from "../models/InternshipRequest.js";
 import StudentProfile from "../models/StudentProfile.js";
 import Hour from "../models/Hour.js";
-import { getStudentTrainingStateData } from "../utils/trainingState.js";
+import CompanyProfile from "../models/CompanyProfile.js";
+import cloudinary from "../config/cloudinary.js";
 
-// GET /api/companies/me/interns/:studentId/training-state
-export const getInternTrainingState = async (req, res, next) => {
-  try {
-    const company = await CompanyProfile.findOne({ userId: req.user._id });
-    if (!company) {
-      return res.status(404).json({ message: "Company profile not found." });
-    }
-    const { studentId } = req.params;
-    
-    const request = await InternshipRequest.findOne({
-      studentId,
-      companyId: company._id,
-      status: "approved",
-    });
-
-    if (!request) {
-      return res.status(403).json({ message: "Intern is not assigned to your company." });
-    }
-
-    const state = await getStudentTrainingStateData(studentId);
-    res.json(state);
-  } catch (error) {
-    next(error);
-  }
-};
-
-const COMPANY_EDITABLE_FIELDS = [
+const SUPERVISOR_EDITABLE_FIELDS = [
   "name",
-  "industry",
-  "location",
-  "website",
-  "linkedIn",
-  "logoUrl",
-  "description",
-  "contactEmail",
   "phone",
+  "officeHours",
+  "avatarUrl",
 ];
 
 export const getMyProfile = async (req, res, next) => {
   try {
-    const profile = await CompanyProfile.findOne({ userId: req.user._id });
+    const profile = await SupervisorProfile.findOne({ userId: req.user._id });
     if (!profile)
-      return res.status(404).json({ message: "Company profile not found" });
+      return res.status(404).json({ message: "Supervisor profile not found" });
     res.json(profile);
   } catch (error) {
     next(error);
@@ -55,226 +25,473 @@ export const getMyProfile = async (req, res, next) => {
 
 export const updateMyProfile = async (req, res, next) => {
   try {
-    // verified and isActive are admin-controlled — never editable
-    // by the company itself, even if sent in the request body.
     const allowedUpdates = {};
-    for (const field of COMPANY_EDITABLE_FIELDS) {
+    for (const field of SUPERVISOR_EDITABLE_FIELDS) {
       if (req.body[field] !== undefined) {
         allowedUpdates[field] = req.body[field];
       }
     }
 
-    const profile = await CompanyProfile.findOneAndUpdate(
+    const profile = await SupervisorProfile.findOneAndUpdate(
       { userId: req.user._id },
       allowedUpdates,
       { new: true, runValidators: true }
     );
+
     if (!profile)
-      return res.status(404).json({ message: "Company profile not found" });
+      return res.status(404).json({ message: "Supervisor profile not found" });
+
     res.json(profile);
   } catch (error) {
     next(error);
   }
 };
 
-// GET /api/companies/public
-export const getPublicCompanies = async (req, res, next) => {
-  try {
-    // Return verified and active companies
-    const companies = await CompanyProfile.find({ isActive: true, verified: true })
-      .select("-__v") // Exclude internal fields if needed
-      .sort({ name: 1 });
-    res.json(companies);
-  } catch (error) {
-    next(error);
-  }
-};
-
-// GET /api/companies/public/:id
-export const getPublicCompanyById = async (req, res, next) => {
-  try {
-    const company = await CompanyProfile.findOne({ userId: req.params.id, isActive: true, verified: true }).select("-__v").lean();
-    if (!company) {
-      return res.status(404).json({ message: "Company not found" });
-    }
-
-    const pastInternsRequests = await InternshipRequest.find({ companyId: req.params.id, status: "approved" }).populate("studentId");
-    
-    const uniqueStudents = [];
-    const studentIds = new Set();
-    
-    for (const request of pastInternsRequests) {
-      if (request.studentId && !studentIds.has(request.studentId._id.toString())) {
-        studentIds.add(request.studentId._id.toString());
-        uniqueStudents.push({
-          name: request.studentId.name,
-          major: request.studentId.major,
-          university: request.studentId.university,
-          avatarUrl: request.studentId.avatarUrl,
-          userId: request.studentId.userId,
-        });
-      }
-    }
-    
-    company.pastInterns = uniqueStudents;
-
-    res.json(company);
-  } catch (error) {
-    next(error);
-  }
-};
-
-import cloudinary from "../config/cloudinary.js";
-
-// POST /api/companies/me/logo
-export const uploadCompanyLogo = async (req, res, next) => {
+export const uploadSupervisorAvatar = async (req, res, next) => {
   try {
     if (!req.file) {
       return res.status(400).json({ message: "No image provided" });
     }
 
-    const profile = await CompanyProfile.findOne({ userId: req.user._id });
+    const profile = await SupervisorProfile.findOne({ userId: req.user._id });
     if (!profile) {
-      await cloudinary.uploader.destroy(req.file.filename);
-      return res.status(404).json({ message: "Company profile not found" });
+      return res.status(404).json({ message: "Profile not found" });
     }
 
-    if (profile.logoCloudinaryId) {
-      await cloudinary.uploader.destroy(profile.logoCloudinaryId);
-    }
-
-    profile.logoUrl = req.file.path;
-    profile.logoCloudinaryId = req.file.filename;
+    profile.avatarUrl = req.file.path;
     await profile.save();
 
     res.json({
-      message: "Logo uploaded successfully",
-      logoUrl: profile.logoUrl,
+      message: "Avatar uploaded successfully",
+      avatarUrl: profile.avatarUrl,
     });
   } catch (error) {
     next(error);
   }
 };
 
-// GET /api/companies/me/interns
-// Returns students with an approved internship request at this company
-export const getMyActiveInterns = async (req, res, next) => {
+export const getSupervisorDashboard = async (req, res, next) => {
   try {
-    const companyProfile = await CompanyProfile.findOne({ userId: req.user._id });
-    if (!companyProfile) {
-      return res.status(404).json({ message: "Company profile not found." });
-    }
+    const supervisorProfile = await SupervisorProfile.findOne({ userId: req.user._id });
+    if (!supervisorProfile) return res.status(404).json({ message: "Profile not found" });
 
-    const approvedRequests = await InternshipRequest.find({
-      companyId: companyProfile._id,
-      status: "approved",
-    })
-      .populate({
-        path: "studentId",
-        select: "name major university avatarUrl",
-        populate: { path: "userId", select: "email" },
-      })
+    const supervisorId = supervisorProfile._id; // IMPORTANT: using profile _id
+
+    const assignedStudents = await StudentProfile.find({ supervisorId })
+      .populate("userId", "email")
       .lean();
 
-    // For each intern, get their approved hour totals
-    const result = await Promise.all(
-      approvedRequests.map(async (req) => {
-        const student = req.studentId;
-        if (!student) return null;
+    const studentIds = assignedStudents.map(s => s._id);
 
-        const hoursAgg = await Hour.aggregate([
-          {
-            $match: {
-              studentId: student._id,
-              internshipRequestId: req._id,
-              companyStatus: "approved",
-            },
-          },
-          { $group: { _id: null, total: { $sum: "$totalHours" } } },
-        ]);
+    const internships = await InternshipRequest.find({
+      supervisorId,
+      status: "approved" 
+    }).lean();
 
-        const approvedHours = hoursAgg[0]?.total || 0;
+    const activeInternshipsCount = internships.length;
+    const pendingEvaluationsCount = internships.filter(i => !i.supervisorFinalStatus || i.supervisorFinalStatus === "pending").length;
+    const completedInternshipsCount = internships.filter(i => i.supervisorFinalStatus === "approved").length;
 
-        return {
-          studentId: student._id,
-          name: student.name,
-          major: student.major,
-          university: student.university,
-          avatarUrl: student.avatarUrl || null,
-          email: student.userId?.email || "",
-          trainingType: req.type?.toUpperCase() || "",
-          approvedHours,
-          requiredHours: req.expectedHours || 150,
-          internshipRequestId: req._id,
-          startDate: req.startDate,
-          endDate: req.endDate,
-        };
-      })
-    );
+    const hours = await Hour.find({
+      studentId: { $in: studentIds }
+    }).lean();
 
-    res.json(result.filter(Boolean));
+    const studentData = assignedStudents.map(student => {
+      const studentHours = hours.filter(h => String(h.studentId) === String(student._id));
+      const completedHours = studentHours
+        .filter(h => h.companyStatus === "approved") // Count approved weekly hours
+        .reduce((sum, h) => sum + (h.totalHours || h.hours || 0), 0); // fallback for unmigrated data
+      
+      const progressPercent = Math.min((completedHours / 150) * 100, 100);
+
+      const internship = internships.find(i => String(i.studentId) === String(student._id));
+      const company = internship ? internship.newCompanyName : "Unassigned";
+
+      return {
+        id: student._id,
+        name: student.name,
+        email: student.userId ? student.userId.email : "",
+        company,
+        progress: progressPercent,
+        completedHours
+      };
+    });
+
+    res.json({
+      stats: {
+        totalStudents: assignedStudents.length,
+        activeInternships: activeInternshipsCount,
+        pendingEvaluations: pendingEvaluationsCount,
+        completedInternships: completedInternshipsCount
+      },
+      students: studentData
+    });
   } catch (error) {
     next(error);
   }
 };
 
-// GET /api/companies/me/interns/:studentId/hours
-// Returns all weekly Hour records for a student at this company
-export const getInternHours = async (req, res, next) => {
+const attachTrainingInfo = async (students) => {
+  const studentIds = students.map((s) => s._id);
+
+  const [requests, hoursAgg] = await Promise.all([
+    InternshipRequest.find({ studentId: { $in: studentIds } }).sort({
+      createdAt: -1,
+    }),
+    Hour.aggregate([
+      {
+        $match: {
+          studentId: { $in: studentIds },
+          companyStatus: "approved",
+        },
+      },
+      {
+        $group: {
+          _id: { studentId: "$studentId", phase: "$trainingType" },
+          totalHours: { $sum: { $ifNull: ["$totalHours", "$hours"] } }, // fallback for unmigrated data
+        },
+      },
+    ]),
+  ]);
+
+  const requestsByStudent = new Map();
+  for (const req of requests) {
+    const key = req.studentId.toString();
+    const type = req.type ? req.type.toLowerCase() : ""; // ft1 or ft2
+    if (!requestsByStudent.has(key)) {
+      requestsByStudent.set(key, { ft1: null, ft2: null });
+    }
+    const entry = requestsByStudent.get(key);
+    if (type && !entry[type]) entry[type] = req; 
+  }
+
+  const hoursByStudent = new Map();
+  for (const row of hoursAgg) {
+    const key = row._id.studentId.toString();
+    const phase = row._id.phase ? row._id.phase.toLowerCase() : "";
+    if (!hoursByStudent.has(key)) {
+      hoursByStudent.set(key, { ft1: 0, ft2: 0 });
+    }
+    if(phase === 'ft1' || phase === 'ft2') {
+        hoursByStudent.get(key)[phase] = row.totalHours;
+    }
+  }
+
+  return students.map((student) => {
+    const key = student._id.toString();
+    const reqs = requestsByStudent.get(key) || { ft1: null, ft2: null };
+    const hours = hoursByStudent.get(key) || { ft1: 0, ft2: 0 };
+
+    const isCompleted = (phase) => {
+      const request = reqs[phase];
+      return Boolean(
+        request &&
+          request.status === "approved" &&
+          hours[phase] >= (request.expectedHours || 150)
+      );
+    };
+
+    const ft1Completed = isCompleted("ft1");
+    const ft2Completed = isCompleted("ft2");
+
+    const isActive = (phase) => {
+      const request = reqs[phase];
+      return Boolean(
+        request && request.status === "approved" && !isCompleted(phase)
+      );
+    };
+
+    let activePhase = null;
+    if (isActive("ft1")) activePhase = "ft1";
+    else if (isActive("ft2")) activePhase = "ft2";
+
+    let displayPhase = activePhase;
+    if (!displayPhase) {
+      if (ft2Completed || reqs.ft2) displayPhase = "ft2";
+      else if (ft1Completed || reqs.ft1) displayPhase = "ft1";
+    }
+
+    const totalHours = displayPhase ? hours[displayPhase] || 0 : 0;
+    const currentRequest = activePhase ? reqs[activePhase] : (reqs.ft2 || reqs.ft1);
+    const currentInternship = currentRequest && currentRequest.status === "approved"
+      ? `${currentRequest.position || 'Intern'} - ${currentRequest.newCompanyName}`
+      : null;
+
+    let status = "Not Started";
+    if (ft1Completed && ft2Completed) status = "Completed";
+    else if (activePhase) status = "Active";
+
+    return {
+      id: student._id,
+      name: student.name,
+      university: student.university,
+      major: student.major,
+      year: student.graduationYear, // updated to use graduationYear
+      currentInternship,
+      ft1: ft1Completed,
+      ft2: ft2Completed,
+      totalHours,
+      status,
+    };
+  });
+};
+
+export const getMyStudents = async (req, res, next) => {
   try {
-    const companyProfile = await CompanyProfile.findOne({ userId: req.user._id });
-    if (!companyProfile) {
-      return res.status(404).json({ message: "Company profile not found." });
+    const page = Math.max(parseInt(req.query.page) || 1, 1);
+    const limit = Math.min(Math.max(parseInt(req.query.limit) || 10, 1), 50);
+    const search = (req.query.search || "").trim();
+    const status = req.query.status || "all";
+
+    const supervisorProfile = await SupervisorProfile.findOne({ userId: req.user._id });
+    if (!supervisorProfile) {
+      return res.status(404).json({ message: "Supervisor profile not found." });
+    }
+
+    const filter = { supervisorId: supervisorProfile._id };
+    if (search) {
+      filter.name = { $regex: search, $options: "i" };
+    }
+
+    const students = await StudentProfile.find(filter).sort({ name: 1 });
+    let enriched = await attachTrainingInfo(students);
+
+    if (status !== "all") {
+      enriched = enriched.filter((s) => s.status === status);
+    }
+
+    const total = enriched.length;
+    const start = (page - 1) * limit;
+    const data = enriched.slice(start, start + limit);
+
+    res.json({
+      data,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.max(Math.ceil(total / limit), 1),
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const exportMyStudents = async (req, res, next) => {
+  try {
+    const search = (req.query.search || "").trim();
+    const status = req.query.status || "all";
+
+    const supervisorProfile = await SupervisorProfile.findOne({ userId: req.user._id });
+    if (!supervisorProfile) {
+      return res.status(404).json({ message: "Supervisor profile not found." });
+    }
+
+    const filter = { supervisorId: supervisorProfile._id };
+    if (search) {
+      filter.name = { $regex: search, $options: "i" };
+    }
+
+    const students = await StudentProfile.find(filter).sort({ name: 1 });
+    let enriched = await attachTrainingInfo(students);
+
+    if (status !== "all") {
+      enriched = enriched.filter((s) => s.status === status);
+    }
+
+    const header = [
+      "Name",
+      "University",
+      "Major",
+      "Year",
+      "Current Internship",
+      "FT1",
+      "FT2",
+      "Total Hours",
+      "Status",
+    ];
+
+    const escapeCsv = (val) => {
+      const str = String(val ?? "");
+      return /[",\n]/.test(str) ? `"${str.replace(/"/g, '""')}"` : str;
+    };
+
+    const rows = enriched.map((s) =>
+      [
+        s.name,
+        s.university,
+        s.major,
+        s.year,
+        s.currentInternship || "-",
+        s.ft1 ? "Done" : "Pending",
+        s.ft2 ? "Done" : "Pending",
+        s.totalHours,
+        s.status,
+      ]
+        .map(escapeCsv)
+        .join(",")
+    );
+
+    const csv = [header.join(","), ...rows].join("\n");
+
+    res.setHeader("Content-Type", "text/csv; charset=utf-8");
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="my-students.csv"'
+    );
+    res.status(200).send("\uFEFF" + csv);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getStudentDetails = async (req, res, next) => {
+  try {
+    const supervisorProfile = await SupervisorProfile.findOne({ userId: req.user._id });
+    if (!supervisorProfile) {
+      return res.status(404).json({ message: "Supervisor profile not found." });
     }
 
     const { studentId } = req.params;
 
-    const hours = await Hour.find({
-      studentId,
-      companyId: companyProfile._id,
-    }).sort({ weekStartDate: -1 });
-
-    res.json(hours);
-  } catch (error) {
-    next(error);
-  }
-};
-
-// PATCH /api/companies/me/hours/:hourId
-// Approve or reject a weekly timesheet
-export const reviewHours = async (req, res, next) => {
-  try {
-    const companyProfile = await CompanyProfile.findOne({ userId: req.user._id });
-    if (!companyProfile) {
-      return res.status(404).json({ message: "Company profile not found." });
+    const student = await StudentProfile.findOne({ _id: studentId, supervisorId: supervisorProfile._id });
+    if (!student) {
+      return res.status(404).json({ message: "Student not found or not assigned to you." });
     }
 
-    const { hourId } = req.params;
-    const { status, comment } = req.body;
-
-    if (!["approved", "rejected"].includes(status)) {
-      return res.status(400).json({ message: "Status must be 'approved' or 'rejected'." });
+    const requests = await InternshipRequest.find({ studentId }).populate("companyId");
+    
+    // Find active request
+    const activeReq = requests.find(r => r.status === "approved" && r.type?.toLowerCase() === "ft2") || 
+                      requests.find(r => r.status === "approved" && r.type?.toLowerCase() === "ft1");
+    
+    let hoursCompleted = 0;
+    if (activeReq) {
+      const hours = await Hour.find({ studentId, trainingType: { $regex: new RegExp(`^${activeReq.type}$`, "i") }, companyStatus: "approved" });
+      hoursCompleted = hours.reduce((sum, h) => sum + (h.totalHours || 0), 0);
     }
+    
+    const progress = {
+      studentId: student._id,
+      currentInternship: activeReq ? {
+        position: activeReq.position || `${activeReq.type.toUpperCase()} Intern`,
+        company: activeReq.companyId?.name || activeReq.newCompanyName || "Unknown Company",
+        hoursCompleted,
+        hoursRequired: activeReq.expectedHours || 150
+      } : {
+        position: "-",
+        company: "-",
+        hoursCompleted: 0,
+        hoursRequired: 150
+      },
+      reports: [],
+      statusTimeline: [
+        { label: "Started", date: activeReq ? new Date(activeReq.createdAt).toISOString().split("T")[0] : "-", completed: true },
+        { label: "Mid Review", date: "-", completed: false },
+        { label: "Final Review", date: "-", completed: false }
+      ],
+      evaluation: {
+        submitted: false,
+        overallComment: ""
+      },
+      previousInternships: requests
+        .filter(r => r.status === "approved" && r._id.toString() !== activeReq?._id?.toString())
+        .map(r => ({
+          position: r.position || `${r.type.toUpperCase()} Intern`,
+          company: r.companyId?.name || r.newCompanyName || "Unknown Company",
+          period: r.startDate && r.endDate ? `${new Date(r.startDate).toLocaleDateString()} - ${new Date(r.endDate).toLocaleDateString()}` : "Unknown"
+        }))
+    };
+    
+    const getInitials = (name) => name.split(" ").filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase()).join("");
 
-    const hourRecord = await Hour.findOne({
-      _id: hourId,
-      companyId: companyProfile._id,
+    res.json({
+      student: {
+        id: student._id,
+        name: student.name,
+        initials: getInitials(student.name),
+        university: student.university,
+        major: student.major,
+        year: student.graduationYear || student.year,
+        bio: student.about || "",
+        location: student.location || "N/A"
+      },
+      progress
     });
-
-    if (!hourRecord) {
-      return res.status(404).json({ message: "Hours record not found or unauthorized." });
-    }
-
-    if (hourRecord.companyStatus !== "pending") {
-      return res.status(400).json({ message: "Only pending hour records can be reviewed." });
-    }
-
-    hourRecord.companyStatus = status;
-    hourRecord.companyComment = comment || "";
-    await hourRecord.save();
-
-    res.json({ message: `Hours ${status} successfully.`, hourRecord });
   } catch (error) {
     next(error);
   }
 };
+
+// POST /api/supervisors/students/:studentId/assign-company
+export const assignCompany = async (req, res, next) => {
+  try {
+    const supervisorProfile = await SupervisorProfile.findOne({ userId: req.user._id });
+    if (!supervisorProfile) {
+      return res.status(404).json({ message: "Supervisor profile not found." });
+    }
+
+    const { studentId } = req.params;
+    const { companyId, newCompanyName } = req.body;
+
+    const student = await StudentProfile.findOne({ _id: studentId, supervisorId: supervisorProfile._id });
+    if (!student) {
+      return res.status(404).json({ message: "Student not found or not assigned to you." });
+    }
+
+    // Find the latest pending or approved request
+    const request = await InternshipRequest.findOne({
+      studentId: student._id,
+      status: { $in: ["pending", "approved"] },
+    }).sort({ createdAt: -1 });
+
+    if (!request) {
+      return res.status(400).json({ message: "No active or pending request found for this student to assign a company to." });
+    }
+
+    // Assign to platform company or custom text company
+    if (companyId) {
+      const companyProfile = await CompanyProfile.findById(companyId);
+      if (!companyProfile) {
+        return res.status(404).json({ message: "Selected company not found." });
+      }
+      request.companyId = companyProfile._id;
+      request.newCompanyName = companyProfile.name;
+      
+      await StudentProfile.updateOne(
+        { _id: request.studentId },
+        { $set: { companyId: companyProfile._id } }
+      );
+    } else if (newCompanyName) {
+      request.companyId = null;
+      request.newCompanyName = newCompanyName;
+      
+      await StudentProfile.updateOne(
+        { _id: request.studentId },
+        { $unset: { companyId: "" } }
+      );
+    } else {
+      return res.status(400).json({ message: "Must provide either companyId or newCompanyName." });
+    }
+
+    // Assigning a company automatically approves the request if it was pending
+    if (request.status === "pending") {
+      request.status = "approved";
+      request.reviewedAt = new Date();
+    }
+
+    await request.save();
+
+    // Preserve previously submitted hours but associate them with the new company
+    await Hour.updateMany(
+      { internshipRequestId: request._id },
+      { $set: { companyId: request.companyId } }
+    );
+
+    res.json({ message: "Company assigned successfully and request approved.", request });
+  } catch (error) {
+    next(error);
+  }
+};
+
