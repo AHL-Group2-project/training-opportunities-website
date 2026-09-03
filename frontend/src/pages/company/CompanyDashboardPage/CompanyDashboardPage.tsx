@@ -55,7 +55,7 @@ function CompanyDashboardPage() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  fontWeight={600}
+                  sx={{ fontWeight: 600 }}
                 >
                   Active Opportunities
                 </Typography>
@@ -95,7 +95,7 @@ function CompanyDashboardPage() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  fontWeight={600}
+                  sx={{ fontWeight: 600 }}
                 >
                   Active Interns
                 </Typography>
@@ -134,7 +134,7 @@ function CompanyDashboardPage() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  fontWeight={600}
+                  sx={{ fontWeight: 600 }}
                 >
                   Pending Requests
                 </Typography>
@@ -173,7 +173,7 @@ function CompanyDashboardPage() {
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  fontWeight={600}
+                  sx={{ fontWeight: 600 }}
                 >
                   Total Applications
                 </Typography>

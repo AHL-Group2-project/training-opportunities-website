@@ -52,7 +52,7 @@ export default function ReportsPage() {
   const [content, setContent] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchReports();
@@ -65,7 +65,7 @@ export default function ReportsPage() {
     } catch (err) {
       console.error("Failed to fetch reports", err);
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   };
 

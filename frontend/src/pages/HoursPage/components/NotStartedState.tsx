@@ -16,7 +16,7 @@ import type {
   SingleTrainingState,
   StudentProfile,
 } from "../../../mock/studentTrainingState.ts";
-import type { RolePermissions } from "../HoursPage.types";
+import type { RolePermissions } from "../../../types/HoursPage.types";
 import PageHeader from "./PageHeader.tsx";
 
 interface NotStartedStateProps {

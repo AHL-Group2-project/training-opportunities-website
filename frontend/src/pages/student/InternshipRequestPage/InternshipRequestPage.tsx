@@ -62,7 +62,7 @@ const WORK_MODES = ["on-site", "remote", "hybrid"];
 
 function InternshipRequestPage() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { } = useAuth();
 
   const [activeStep, setActiveStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);

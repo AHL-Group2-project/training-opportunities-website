@@ -70,7 +70,7 @@ function formatRelativeTime(dateStr: string): string {
 
 export default function NotificationsPage() {
   const [notifications, setNotifications] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     fetchNotifications();
@@ -83,7 +83,7 @@ export default function NotificationsPage() {
     } catch (err) {
       console.error("Failed to fetch notifications", err);
     } finally {
-      setLoading(false);
+      
     }
   };
 
@@ -185,7 +185,7 @@ export default function NotificationsPage() {
         <Card sx={{ borderRadius: 3, overflow: "hidden" }}>
           <Stack divider={<Divider />}>
             {notifications.map((n) => {
-              const meta = TYPE_META[n.type];
+              const meta = TYPE_META[n.type as keyof typeof TYPE_META];
               return (
                 <Box
                   key={n._id}

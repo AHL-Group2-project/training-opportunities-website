@@ -293,7 +293,7 @@ export default function StudentDetailPage() {
             Status Timeline
           </Typography>
           <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-            {progress.statusTimeline.map((step) => (
+            {progress.statusTimeline.map((step: any) => (
               <Chip
                 key={step.label}
                 label={`${step.label} — ${step.date}`}
@@ -316,7 +316,7 @@ export default function StudentDetailPage() {
             </Typography>
           ) : (
             <Stack spacing={2}>
-              {progress.reports.map((report) => (
+              {progress.reports.map((report: any) => (
                 <Paper key={report.id} sx={{ p: 2 }}>
                   <Stack
                     direction={{ xs: "column", sm: "row" }}
@@ -441,7 +441,7 @@ export default function StudentDetailPage() {
             </Typography>
           ) : (
             <Stack spacing={1.5}>
-              {progress.previousInternships.map((internship, index) => (
+              {progress.previousInternships.map((internship: any, index: number) => (
                 <Box key={index}>
                   <Typography sx={{ fontWeight: "medium" }}>
                     {internship.position} — {internship.company}

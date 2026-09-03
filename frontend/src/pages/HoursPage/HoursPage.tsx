@@ -63,7 +63,7 @@ export default function HoursPage() {
 
   const [activeFt, setActiveFt] = useState<TrainingType>("FT1");
   const [allEntries, setAllEntries] = useState<HoursEntry[]>([]);
-  const [loading, setLoading] = useState(true);
+  
 
   const [rowErrors, setRowErrors] = useState<Record<number, string>>({});
   const [pageError, setPageError] = useState<string | null>(null);
@@ -79,7 +79,7 @@ export default function HoursPage() {
 
   const fetchRealHours = async () => {
     try {
-      setLoading(true);
+      // setLoading(true);
       let data: HourWeekResponse[] = [];
       let ts: any = null;
 
@@ -127,7 +127,7 @@ export default function HoursPage() {
       console.error(err);
       setPageError(`Failed to fetch hours: ${err.response?.data?.message || err.message || String(err)}`);
     } finally {
-      setLoading(false);
+      
     }
   };
 
@@ -347,7 +347,7 @@ export default function HoursPage() {
   };
 
   const confirmFinalApprove = () => {
-    setTrainingOverview((prev) => {
+    setTrainingOverview((prev: any) => {
       if (!prev) return prev;
       const updated = { ...prev };
       updated[ftKey] = {
@@ -374,7 +374,7 @@ export default function HoursPage() {
       setPageError("Rejection reason is required.");
       return;
     }
-    setTrainingOverview((prev) => {
+    setTrainingOverview((prev: any) => {
       if (!prev) return prev;
       const updated = { ...prev };
       updated[ftKey] = {

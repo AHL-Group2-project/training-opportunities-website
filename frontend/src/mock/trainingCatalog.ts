@@ -1,4 +1,4 @@
-import { type TrainingType } from "./mock_hours";
+import { type TrainingType } from "./hoursLog";
 
 export interface TrainingRequest {
   id: number;

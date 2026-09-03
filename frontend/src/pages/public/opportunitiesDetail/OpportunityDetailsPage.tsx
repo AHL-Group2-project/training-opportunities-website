@@ -40,7 +40,7 @@ function OpportunityDetailsPage() {
   const hasApplied =
     isAuthenticated && user
       ? MOCK_APPLICATIONS.some(
-          (a) => a.studentId === user.id && a.opportunityId === opportunity.id,
+          (a) => a.studentId === Number(user.id) && a.opportunityId === Number(opportunity.id),
         )
       : false;
 

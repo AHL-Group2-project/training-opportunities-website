@@ -45,8 +45,8 @@ function HoursProgress({
   const color = pct >= 100 ? "#059669" : pct >= 60 ? "#2563eb" : "#f59e0b";
   return (
     <Box sx={{ minWidth: 140 }}>
-      <Stack sx={{ direction: "row", justifyContent: "space-between", mb: {xs: 0.5} }}>
-        <Typography sx={{variant:"caption", fontWeight:600}}>
+      <Stack direction="row" sx={{ justifyContent: "space-between", mb: { xs: 0.5 } }}>
+        <Typography variant="caption" sx={{ fontWeight: 600 }}>
           {approved} / {required} h
         </Typography>
         <Typography variant="caption" sx={{ color }}>
@@ -91,10 +91,12 @@ function CompanyInternsPage() {
       {/* Header */}
       <Stack
         direction={{ xs: "column", sm: "row" }}
-        justifyContent="space-between"
-        alignItems={{ xs: "flex-start", sm: "center" }}
-        mb={4}
-        gap={2}
+        spacing={2}
+        sx={{
+          justifyContent: "space-between",
+          alignItems: { xs: "flex-start", sm: "center" },
+          mb: 4
+        }}
       >
         <Box>
           <Typography
@@ -139,7 +141,7 @@ function CompanyInternsPage() {
           <Typography variant="h6" color="text.secondary">
             No active interns right now.
           </Typography>
-          <Typography variant="body2" color="text.disabled" mt={0.5}>
+          <Typography variant="body2" color="text.disabled" sx={{ mt: 0.5 }}>
             Students will appear here once their internship request is approved
             by a supervisor.
           </Typography>
@@ -181,7 +183,7 @@ function CompanyInternsPage() {
                           {intern.name ? intern.name[0] : "?"}
                         </Avatar>
                         <Box>
-                          <Typography variant="body2" fontWeight={600}>
+                          <Typography variant="body2" sx={{ fontWeight: 600 }}>
                             {intern.name || "Unknown Student"}
                           </Typography>
                           <Typography variant="caption" color="text.secondary">
@@ -228,7 +230,7 @@ function CompanyInternsPage() {
 
                     {/* End date */}
                     <TableCell>
-                      <Stack direction="row" alignItems="center" gap={0.5}>
+                      <Stack direction="row" spacing={0.5} sx={{ alignItems: "center" }}>
                         <AccessTimeIcon
                           sx={{ fontSize: 14, color: "text.disabled" }}
                         />

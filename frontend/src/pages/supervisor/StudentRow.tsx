@@ -19,7 +19,7 @@ import {
   Checkbox,
   TextField,
 } from "@mui/material";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import type {

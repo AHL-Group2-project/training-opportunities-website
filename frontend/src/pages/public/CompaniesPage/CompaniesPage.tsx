@@ -206,7 +206,6 @@ function CompaniesPage() {
                   id={company.userId}
                   name={company.name}
                   industry={company.industry}
-                  activeOpportunities={0}
                   description={company.description}
                   location={company.location}
                   logoUrl={company.logoUrl}

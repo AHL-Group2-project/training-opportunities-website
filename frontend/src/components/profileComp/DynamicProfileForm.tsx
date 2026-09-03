@@ -42,7 +42,7 @@ export default function DynamicProfileForm({
   return (
     <Box sx={{ p: { xs: 2, md: 5 }, maxWidth: 800, mx: "auto" }}>
       {/* Header Info */}
-      <Stack direction="row" spacing={3} alignItems="center" mb={6}>
+      <Stack direction="row" spacing={3} sx={{ alignItems: "center", mb: 6 }}>
         <Badge
           overlap="circular"
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
@@ -88,7 +88,7 @@ export default function DynamicProfileForm({
         </Badge>
 
         <Box>
-          <Typography variant="h5" fontWeight="600" color="text.primary">
+          <Typography variant="h5" color="text.primary" sx={{ fontWeight: "600" }}>
             {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -129,10 +129,10 @@ export default function DynamicProfileForm({
         ))}
       </Grid>
 
-      {children && <Box mt={4}>{children}</Box>}
+      {children && <Box sx={{ mt: 4 }}>{children}</Box>}
 
       {/* Save Button */}
-      <Box mt={6} display="flex" justifyContent="center">
+      <Box sx={{ mt: 6, display: "flex", justifyContent: "center" }}>
         <Button
           variant="contained"
           onClick={onSave}

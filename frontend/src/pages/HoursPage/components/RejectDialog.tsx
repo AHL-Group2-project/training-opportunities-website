@@ -7,7 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import type { RejectTarget } from "../HoursPage.types";
+import type { RejectTarget } from "../../../types/HoursPage.types";
 
 interface RejectDialogProps {
   open: boolean;
