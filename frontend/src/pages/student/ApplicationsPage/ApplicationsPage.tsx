@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  Alert,
   Box,
   Container,
   Typography,
@@ -7,17 +8,92 @@ import {
   CardContent,
   Chip,
   Button,
+  CircularProgress,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { MOCK_APPLICATIONS } from "../../../mock/applications";
+import axios from "axios";
+import api from "../../../lib/axios";
 import WorkOutlineRoundedIcon from "@mui/icons-material/WorkOutlineRounded";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+type ApplicationStatus = "pending" | "accepted" | "rejected";
+
+interface StudentApplication {
+  id: string;
+  opportunityId: string | null;
+  position: string;
+  company: string;
+  status: ApplicationStatus;
+  appliedAt: string;
+  coverLetter: string;
+}
+
+const STATUS_CONFIG = {
+  pending: {
+    label: "Submitted",
+    color: "info.main",
+    background: "rgba(59, 130, 246, 0.1)",
+  },
+  accepted: {
+    label: "Accepted",
+    color: "success.main",
+    background: "rgba(16, 185, 129, 0.1)",
+  },
+  rejected: {
+    label: "Rejected",
+    color: "error.main",
+    background: "rgba(239, 68, 68, 0.1)",
+  },
+};
+
 function ApplicationsPage() {
   const navigate = useNavigate();
-  const [applications] = useState(MOCK_APPLICATIONS);
+  const [applications, setApplications] = useState<StudentApplication[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [reloadKey, setReloadKey] = useState(0);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchApplications = async () => {
+      try {
+        setLoading(true);
+        setError("");
+
+        const response =
+          await api.get<StudentApplication[]>("/applications/me");
+
+        if (isMounted) {
+          setApplications(response.data);
+        }
+      } catch (err) {
+        if (!isMounted) return;
+
+        const message = axios.isAxiosError<{ message?: string }>(err)
+          ? err.response?.data?.message
+          : undefined;
+
+        setError(
+          typeof message === "string"
+            ? message
+            : "Unable to load your applications. Please try again.",
+        );
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    void fetchApplications();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [reloadKey]);
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "transparent" }}>
@@ -33,7 +109,7 @@ function ApplicationsPage() {
           Track all the internship opportunities you've applied to
         </Typography>
 
-        {/* How it works - improved */}
+        {/* How it works */}
         <Card
           sx={{
             mb: 4,
@@ -61,8 +137,7 @@ function ApplicationsPage() {
                 color="text.secondary"
                 sx={{ lineHeight: 1.6 }}
               >
-                Applications are for your reference only. To start your
-                internship, submit a{" "}
+                Track your applications here. To start your internship, submit a{" "}
                 <Button
                   size="small"
                   onClick={() => navigate("/training/request")}
@@ -88,7 +163,26 @@ function ApplicationsPage() {
         </Card>
 
         {/* Applications List */}
-        {applications.length === 0 ? (
+        {loading ? (
+          <Box sx={{ display: "flex", justifyContent: "center", py: 8 }}>
+            <CircularProgress aria-label="Loading applications" />
+          </Box>
+        ) : error ? (
+          <Alert
+            severity="error"
+            action={
+              <Button
+                color="inherit"
+                size="small"
+                onClick={() => setReloadKey((current) => current + 1)}
+              >
+                Retry
+              </Button>
+            }
+          >
+            {error}
+          </Alert>
+        ) : applications.length === 0 ? (
           <Card sx={{ borderRadius: 2, textAlign: "center", py: 8 }}>
             <CardContent>
               <WorkOutlineRoundedIcon
@@ -114,85 +208,99 @@ function ApplicationsPage() {
           </Card>
         ) : (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-            {applications.map((app) => (
-              <Card
-                key={app.id}
+            {applications.map((app) => {
+              const statusConfig =
+                STATUS_CONFIG[app.status] ?? STATUS_CONFIG.pending;
 
-                sx={{
-                  borderRadius: 2,
-                  borderColor: "divider",
-                  transition: "box-shadow 0.2s",
-                  "&:hover": { boxShadow: "0 2px 8px rgba(0,0,0,0.08)" },
-                }}
-              >
-                <CardContent sx={{ p: 3 }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                      flexWrap: "wrap",
-                      gap: 2,
-                    }}
-                  >
-                    <Box sx={{ flex: 1 }}>
-                      <Typography
-                        variant="h6"
-                        sx={{ fontWeight: 700, color: "text.primary", mb: 0.5 }}
-                      >
-                        {app.position}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        color="text.secondary"
-                        sx={{ mb: 1 }}
-                      >
-                        {app.company}
-                      </Typography>
-                      <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
-                        <Box
+              return (
+                <Card
+                  key={app.id}
+                  sx={{
+                    borderRadius: 2,
+                    borderColor: "divider",
+                    transition: "box-shadow 0.2s",
+                    "&:hover": { boxShadow: "0 2px 8px rgba(0,0,0,0.08)" },
+                  }}
+                >
+                  <CardContent sx={{ p: 3 }}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                        flexWrap: "wrap",
+                        gap: 2,
+                      }}
+                    >
+                      <Box sx={{ flex: 1 }}>
+                        <Typography
+                          variant="h6"
                           sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 0.5,
+                            fontWeight: 700,
+                            color: "text.primary",
+                            mb: 0.5,
                           }}
                         >
-                          <CalendarTodayIcon
-                            sx={{ fontSize: 16, color: "text.secondary" }}
-                          />
-                          <Typography variant="body2" color="text.secondary">
-                            Applied{" "}
-                            {new Date(app.appliedAt).toLocaleDateString()}
-                          </Typography>
+                          {app.position}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          color="text.secondary"
+                          sx={{ mb: 1 }}
+                        >
+                          {app.company}
+                        </Typography>
+                        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: 0.5,
+                            }}
+                          >
+                            <CalendarTodayIcon
+                              sx={{ fontSize: 16, color: "text.secondary" }}
+                            />
+                            <Typography variant="body2" color="text.secondary">
+                              Applied{" "}
+                              {new Date(app.appliedAt).toLocaleDateString()}
+                            </Typography>
+                          </Box>
                         </Box>
                       </Box>
-                    </Box>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <Chip
-                        label="Submitted"
-                        size="small"
-                        sx={{
-                          bgcolor: "rgba(16, 185, 129, 0.1)",
-                          color: "success.main",
-                          fontWeight: 600,
-                          fontSize: "0.8rem",
-                        }}
-                      />
-                      <Button
-                        size="small"
-                        endIcon={<ArrowForwardIcon />}
-                        onClick={() =>
-                          navigate(`/opportunities/${app.opportunityId}`)
-                        }
-                        sx={{ textTransform: "none", color: "info.main" }}
+
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", gap: 2 }}
                       >
-                        View
-                      </Button>
+                        <Chip
+                          label={statusConfig.label}
+                          size="small"
+                          sx={{
+                            bgcolor: statusConfig.background,
+                            color: statusConfig.color,
+                            fontWeight: 600,
+                            fontSize: "0.8rem",
+                          }}
+                        />
+                        <Button
+                          size="small"
+                          endIcon={<ArrowForwardIcon />}
+                          disabled={!app.opportunityId}
+                          onClick={() => {
+                            if (app.opportunityId) {
+                              navigate(`/opportunities/${app.opportunityId}`);
+                            }
+                          }}
+                          sx={{ textTransform: "none", color: "info.main" }}
+                        >
+                          View
+                        </Button>
+                      </Box>
                     </Box>
-                  </Box>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </Box>
         )}
       </Container>

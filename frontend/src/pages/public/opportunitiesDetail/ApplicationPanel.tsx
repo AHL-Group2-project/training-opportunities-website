@@ -2,14 +2,14 @@ import { Box, Button, Typography } from "@mui/material";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import type { Opportunity } from "../../../mock/opportunities";
+import type { Opportunity } from "../../../types/opportunity.types";
 
 interface ApplicationPanelProps {
   opportunity: Opportunity;
   hasApplied: boolean;
   isDeadlinePassed: boolean;
-  isSeatsFilled: boolean;
   isAuthenticated: boolean;
+  isStudent: boolean;
   onApply: () => void;
 }
 
@@ -17,20 +17,21 @@ function ApplicationPanel({
   opportunity,
   hasApplied,
   isDeadlinePassed,
-  isSeatsFilled,
   isAuthenticated,
+  isStudent,
   onApply,
 }: ApplicationPanelProps) {
   const getButtonText = () => {
     if (!isAuthenticated) return "Login to Apply";
+    if (!isStudent) return "Students Only";
     if (hasApplied) return "Already Applied";
     if (isDeadlinePassed) return "Deadline Passed";
-    if (isSeatsFilled) return "Seats Filled";
+    if (opportunity.applicationType === "external") return "Apply Externally";
     return "Apply Now";
   };
 
   const isDisabled =
-    !isAuthenticated || hasApplied || isDeadlinePassed || isSeatsFilled;
+    isAuthenticated && (!isStudent || hasApplied || isDeadlinePassed);
 
   return (
     <Box
@@ -58,6 +59,7 @@ function ApplicationPanel({
             {opportunity.type}
           </Typography>
         </Box>
+
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <LocationOnOutlinedIcon
             sx={{ color: "text.secondary", fontSize: 20 }}
@@ -66,12 +68,17 @@ function ApplicationPanel({
             {opportunity.location}
           </Typography>
         </Box>
+
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <CalendarTodayOutlinedIcon
             sx={{ color: "text.secondary", fontSize: 20 }}
           />
           <Typography variant="body2" color="text.secondary">
-            {opportunity.daysLeft} days left
+            {opportunity.daysLeft == null
+              ? "No deadline"
+              : isDeadlinePassed
+                ? "Deadline passed"
+                : `${opportunity.daysLeft} days left`}
           </Typography>
         </Box>
       </Box>
@@ -89,16 +96,6 @@ function ApplicationPanel({
       >
         {getButtonText()}
       </Button>
-
-      {opportunity.seats && (
-        <Typography
-          variant="caption"
-          color="text.secondary"
-          sx={{ mt: 1, display: "block", textAlign: "center" }}
-        >
-          {opportunity.applicants} applied • {opportunity.seats} seats
-        </Typography>
-      )}
     </Box>
   );
 }

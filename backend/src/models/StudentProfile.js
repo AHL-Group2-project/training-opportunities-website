@@ -27,7 +27,7 @@ const studentProfileSchema = new mongoose.Schema(
       unique: true,
     },
     year: {
-      type: String, 
+      type: String,
     },
     graduationYear: {
       type: String,
@@ -107,10 +107,6 @@ const studentProfileSchema = new mongoose.Schema(
     companyId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CompanyProfile",
-    },
-    university: {
-      type: String,
-      required: true,
     },
   },
   { timestamps: true, collection: "studentProfiles" }

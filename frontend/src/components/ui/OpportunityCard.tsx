@@ -10,8 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import type { Opportunity } from "../../mock/opportunities";
-
+import type { Opportunity } from "../../types/opportunity.types";
+import fallbackLogo from "../../assets/images/logo.png";
 interface Props {
   opportunity: Opportunity;
 }
@@ -43,7 +43,14 @@ function OpportunityCard({ opportunity }: Props) {
         component="img"
         alt={opportunity.company}
         height="100"
-        image={opportunity.logo || "/logo.png"}
+        image={
+          !opportunity.logo || opportunity.logo.includes("via.placeholder.com")
+            ? fallbackLogo
+            : opportunity.logo
+        }
+        onError={(event) => {
+          event.currentTarget.src = fallbackLogo;
+        }}
         sx={{ objectFit: "contain", p: 1.5, bgcolor: "transparent" }}
       />
 
@@ -117,7 +124,12 @@ function OpportunityCard({ opportunity }: Props) {
         >
           <span>📍 {opportunity.location}</span>
           <span>🪑 {opportunity.seats}</span>
-          <span>⏳ {opportunity.daysLeft}d</span>
+          <span>
+            ⏳{" "}
+            {opportunity.daysLeft === null
+              ? "No deadline"
+              : `${opportunity.daysLeft}d`}
+          </span>{" "}
         </Box>
       </CardContent>
 

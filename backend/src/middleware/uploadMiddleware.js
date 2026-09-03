@@ -17,7 +17,7 @@ const createUploader = (folderName, allowedFormats, resourceType = "auto") => {
         baseParams.allowed_formats = allowedFormats;
       }
 
-      // Cloudinary strips extensions for raw files unless explicitly set in public_id
+      // Cloudinary strips extensions for raw files (like PDFs) unless explicitly set in public_id
       if (resourceType === "raw") {
         const ext = path.extname(file.originalname);
         const randomName = crypto.randomBytes(10).toString("hex");
@@ -30,6 +30,14 @@ const createUploader = (folderName, allowedFormats, resourceType = "auto") => {
   return multer({ storage: storage });
 };
 
-export const uploadProfileImage = createUploader("profiles", ["jpg", "jpeg", "png", "webp"], "image");
+export const uploadProfileImage = createUploader(
+  "profiles",
+  ["jpg", "jpeg", "png", "webp"],
+  "image"
+);
 export const uploadDocument = createUploader("documents", null, "raw");
-export const uploadOpportunityImage = createUploader("opportunities", ["jpg", "jpeg", "png", "webp"], "image");
+export const uploadOpportunityImage = createUploader(
+  "opportunities",
+  ["jpg", "jpeg", "png", "webp"],
+  "image"
+);

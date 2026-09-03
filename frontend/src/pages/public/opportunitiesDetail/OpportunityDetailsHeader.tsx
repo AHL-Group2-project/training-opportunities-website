@@ -1,8 +1,7 @@
 import { Avatar, Box, Button, Typography } from "@mui/material";
-
 import { Link } from "react-router-dom";
 
-import type { Opportunity } from "../../../mock/opportunities";
+import type { Opportunity } from "../../../types/opportunity.types";
 
 type OpportunityDetailsHeaderProps = {
   opportunity: Opportunity;
@@ -11,7 +10,9 @@ type OpportunityDetailsHeaderProps = {
 function OpportunityDetailsHeader({
   opportunity,
 }: OpportunityDetailsHeaderProps) {
-  const companyInitials = opportunity.company.slice(0, 2).toUpperCase();
+  const companyInitials = (opportunity.company || "Company")
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
     <Box
@@ -53,6 +54,8 @@ function OpportunityDetailsHeader({
         }}
       >
         <Avatar
+          src={opportunity.logo || undefined}
+          alt={`${opportunity.company} logo`}
           sx={{
             width: {
               xs: 64,
@@ -69,6 +72,11 @@ function OpportunityDetailsHeader({
             },
             fontWeight: 700,
             borderRadius: 3,
+            "& img": {
+              objectFit: "contain",
+              backgroundColor: "white",
+              p: 0.5,
+            },
           }}
         >
           {companyInitials}
