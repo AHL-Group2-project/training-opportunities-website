@@ -250,16 +250,13 @@ export default function NotificationsPage() {
                         />
                       )}
                     </Box>
-                    <Typography
-                      sx={{
-                        variant: "body2",
-                        color: "text.secondary",
-                        mt: 0.3,
-                        lineHeight: 1.5
-                      }}
-                    >
-                      {n.link && <Typography variant="caption" sx={{ display: 'block', mt: 1 }}><a href={n.link} style={{ color: 'inherit', textDecoration: 'underline' }}>View Details</a></Typography>}
-                    </Typography>
+                    <Box sx={{ mt: 0.3, lineHeight: 1.5 }}>
+                      {n.link && (
+                        <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>
+                          <a href={n.link} style={{ color: 'inherit', textDecoration: 'underline' }}>View Details</a>
+                        </Typography>
+                      )}
+                    </Box>
                     <Typography
                       variant="caption"
                       color="text.disabled"
