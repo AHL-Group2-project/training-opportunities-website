@@ -11,6 +11,7 @@ import notificationRoutes from "./routes/notificationRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 import companyRoutes from "./routes/companyRoutes.js";
 import rateLimit from "express-rate-limit";
+import changeRequestRoutes from "./routes/changeRequestRoutes.js";
 
 const app = express();
 
@@ -35,5 +36,7 @@ app.use("/api/supervisors", supervisorRoutes);
 app.use("/api/supervisors", supervisorRequestsRoutes);
 app.use("/api/companies", companyRoutes);
 app.use("/api/notifications", notificationRoutes);
+app.use("/api/change-requests", changeRequestRoutes);
 app.use(errorHandler);
+
 export default app;

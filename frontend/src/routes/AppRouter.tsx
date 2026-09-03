@@ -59,7 +59,7 @@ import AdminDashboardPage from "../pages/admin/AdminDashboardPage/AdminDashboard
 import AdminStudentsPage from "../pages/admin/AdminStudentsPage/AdminStudentsPage";
 import AdminSupervisorsPage from "../pages/admin/AdminSupervisorsPage/AdminSupervisorsPage";
 import AdminProfilePage from "../pages/admin/AdminProfilePage";
-
+import AdminChangeRequestsPage from "../pages/admin/AdminChangeRequestsPage/AdminChangeRequestsPage";
 function AppRouter() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
@@ -143,6 +143,7 @@ function AppRouter() {
             <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
             <Route path="/admin/students" element={<AdminStudentsPage />} />
             <Route path="/admin/students/:id" element={<StudentDetailPage />} />
+            <Route path="/admin/change-requests" element={<AdminChangeRequestsPage />} />
             <Route
               path="/admin/supervisors"
               element={<AdminSupervisorsPage />}
