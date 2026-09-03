@@ -1,10 +1,10 @@
-import { useState, type FormEvent } from "react";
-
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   Alert,
   Box,
   Button,
   Chip,
+  CircularProgress,
   Divider,
   Paper,
   TextField,
@@ -13,24 +13,150 @@ import {
 
 import { Link, useParams } from "react-router-dom";
 
-import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
+import axios from "axios";
+import api from "../../../lib/axios";
+import type { Opportunity } from "../../../types/opportunity.types";
 import { useAuth } from "../../../context/authContext";
 
 function OpportunityApplicationPage() {
   const { id } = useParams();
   const { user } = useAuth();
 
-  const [fullName, setFullName] = useState(user?.name ?? "");
-  const [email, setEmail] = useState(user?.email ?? "");
-  const [studentId, setStudentId] = useState("");
+  // Reset form and request state when the opportunity or account changes.
+  return (
+    <OpportunityApplicationForm
+      key={JSON.stringify([id, user?.id, user?.role])}
+    />
+  );
+}
+
+function OpportunityApplicationForm() {
+  const { id } = useParams();
+  const { user } = useAuth();
+  const [opportunity, setOpportunity] = useState<Opportunity | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [hasApplied, setHasApplied] = useState(false);
+  const [loadError, setLoadError] = useState("");
+  const [retryKey, setRetryKey] = useState(0);
+  const isStudent = user?.role === "student";
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadOpportunity = async () => {
+      let checkingApplications = false;
+      if (!id) {
+        setLoading(false);
+        return;
+      }
+
+      try {
+        setLoading(true);
+        setLoadError("");
+
+        if (!isStudent) {
+          setLoadError("Please sign in with a student account to apply.");
+          return;
+        }
+
+        const response = await api.get<Opportunity>(`/opportunities/${id}`);
+
+        if (response.data.applicationType === "external") {
+          if (isMounted) {
+            setLoadError(
+              "This opportunity accepts applications through an external website.",
+            );
+          }
+          return;
+        }
+
+        checkingApplications = true;
+        const applicationsResponse =
+          await api.get<{ opportunityId: string | null }[]>("/applications/me");
+        if (!Array.isArray(applicationsResponse.data)) {
+          throw new Error("Invalid applications response");
+        }
+        const alreadyApplied = applicationsResponse.data.some(
+          (application) =>
+            application.opportunityId != null &&
+            String(application.opportunityId) === String(response.data.id),
+        );
+
+        if (isMounted) {
+          setOpportunity(response.data);
+          setHasApplied(alreadyApplied);
+        }
+      } catch (error) {
+        if (isMounted) {
+          setOpportunity(null);
+          setLoadError(
+            checkingApplications
+              ? "Unable to check your application status. Please try again."
+              : axios.isAxiosError(error) && error.response?.status === 404
+                ? "Opportunity not found."
+                : "Unable to load the opportunity. Please try again.",
+          );
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadOpportunity();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id, isStudent, retryKey]);
+
+  const fullName = user?.name ?? "";
+  const email = user?.email ?? "";
   const [phoneNumber, setPhoneNumber] = useState("");
   const [coverLetter, setCoverLetter] = useState("");
-
   const [cvFile, setCvFile] = useState<File | null>(null);
+
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const submitInProgress = useRef(false);
 
   const [submitted, setSubmitted] = useState(false);
 
-  const opportunity = MOCK_OPPORTUNITIES.find((item) => item.id === Number(id));
+  if (loading) {
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", py: 10 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <Box sx={{ maxWidth: 900, mx: "auto", px: 2, py: 6 }}>
+        <Alert severity="error" sx={{ mb: 2 }}>
+          {loadError}
+        </Alert>
+        <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+          <Button
+            variant="contained"
+            onClick={() => {
+              setLoading(true);
+              setRetryKey((value) => value + 1);
+            }}
+          >
+            Try again
+          </Button>
+          <Button
+            component={Link}
+            to={id ? `/opportunities/${id}` : "/opportunities"}
+          >
+            Back to opportunity
+          </Button>
+        </Box>
+      </Box>
+    );
+  }
 
   if (!opportunity) {
     return (
@@ -69,38 +195,81 @@ function OpportunityApplicationPage() {
     );
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!opportunity || !cvFile) {
+    if (!opportunity || hasApplied || submitted || submitInProgress.current)
+      return;
+
+    if (user?.role !== "student") {
+      setSubmitError("Please sign in with a student account to apply.");
       return;
     }
 
-    const applicationData = {
-      opportunityId: opportunity.id,
-      opportunityTitle: opportunity.title,
-      company: opportunity.company,
+    if (!phoneNumber.trim()) {
+      setSubmitError("Please enter your phone number.");
+      return;
+    }
 
-      student: {
-        id: user?.id,
-        name: fullName,
-        email,
-        universityId: studentId,
-        phoneNumber,
-      },
+    if (!cvFile) {
+      setSubmitError("Please upload your CV.");
+      return;
+    }
 
-      coverLetter,
-      cvFile,
-    };
+    const isPdf =
+      cvFile.type === "application/pdf" ||
+      cvFile.name.toLowerCase().endsWith(".pdf");
 
-    console.log("Application data:", applicationData);
+    if (!isPdf) {
+      setSubmitError("Please upload your CV as a PDF file.");
+      return;
+    }
 
-    setSubmitted(true);
+    const maxCvSize = 5 * 1024 * 1024;
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (cvFile.size > maxCvSize) {
+      setSubmitError("The CV file must not exceed 5 MB.");
+      return;
+    }
+
+    submitInProgress.current = true;
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const formData = new FormData();
+      formData.append("opportunityId", String(opportunity.id));
+      formData.append("coverLetter", coverLetter.trim());
+      formData.append("phoneNumber", phoneNumber.trim());
+      formData.append("cv", cvFile);
+
+      await api.post("/applications", formData, {
+        headers: {
+          "Content-Type": undefined,
+        },
+      });
+      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response?.status === 409) {
+        setHasApplied(true);
+        setSubmitError("");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      const message = axios.isAxiosError<{ message?: string }>(error)
+        ? error.response?.data?.message
+        : undefined;
+      setSubmitError(
+        typeof message === "string"
+          ? message
+          : "Unable to submit your application. Please try again.",
+      );
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } finally {
+      submitInProgress.current = false;
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -149,15 +318,27 @@ function OpportunityApplicationPage() {
               fontWeight: 700,
             }}
           >
-            Apply for this opportunity
+            {hasApplied
+              ? "Already Applied"
+              : submitted
+                ? "Application Submitted"
+                : "Apply for this opportunity"}
           </Typography>
 
           <Typography color="text.secondary">
-            Complete the application form and upload the required documents.
+            {hasApplied || submitted
+              ? "You can view your application or return to the opportunity details."
+              : "Complete the application form and upload your CV as a PDF file."}
           </Typography>
         </Box>
 
         {/* Success message */}
+        {hasApplied && (
+          <Alert severity="info" sx={{ mb: 3, borderRadius: 2 }}>
+            You have already applied to this opportunity.
+          </Alert>
+        )}
+
         {submitted && (
           <Alert
             severity="success"
@@ -167,6 +348,18 @@ function OpportunityApplicationPage() {
             }}
           >
             Your application has been submitted successfully.
+          </Alert>
+        )}
+
+        {(submitted || hasApplied) && (
+          <Button component={Link} to="/applications" sx={{ mb: 3 }}>
+            Go to My Applications
+          </Button>
+        )}
+
+        {submitError && (
+          <Alert severity="error" sx={{ mb: 3, borderRadius: 2 }}>
+            {submitError}
           </Alert>
         )}
 
@@ -229,250 +422,224 @@ function OpportunityApplicationPage() {
         </Paper>
 
         {/* Application form */}
-        <Paper
-          component="form"
-          onSubmit={handleSubmit}
-          elevation={0}
-          sx={{
-            p: { xs: 2.5, sm: 4 },
-            border: "1px solid",
-            borderColor: "divider",
-            borderRadius: 2,
-          }}
-        >
-          {/* Student information */}
-          <Typography
-            variant="h6"
+        {!hasApplied && !submitted && (
+          <Paper
+            component="form"
+            onSubmit={handleSubmit}
+            elevation={0}
             sx={{
-              mb: 0.5,
-              color: "text.primary",
-              fontWeight: 700,
+              p: { xs: 2.5, sm: 4 },
+              border: "1px solid",
+              borderColor: "divider",
+              borderRadius: 2,
             }}
           >
-            Student information
-          </Typography>
+            {/* Student information */}
+            <Typography
+              variant="h6"
+              sx={{
+                mb: 0.5,
+                color: "text.primary",
+                fontWeight: 700,
+              }}
+            >
+              Student information
+            </Typography>
 
-          <Typography variant="body2" color="text.secondary">
-            Review your account information and enter the required university
-            details.
-          </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Your name, email, and university ID are taken from your registered
+              student profile. Enter your contact phone number below.
+            </Typography>
 
-          <Box
-            sx={{
-              mt: 3,
-              display: "grid",
-              gridTemplateColumns: {
-                xs: "1fr",
-                sm: "repeat(2, 1fr)",
-              },
-              gap: 2.5,
-            }}
-          >
+            <Box
+              sx={{
+                mt: 3,
+                display: "grid",
+                gridTemplateColumns: {
+                  xs: "1fr",
+                  sm: "repeat(2, 1fr)",
+                },
+                gap: 2.5,
+              }}
+            >
+              <TextField
+                required
+                fullWidth
+                label="Full name"
+                value={fullName}
+                disabled
+                slotProps={{
+                  inputLabel: {
+                    shrink: true,
+                  },
+                }}
+              />
+
+              <TextField
+                required
+                fullWidth
+                type="email"
+                label="Email"
+                value={email}
+                disabled
+                slotProps={{
+                  inputLabel: {
+                    shrink: true,
+                  },
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label="University ID"
+                value="Taken from your student profile"
+                disabled
+                slotProps={{
+                  inputLabel: {
+                    shrink: true,
+                  },
+                }}
+              />
+
+              <TextField
+                required
+                fullWidth
+                type="tel"
+                label="Phone number"
+                disabled={submitting || submitted}
+                value={phoneNumber}
+                onChange={(event) => setPhoneNumber(event.target.value)}
+                slotProps={{
+                  htmlInput: { maxLength: 30 },
+                  inputLabel: {
+                    shrink: true,
+                  },
+                }}
+              />
+            </Box>
+
+            {/* Cover letter */}
             <TextField
-              required
               fullWidth
-              label="Full name"
-              value={fullName}
-              onChange={(event) => setFullName(event.target.value)}
+              multiline
+              minRows={5}
+              label="Cover letter"
+              disabled={submitting || submitted}
+              placeholder="Tell the company why you are interested in this opportunity..."
+              value={coverLetter}
+              onChange={(event) => setCoverLetter(event.target.value)}
               slotProps={{
+                htmlInput: { maxLength: 5000 },
                 inputLabel: {
                   shrink: true,
                 },
               }}
+              sx={{ mt: 2.5 }}
             />
 
-            <TextField
-              required
-              fullWidth
-              type="email"
-              label="Email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              slotProps={{
-                inputLabel: {
-                  shrink: true,
-                },
-              }}
-            />
+            <Divider sx={{ my: 4 }} />
 
-            <TextField
-              required
-              fullWidth
-              label="University ID"
-              value={studentId}
-              onChange={(event) => setStudentId(event.target.value)}
-              slotProps={{
-                inputLabel: {
-                  shrink: true,
-                },
-              }}
-            />
-
-            <TextField
-              required
-              fullWidth
-              type="tel"
-              label="Phone number"
-              value={phoneNumber}
-              onChange={(event) => setPhoneNumber(event.target.value)}
-              slotProps={{
-                inputLabel: {
-                  shrink: true,
-                },
-              }}
-            />
-          </Box>
-
-          {/* Cover letter */}
-          <TextField
-            fullWidth
-            multiline
-            minRows={5}
-            label="Cover letter"
-            placeholder="Tell the company why you are interested in this opportunity..."
-            value={coverLetter}
-            onChange={(event) => setCoverLetter(event.target.value)}
-            slotProps={{
-              inputLabel: {
-                shrink: true,
-              },
-            }}
-            sx={{ mt: 2.5 }}
-          />
-
-          <Divider sx={{ my: 4 }} />
-
-          {/* Required documents */}
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 0.5,
-              color: "text.primary",
-              fontWeight: 700,
-            }}
-          >
-            Required documents
-          </Typography>
-
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            Upload your CV. Accepted formats: PDF, DOC and DOCX.
-          </Typography>
-
-          <Box
-            sx={{
-              maxWidth: 450,
-            }}
-          >
-            {/* CV */}
+            {/* CV upload */}
             <Box>
               <Typography
-                variant="body2"
-                sx={{
-                  mb: 1,
-                  fontWeight: 600,
-                }}
+                variant="subtitle1"
+                sx={{ mb: 0.5, color: "text.primary", fontWeight: 700 }}
               >
-                CV *
+                CV / Resume *
+              </Typography>
+
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                Upload your CV as a PDF file. Maximum size: 5 MB.
               </Typography>
 
               <Button
                 component="label"
-
-                fullWidth
-                sx={{
-                  minHeight: 54,
-                  px: 2,
-                  textTransform: "none",
-                  borderRadius: 2,
-                  overflow: "hidden",
-                }}
+                variant="outlined"
+                disabled={submitting || submitted}
+                sx={{ textTransform: "none", borderRadius: 2 }}
               >
-                <Typography
-                  variant="body2"
-                  noWrap
-                  sx={{
-                    width: "100%",
-                    fontWeight: 600,
-                  }}
-                >
-                  {cvFile ? cvFile.name : "Upload CV"}
-                </Typography>
-
+                {cvFile ? "Change CV" : "Choose CV"}
                 <input
                   hidden
                   type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={(event) =>
-                    setCvFile(event.target.files?.[0] ?? null)
-                  }
+                  accept="application/pdf,.pdf"
+                  onChange={(event) => {
+                    const selectedFile = event.target.files?.[0] ?? null;
+                    setCvFile(selectedFile);
+                    setSubmitError("");
+                  }}
                 />
               </Button>
 
               {cvFile && (
-                <Button
-                  size="small"
-                  color="error"
-                  onClick={() => setCvFile(null)}
-                  sx={{
-                    mt: 0.5,
-                    px: 0,
-                    textTransform: "none",
-                  }}
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 1.5 }}
                 >
-                  Remove file
-                </Button>
+                  Selected file: {cvFile.name}
+                </Typography>
               )}
             </Box>
-          </Box>
 
-          {/* Actions */}
-          <Box
-            sx={{
-              mt: 4,
-              display: "flex",
-              flexDirection: {
-                xs: "column-reverse",
-                sm: "row",
-              },
-              justifyContent: "flex-end",
-              gap: 2,
-            }}
-          >
-            <Button
-              component={Link}
-              to={`/opportunities/${opportunity.id}`}
-              variant="outlined"
+            {/* Actions */}
+            <Box
               sx={{
-                px: 3,
-                textTransform: "none",
-                borderRadius: 2,
-                fontWeight: 600,
-              }}
-            >
-              Cancel
-            </Button>
-
-            <Button
-              type="submit"
-              variant="contained"
-              disabled={!cvFile}
-              sx={{
-                px: 4,
-                backgroundColor: "primary.main",
-                textTransform: "none",
-                borderRadius: 2,
-                boxShadow: "none",
-                fontWeight: 700,
-                "&:hover": {
-                  backgroundColor: "#2A3F6B",
-                  boxShadow: "none",
+                mt: 4,
+                display: "flex",
+                flexDirection: {
+                  xs: "column-reverse",
+                  sm: "row",
                 },
+                justifyContent: "flex-end",
+                gap: 2,
               }}
             >
-              Submit application
-            </Button>
-          </Box>
-        </Paper>
+              <Button
+                component={Link}
+                to={`/opportunities/${opportunity.id}`}
+                variant="outlined"
+                sx={{
+                  px: 3,
+                  textTransform: "none",
+                  borderRadius: 2,
+                  fontWeight: 600,
+                }}
+              >
+                Cancel
+              </Button>
+
+              <Button
+                type="submit"
+                variant="contained"
+                disabled={submitting || submitted || user?.role !== "student"}
+                startIcon={
+                  submitting ? (
+                    <CircularProgress size={18} color="inherit" />
+                  ) : undefined
+                }
+                sx={{
+                  px: 4,
+                  backgroundColor: "primary.main",
+                  textTransform: "none",
+                  borderRadius: 2,
+                  boxShadow: "none",
+                  fontWeight: 700,
+                  "&:hover": {
+                    backgroundColor: "#2A3F6B",
+                    boxShadow: "none",
+                  },
+                }}
+              >
+                {submitting
+                  ? "Submitting..."
+                  : submitted
+                    ? "Submitted"
+                    : "Submit application"}
+              </Button>
+            </Box>
+          </Paper>
+        )}
       </Box>
     </Box>
   );

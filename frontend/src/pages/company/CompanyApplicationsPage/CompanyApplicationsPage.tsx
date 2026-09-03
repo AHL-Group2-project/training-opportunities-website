@@ -1,7 +1,17 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import {
+  Alert,
+  Avatar,
   Box,
+  Button,
+  Chip,
+  CircularProgress,
   Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Paper,
   Table,
   TableBody,
@@ -10,48 +20,103 @@ import {
   TableHead,
   TableRow,
   Typography,
-  Chip,
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Avatar,
 } from "@mui/material";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  MOCK_APPLICATIONS,
-  type Application,
-} from "../../../mock/applications";
-import { MOCK_OPPORTUNITIES } from "../../../mock/opportunities";
-import { students } from "../../../mock/students";
+import api from "../../../lib/axios";
 
-type ExtendedApp = Application & {
-  student: (typeof students)[0] | undefined;
-  opportunity: (typeof MOCK_OPPORTUNITIES)[0] | undefined;
+type ApplicationStatus = "pending" | "accepted" | "rejected";
+
+interface CompanyApplication {
+  id: string;
+  studentId: string | null;
+  opportunityId: string | null;
+  student: {
+    id: string;
+    name: string;
+    major: string;
+    studentId: string;
+    university: string; email: string;
+  } | null;
+  opportunity: {
+    id: string;
+    title: string;
+  } | null;
+  status: ApplicationStatus;
+  appliedAt: string;
+  coverLetter: string;
+  phoneNumber: string;
+  cvUrl: string;
+  cvOriginalName: string;
+}
+
+const statusConfig: Record<
+  ApplicationStatus,
+  { label: string; color: string; backgroundColor: string }
+> = {
+  pending: {
+    label: "Submitted",
+    color: "#1D4ED8",
+    backgroundColor: "#DBEAFE",
+  },
+  accepted: {
+    label: "Accepted",
+    color: "#047857",
+    backgroundColor: "#D1FAE5",
+  },
+  rejected: {
+    label: "Rejected",
+    color: "#B91C1C",
+    backgroundColor: "#FEE2E2",
+  },
 };
 
 export default function CompanyApplicationsPage() {
-  const applications = useMemo(() => {
-    return MOCK_APPLICATIONS.map((app) => {
-      const student = students.find((s) => s.id === app.studentId);
-      const opportunity = MOCK_OPPORTUNITIES.find(
-        (o) => o.id === app.opportunityId,
-      );
-      return { ...app, student, opportunity };
-    });
-  }, []);
+  const [applications, setApplications] = useState<CompanyApplication[]>([]);
+  const [selectedApp, setSelectedApp] = useState<CompanyApplication | null>(
+    null,
+  );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [reloadKey, setReloadKey] = useState(0);
 
-  const [selectedApp, setSelectedApp] = useState<ExtendedApp | null>(null);
+  useEffect(() => {
+    let isMounted = true;
 
-  const handleOpenApp = (app: ExtendedApp) => {
-    setSelectedApp(app);
-  };
+    const loadApplications = async () => {
+      try {
+        setLoading(true);
+        setError("");
 
-  const handleCloseApp = () => {
-    setSelectedApp(null);
-  };
+        const response = await api.get<CompanyApplication[]>(
+          "/applications/company",
+        );
+
+        if (isMounted) {
+          setApplications(response.data);
+        }
+      } catch (requestError) {
+        if (isMounted) {
+          const message = axios.isAxiosError<{ message?: string }>(requestError)
+            ? requestError.response?.data?.message
+            : undefined;
+
+          setError(
+            typeof message === "string"
+              ? message
+              : "Unable to load applications. Please try again.",
+          );
+        }
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    void loadApplications();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [reloadKey]);
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -62,6 +127,23 @@ export default function CompanyApplicationsPage() {
         Students who applied to your opportunities. Contact them externally via
         email.
       </Typography>
+
+      {error && (
+        <Alert
+          severity="error"
+          action={
+            <Button
+              color="inherit"
+              onClick={() => setReloadKey((key) => key + 1)}
+            >
+              Retry
+            </Button>
+          }
+          sx={{ mb: 3 }}
+        >
+          {error}
+        </Alert>
+      )}
 
       <TableContainer component={Paper} sx={{ borderRadius: 3 }}>
         <Table>
@@ -75,7 +157,13 @@ export default function CompanyApplicationsPage() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {applications.length === 0 ? (
+            {loading ? (
+              <TableRow>
+                <TableCell colSpan={5} align="center" sx={{ py: 6 }}>
+                  <CircularProgress size={32} />
+                </TableCell>
+              </TableRow>
+            ) : applications.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5} align="center" sx={{ py: 6 }}>
                   <Typography color="text.secondary">
@@ -84,88 +172,89 @@ export default function CompanyApplicationsPage() {
                 </TableCell>
               </TableRow>
             ) : (
-              applications.map((app) => (
-                <TableRow key={app.id}>
-                  <TableCell>
-                    <Box
-                      sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
-                    >
-                      <Avatar
-                        sx={{ width: 32, height: 32, bgcolor: "primary.main" }}
+              applications.map((application) => {
+                const status =
+                  statusConfig[application.status] ?? statusConfig.pending;
+
+                return (
+                  <TableRow key={application.id}>
+                    <TableCell>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
                       >
-                        {app.student?.name?.[0]}
-                      </Avatar>
-                      <Box>
-                        <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                          {app.student?.name}
-                        </Typography>
-                        <Typography
-                          variant="caption"
-                          sx={{ color: "text.secondary" }}
+                        <Avatar
+                          sx={{
+                            width: 32,
+                            height: 32,
+                            bgcolor: "primary.main",
+                          }}
                         >
-                          {app.student?.major}
-                        </Typography>
+                          {application.student?.name?.[0] ?? "?"}
+                        </Avatar>
+                        <Box>
+                          <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                            {application.student?.name ?? "Unavailable student"}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary">
+                            {application.student?.major ?? "Major unavailable"}
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant="body2">
-                      {app.opportunity?.title}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant="body2" color="text.secondary">
-                      {app.appliedAt
-                        ? new Date(app.appliedAt).toLocaleDateString()
+                    </TableCell>
+                    <TableCell>
+                      {application.opportunity?.title ??
+                        "Unavailable opportunity"}
+                    </TableCell>
+                    <TableCell>
+                      {application.appliedAt
+                        ? new Date(application.appliedAt).toLocaleDateString()
                         : "-"}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Chip
-                      label="Submitted"
-                      size="small"
-                      sx={{
-                        bgcolor: "rgba(255, 255, 255, 0.1)",
-                        color: "primary.main",
-                        fontWeight: 600,
-                        borderRadius: 1,
-                      }}
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <Box sx={{ display: "flex", gap: 1 }}>
-                      <Button
+                    </TableCell>
+                    <TableCell>
+                      <Chip
+                        label={status.label}
                         size="small"
-                        variant="contained"
-                        onClick={() => handleOpenApp(app)}
-                        sx={{ textTransform: "none" }}
-                      >
-                        View Application
-                      </Button>
-                      <Button
-                        component={Link}
-                        to={`/students/${app.studentId}`}
-                        size="small"
-                        variant="outlined"
                         sx={{
-                          textTransform: "none",
+                          color: status.color,
+                          bgcolor: status.backgroundColor,
+                          fontWeight: 600,
                         }}
-                      >
-                        View Profile
-                      </Button>
-                    </Box>
-                  </TableCell>
-                </TableRow>
-              ))
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+                        <Button
+                          size="small"
+                          variant="contained"
+                          onClick={() => setSelectedApp(application)}
+                          sx={{ textTransform: "none" }}
+                        >
+                          View Application
+                        </Button>
+                        {application.studentId && (
+                          <Button
+                            component={Link}
+                            to={`/students/${application.studentId}`}
+                            size="small"
+                            variant="outlined"
+                            sx={{ textTransform: "none" }}
+                          >
+                            View Profile
+                          </Button>
+                        )}
+                      </Box>
+                    </TableCell>
+                  </TableRow>
+                );
+              })
             )}
           </TableBody>
         </Table>
       </TableContainer>
 
-      {/* View Application Dialog */}
       <Dialog
-        open={!!selectedApp}
-        onClose={handleCloseApp}
+        open={selectedApp !== null}
+        onClose={() => setSelectedApp(null)}
         maxWidth="sm"
         fullWidth
       >
@@ -177,8 +266,8 @@ export default function CompanyApplicationsPage() {
                 <Typography variant="subtitle2" color="text.secondary">
                   Applicant
                 </Typography>
-                <Typography variant="body1">
-                  {selectedApp.student?.name}
+                <Typography>
+                  {selectedApp.student?.name ?? "Unavailable"}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   {selectedApp.student?.email || "No email provided"}
@@ -187,58 +276,82 @@ export default function CompanyApplicationsPage() {
 
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
+                  University ID
+                </Typography>
+                <Typography>
+                  {selectedApp.student?.studentId ?? "Unavailable"}
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
+                  Phone number
+                </Typography>
+                <Typography>
+                  {selectedApp.phoneNumber || "Not provided"}
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography variant="subtitle2" color="text.secondary">
                   Position
                 </Typography>
-                <Typography variant="body1">
-                  {selectedApp.opportunity?.title}
+                <Typography>
+                  {selectedApp.opportunity?.title ?? "Unavailable"}
                 </Typography>
               </Box>
 
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Availability Date
+                  Applied date
                 </Typography>
-                <Typography variant="body1">
-                  {selectedApp.availabilityDate
-                    ? new Date(
-                        selectedApp.availabilityDate,
-                      ).toLocaleDateString()
-                    : "Not specified"}
+                <Typography>
+                  {selectedApp.appliedAt
+                    ? new Date(selectedApp.appliedAt).toLocaleDateString()
+                    : "Unavailable"}
                 </Typography>
               </Box>
 
               <Box>
                 <Typography variant="subtitle2" color="text.secondary">
-                  Links
+                  Cover letter
                 </Typography>
-                {selectedApp.cvUrl && (
-                  <Typography variant="body2">
-                    <a
-                      href={selectedApp.cvUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Download Resume / CV
-                    </a>
-                  </Typography>
-                )}
-                {selectedApp.portfolioUrl && (
-                  <Typography variant="body2">
-                    <a
-                      href={selectedApp.portfolioUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Portfolio URL
-                    </a>
-                  </Typography>
-                )}
+                <Typography sx={{ whiteSpace: "pre-wrap" }}>
+                  {selectedApp.coverLetter || "No cover letter provided"}
+                </Typography>
               </Box>
+
+              {selectedApp.cvUrl ? (
+                <Box>
+                  <Typography
+                    variant="subtitle2"
+                    color="text.secondary"
+                    sx={{ mb: 1 }}
+                  >
+                    CV / Resume
+                  </Typography>
+
+                  <Button
+                    component="a"
+                    href={selectedApp.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="outlined"
+                    sx={{ textTransform: "none" }}
+                  >
+                    Download Resume / CV
+                  </Button>
+                </Box>
+              ) : (
+                <Alert severity="info">
+                  No CV was attached to this application.
+                </Alert>
+              )}
             </Box>
           )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseApp}>Close</Button>
+          <Button onClick={() => setSelectedApp(null)}>Close</Button>
         </DialogActions>
       </Dialog>
     </Container>
