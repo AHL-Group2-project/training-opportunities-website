@@ -1,5 +1,5 @@
 import express from "express";
-import { getMyProfile, updateMyProfile, submitTrainingRequest, getMyRequests, getPublicStudents, getPublicStudentById, uploadStudentAvatar, uploadStudentDocument } from "../controllers/studentController.js";
+import { getMyProfile, updateMyProfile, submitTrainingRequest, getMyRequests, getPublicStudents, getPublicStudentById, uploadStudentAvatar, uploadStudentDocument, getMyReports, submitReport, uploadRequestAttachments } from "../controllers/studentController.js";
 import { getMyHours, submitMyHoursBulk, getMyTrainingState } from "../controllers/studentHoursController.js";
 import { protect, authorize } from "../middleware/authMiddleware.js";
 import { uploadProfileImage, uploadDocument } from "../middleware/uploadMiddleware.js";
@@ -21,6 +21,11 @@ router.post("/requests", submitTrainingRequest);
 // Upload routes
 router.post("/me/avatar", uploadProfileImage.single("avatar"), uploadStudentAvatar);
 router.post("/me/document", uploadDocument.single("document"), uploadStudentDocument);
+router.post("/me/requests/attachments", uploadDocument.array("attachments", 5), uploadRequestAttachments);
+
+// Reports routes
+router.get("/me/reports", getMyReports);
+router.post("/me/reports", uploadDocument.single("file"), submitReport);
 
 // Hours routes
 router.get("/me/training-state", getMyTrainingState);

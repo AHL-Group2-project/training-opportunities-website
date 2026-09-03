@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import api from "../../../lib/axios";
 import {
   Box,
   Button,
@@ -133,6 +134,18 @@ function InternshipRequestPage() {
     try {
       setSubmitting(true);
       setError("");
+      
+      let uploadedUrls: string[] = [];
+      if (attachments.length > 0) {
+        const formData = new FormData();
+        attachments.forEach((file) => formData.append("attachments", file));
+        
+        const { data } = await api.post("/students/me/requests/attachments", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        uploadedUrls = data.urls;
+      }
+
       await studentApi.submitRequest({
         type,
         companyName,
@@ -144,7 +157,7 @@ function InternshipRequestPage() {
         endDate,
         expectedHours,
         description,
-        attachments: attachments.map((f) => f.name), // Mocking upload for now
+        attachments: uploadedUrls, // Send actual URLs
       });
       setSubmitted(true);
     } catch (err: any) {

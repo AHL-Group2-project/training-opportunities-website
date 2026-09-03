@@ -1,7 +1,9 @@
 import StudentProfile from "../models/StudentProfile.js";
 import SupervisorProfile from "../models/SupervisorProfile.js";
 import InternshipRequest from "../models/InternshipRequest.js";
+import Report from "../models/Report.js";
 import cloudinary from "../config/cloudinary.js";
+import { createNotification } from "./notificationController.js";
 
 const STUDENT_EDITABLE_FIELDS = [
   "name",
@@ -131,6 +133,15 @@ export const submitTrainingRequest = async (req, res, next) => {
       attachments,
     });
 
+    // Notify the supervisor
+    await createNotification({
+      recipientId: supervisorProfile.userId,
+      senderId: req.user._id,
+      type: "internship_request",
+      message: `${req.user.name} has submitted a new internship request.`,
+      link: `/supervisor/student/${studentProfile.userId}`,
+    });
+
     res.status(201).json({
       message: "Training request submitted successfully to your supervisor.",
       request,
@@ -255,6 +266,77 @@ export const uploadStudentDocument = async (req, res, next) => {
       message: "Document uploaded successfully",
       cvUrl: profile.cvUrl,
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// POST /api/students/me/requests/attachments
+export const uploadRequestAttachments = async (req, res, next) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: "No attachments provided" });
+    }
+
+    const urls = req.files.map((file) => file.path); // Cloudinary paths
+    res.json({ urls });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET /api/students/me/reports
+export const getMyReports = async (req, res, next) => {
+  try {
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+
+    const reports = await Report.find({ studentId: profile._id }).sort({ createdAt: -1 });
+    res.json(reports);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// POST /api/students/me/reports
+export const submitReport = async (req, res, next) => {
+  try {
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+
+    if (!profile.supervisorId) {
+      return res.status(403).json({ message: "You must have a supervisor to submit reports." });
+    }
+
+    const { period, content } = req.body;
+    let fileUrl = "";
+    let fileName = "";
+
+    if (req.file) {
+      fileUrl = req.file.path; // Cloudinary URL
+      fileName = req.file.originalname;
+    }
+
+    const report = await Report.create({
+      studentId: profile._id,
+      supervisorId: profile.supervisorId,
+      companyId: profile.companyId,
+      period,
+      content,
+      fileUrl,
+      fileName,
+    });
+
+    // Notify the supervisor
+    await createNotification({
+      recipientId: (await SupervisorProfile.findById(profile.supervisorId)).userId,
+      senderId: req.user._id,
+      type: "new_report",
+      message: `${req.user.name} has submitted a new report for ${period}.`,
+      link: `/supervisor/student/${profile.userId}`,
+    });
+
+    res.status(201).json(report);
   } catch (error) {
     next(error);
   }

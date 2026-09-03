@@ -2,6 +2,7 @@ import SupervisorProfile from "../models/SupervisorProfile.js";
 import InternshipRequest from "../models/InternshipRequest.js";
 import StudentProfile from "../models/StudentProfile.js"; // must be imported so Mongoose registers the model for populate()
 import CompanyProfile from "../models/CompanyProfile.js";
+import { createNotification } from "./notificationController.js";
 
 const getOwnSupervisorProfile = async (userId) => {
   return SupervisorProfile.findOne({ userId });
@@ -103,6 +104,18 @@ export const updateRequestStatus = async (req, res, next) => {
     }
 
     await request.save();
+
+    // Fetch student profile to get userId for notification
+    const studentProfile = await StudentProfile.findById(request.studentId);
+    if (studentProfile) {
+      await createNotification({
+        recipientId: studentProfile.userId,
+        senderId: req.user._id,
+        type: "request_update",
+        message: `Your internship request has been ${status}.`,
+        link: `/training/requests`,
+      });
+    }
 
     res.json({ message: `Request ${status} successfully.`, request });
   } catch (error) {
