@@ -360,7 +360,7 @@ export const getStudents = async (req, res, next) => {
       university: adminProfile.university,
     })
       .populate("userId", "email isActive")
-      .populate("supervisorId", "email");
+      .populate("supervisorId", "name");
 
     res.json(students);
   } catch (error) {
@@ -423,32 +423,28 @@ export const assignSupervisorToStudent = async (req, res, next) => {
     }
 
     // Verify supervisor exists and belongs to the same university
-    const supervisorExists = await User.findOne({
-      _id: supervisorId,
-      role: "supervisor",
-    });
-    if (!supervisorExists) {
-      return res.status(404).json({ message: "Supervisor not found." });
+    // supervisorId could be either User._id or SupervisorProfile._id
+    let supervisorProfile = await SupervisorProfile.findOne({ userId: supervisorId });
+    if (!supervisorProfile) {
+      // Fallback: Check if it's the SupervisorProfile._id itself
+      supervisorProfile = await SupervisorProfile.findById(supervisorId);
     }
 
-    const supervisorProfile = await SupervisorProfile.findOne({
-      userId: supervisorId,
-    });
-    if (
-      !supervisorProfile ||
-      supervisorProfile.university !== adminProfile.university
-    ) {
-      return res
-        .status(403)
-        .json({ message: "Supervisor does not belong to your university." });
+    if (!supervisorProfile || supervisorProfile.university !== adminProfile.university) {
+      return res.status(403).json({ message: "Supervisor does not belong to your university or could not be found." });
+    }
+
+    const supervisorExists = await User.findOne({ _id: supervisorProfile.userId, role: "supervisor" });
+    if (!supervisorExists) {
+      return res.status(404).json({ message: "Supervisor user account not found." });
     }
 
     await StudentProfile.updateOne(
       { _id: id },
-      { $set: { supervisorId: supervisorId } }
+      { $set: { supervisorId: supervisorProfile._id } }
     );
 
-    studentProfile.supervisorId = supervisorId;
+    studentProfile.supervisorId = supervisorProfile._id;
     res.json({ message: "Supervisor assigned successfully.", studentProfile });
   } catch (error) {
     next(error);

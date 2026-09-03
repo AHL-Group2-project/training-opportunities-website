@@ -51,7 +51,7 @@ export default function StudentsPage() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await api.get<StudentProfile[]>("/student/public");
+        const response = await api.get<StudentProfile[]>("/students/public");
         setStudents(response.data);
       } catch (error) {
         console.error("Failed to fetch public students:", error);

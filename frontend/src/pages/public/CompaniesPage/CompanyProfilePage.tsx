@@ -6,20 +6,17 @@ import {
   Typography,
   Button,
   Grid,
-  Chip,
   Avatar,
   Alert,
   Stack,
   Container,
-  Paper,
   CircularProgress,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
-import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
-import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
+
 
 function stringToColor(text: string): string {
   let hash = 0;
@@ -30,14 +27,6 @@ function stringToColor(text: string): string {
   return `hsl(${hue}, 70%, 45%)`;
 }
 
-function stringToBackgroundColor(text: string): string {
-  let hash = 0;
-  for (let i = 0; i < text.length; i++) {
-    hash = text.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  const hue = hash % 360;
-  return `hsl(${hue}, 70%, 92%)`;
-}
 
 function CompanyProfilePage() {
   const { id } = useParams();
@@ -183,7 +172,7 @@ function CompanyProfilePage() {
 
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Grid container spacing={3}>
-          <Grid item xs={12} md={8}>
+          <Grid sx={{ item: { xs: 12, md: 8 } }}>
             <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mb: 3 }}>
               <Typography variant="h6" sx={{ mb: 1 }}>
                 About
@@ -205,7 +194,7 @@ function CompanyProfilePage() {
                       : "ST";
 
                     return (
-                      <Grid item xs={12} sm={6} key={intern.userId}>
+                      <Grid sx={{ item: { xs: 12, sm: 6 } }} key={intern.userId}>
                         <Box
                           component={Link}
                           to={`/students/${intern.userId}`}
@@ -248,7 +237,7 @@ function CompanyProfilePage() {
             )}
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid sx={{ item: { xs: 12, md: 4 } }}>
             <Box sx={{ p: 3, borderRadius: 3, boxShadow: 1, mb: 3 }}>
               <Typography variant="h6" sx={{ mb: 2 }}>
                 Company at a glance

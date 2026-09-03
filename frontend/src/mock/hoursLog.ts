@@ -5,7 +5,9 @@ export type CompanyStatus = "pending" | "approved" | "rejected";
 
 export interface HoursEntry {
   id: number;
-  studentId: number;
+  studentId: number | string;
+  weekId?: string;
+  isNew?: boolean;
   day: string;
   date: string; // YYYY-MM-DD
   startTime: string; // HH:mm (24h)
@@ -15,13 +17,15 @@ export interface HoursEntry {
   companyStatus: CompanyStatus;
   supervisorComment?: string;
   trainingType: TrainingType;
+  hours?: number;
+  taskDescription?: string;
 }
 
 export const HOURS_CONFIG = {
   maxHoursPerDay: 8,
   maxHoursPerEntry: 8,
   minStartTime: "08:00",
-  maxStartTime: "19:00",
+  maxEndTime: "17:00",
   forbiddenDay: 5,
   requiredFt1Hours: 150,
   requiredFt2Hours: 150,
@@ -81,8 +85,8 @@ export function validateHoursEntry(
   if (startTime < HOURS_CONFIG.minStartTime) {
     return { valid: false, error: "Start time cannot be before 8:00 AM." };
   }
-  if (startTime > HOURS_CONFIG.maxStartTime) {
-    return { valid: false, error: "Start time cannot be after 7:00 PM." };
+  if (endTime > HOURS_CONFIG.maxEndTime) {
+    return { valid: false, error: "End time cannot be after 5:00 PM." };
   }
 
   if (startTime >= endTime) {

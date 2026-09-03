@@ -9,7 +9,7 @@ import { students } from "../../../mock/students";
 export default function StatsCards() {
   const { user } = useAuth();
 
-  const student = students.find((s) => s.id === user?.id);
+  const student = students.find((s) => s.id === Number(user?.id));
 
   if (!student) return null;
 
@@ -65,7 +65,7 @@ export default function StatsCards() {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                fontWeight={600}
+                sx={{ fontWeight: 600 }}
               >
                 Applications
               </Typography>
@@ -104,7 +104,7 @@ export default function StatsCards() {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                fontWeight={600}
+                sx={{ fontWeight: 600 }}
               >
                 Hours Logged
               </Typography>
@@ -146,7 +146,7 @@ export default function StatsCards() {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                fontWeight={600}
+                sx={{ fontWeight: 600 }}
               >
                 Field Training 1
               </Typography>
@@ -184,7 +184,7 @@ export default function StatsCards() {
               <Typography
                 variant="body2"
                 color="text.secondary"
-                fontWeight={600}
+                sx={{ fontWeight: 600 }}
               >
                 Field Training 2
               </Typography>

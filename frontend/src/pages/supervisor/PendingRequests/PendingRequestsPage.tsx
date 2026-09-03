@@ -5,6 +5,7 @@ import {
   CancelOutlined,
   CheckCircle,
   Close,
+  Edit as EditIcon,
 } from "@mui/icons-material";
 
 import {
@@ -34,9 +35,17 @@ import {
   Divider,
   IconButton,
   CircularProgress,
+  Autocomplete,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 
-import { supervisorApi } from "../../../lib/api/supervisor";
+import {
+  getMyRequests,
+  updateRequestStatus as updateRequestStatusApi,
+} from "../../../services/supervisorRequestsService";
+import { assignCompany } from "../../../services/supervisorService";
+import { getPublicCompanies, type PublicCompany } from "../../../services/companyService";
 
 type RequestStatus = "pending" | "approved" | "rejected";
 type TrainingType = "ft1" | "ft2";
@@ -44,9 +53,12 @@ type RequestTab = "pending" | "approved" | "rejected" | "All";
 
 interface InternshipRequest {
   id: string;
+  studentId: string;
   studentName: string;
   studentEmail: string;
   company: string;
+  companyId?: string;
+  newCompanyName?: string;
   position: string;
   trainingType: TrainingType;
   submittedDate: string;
@@ -74,12 +86,18 @@ const statusStyles = {
 function PendingRequestsPage() {
   const [requests, setRequests] = useState<InternshipRequest[]>([]);
   const [loading, setLoading] = useState(true);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const [selectedRequest, setSelectedRequest] =
     useState<InternshipRequest | null>(null);
 
   const [isRejecting, setIsRejecting] = useState(false);
   const [rejectionComment, setRejectionComment] = useState("");
+  const [isApproving, setIsApproving] = useState(false);
+
+  const [companies, setCompanies] = useState<PublicCompany[]>([]);
+  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
+  const [noAccount, setNoAccount] = useState(false);
 
   const [selectedTab, setSelectedTab] = useState<RequestTab>("pending");
 
@@ -90,32 +108,54 @@ function PendingRequestsPage() {
 
   useEffect(() => {
     fetchRequests();
+    fetchCompanies();
   }, []);
+
+  const fetchCompanies = async () => {
+    try {
+      const data = await getPublicCompanies();
+      setCompanies(data);
+    } catch (err) {
+      console.error("[Companies] Failed to fetch:", err);
+    }
+  };
 
   const fetchRequests = async () => {
     try {
       setLoading(true);
-      const res = await supervisorApi.getRequests();
-      const formatted = res.data.map((req: any) => ({
+      setApiError(null);
+      const data = await getMyRequests();
+      console.log("[Requests] API response:", data);
+      const formatted = data.map((req: any) => ({
         id: req._id,
+        studentId: req.studentId?._id || req.studentId || "",
         studentName: req.studentId?.name || "Unknown",
         studentEmail: req.studentId?.userId?.email || "No Email",
-        company: req.companyName,
-        position: req.position,
+        company: req.newCompanyName || req.companyName || "—",
+        companyId: req.companyId,
+        newCompanyName: req.newCompanyName,
+        position: req.position || "—",
         trainingType: req.type,
-        submittedDate: new Date(req.createdAt).toISOString().split("T")[0],
+        submittedDate: (() => {
+          const raw = req.createdAt || req.submittedAt;
+          if (!raw) return "—";
+          const d = new Date(raw);
+          return isNaN(d.getTime()) ? "—" : d.toISOString().split("T")[0];
+        })(),
         status: req.status,
         attachmentName:
           req.attachments && req.attachments.length > 0
             ? req.attachments[0]
             : undefined,
         attachmentUrl:
-          req.attachments && req.attachments.length > 0 ? "#" : undefined, // Placeholder for actual download URL
-        rejectionComment: req.rejectionComment,
+          req.attachments && req.attachments.length > 0 ? "#" : undefined,
+        rejectionComment: req.rejectionReason || req.rejectionComment,
       }));
       setRequests(formatted);
-    } catch (err) {
-      console.error(err);
+    } catch (err: any) {
+      console.error("[Requests] Failed to fetch:", err);
+      const msg = err?.response?.data?.message || err?.message || "Unknown error";
+      setApiError(`Failed to load requests: ${msg}`);
     } finally {
       setLoading(false);
     }
@@ -146,13 +186,26 @@ function PendingRequestsPage() {
   function openReviewDialog(request: InternshipRequest) {
     setSelectedRequest(request);
     setIsRejecting(false);
+    setIsApproving(false);
     setRejectionComment(request.rejectionComment ?? "");
+    
+    // Pre-fill company assignment if the student applied to a specific company
+    if (request.companyId) {
+      setSelectedCompanyId(request.companyId);
+      setNoAccount(false);
+    } else {
+      setSelectedCompanyId(null);
+      setNoAccount(!!request.newCompanyName);
+    }
   }
 
   function closeReviewDialog() {
     setSelectedRequest(null);
     setIsRejecting(false);
+    setIsApproving(false);
     setRejectionComment("");
+    setSelectedCompanyId(null);
+    setNoAccount(false);
   }
 
   async function updateRequestStatus(
@@ -161,8 +214,15 @@ function PendingRequestsPage() {
   ) {
     if (!selectedRequest) return;
 
+    const companyIdPayload = noAccount ? undefined : (selectedCompanyId || undefined);
+
     try {
-      await supervisorApi.updateRequestStatus(selectedRequest.id, status);
+      if (status === "approved" && selectedRequest.status === "approved") {
+        // Just change company
+        await assignCompany(selectedRequest.studentId, companyIdPayload, noAccount ? selectedRequest.newCompanyName : undefined);
+      } else {
+        await updateRequestStatusApi(selectedRequest.id, status, comment, companyIdPayload);
+      }
 
       setRequests((currentRequests) =>
         currentRequests.map((request) =>
@@ -171,6 +231,7 @@ function PendingRequestsPage() {
                 ...request,
                 status,
                 rejectionComment: status === "rejected" ? comment : undefined,
+                companyId: companyIdPayload || undefined,
               }
             : request,
         ),
@@ -335,6 +396,13 @@ function PendingRequestsPage() {
           </Button>
         </Box>
 
+        {/* Error banner */}
+        {apiError && !loading && (
+          <Box sx={{ p: 3, bgcolor: "#fef2f2", color: "#dc2626", borderBottom: "1px solid", borderColor: "divider" }}>
+            <Typography sx={{ variant: "body2", fontWeight: 600 }}>{apiError}</Typography>
+          </Box>
+        )}
+
         {/* Table or empty state */}
         {loading ? (
           <Box sx={{ display: "flex", justifyContent: "center", py: 9 }}>
@@ -353,7 +421,9 @@ function PendingRequestsPage() {
 
                   <TableCell sx={{ fontWeight: 700 }}>Type</TableCell>
 
-                  <TableCell sx={{ fontWeight: 700 }}>Submitted Date</TableCell>
+                  <TableCell sx={{ fontWeight: 700 }}>
+                    Submitted Date
+                  </TableCell>
 
                   <TableCell sx={{ fontWeight: 700 }}>Status</TableCell>
 
@@ -454,7 +524,6 @@ function PendingRequestsPage() {
                       <TableCell align="right">
                         <Button
                           size="small"
-
                           onClick={() => openReviewDialog(request)}
                           sx={{
                             textTransform: "none",
@@ -713,6 +782,45 @@ function PendingRequestsPage() {
                 />
               )}
 
+              {isApproving && (
+                <Box sx={{ mt: 3 }}>
+                  <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>
+                    {selectedRequest.status === "approved" ? "Change Assigned Company" : "Assign Company"}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                    Please select the company where the student will be training.
+                  </Typography>
+                  
+                  <Autocomplete
+                    options={companies}
+                    getOptionLabel={(option) => option.name}
+                    value={companies.find(c => c._id === selectedCompanyId) || null}
+                    onChange={(_, newValue) => {
+                      setSelectedCompanyId(newValue?._id || null);
+                      if (newValue) setNoAccount(false);
+                    }}
+                    disabled={noAccount}
+                    renderInput={(params) => (
+                      <TextField {...params} label="Select Company" size="small" />
+                    )}
+                  />
+                  
+                  <FormControlLabel
+                    control={
+                      <Checkbox 
+                        checked={noAccount} 
+                        onChange={(e) => {
+                          setNoAccount(e.target.checked);
+                          if (e.target.checked) setSelectedCompanyId(null);
+                        }}
+                      />
+                    }
+                    label="Company does not have an account (Supervisor will track hours)"
+                    sx={{ mt: 1 }}
+                  />
+                </Box>
+              )}
+
               {selectedRequest.status === "rejected" &&
                 selectedRequest.rejectionComment && (
                   <Box
@@ -785,6 +893,38 @@ function PendingRequestsPage() {
                     Confirm Reject
                   </Button>
                 </>
+              ) : isApproving ? (
+                <>
+                  <Button
+                    onClick={() => {
+                      setIsApproving(false);
+                      setSelectedCompanyId(null);
+                      setNoAccount(false);
+                    }}
+                    sx={{
+                      textTransform: "none",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Back
+                  </Button>
+
+                  <Button
+                    variant="contained"
+                    color="success"
+                    startIcon={<CheckCircle />}
+                    onClick={() => updateRequestStatus("approved")}
+                    disabled={!noAccount && !selectedCompanyId}
+                    sx={{
+                      textTransform: "none",
+                      borderRadius: 2,
+                      boxShadow: "none",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Confirm Approve
+                  </Button>
+                </>
               ) : (
                 <>
                   <Button
@@ -797,6 +937,7 @@ function PendingRequestsPage() {
                       textTransform: "none",
                       borderRadius: 2,
                       fontWeight: 600,
+                      display: selectedRequest.status === "approved" ? "none" : "inline-flex"
                     }}
                   >
                     Reject
@@ -805,9 +946,9 @@ function PendingRequestsPage() {
                   <Button
                     variant="contained"
                     color="success"
-                    startIcon={<CheckCircle />}
-                    onClick={() => updateRequestStatus("approved")}
-                    disabled={selectedRequest.status !== "pending"}
+                    startIcon={selectedRequest.status === "approved" ? <EditIcon /> : <CheckCircle />}
+                    onClick={() => setIsApproving(true)}
+                    disabled={selectedRequest.status === "rejected"}
                     sx={{
                       textTransform: "none",
                       borderRadius: 2,
@@ -815,7 +956,7 @@ function PendingRequestsPage() {
                       fontWeight: 600,
                     }}
                   >
-                    Approve
+                    {selectedRequest.status === "approved" ? "Change Company" : "Approve"}
                   </Button>
                 </>
               )}

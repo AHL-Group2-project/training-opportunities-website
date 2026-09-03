@@ -102,11 +102,11 @@ const studentProfileSchema = new mongoose.Schema(
     },
     supervisorId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "SupervisorProfile",
     },
     companyId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "CompanyProfile",
     },
   },
   { timestamps: true, collection: "studentProfiles" }

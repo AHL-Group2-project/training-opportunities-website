@@ -1,10 +1,21 @@
-import {
-  type StudentTrainingState,
-  type SingleTrainingState,
-  type StudentProfile,
-  MOCK_STUDENT_PROFILES,
-} from "../../mock/studentTrainingState";
 import type { RolePermissions } from "../../types/HoursPage.types";
+import type { TrainingPhaseStatus } from "../../mock/studentTrainingState";
+
+// Adjusting types to match backend response
+export interface SingleTrainingState {
+  status: TrainingPhaseStatus;
+  supervisorFinalStatus: "pending" | "approved" | "rejected";
+  supervisorFinalComment?: string;
+  companyApprovedHours: number;
+  requiredHours: number;
+}
+export interface StudentTrainingState {
+  studentId: string | number;
+  studentName?: string;
+  ft1: SingleTrainingState;
+  ft2: SingleTrainingState;
+}
+
 
 export function getPermissions(
   role: string,
@@ -63,8 +74,4 @@ export function getFtState(
   return overview[ft];
 }
 
-export function findStudentByUserId(
-  userId: number,
-): StudentProfile | undefined {
-  return MOCK_STUDENT_PROFILES.find((s) => s.userId === userId);
-}
+

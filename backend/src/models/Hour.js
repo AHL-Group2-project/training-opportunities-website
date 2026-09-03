@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
 
+const dailyLogSchema = new mongoose.Schema({
+  date: { type: Date, required: true },
+  startTime: { type: String, required: false },
+  endTime: { type: String, required: false },
+  location: { type: String, required: false },
+  hours: { type: Number, required: true },
+  description: { type: String, default: "" },
+});
+
 const hourSchema = new mongoose.Schema(
   {
     studentId: {
@@ -15,24 +24,23 @@ const hourSchema = new mongoose.Schema(
     companyId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "CompanyProfile",
-      required: true,
+      required: false,
+      default: null,
     },
     trainingType: {
-      type: String,
+      type: String, // FT1 or FT2
       required: true,
     },
-    date: {
+    weekStartDate: {
       type: Date,
       required: true,
     },
-    hours: {
+    totalHours: {
       type: Number,
       required: true,
+      default: 0
     },
-    description: {
-      type: String,
-      required: true,
-    },
+    dailyLogs: [dailyLogSchema],
     companyStatus: {
       type: String,
       enum: ["pending", "approved", "rejected"],
@@ -41,16 +49,7 @@ const hourSchema = new mongoose.Schema(
     companyComment: {
       type: String,
       default: "",
-    },
-    finalStatus: {
-      type: String,
-      enum: ["pending", "approved", "rejected"],
-      default: "pending",
-    },
-    finalReviewedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User", // Can be supervisor or admin
-    },
+    }
   },
   { timestamps: true, collection: "hours" }
 );

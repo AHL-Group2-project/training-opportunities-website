@@ -4,7 +4,6 @@ export const DAYS = [
   "Tuesday",
   "Wednesday",
   "Thursday",
-  "Friday",
   "Saturday",
 ];
 

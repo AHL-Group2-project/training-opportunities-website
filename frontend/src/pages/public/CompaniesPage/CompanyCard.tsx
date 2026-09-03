@@ -7,7 +7,7 @@ import {
   Stack,
 } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import WorkOutlinedIcon from "@mui/icons-material/WorkOutlined";
+// import WorkOutlinedIcon from "@mui/icons-material/WorkOutlined";
 import CardActionArea from "@mui/material/CardActionArea";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,6 @@ interface CompanyCardProps {
   name: string;
   industry: string;
   logoUrl?: string;
-  activeOpportunities: number;
   description: string;
   location: string;
 }
@@ -44,7 +43,6 @@ function CompanyCard({
   name,
   industry,
   logoUrl,
-  activeOpportunities,
   description,
   location,
 }: CompanyCardProps): import("react").JSX.Element {

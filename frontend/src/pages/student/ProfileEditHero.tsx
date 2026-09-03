@@ -26,8 +26,7 @@ export default function ProfileEditHero({ data, onChange }: Props) {
               const formData = new FormData();
               formData.append("avatar", file);
               
-              // We need to import api here, or use axios
-              const res = await api.post("/student/me/avatar", formData, {
+              const res = await api.post("/students/me/avatar", formData, {
                 headers: {
                   "Content-Type": "multipart/form-data"
                 }

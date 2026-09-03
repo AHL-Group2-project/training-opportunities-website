@@ -150,6 +150,8 @@ function OpportunityDetailsPage() {
     );
   }
 
+
+
   const isDeadlinePassed =
     opportunity.daysLeft != null && opportunity.daysLeft <= 0;
 

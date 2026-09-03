@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../../../lib/axios";
 import {
   Box,
   Container,
@@ -20,7 +21,6 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import BusinessIcon from "@mui/icons-material/Business";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import type { Notification } from "../../../mock/notifications";
-import { MOCK_NOTIFICATIONS } from "../../../mock/notifications";
 
 const TYPE_META: Record<
   Notification["type"],
@@ -69,19 +69,44 @@ function formatRelativeTime(dateStr: string): string {
 }
 
 export default function NotificationsPage() {
-  const [notifications, setNotifications] =
-    useState<Notification[]>(MOCK_NOTIFICATIONS);
+  const [notifications, setNotifications] = useState<any[]>([]);
+  
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+
+  const fetchNotifications = async () => {
+    try {
+      const { data } = await api.get("/notifications");
+      setNotifications(data);
+    } catch (err) {
+      console.error("Failed to fetch notifications", err);
+    } finally {
+      
+    }
+  };
 
   const unreadCount = notifications.filter((n) => !n.read).length;
 
-  const markAsRead = (id: number) => {
-    setNotifications((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, read: true } : n)),
-    );
+  const markAsRead = async (id: string) => {
+    try {
+      await api.patch(`/notifications/${id}/read`);
+      setNotifications((prev) =>
+        prev.map((n) => (n._id === id ? { ...n, read: true } : n)),
+      );
+    } catch (err) {
+      console.error("Failed to mark as read", err);
+    }
   };
 
-  const markAllAsRead = () => {
-    setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+  const markAllAsRead = async () => {
+    try {
+      await api.patch("/notifications/read-all");
+      setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
+    } catch (err) {
+      console.error("Failed to mark all as read", err);
+    }
   };
 
   return (
@@ -160,10 +185,10 @@ export default function NotificationsPage() {
         <Card sx={{ borderRadius: 3, overflow: "hidden" }}>
           <Stack divider={<Divider />}>
             {notifications.map((n) => {
-              const meta = TYPE_META[n.type];
+              const meta = TYPE_META[n.type as keyof typeof TYPE_META];
               return (
                 <Box
-                  key={n.id}
+                  key={n._id}
                   sx={{
                     display: "flex",
                     alignItems: "flex-start",
@@ -210,7 +235,7 @@ export default function NotificationsPage() {
                           color: "text.primary",
                         }}
                       >
-                        {n.title}
+                        {n.message}
                       </Typography>
                       {!n.read && (
                         <Chip
@@ -225,13 +250,13 @@ export default function NotificationsPage() {
                         />
                       )}
                     </Box>
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mt: 0.3, lineHeight: 1.5 }}
-                    >
-                      {n.message}
-                    </Typography>
+                    <Box sx={{ mt: 0.3, lineHeight: 1.5 }}>
+                      {n.link && (
+                        <Typography variant="caption" sx={{ display: 'block', mt: 1 }}>
+                          <a href={n.link} style={{ color: 'inherit', textDecoration: 'underline' }}>View Details</a>
+                        </Typography>
+                      )}
+                    </Box>
                     <Typography
                       variant="caption"
                       color="text.disabled"
@@ -246,7 +271,7 @@ export default function NotificationsPage() {
                     <Tooltip title="Mark as read">
                       <IconButton
                         size="small"
-                        onClick={() => markAsRead(n.id)}
+                        onClick={() => markAsRead(n._id)}
                         sx={{
                           color: "text.disabled",
                           "&:hover": { color: "success.main" },

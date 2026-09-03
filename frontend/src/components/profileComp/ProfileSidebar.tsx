@@ -61,10 +61,11 @@ export default function ProfileSidebar({ student }: Props) {
         </Box>
 
         <Button 
+          component="a"
           fullWidth 
           variant="contained" 
           disabled={!student.cvUrl}
-          href={student.cvUrl}
+          href={student.cvUrl || "#"}
           target="_blank"
           rel="noopener noreferrer"
         >

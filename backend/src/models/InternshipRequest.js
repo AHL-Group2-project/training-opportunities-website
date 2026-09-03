@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const internshipRequestSchema = new mongoose.Schema(
   {
     studentId: { type: mongoose.Schema.Types.ObjectId, ref: "StudentProfile", required: true },
-    supervisorId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    supervisorId: { type: mongoose.Schema.Types.ObjectId, ref: "SupervisorProfile", required: true },
     applicationId: { type: mongoose.Schema.Types.ObjectId, default: null },
-    companyId: { type: mongoose.Schema.Types.ObjectId, default: null },
+    companyId: { type: mongoose.Schema.Types.ObjectId, ref: "CompanyProfile", default: null },
     newCompanyName: { type: String, required: true },
-    type: { type: String, enum: ["ft1", "ft2"], required: true },
+    type: { type: String, enum: ["ft1", "ft2", "FT1", "FT2"], required: true },
     position: { type: String },
     department: { type: String },
     field: { type: String },
@@ -17,7 +17,7 @@ const internshipRequestSchema = new mongoose.Schema(
     expectedHours: { type: Number },
     description: { type: String },
     confirmed: { type: Boolean, default: false },
-    attachments: [{ type: String }],
+    attachments: [{ type: mongoose.Schema.Types.Mixed }],
     status: {
       type: String,
       enum: ["pending", "approved", "rejected"],

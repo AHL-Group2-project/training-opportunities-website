@@ -1,5 +1,9 @@
 import StudentProfile from "../models/StudentProfile.js";
+import SupervisorProfile from "../models/SupervisorProfile.js";
 import InternshipRequest from "../models/InternshipRequest.js";
+import Report from "../models/Report.js";
+import cloudinary from "../config/cloudinary.js";
+import { createNotification } from "./notificationController.js";
 
 const STUDENT_EDITABLE_FIELDS = [
   "name",
@@ -33,7 +37,22 @@ export const getMyProfile = async (req, res, next) => {
   }
 };
 
-// POST /api/student/requests
+export const getMyRequests = async (req, res, next) => {
+  try {
+    const studentProfile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!studentProfile) {
+      return res.status(404).json({ message: "Student profile not found" });
+    }
+
+    const requests = await InternshipRequest.find({ studentId: studentProfile._id })
+      .sort({ createdAt: -1 });
+
+    res.json(requests);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const submitTrainingRequest = async (req, res, next) => {
   try {
     const studentProfile = await StudentProfile.findOne({
@@ -42,13 +61,6 @@ export const submitTrainingRequest = async (req, res, next) => {
 
     if (!studentProfile) {
       return res.status(404).json({ message: "Student profile not found." });
-    }
-
-    if (!studentProfile.supervisorId) {
-      return res.status(403).json({
-        message:
-          "You cannot submit a training request because you have not been assigned a Supervisor by your university's Admin.",
-      });
     }
 
     const {
@@ -65,9 +77,49 @@ export const submitTrainingRequest = async (req, res, next) => {
       attachments,
     } = req.body;
 
+    if (type?.toLowerCase() === "ft2") {
+      const { getStudentTrainingStateData } = await import("../utils/trainingState.js");
+      const state = await getStudentTrainingStateData(studentProfile._id);
+      if (state.ft1.status !== "completed") {
+        return res.status(403).json({
+          message: "You cannot request Training 2 because you have not completed Training 1 yet.",
+        });
+      }
+    }
+
+    if (!studentProfile.supervisorId) {
+      return res.status(403).json({
+        message:
+          "You cannot submit a training request because you have not been assigned a Supervisor by your university's Admin.",
+      });
+    }
+
+    // Block if student already has an active (pending or approved) training request
+    const existingActive = await InternshipRequest.findOne({
+      studentId: studentProfile._id,
+      status: { $in: ["pending", "approved"] },
+    });
+    if (existingActive) {
+      return res.status(403).json({
+        message:
+          "You already have an active training request. You cannot submit a new one until your current training is completed or rejected.",
+        existingRequestId: existingActive._id,
+        existingStatus: existingActive.status,
+      });
+    }
+
+    // supervisorId on StudentProfile is supposed to be SupervisorProfile._id.
+    const supervisorProfile = await SupervisorProfile.findById(studentProfile.supervisorId);
+
+    if (!supervisorProfile) {
+      return res.status(404).json({
+        message: "Assigned supervisor's profile could not be found.",
+      });
+    }
+
     const request = await InternshipRequest.create({
       studentId: studentProfile._id,
-      supervisorId: studentProfile.supervisorId, // Route directly to assigned supervisor
+      supervisorId: supervisorProfile._id, 
       type,
       newCompanyName: companyName,
       position,
@@ -79,6 +131,15 @@ export const submitTrainingRequest = async (req, res, next) => {
       expectedHours,
       description,
       attachments,
+    });
+
+    // Notify the supervisor
+    await createNotification({
+      recipientId: supervisorProfile.userId,
+      senderId: req.user._id,
+      type: "internship_request",
+      message: `${req.user.name} has submitted a new internship request.`,
+      link: `/supervisor/student/${studentProfile.userId}`,
     });
 
     res.status(201).json({
@@ -148,8 +209,6 @@ export const getPublicStudentById = async (req, res, next) => {
   }
 };
 
-import cloudinary from "../config/cloudinary.js";
-
 // POST /api/student/me/avatar
 export const uploadStudentAvatar = async (req, res, next) => {
   try {
@@ -200,8 +259,6 @@ export const uploadStudentDocument = async (req, res, next) => {
       return res.status(404).json({ message: "Student profile not found" });
     }
 
-    // Optionally handle deleting old CV if you added a cvCloudinaryId
-    // For now, just set the cvUrl
     profile.cvUrl = req.file.path;
     await profile.save();
 
@@ -214,3 +271,73 @@ export const uploadStudentDocument = async (req, res, next) => {
   }
 };
 
+// POST /api/students/me/requests/attachments
+export const uploadRequestAttachments = async (req, res, next) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ message: "No attachments provided" });
+    }
+
+    const urls = req.files.map((file) => file.path); // Cloudinary paths
+    res.json({ urls });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// GET /api/students/me/reports
+export const getMyReports = async (req, res, next) => {
+  try {
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+
+    const reports = await Report.find({ studentId: profile._id }).sort({ createdAt: -1 });
+    res.json(reports);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// POST /api/students/me/reports
+export const submitReport = async (req, res, next) => {
+  try {
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+
+    if (!profile.supervisorId) {
+      return res.status(403).json({ message: "You must have a supervisor to submit reports." });
+    }
+
+    const { period, content } = req.body;
+    let fileUrl = "";
+    let fileName = "";
+
+    if (req.file) {
+      fileUrl = req.file.path; // Cloudinary URL
+      fileName = req.file.originalname;
+    }
+
+    const report = await Report.create({
+      studentId: profile._id,
+      supervisorId: profile.supervisorId,
+      companyId: profile.companyId,
+      period,
+      content,
+      fileUrl,
+      fileName,
+    });
+
+    // Notify the supervisor
+    await createNotification({
+      recipientId: (await SupervisorProfile.findById(profile.supervisorId)).userId,
+      senderId: req.user._id,
+      type: "new_report",
+      message: `${req.user.name} has submitted a new report for ${period}.`,
+      link: `/supervisor/student/${profile.userId}`,
+    });
+
+    res.status(201).json(report);
+  } catch (error) {
+    next(error);
+  }
+};

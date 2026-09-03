@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import api from "../../../lib/axios";
 import {
   Box,
   Button,
@@ -61,7 +62,7 @@ const WORK_MODES = ["on-site", "remote", "hybrid"];
 
 function InternshipRequestPage() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { } = useAuth();
 
   const [activeStep, setActiveStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
@@ -70,6 +71,7 @@ function InternshipRequestPage() {
 
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [studentProfile, setStudentProfile] = useState<any>(null);
+  const [trainingState, setTrainingState] = useState<any>(null);
 
   // Form state
   const [type, setType] = useState<"ft1" | "ft2">("ft1");
@@ -86,17 +88,21 @@ function InternshipRequestPage() {
   const [confirmed, setConfirmed] = useState(false);
 
   useEffect(() => {
-    const fetchProfile = async () => {
+    const fetchData = async () => {
       try {
-        const res = await studentApi.getProfile();
-        setStudentProfile(res.data);
+        const [profileRes, stateRes] = await Promise.all([
+          studentApi.getProfile(),
+          studentApi.getTrainingState(),
+        ]);
+        setStudentProfile(profileRes.data);
+        setTrainingState(stateRes.data);
       } catch (err) {
         console.error(err);
       } finally {
         setLoadingProfile(false);
       }
     };
-    fetchProfile();
+    fetchData();
   }, []);
 
   const handleNext = () => {
@@ -128,6 +134,18 @@ function InternshipRequestPage() {
     try {
       setSubmitting(true);
       setError("");
+      
+      let uploadedUrls: string[] = [];
+      if (attachments.length > 0) {
+        const formData = new FormData();
+        attachments.forEach((file) => formData.append("attachments", file));
+        
+        const { data } = await api.post("/students/me/requests/attachments", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+        uploadedUrls = data.urls;
+      }
+
       await studentApi.submitRequest({
         type,
         companyName,
@@ -139,7 +157,7 @@ function InternshipRequestPage() {
         endDate,
         expectedHours,
         description,
-        attachments: attachments.map((f) => f.name), // Mocking upload for now
+        attachments: uploadedUrls, // Send actual URLs
       });
       setSubmitted(true);
     } catch (err: any) {
@@ -205,7 +223,7 @@ function InternshipRequestPage() {
           </Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
             Your internship request has been sent to your supervisor (
-            <strong>{studentProfile.supervisorId.name}</strong>) for review. You
+            <strong>{studentProfile?.supervisorId?.name || "Supervisor"}</strong>) for review. You
             will be notified when it is approved, and your Hours Table will
             become available.
           </Typography>
@@ -252,8 +270,14 @@ function InternshipRequestPage() {
                   value="ft2"
                   control={<Radio />}
                   label="Field Training II (FT2)"
+                  disabled={trainingState?.ft1?.status !== "completed"}
                 />
               </RadioGroup>
+              {trainingState?.ft1?.status !== "completed" && (
+                <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+                  * You must complete Training 1 (FT1) before applying for Training 2 (FT2).
+                </Typography>
+              )}
             </FormControl>
           </Box>
         );

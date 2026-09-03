@@ -29,7 +29,7 @@ interface Student {
 }
 
 interface StudentTrackingTableProps {
-  students: any[];
+  students: Student[];
 }
 
 const statusStyles = {

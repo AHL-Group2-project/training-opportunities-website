@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../../../lib/axios";
 import {
   Container,
   Typography,
@@ -25,24 +26,48 @@ import type { SelectChangeEvent } from "@mui/material";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { myReportsHistory } from "../../../mock/myReports";
-import type { MyReportEntry, ReportStatus } from "../../../mock/myReports";
+export interface Report {
+  _id: string;
+  period: string;
+  content: string;
+  fileUrl?: string;
+  fileName?: string;
+  status: "pending" | "reviewed" | "rejected";
+  supervisorFeedback?: string;
+  createdAt: string;
+}
 
-const statusColors: Record<ReportStatus, "success" | "warning" | "default"> = {
-  Approved: "success",
-  "Needs Revision": "warning",
-  "Pending Review": "default",
+const statusColors: Record<string, "success" | "warning" | "default"> = {
+  reviewed: "success",
+  rejected: "warning",
+  pending: "default",
 };
 
 type PeriodType = "Week" | "Month";
 
 export default function ReportsPage() {
-  const [history, setHistory] = useState<MyReportEntry[]>(myReportsHistory);
+  const [history, setHistory] = useState<Report[]>([]);
   const [periodType, setPeriodType] = useState<PeriodType>("Month");
   const [periodLabel, setPeriodLabel] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  // const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchReports();
+  }, []);
+
+  const fetchReports = async () => {
+    try {
+      const { data } = await api.get("/students/me/reports");
+      setHistory(data);
+    } catch (err) {
+      console.error("Failed to fetch reports", err);
+    } finally {
+      // setLoading(false);
+    }
+  };
 
   const handlePeriodTypeChange = (event: SelectChangeEvent) => {
     setPeriodType(event.target.value as PeriodType);
@@ -54,25 +79,30 @@ export default function ReportsPage() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!periodLabel.trim() || !content.trim()) {
       return;
     }
 
-    const newReport: MyReportEntry = {
-      id: `rep-${Date.now()}`,
-      period: periodLabel.trim(),
-      submittedDate: new Date().toISOString().split("T")[0],
-      status: "Pending Review",
-      supervisorFeedback: "",
-      content: content.trim(),
-      fileName: file?.name,
-    };
+    try {
+      const formData = new FormData();
+      formData.append("period", periodLabel.trim());
+      formData.append("content", content.trim());
+      if (file) {
+        formData.append("file", file);
+      }
 
-    setHistory((prev) => [newReport, ...prev]);
-    setPeriodLabel("");
-    setContent("");
-    setFile(null);
+      const { data } = await api.post("/students/me/reports", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      setHistory((prev) => [data, ...prev]);
+      setPeriodLabel("");
+      setContent("");
+      setFile(null);
+    } catch (err) {
+      console.error("Failed to submit report", err);
+    }
   };
 
   const toggleExpand = (id: string) => {
@@ -177,12 +207,12 @@ export default function ReportsPage() {
             <TableBody>
               {history.map((report) => (
                 <>
-                  <TableRow key={report.id} hover>
+                  <TableRow key={report._id} hover>
                     <TableCell>{report.period}</TableCell>
-                    <TableCell>{report.submittedDate}</TableCell>
+                    <TableCell>{new Date(report.createdAt).toLocaleDateString()}</TableCell>
                     <TableCell>
                       <Chip
-                        label={report.status}
+                        label={report.status.charAt(0).toUpperCase() + report.status.slice(1)}
                         size="small"
                         color={statusColors[report.status]}
                       />
@@ -205,9 +235,9 @@ export default function ReportsPage() {
                     <TableCell align="right">
                       <IconButton
                         size="small"
-                        onClick={() => toggleExpand(report.id)}
+                        onClick={() => toggleExpand(report._id)}
                       >
-                        {expandedId === report.id ? (
+                        {expandedId === report._id ? (
                           <ExpandLessIcon />
                         ) : (
                           <ExpandMoreIcon />
@@ -218,7 +248,7 @@ export default function ReportsPage() {
 
                   <TableRow>
                     <TableCell colSpan={5} sx={{ p: 0, border: 0 }}>
-                      <Collapse in={expandedId === report.id}>
+                      <Collapse in={expandedId === report._id}>
                         <Box sx={{ p: 2, backgroundColor: "grey.50" }}>
                           <Typography variant="body2" sx={{ mb: 1 }}>
                             {report.content}
@@ -228,7 +258,7 @@ export default function ReportsPage() {
                               variant="caption"
                               color="text.secondary"
                             >
-                              Attached file: {report.fileName}
+                              Attached file: <a href={report.fileUrl} target="_blank" rel="noreferrer">{report.fileName}</a>
                             </Typography>
                           )}
                         </Box>

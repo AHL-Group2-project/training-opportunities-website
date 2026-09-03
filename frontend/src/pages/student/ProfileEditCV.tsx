@@ -20,7 +20,7 @@ export default function ProfileEditCV({ cvFileName, onChange }: Props) {
         const formData = new FormData();
         formData.append("document", file);
         
-        const res = await api.post("/student/me/document", formData, {
+        const res = await api.post("/students/me/document", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
