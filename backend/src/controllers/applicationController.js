@@ -239,6 +239,8 @@ export const getCompanyApplications = async (req, res, next) => {
               major: application.studentId.major,
               studentId: application.studentId.studentId,
               university: application.studentId.university,
+              email: application.studentId.userId?.email || "",
+              userId: application.studentId.userId?._id || application.studentId.userId,
             }
           : null,
         opportunity: application.opportunityId

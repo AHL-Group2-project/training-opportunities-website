@@ -35,7 +35,9 @@ interface CompanyApplication {
     name: string;
     major: string;
     studentId: string;
-    university: string; email: string;
+    university: string; 
+    email: string;
+    userId: string;
   } | null;
   opportunity: {
     id: string;
@@ -231,10 +233,10 @@ export default function CompanyApplicationsPage() {
                         >
                           View Application
                         </Button>
-                        {application.studentId && (
+                        {application.student && (
                           <Button
                             component={Link}
-                            to={`/students/${application.studentId}`}
+                            to={`/students/${application.student.userId}`}
                             size="small"
                             variant="outlined"
                             sx={{ textTransform: "none" }}

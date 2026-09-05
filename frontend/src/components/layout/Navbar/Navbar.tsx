@@ -89,7 +89,7 @@ function Navbar() {
             <Typography variant="subtitle1" noWrap sx={{ fontWeight: 700 }}>
               Internship Hub
             </Typography>
-            <Typography variant="caption" sx={{ opacity: 0.7 }} noWrap>
+            <Typography variant="caption" sx={{ opacity: 0.7, display: { xs: 'none', sm: 'block' } }} noWrap>
               Internship management platform
             </Typography>
           </Stack>
